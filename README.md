@@ -31,6 +31,47 @@ JPyxis does not treat cross-language calling itself as novel. Its candidate cont
 
 These are research hypotheses until experiments validate them.
 
+## Architecture at a glance
+
+JPyxis keeps invariant semantics at the centre and places replaceable mechanisms behind declared
+capability ports. The diagram is a responsibility and dependency view, not an implemented component
+inventory.
+
+```mermaid
+flowchart TB
+    APP["Host Application"] --> MAPPER["Typed Algorithm Mapper<br/>Java first"]
+    MAPPER --> CONTROL["Control Assembly<br/>policy · activation · final decisions"]
+
+    subgraph CORE["JPyxis Core · invariant semantics"]
+        CONTRACT["Contract meaning"]
+        STATE["Ownership · lifecycle · failure"]
+        PORTS["Capability ports"]
+        CONTRACT --- STATE
+        STATE --- PORTS
+    end
+
+    CONTROL --> CONTRACT
+
+    subgraph CAPABILITIES["Replaceable capabilities"]
+        DEFINITION["Definition Plugin<br/>Python first"]
+        TRANSPORT["Transport Plugin<br/>gRPC candidate"]
+        DATA["Data-plane Plugin<br/>Protobuf candidate"]
+        RUNTIME["Runtime Plugin<br/>NumPy CPU first"]
+        OTHER["Other plugins<br/>store · scheduler · telemetry"]
+    end
+
+    DEFINITION -. "implements" .-> PORTS
+    TRANSPORT -. "implements" .-> PORTS
+    DATA -. "implements" .-> PORTS
+    RUNTIME -. "implements" .-> PORTS
+    OTHER -. "implements" .-> PORTS
+    RUNTIME --> EXTERNAL["Existing external runtime"]
+```
+
+High cohesion is permitted inside a responsibility group. Between groups, only versioned contracts
+and declared capabilities may cross the boundary. Runtime request flow never reverses compile-time
+dependency or grants a plugin control-plane authority.
+
 ## First-stage proof boundary
 
 Single-node execution is not a reduced substitute for the first stage. It is the declared proof boundary.
@@ -72,21 +113,46 @@ The normative M0 text is in [Architecture Constitution](docs/architecture/consti
 
 `M` means a milestone that must be delivered and evidenced. `E` means an evolution direction that is not a delivery promise.
 
-```text
-M0 Architecture
-M1 Contract
-M2 Invocation
-M3 Runtime Abstraction
-M4 Lifecycle
-M5 Resilience
-M6 Reproducibility
-──────────── FREEZE ────────────
-E1 High-performance Data Plane
-E2 Accelerator Runtime
-E3 Distributed Control Plane
-E4 Polyglot Definition Frontend
-E5 Runtime Ecosystem
+```mermaid
+flowchart TB
+    M0["M0 · Boundary freeze<br/>architecture · authority · ownership"]
+    M13["M1-M3 · Semantic execution path<br/>contract → invocation → runtime abstraction"]
+    M45["M4-M5 · Operational closure<br/>lifecycle → resilience"]
+    M6["M6 · Evidence freeze<br/>clean-machine reproducibility"]
+    FREEZE["SINGLE-NODE BASELINE FREEZE"]
+    E["E1-E5 · Evidence-gated evolution<br/>data plane · accelerators · distributed control<br/>polyglot definitions · runtime ecosystem"]
+
+    M0 --> M13 --> M45 --> M6 --> FREEZE
+    FREEZE -. "direction, not promise" .-> E
 ```
+
+Each band closes its own responsibility boundary before the next band may depend on it. Later work
+must not reach backwards through implementation shortcuts. See the normative
+[Single-node Baseline](docs/roadmap/single-node-baseline.md) and the non-binding
+[Evolution Map](docs/roadmap/evolution-map.md).
+
+The named evolution directions remain `E1 High-performance Data Plane`, `E2 Accelerator Runtime`,
+`E3 Distributed Control Plane`, `E4 Polyglot Definition Frontend`, and `E5 Runtime Ecosystem`.
+They acquire milestone status only after their entry evidence is accepted.
+
+## First reference vertical slice
+
+M1 starts with one deliberately narrow path selected during M0. It proves contract meaning and
+failure attribution before lifecycle, distributed control, accelerators, or production infrastructure
+are allowed to widen the scope.
+
+```mermaid
+flowchart LR
+    JAVA["Java host<br/>typed mapper"] --> WIRE["gRPC + Protobuf<br/>loopback"]
+    WIRE --> PYTHON["Python definition<br/>one worker"]
+    PYTHON --> NUMPY["NumPy<br/>CPU runtime"]
+    NUMPY --> RESULT["Contract-validated<br/>typed result"]
+```
+
+The reference workload is a deterministic, stateless batch affine transform with no external side
+effects. Its acceptance and rejection boundaries are frozen in
+[ADR-0004](docs/adr/0004-first-reference-vertical-slice.md). Passing it will prove only the bounded
+slice—not performance, production readiness, GPU support, distribution, or an ecosystem.
 
 ## Documentation map
 
