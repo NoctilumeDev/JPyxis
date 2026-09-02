@@ -4,7 +4,11 @@ Status: `M0 RESEARCH BASELINE`
 
 This is a scoped engineering review, not a systematic literature review and not a novelty opinion. It identifies direct baselines that already solve parts of the problem so JPyxis does not rename existing work as an invention.
 
-Only primary project documentation, specifications, or original papers are used in the current matrix. Full links are collected in [Primary References](references.md).
+Only primary project documentation, specifications, API references, maintainer artifacts, or
+original papers are used in the current matrix. Full links and stable source keys are collected in
+[Primary References](references.md). The collection method is recorded in the
+[Literature Review Protocol](review-protocol.md), and question-level use is recorded in
+[Research Evidence Traceability](evidence-traceability.md).
 
 ## Matrix
 

@@ -179,6 +179,8 @@ slice—not performance, production readiness, GPU support, distribution, or an 
 
 - [Prior-art Matrix](docs/research/prior-art-matrix.md)
 - [Primary References](docs/research/references.md)
+- [Literature Review Protocol](docs/research/review-protocol.md)
+- [Research Evidence Traceability](docs/research/evidence-traceability.md)
 - [Single-node Baseline](docs/roadmap/single-node-baseline.md)
 - [Evolution Map](docs/roadmap/evolution-map.md)
 
@@ -192,6 +194,7 @@ slice—not performance, production readiness, GPU support, distribution, or an 
 ### Review records
 
 - [M0 Architecture Review Gate](docs/reviews/m0-review-gate.md)
+- [M0 Literature Closure](docs/reviews/m0-literature-closure.md)
 
 ## Explicit non-goals for the single-node baseline
 
