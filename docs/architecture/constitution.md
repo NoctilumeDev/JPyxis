@@ -1,8 +1,8 @@
 # Architecture Constitution
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
-This document freezes candidate invariants, not concrete Java interfaces, Protobuf field numbers, package names, or deployment products. It becomes normative only after M0 review.
+This document freezes architectural invariants, not concrete Java interfaces, Protobuf field numbers, package names, or deployment products. These invariants are normative for M1 construction after the M0 review.
 
 ## Article 1: roles own responsibilities
 
@@ -12,7 +12,7 @@ This document freezes candidate invariants, not concrete Java interfaces, Protob
 - The **Contract Core** owns cross-boundary meaning.
 - The **Host Application** retains business authorization and business truth.
 
-Java, Python, NumPy, and ONNX Runtime are candidate first implementations of roles. Languages do not own architectural authority merely by being selected first.
+Java, Python, and NumPy are the first reference implementations of their roles. ONNX Runtime remains a comparison baseline and possible later Runtime provider. Languages and products do not own architectural authority merely by being selected first.
 
 ## Article 2: the contract is the only semantic boundary
 

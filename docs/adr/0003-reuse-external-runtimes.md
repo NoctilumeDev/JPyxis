@@ -1,12 +1,12 @@
 # ADR-0003: Reuse External Runtimes
 
-Status: `PROPOSED`
+Status: `ACCEPTED · M0`
 
 ## Context
 
 Tensor engines, model formats, compilers, kernels, device libraries, and serving systems already represent large mature ecosystems. Rebuilding them would expand the project beyond its candidate contribution.
 
-## Proposed decision
+## Decision
 
 JPyxis coordinates existing runtimes through capability ports. It does not implement a tensor engine, autograd, compiler IR, numerical kernel, CUDA library, or distributed collective stack in the single-node baseline.
 

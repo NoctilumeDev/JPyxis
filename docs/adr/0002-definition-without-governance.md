@@ -1,12 +1,12 @@
 # ADR-0002: Definition Frontends Declare but Do Not Govern
 
-Status: `PROPOSED`
+Status: `ACCEPTED · M0`
 
 ## Context
 
 Bidirectional language bridges make it technically easy for Python or another frontend to call host services. Technical reachability would allow definition code to acquire business authority, mutate lifecycle state, or depend on application internals.
 
-## Proposed decision
+## Decision
 
 Definition plugins may:
 

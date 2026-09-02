@@ -8,11 +8,11 @@ JPyxis is a planned framework for governing heterogeneous compute workloads thro
 
 ## Status
 
-**`PLANNED · M0 ARCHITECTURE · BLUEPRINT ONLY`**
+**`M0 FROZEN · M1 CONTRACT NEXT · BLUEPRINT ONLY`**
 
-No framework implementation exists in this repository. The documents describe hypotheses, boundaries, proposed state models, and future experiments. They must not be cited as evidence that JPyxis is implemented, performant, production-ready, distributed, GPU-capable, or reproducible.
+No framework implementation exists in this repository. The documents describe hypotheses, boundaries, frozen M0 state models, and future experiments. They must not be cited as evidence that JPyxis is implemented, performant, production-ready, distributed, GPU-capable, or reproducible.
 
-The current task is to finish and review the M0 blueprint before the first line of production code is written.
+The M0 blueprint is frozen at `m0-blueprint-v1`. The next accepted work is the bounded M1 contract design; no framework production code exists yet.
 
 ## Problem statement
 
@@ -66,7 +66,7 @@ The M0 constitution is intentionally about invariants, not concrete API fields:
 11. Core defines semantics; plugins provide capabilities.
 12. Anything genuinely replaceable has no right to become a Core implementation dependency.
 
-The normative draft is in [Architecture Constitution](docs/architecture/constitution.md).
+The normative M0 text is in [Architecture Constitution](docs/architecture/constitution.md).
 
 ## Roadmap semantics
 
@@ -116,11 +116,16 @@ E5 Runtime Ecosystem
 - [Single-node Baseline](docs/roadmap/single-node-baseline.md)
 - [Evolution Map](docs/roadmap/evolution-map.md)
 
-### Proposed decisions
+### Accepted M0 decisions
 
 - [ADR-0001: Role-based control authority](docs/adr/0001-role-based-control-authority.md)
 - [ADR-0002: Definition frontends declare but do not govern](docs/adr/0002-definition-without-governance.md)
 - [ADR-0003: Reuse external runtimes](docs/adr/0003-reuse-external-runtimes.md)
+- [ADR-0004: First reference vertical slice](docs/adr/0004-first-reference-vertical-slice.md)
+
+### Review records
+
+- [M0 Architecture Review Gate](docs/reviews/m0-review-gate.md)
 
 ## Explicit non-goals for the single-node baseline
 

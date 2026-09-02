@@ -1,6 +1,6 @@
 # Contributing
 
-JPyxis is currently a blueprint-only project. Contributions should reduce uncertainty or sharpen a boundary; implementation patches are premature until M0 is reviewed and frozen.
+JPyxis has frozen its M0 blueprint and is entering M1 contract design. Contributions must remain inside the current milestone; invocation, runtime, lifecycle, and Evolution implementation is premature until its preceding gate is satisfied.
 
 ## Evidence labels
 
@@ -37,7 +37,7 @@ Prefer primary sources. A project page can establish what that project claims or
 - Do not let definition code own application authorization or business persistence.
 - Do not couple internal domain objects to generated wire objects.
 - Do not implement an Evolution item merely because an attachment point exists.
-- Do not add code before the M0 exit criteria are met.
+- Do not add M2 invocation or later-stage implementation before the M1 exit criteria are met.
 
 ## Review posture
 

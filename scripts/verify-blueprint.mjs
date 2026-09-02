@@ -27,6 +27,8 @@ const requiredFiles = [
   "docs/research/research-questions.md",
   "docs/roadmap/single-node-baseline.md",
   "docs/roadmap/evolution-map.md",
+  "docs/adr/0004-first-reference-vertical-slice.md",
+  "docs/reviews/m0-review-gate.md",
 ];
 
 const forbiddenImplementationEntries = [
@@ -107,7 +109,7 @@ for (const file of markdownFiles) {
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 const requiredReadmeStatements = [
-  "PLANNED · M0 ARCHITECTURE · BLUEPRINT ONLY",
+  "M0 FROZEN · M1 CONTRACT NEXT · BLUEPRINT ONLY",
   "No framework implementation exists in this repository.",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
@@ -121,6 +123,11 @@ for (const statement of requiredReadmeStatements) {
 const evolution = fs.readFileSync(path.join(root, "docs/roadmap/evolution-map.md"), "utf8");
 if (!evolution.includes("DIRECTION ONLY · NOT COMMITTED")) {
   fail("evolution map does not state its non-commitment boundary");
+}
+
+const m0Review = fs.readFileSync(path.join(root, "docs/reviews/m0-review-gate.md"), "utf8");
+for (const statement of ["FROZEN FOR M1 ENTRY", "m0-blueprint-v1", "example.affine-batch"]) {
+  if (!m0Review.includes(statement)) fail(`M0 review gate is missing: ${statement}`);
 }
 
 const constitution = fs.readFileSync(

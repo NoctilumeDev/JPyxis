@@ -1,6 +1,6 @@
 # System Blueprint
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 This view separates invariant semantics from replaceable capability providers. It is a responsibility map, not an implemented component diagram.
 

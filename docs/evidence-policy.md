@@ -1,6 +1,6 @@
 # Evidence Policy
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 ## Evidence states
 
@@ -53,6 +53,8 @@ Every completed milestone must state:
 ## M0 rule
 
 M0 may contain research, diagrams, proposed invariants, decision records, and experiment designs. It contains no framework production code. M0 completes only when the next construction layer has a reviewed scope, protected invariants, acceptance method, and stop conditions.
+
+The first completed review is recorded in [M0 Architecture Review Gate](reviews/m0-review-gate.md). Its freeze coordinate preserves documents and decisions; it does not validate executable behavior.
 
 ## M6 reproduction chain
 
