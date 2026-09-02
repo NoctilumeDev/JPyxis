@@ -1,6 +1,6 @@
 # Research Questions
 
-Status: `PLANNED · M0`
+Status: `M0 FROZEN · M1 ENTRY`
 
 Each milestone must answer a bounded question rather than accumulate features.
 

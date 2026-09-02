@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `PLANNED`
+Status: `M0 FROZEN · M1 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -42,12 +42,14 @@ Required artifacts:
 Exit gate:
 
 - every Core responsibility has a reason it cannot be a plugin;
-- every proposed plugin boundary names a capability rather than a product;
+- every accepted plugin boundary names a capability rather than a product;
 - every persisted fact has one final authority;
 - prohibited dependency edges are explicit;
 - state transitions identify their owner;
 - the next milestone has a bounded acceptance test;
 - no concrete API is falsely presented as frozen.
+
+Outcome: frozen for M1 entry by the [M0 Architecture Review Gate](../reviews/m0-review-gate.md). The first reference construction boundary is [ADR-0004](../adr/0004-first-reference-vertical-slice.md).
 
 ## M1 — Contract
 

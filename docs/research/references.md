@@ -1,6 +1,6 @@
 # Primary References
 
-Status: `M0 BIBLIOGRAPHY DRAFT`
+Status: `M0 BIBLIOGRAPHY BASELINE`
 
 Accessed 2026-09-02 unless noted otherwise. Links point to official specifications, project documentation, or original publication pages.
 

@@ -1,6 +1,6 @@
 # Ownership and Truth Map
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 The distinction between producer and final authority prevents a component from promoting its own observation into a system fact.
 

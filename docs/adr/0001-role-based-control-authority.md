@@ -1,12 +1,12 @@
 # ADR-0001: Role-based Control Authority
 
-Status: `PROPOSED`
+Status: `ACCEPTED · M0`
 
 ## Context
 
 The first profile uses Java for control and Python for definition. Treating language names as architectural owners would bind the framework to its first adapters and contradict the heterogeneous-compute goal.
 
-## Proposed decision
+## Decision
 
 Authority belongs to roles:
 

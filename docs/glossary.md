@@ -1,6 +1,6 @@
 # Glossary
 
-Status: `M0 DRAFT`
+Status: `M0 FROZEN`
 
 The glossary keeps role names separate from their first implementations.
 

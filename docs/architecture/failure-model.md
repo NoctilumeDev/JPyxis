@@ -1,6 +1,6 @@
 # Failure Model
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 The failure model exists to prevent every boundary problem from collapsing into `INTERNAL_ERROR`.
 

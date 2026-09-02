@@ -1,6 +1,6 @@
 # Dependency Rules
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 ## Compile-time direction
 

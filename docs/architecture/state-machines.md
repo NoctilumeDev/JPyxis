@@ -1,6 +1,6 @@
 # State Machines
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 This document freezes distinct state ownership and critical invariants. Exact enum names and persistence fields remain M1 implementation decisions.
 
@@ -22,7 +22,7 @@ VALIDATED  REJECTED
 DEPRECATED
 ```
 
-Candidate invariants:
+Frozen invariants:
 
 - an artifact identity resolves to immutable content and digest;
 - validation is against a named contract and compatibility policy;
@@ -48,7 +48,7 @@ STOPPED
 READY or RESOLVING → FAILED
 ```
 
-Candidate invariants:
+Frozen invariants:
 
 - a plugin declares identity, SPI compatibility, capabilities, and constraints before selection;
 - an incompatible plugin is never used merely because its classes can be loaded;
@@ -80,7 +80,7 @@ UNLOADING
 RETIRED
 ```
 
-Candidate invariants:
+Frozen invariants:
 
 - only a validated artifact can enter loading;
 - warmup success is an observation, not an activation decision;
@@ -107,7 +107,7 @@ FAILED | TIMED_OUT | CANCELLED
 
 The diagram shows terminal categories, not every race. Timeout and cancellation require an explicit winner rule during M2 design.
 
-Candidate invariants:
+Frozen invariants:
 
 - acceptance validates authorization context, contract identity, and bounded request metadata;
 - dispatch pins the invocation to one artifact version and one eligible runtime target;

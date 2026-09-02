@@ -1,6 +1,6 @@
 # Prior-art Matrix
 
-Status: `M0 RESEARCH DRAFT`
+Status: `M0 RESEARCH BASELINE`
 
 This is a scoped engineering review, not a systematic literature review and not a novelty opinion. It identifies direct baselines that already solve parts of the problem so JPyxis does not rename existing work as an invention.
 
@@ -67,7 +67,7 @@ The hypothesis fails or narrows if existing direct Java runtimes or serving syst
 
 ## Required next research
 
-- Compare direct ONNX Runtime Java and DJL against the proposed mapper path for the first use case.
+- Compare direct ONNX Runtime Java and DJL against the accepted reference mapper path for the first use case.
 - Compare separate-process Python with GraalPy/JEP for isolation, compatibility, and operational behavior.
 - Define a representative contract corpus before selecting the canonical schema carrier.
 - Establish payload and latency measurements before accepting E1 data-plane work.

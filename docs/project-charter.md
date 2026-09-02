@@ -1,6 +1,6 @@
 # Project Charter
 
-Status: `PLANNED · M0 DRAFT`
+Status: `M0 FROZEN · M1 ENTRY`
 
 ## Purpose
 
@@ -45,9 +45,9 @@ Within the boundary, a capability is not complete until it has implementation, a
 
 Outside the boundary, documentation may preserve an attachment point and an entry condition. It must not imply implementation.
 
-## First vertical slice under consideration
+## First reference vertical slice
 
-The candidate first slice is one deterministic, stateless invocation with a small payload:
+The accepted first slice is one deterministic, stateless invocation with a small payload:
 
 ```text
 typed Java host call
@@ -55,11 +55,11 @@ typed Java host call
 → control and invocation contract
 → local transport
 → Python definition adapter
-→ NumPy or another minimal CPU runtime
+→ NumPy CPU runtime
 → validated typed result
 ```
 
-The exact algorithm, contract carrier, and runtime are M0 decisions. They are not frozen by this draft.
+The reference workload is the bounded batch affine transform defined by [ADR-0004](adr/0004-first-reference-vertical-slice.md). gRPC and Protobuf are the selected wire mechanisms; the canonical contract representation remains an M1 decision.
 
 ## Non-goals
 
@@ -73,16 +73,18 @@ The single-node baseline does not build or claim:
 - a universal schema for every possible algorithm;
 - performance superiority without a controlled benchmark.
 
-## M0 decisions still open
+## Decisions deliberately deferred beyond M0
 
-The following unknowns are deliberate M0 work, not permission to improvise during implementation:
+The M0 review assigns these questions to evidence-producing later stages:
 
-1. Which deterministic use case is representative enough for the first invocation proof?
-2. Is the first canonical contract best represented by Protobuf descriptors plus JPyxis metadata, or by a separate canonical model with generated Protobuf transport?
-3. Should the first runtime proof use NumPy, ONNX Runtime, or two deliberately different runtimes to establish replaceability?
-4. What payload size, latency, memory, and process-count observations justify a later data-plane experiment?
-5. Which plugin capabilities must exist in the first SPI, and which should remain ordinary internal modules until a second implementation proves replacement is real?
+1. M1 chooses the canonical contract model and exact host binding mechanism.
+2. M1 defines numeric, tensor-shape, compatibility, and optionality policies for the accepted corpus.
+3. M2 defines the authoritative deadline and cancellation race rule.
+4. M3 supplies the second Runtime conformance fixture needed to prove replacement.
+5. M6 measurements decide whether a later data-plane experiment has an entry condition.
 
 ## Completion meaning
 
 JPyxis is considered born when M2 produces a correctly succeeding and correctly failing end-to-end invocation. The single-node baseline is considered established only when M6 reproduces the complete documented path in a clean environment.
+
+The M0 architecture review and freeze record is [M0 Architecture Review Gate](reviews/m0-review-gate.md).

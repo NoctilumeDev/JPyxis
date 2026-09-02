@@ -1,6 +1,6 @@
 # Contract Principles
 
-Status: `PROPOSED · M0`
+Status: `ACCEPTED · M0 FROZEN`
 
 M0 defines what the contract must mean. It does not freeze Protobuf field numbers, Java annotations, Python decorators, or a canonical storage encoding.
 
