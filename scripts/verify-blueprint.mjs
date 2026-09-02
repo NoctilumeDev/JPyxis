@@ -24,11 +24,14 @@ const requiredFiles = [
   "docs/architecture/contract-principles.md",
   "docs/research/prior-art-matrix.md",
   "docs/research/references.md",
+  "docs/research/review-protocol.md",
+  "docs/research/evidence-traceability.md",
   "docs/research/research-questions.md",
   "docs/roadmap/single-node-baseline.md",
   "docs/roadmap/evolution-map.md",
   "docs/adr/0004-first-reference-vertical-slice.md",
   "docs/reviews/m0-review-gate.md",
+  "docs/reviews/m0-literature-closure.md",
 ];
 
 const forbiddenImplementationEntries = [
@@ -128,6 +131,35 @@ if (!evolution.includes("DIRECTION ONLY · NOT COMMITTED")) {
 const m0Review = fs.readFileSync(path.join(root, "docs/reviews/m0-review-gate.md"), "utf8");
 for (const statement of ["FROZEN FOR M1 ENTRY", "m0-blueprint-v1", "example.affine-batch"]) {
   if (!m0Review.includes(statement)) fail(`M0 review gate is missing: ${statement}`);
+}
+
+const literatureClosure = fs.readFileSync(
+  path.join(root, "docs/reviews/m0-literature-closure.md"),
+  "utf8",
+);
+for (const statement of [
+  "CLOSED · EVIDENCE ADDENDUM · NO SEMANTIC RE-FREEZE",
+  "40 primary sources",
+  "no semantic re-freeze",
+]) {
+  if (!literatureClosure.includes(statement)) {
+    fail(`M0 literature closure is missing: ${statement}`);
+  }
+}
+
+const traceability = fs.readFileSync(
+  path.join(root, "docs/research/evidence-traceability.md"),
+  "utf8",
+);
+for (let index = 1; index <= 7; index += 1) {
+  if (!traceability.includes(`RQ${index}`)) {
+    fail(`evidence traceability is missing RQ${index}`);
+  }
+}
+
+const references = fs.readFileSync(path.join(root, "docs/research/references.md"), "utf8");
+for (const statement of ["WIRE-03", "WIRE-07", "EVID-02", "Living documentation"]) {
+  if (!references.includes(statement)) fail(`primary references are missing: ${statement}`);
 }
 
 const constitution = fs.readFileSync(
