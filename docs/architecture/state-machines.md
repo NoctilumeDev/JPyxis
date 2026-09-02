@@ -117,6 +117,12 @@ Frozen invariants:
 - timeout does not assert that remote execution stopped or that side effects were rolled back;
 - business transaction state is outside this machine.
 
+Invocation terminal state is not an acceptance or evidence state. A separate Acceptance Harness reads
+retained evidence and records `PASS`, `FAIL`, or `INCONCLUSIVE`; milestone review separately decides
+whether a project claim is `VALIDATED`, `REJECTED`, or `FROZEN`. These axes and the first offline
+verification boundary are defined by
+[ADR-0005](../adr/0005-first-verifiable-end-to-end-closure.md).
+
 ## Cross-state-machine invariants
 
 The state machines may exchange typed events, but one cannot directly write another's state.

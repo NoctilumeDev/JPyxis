@@ -48,6 +48,8 @@ Stack traces and vendor messages are diagnostic attachments. They are not the st
 | Deadline exceeded | Local clock/transport/runtime signal | Invocation Manager | Timeout does not claim remote rollback. |
 | Telemetry exporter failure | Telemetry plugin | Telemetry owner | Compute or business result is not rewritten. |
 | Artifact-store outage | ArtifactStore plugin | Registry coordinator | Existing content identity cannot resolve to different bytes. |
+| Evidence recorder failure | Evidence capability | Acceptance Harness | Invocation state remains intact; the acceptance verdict cannot become `PASS`. |
+| Evidence missing, corrupt, or conflicting | Offline verifier | Acceptance Harness | The run remains `INCONCLUSIVE` or fails the declared evidence check. |
 
 ## Retry rules
 
@@ -91,5 +93,7 @@ The M5 plan must cover at least:
 - artifact-store and telemetry-exporter unavailability;
 - process restart with recovery of authoritative state;
 - failure of a candidate version while an older version remains active.
+- missing, truncated, reordered, corrupt, and conflicting evidence;
+- evidence-recorder and offline-verifier failure without rewriting the invocation result.
 
 The matrix will define exact expected outcomes before fault-injection implementation begins.

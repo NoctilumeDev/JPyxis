@@ -30,6 +30,7 @@ const requiredFiles = [
   "docs/roadmap/single-node-baseline.md",
   "docs/roadmap/evolution-map.md",
   "docs/adr/0004-first-reference-vertical-slice.md",
+  "docs/adr/0005-first-verifiable-end-to-end-closure.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m0-literature-closure.md",
 ];
@@ -129,7 +130,12 @@ if (!evolution.includes("DIRECTION ONLY · NOT COMMITTED")) {
 }
 
 const m0Review = fs.readFileSync(path.join(root, "docs/reviews/m0-review-gate.md"), "utf8");
-for (const statement of ["FROZEN FOR M1 ENTRY", "m0-blueprint-v1", "example.affine-batch"]) {
+for (const statement of [
+  "FROZEN FOR M1 ENTRY",
+  "m0-blueprint-v1",
+  "example.affine-batch",
+  "Post-freeze acceptance addendum",
+]) {
   if (!m0Review.includes(statement)) fail(`M0 review gate is missing: ${statement}`);
 }
 
@@ -173,6 +179,22 @@ for (const principle of [
 ]) {
   if (!constitution.includes(principle)) {
     fail(`constitution is missing principle: ${principle}`);
+  }
+}
+
+const verificationClosure = fs.readFileSync(
+  path.join(root, "docs/adr/0005-first-verifiable-end-to-end-closure.md"),
+  "utf8",
+);
+for (const statement of [
+  "authorization ≠ dispatch ≠ execution ≠ observation ≠ acceptance ≠ validated project claim",
+  "Acceptance verdict",
+  "INCONCLUSIVE",
+  "offline verifier",
+  "evidence bundle",
+]) {
+  if (!verificationClosure.includes(statement)) {
+    fail(`first verifiable closure is missing: ${statement}`);
   }
 }
 

@@ -18,6 +18,8 @@ The distinction between producer and final authority prevents a component from p
 | Raw computed value | Runtime plugin | Runtime for production of bytes/value | The result remains tied to runtime, artifact, contract, and invocation identities. |
 | Accepted invocation result | Runtime plugin | Invocation Manager after contract validation | Invalid output cannot be recorded as a successful invocation. |
 | Invocation terminal state | Transport/runtime observations | Invocation Manager | Exactly one terminal outcome is recorded. |
+| Acceptance verdict for an evidence bundle | Runtime and control observations | Acceptance Harness | Execution success cannot self-promote to acceptance; missing or conflicting evidence cannot produce `PASS`. |
+| Project evidence state | Milestone artifacts and acceptance verdicts | Milestone review under the Evidence Policy | A local run cannot self-promote a claim to `VALIDATED` or `FROZEN`. |
 | Business authorization | Host application | Host application | JPyxis cannot grant application authority that the host denied. |
 | Business transaction result | Host application | Host application | Compute success does not commit a business transaction. |
 | Trace identity | Control Plane | Control Plane | All derived spans retain the originating invocation coordinate. |
@@ -51,6 +53,19 @@ plugin observation
 ```
 
 Direct writes from a plugin to another owner's state are prohibited.
+
+Acceptance is also downstream of authoritative invocation state rather than part of it:
+
+```text
+runtime observation
+→ Invocation Manager terminal decision
+→ retained evidence bundle
+→ independent Acceptance Harness verdict
+→ milestone evidence review
+```
+
+The detailed first-slice boundary is fixed by
+[ADR-0005](../adr/0005-first-verifiable-end-to-end-closure.md).
 
 ## Open ownership questions
 
