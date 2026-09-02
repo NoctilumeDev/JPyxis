@@ -16,6 +16,9 @@ The slice must exercise all of the following at once:
 - stable failure attribution;
 - one observable end-to-end trace.
 
+The independent acceptance and retained-evidence boundary for this slice is fixed separately by
+[ADR-0005](0005-first-verifiable-end-to-end-closure.md). Execution of this path does not verify itself.
+
 ## Decision
 
 The first reference slice is fixed as follows.

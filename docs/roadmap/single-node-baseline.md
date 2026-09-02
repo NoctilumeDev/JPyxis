@@ -62,7 +62,8 @@ Candidate scope:
 - representative tensor dtype, rank, shape, layout, optionality, and batch constraints;
 - stable error categories;
 - Java and Python binding or validator fixtures;
-- compatibility verdicts for selected schema changes.
+- compatibility verdicts for selected schema changes;
+- minimum evidence-envelope identities and acceptance-verdict semantics required by ADR-0005.
 
 Acceptance:
 
@@ -70,7 +71,9 @@ Acceptance:
 - invalid input is rejected before execution;
 - invalid output cannot become success;
 - untyped values do not bypass validation;
-- exact commands and corpus are reproducible.
+- exact commands and corpus are reproducible;
+- invocation outcome, acceptance verdict, and project evidence state cannot collapse into one field;
+- incomplete or conflicting evidence metadata cannot produce an acceptance `PASS`.
 
 Not proven:
 
@@ -88,7 +91,9 @@ Candidate scope:
 - one deterministic CPU algorithm;
 - version-pinned dispatch;
 - deadline, cancellation, and stable error propagation;
-- trace correlation.
+- trace correlation;
+- a versioned evidence bundle and an Acceptance Harness outside Core;
+- an offline verifier for the deterministic reference workload.
 
 Acceptance:
 
@@ -97,6 +102,10 @@ Acceptance:
 - definition, transport, runtime, timeout, and cancellation cases remain distinguishable;
 - exactly one invocation terminal state is authoritative;
 - the host does not expose transport- or Python-specific types.
+- invocation outcome, acceptance verdict, and project evidence state remain separate;
+- a completed bundle can be verified after both runtime processes exit;
+- missing, corrupt, reordered, or conflicting evidence cannot produce `PASS`;
+- the happy path and named failure cases in ADR-0005 retain independently checkable evidence.
 
 This is the first point at which JPyxis may be called an executable prototype.
 
@@ -189,6 +198,8 @@ clean clone
 → recover
 → rollback
 → verify final state
+→ stop all runtime processes
+→ verify retained evidence offline
 ```
 
 Required observations:
@@ -207,6 +218,7 @@ Exit gate:
 
 - a clean environment follows one documented path;
 - every M0-M5 claim links to evidence at an immutable revision;
+- each accepted run records an independent verdict without deriving it from invocation success alone;
 - the 16 GB target is accepted, narrowed, or rejected from observations;
 - the baseline is tagged and frozen only if all required evidence is present.
 

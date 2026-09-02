@@ -37,6 +37,26 @@ Documentation does not promote itself from `PLANNED` to `VALIDATED`.
 | Clean-environment reproduction | Can the project establish itself without hidden local state? |
 | Frozen release evidence | What exactly was proven at one immutable revision? |
 
+## Execution is not acceptance
+
+The first executable slice uses three independent outcome axes:
+
+```text
+Invocation terminal state
+        ≠
+AcceptanceVerdict: PASS | FAIL | INCONCLUSIVE
+        ≠
+Project evidence state
+```
+
+The Invocation Manager owns the invocation fact. An Acceptance Harness outside Core owns the verdict
+for one retained evidence bundle. Milestone review owns any promotion to `VALIDATED`, `REJECTED`, or
+`FROZEN`. A runtime, transport, plugin, or local test command cannot promote its own observation across
+these boundaries.
+
+The minimum first-slice bundle and offline verification rule are fixed by
+[ADR-0005](adr/0005-first-verifiable-end-to-end-closure.md).
+
 ## Milestone evidence record
 
 Every completed milestone must state:
@@ -49,6 +69,9 @@ Every completed milestone must state:
 - negative and fault cases;
 - retained logs, reports, or artifacts;
 - known unknowns and explicitly unproven claims.
+
+Evidence required for an acceptance verdict must remain readable after the invoking Java and Python
+processes exit. A summary line or passing exit code may index retained evidence; it cannot replace it.
 
 ## M0 rule
 

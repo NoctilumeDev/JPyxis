@@ -78,3 +78,15 @@ No M2 invocation implementation should begin until those M1 decisions and accept
 ## Evidence boundary
 
 The freeze is represented by the protected Git tag named above, the public repository revision it resolves to, and a successful `Verify blueprint repository` check. The tag freezes documents, not runtime behavior.
+
+## Post-freeze acceptance addendum
+
+[ADR-0005](../adr/0005-first-verifiable-end-to-end-closure.md) was accepted after the M0 freeze to
+make the first slice's evidence boundary explicit. It does not validate executable behavior, replace
+the `m0-blueprint-v1` coordinate, or change the frozen role, topology, dependency, and state owners.
+It requires M1 to specify the minimum evidence semantics and M2 to retain a bundle that an external
+offline verifier can judge without trusting invocation success.
+
+If implementing that boundary requires moving final authority into a plugin, exposing private process
+state to the verifier, or changing an M0 invariant, the affected M0 section must be reopened under a
+new decision rather than weakened through an M1 compatibility patch.

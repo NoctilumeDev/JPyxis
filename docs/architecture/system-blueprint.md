@@ -32,6 +32,8 @@ flowchart TB
     end
 
     EXT[Existing External Runtime<br/>NumPy or ONNX Runtime candidate]
+    EVIDENCE[Retained Evidence Bundle]
+    ACCEPTANCE[External Acceptance Harness<br/>offline verifier]
 
     APP --> HOST
     HOST --> CONTROL
@@ -53,11 +55,19 @@ flowchart TB
     CONTROL -. selects carrier .-> TRANSPORT
     CONTROL -. selects data path .-> DATA
     RUNTIME --> EXT
+    CONTROL -. authoritative state and coordinates .-> EVIDENCE
+    RUNTIME -. raw execution observations .-> EVIDENCE
+    EVIDENCE --> ACCEPTANCE
+    ACCEPTANCE -. independent verdict .-> APP
     STORE -. persists immutable artifacts .-> REGISTRY
     SCHED -. supplies placement observations .-> ROUTING
 ```
 
 Arrows show logical use or reported capability. Compile-time dependency rules remain those in [Dependency Rules](dependency-rules.md): Core does not import concrete plugin packages.
+
+The Acceptance Harness is outside Core and outside the runtime path. It reads retained evidence and
+cannot rewrite invocation or lifecycle state. Its first-slice contract is defined by
+[ADR-0005](../adr/0005-first-verifiable-end-to-end-closure.md).
 
 ## Core boundary
 

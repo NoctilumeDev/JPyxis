@@ -147,12 +147,17 @@ flowchart LR
     WIRE --> PYTHON["Python definition<br/>one worker"]
     PYTHON --> NUMPY["NumPy<br/>CPU runtime"]
     NUMPY --> RESULT["Contract-validated<br/>typed result"]
+    RESULT --> EVIDENCE["Retained evidence<br/>offline acceptance"]
 ```
 
 The reference workload is a deterministic, stateless batch affine transform with no external side
 effects. Its acceptance and rejection boundaries are frozen in
 [ADR-0004](docs/adr/0004-first-reference-vertical-slice.md). Passing it will prove only the bounded
 slice—not performance, production readiness, GPU support, distribution, or an ecosystem.
+
+Execution does not verify itself. [ADR-0005](docs/adr/0005-first-verifiable-end-to-end-closure.md)
+separates invocation outcome, acceptance verdict, and project evidence state, and requires retained
+evidence that can be checked after the Java and Python processes exit.
 
 ## Documentation map
 
@@ -190,6 +195,7 @@ slice—not performance, production readiness, GPU support, distribution, or an 
 - [ADR-0002: Definition frontends declare but do not govern](docs/adr/0002-definition-without-governance.md)
 - [ADR-0003: Reuse external runtimes](docs/adr/0003-reuse-external-runtimes.md)
 - [ADR-0004: First reference vertical slice](docs/adr/0004-first-reference-vertical-slice.md)
+- [ADR-0005: First verifiable end-to-end closure](docs/adr/0005-first-verifiable-end-to-end-closure.md)
 
 ### Review records
 
