@@ -114,13 +114,13 @@ The normative M0 text is in [Architecture Constitution](docs/architecture/consti
 `M` means a milestone that must be delivered and evidenced. `E` means an evolution direction that is not a delivery promise.
 
 ```mermaid
-flowchart TB
-    M0["M0 · Boundary freeze<br/>architecture · authority · ownership"]
-    M13["M1-M3 · Semantic execution path<br/>contract → invocation → runtime abstraction"]
-    M45["M4-M5 · Operational closure<br/>lifecycle → resilience"]
-    M6["M6 · Evidence freeze<br/>clean-machine reproducibility"]
-    FREEZE["SINGLE-NODE BASELINE FREEZE"]
-    E["E1-E5 · Evidence-gated evolution<br/>data plane · accelerators · distributed control<br/>polyglot definitions · runtime ecosystem"]
+flowchart LR
+    M0["M0<br/>Boundary freeze"]
+    M13["M1-M3<br/>Contract → Invocation → Runtime"]
+    M45["M4-M5<br/>Lifecycle → Resilience"]
+    M6["M6<br/>Reproducibility"]
+    FREEZE["Baseline<br/>FREEZE"]
+    E["E1-E5<br/>Evidence-gated evolution"]
 
     M0 --> M13 --> M45 --> M6 --> FREEZE
     FREEZE -. "direction, not promise" .-> E
