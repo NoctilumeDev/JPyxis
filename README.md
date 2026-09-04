@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M3 RUNTIME ABSTRACTION FROZEN · M4 LIFECYCLE NEXT`**
+**`M4 LIFECYCLE PROTOTYPE · REVIEW PENDING`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -17,7 +17,9 @@ definition, retained evidence bundles, and offline verifier. M2 is a frozen sing
 M3 is now a frozen bounded prototype that runs one runtime-neutral definition plan through NumPy and a
 dependency-free Python reference runtime while retaining the same host contract and Control-owned
 terminal decision. Its reviewed-head and merged-main evidence agree and remain independently
-verifiable after both runtime processes exit.
+verifiable after both runtime processes exit. M4 now has a review candidate that separates immutable
+artifact facts, deployment state, active bindings, and invocation drain obligations in a new module;
+it is not frozen until public evidence and review close the milestone.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
@@ -258,6 +260,31 @@ This freeze does not prove an open plugin ecosystem, arbitrary third-party compa
 dynamic installation, general operation portability, lifecycle, performance, production readiness,
 accelerators, distribution, or clean-machine reproducibility.
 
+## M4 lifecycle prototype
+
+M4 adds a separate Java lifecycle semantic module. `ArtifactRegistry` owns immutable bytes, digest,
+and validation state. `DeploymentManager` alone decides load/warm/activate/drain/unload transitions
+and the active binding for one slot. Runtime lifecycle capabilities report observations but cannot
+write those facts.
+
+The candidate gate exercises immutable identity conflict, failed warmup, activation preconditions,
+atomic cutover, in-flight pinning, graceful drain, forced-termination requirements, and rollback to
+a previously validated artifact. Slow capability calls execute outside the state lock, so warming a
+candidate does not block admissions to the current active version. The complete regression chain is:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+node scripts/verify-m2.mjs
+node scripts/verify-m3.mjs
+node scripts/verify-m4.mjs
+```
+
+M4 does not move invocation terminal-state authority into lifecycle code. It records only which
+deployment owes service to accepted work and whether a forced-termination decision is required. See
+[ADR-0009](docs/adr/0009-m4-lifecycle-authority-and-cutover.md) and the
+[M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md).
+
 ## Documentation map
 
 ### Foundation
@@ -281,6 +308,7 @@ accelerators, distribution, or clean-machine reproducibility.
 - [M1 Contract Profile](docs/spec/m1-contract-profile.md)
 - [M2 Invocation Profile](docs/spec/m2-invocation-profile.md)
 - [M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md)
+- [M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md)
 
 ### Research and direction
 
@@ -301,6 +329,7 @@ accelerators, distribution, or clean-machine reproducibility.
 - [ADR-0006: M1 canonical contract profile](docs/adr/0006-m1-canonical-contract-profile.md)
 - [ADR-0007: M2 invocation authority and race rules](docs/adr/0007-m2-invocation-authority-and-races.md)
 - [ADR-0008: M3 runtime capability resolution](docs/adr/0008-m3-runtime-capability-resolution.md)
+- [ADR-0009: M4 lifecycle authority and cutover](docs/adr/0009-m4-lifecycle-authority-and-cutover.md)
 
 ### Review records
 
