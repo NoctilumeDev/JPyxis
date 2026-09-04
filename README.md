@@ -8,16 +8,16 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M1 CONTRACT FROZEN · M2 INVOCATION CANDIDATE UNDER REVIEW`**
+**`M2 INVOCATION FROZEN · M3 RUNTIME ABSTRACTION NEXT`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
-and a shared conformance corpus. It also contains one bounded M2 candidate: a typed Java mapper,
+and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
 Java-owned invocation decision, loopback gRPC/Protobuf carrier, separate Python worker, NumPy affine
-definition, retained evidence bundles, and offline verifier. This is a review candidate, not a frozen
-milestone or a production framework.
+definition, retained evidence bundles, and offline verifier. M2 is a frozen single-slice prototype,
+not a production framework.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
-`m1-contract-v1`. M1 validates only cross-binding contract identity, value validation, the selected
+`m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`. M1 validates only cross-binding contract identity, value validation, the selected
 compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
 support, runtime replaceability, or clean-machine reproducibility.
@@ -199,7 +199,7 @@ The [M1 Contract Profile](docs/spec/m1-contract-profile.md) defines the bounded 
 the [M1 Contract Review](docs/reviews/m1-contract-review.md) records the accepted evidence and what
 remains unproven. M2 may now investigate the bounded invocation question without weakening M1.
 
-## M2 invocation candidate
+## M2 invocation prototype
 
 M2 implements only the first reference path fixed by ADR-0004. The Worker reports execution; the Java
 Invocation Manager alone commits one terminal outcome; an external Acceptance Harness later reads the
@@ -220,7 +220,7 @@ executes the success and failure matrix serially, stops both runtime processes, 
 verifier over retained bundles. The current candidate matrix contains 18 executable cases, five
 tamper cases, and one verifier-failure case.
 
-The candidate does not establish runtime replaceability, lifecycle, retry safety, recovery,
+The frozen prototype does not establish runtime replaceability, lifecycle, retry safety, recovery,
 performance, production readiness, security isolation, accelerators, multi-host behavior,
 clean-machine reproducibility, or business success. Those claims remain behind later named gates.
 

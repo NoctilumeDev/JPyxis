@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M1 FROZEN · M2 CANDIDATE UNDER REVIEW`
+Status: `M0-M2 FROZEN · M3 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -113,10 +113,9 @@ Acceptance:
 
 This is the first point at which JPyxis may be called an executable prototype.
 
-Candidate outcome: the bounded implementation and its local evidence matrix are complete. M2 remains
-unfrozen until the reviewed revision and its merge commit pass the required public repository gate,
-the retained public bundle is read back, and the exact freeze coordinate is recorded in the
-[M2 Invocation Review](../reviews/m2-invocation-review.md).
+Outcome: frozen for M3 entry at `m2-invocation-v1`. The 24-scenario matrix, reviewed-head and
+merged-main public runs, downloaded artifact readback, review corrections, and remaining unproven
+claims are recorded in the [M2 Invocation Review](../reviews/m2-invocation-review.md).
 
 ## M3 — Runtime Abstraction
 
