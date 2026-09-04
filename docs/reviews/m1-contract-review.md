@@ -1,10 +1,12 @@
 # M1 Contract Review
 
-Status: `CLOSURE REVIEW PENDING · PROTOTYPE EVIDENCE ONLY`
+Status: `FROZEN FOR M2 ENTRY`
 
-M1 now has a bounded implementation candidate. This record does not close M1, promote the work to
-`VALIDATED`, or authorize M2. Remote repository gates and review still have to accept the same result
-at an immutable revision.
+Freeze coordinate: `m1-contract-v1`
+
+M1 is accepted as a validated, bounded contract layer. This record authorizes only the M2 invocation
+experiment defined by the roadmap. It does not promote any process boundary, Runtime execution,
+lifecycle, performance, production, or clean-machine claim.
 
 ## Implemented boundary
 
@@ -45,13 +47,14 @@ tests and the Python corpus, independently recomputes the canonical digest in th
 three identities against `identity.lock.json`, compares the two language-neutral reports, and writes
 a disposable summary under `build/m1`.
 
-The current local observation was made on Windows 11 x86-64 with Java 17.0.12, the checked-in Maven
-3.9.11 wrapper, Node.js 24.14.0, and both Python 3.10.6 and Python 3.13. It is useful prototype
-evidence, not a clean-machine or public-CI closure coordinate.
+The supporting local observation was made on Windows 11 x86-64 with Java 17.0.12, the checked-in
+Maven 3.9.11 wrapper, Node.js 24.14.0, and both Python 3.10.6 and Python 3.13. Public verification
+repeated the complete gate on GitHub Actions `ubuntu-latest`, Java 17, Python 3.12, and the same Maven
+wrapper. Neither environment is presented as M6 clean-machine reproduction.
 
 ## Acceptance mapping
 
-| M1 acceptance condition | Current candidate evidence |
+| M1 acceptance condition | Accepted evidence |
 | --- | --- |
 | Both bindings accept and reject the same corpus | Full report equality is enforced by `verify-m1.mjs`. |
 | Invalid input is rejected before execution | Input cases emit `accepted: false`; no Runtime dependency exists in M1. |
@@ -62,14 +65,41 @@ evidence, not a clean-machine or public-CI closure coordinate.
 | Outcome axes remain separate | Evidence fixtures require three distinct fields and allow expected-failure acceptance. |
 | Incomplete or conflicting evidence cannot PASS | Dedicated negative cases reject both conditions. |
 
-## Pending closure checks
+## Public evidence coordinates
 
-- the branch must pass the public repository gate;
-- the implementation and ADR must receive review at the same revision;
-- the final merged revision and CI run must be recorded here before changing status;
-- the README must continue to state that no process invocation or Runtime execution exists.
+- implementation PR: [#6](https://github.com/NoctilumeDev/JPyxis/pull/6);
+- reviewed head: `ad5eb370d47d8a8b6b858d9316349641e986ff1c`;
+- reviewed-head CI: [run 33852163865](https://github.com/NoctilumeDev/JPyxis/actions/runs/33852163865), artifact `9928750853`;
+- implementation merge: `8051f6d252fbbee4fb53341aadfe9e4a173e81ec`;
+- merged-main CI: [run 33852395736](https://github.com/NoctilumeDev/JPyxis/actions/runs/33852395736), artifact `9928835115`;
+- retained evidence index: [`evidence/m1/freeze-manifest.json`](../../evidence/m1/freeze-manifest.json).
 
-Until these checks close, **M2 remains blocked**.
+Both downloaded public artifacts reported 38 cases, the locked contract digest, Java/Python report
+equality, typed normalized-value equality, and the same explicitly unproven list as the local result.
+
+## Review correction
+
+The first PR revision passed its public gate, but semantic review still found two defects before
+merge: compatibility ignored correlations created by repeated symbols, and `equalsSymbol` could
+refer to a forward or optional-only binder even though validation consumed fields in order. The
+accepted revision rejects correlated compatibility as `COMPATIBILITY_PROFILE_UNSUPPORTED`, requires
+previous guaranteed symbol binding, and carries Java and Python regression coverage. This is why a
+passing earlier run was not treated as a substitute for review.
+
+## Closure gate
+
+- [x] Both bindings agree on all 38 corpus cases.
+- [x] A third implementation independently confirms the locked canonical digest.
+- [x] Invalid input and output produce distinct eligibility facts.
+- [x] Unsupported correlated compatibility cannot be reported as a valid relation.
+- [x] Outcome, verdict, and project evidence state remain separate.
+- [x] The reviewed head passed the required public status check.
+- [x] The merge commit passed the same check on `main`.
+- [x] The repository retains exact source, corpus, commands, coordinates, and an evidence manifest.
+- [x] README and roadmap preserve every unproven claim.
+
+M1 is therefore frozen for M2 entry. M2 must consume the contract through a carrier mapping; it may
+not redefine M1 semantics inside gRPC, Protobuf, the mapper, or the Python worker.
 
 ## Explicitly unproven
 

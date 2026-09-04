@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0 FROZEN · M1 PROTOTYPE IN REVIEW · M2 BLOCKED`
+Status: `M0-M1 FROZEN · M2 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -55,7 +55,7 @@ Outcome: frozen for M1 entry by the [M0 Architecture Review Gate](../reviews/m0-
 
 Question: can two runtime bindings agree on the same type and compatibility facts?
 
-Candidate scope:
+Delivered scope:
 
 - deterministic contract identity;
 - scalar and record values;
@@ -79,9 +79,9 @@ Not proven:
 
 - network invocation, runtime replacement, lifecycle, performance, or distributed behavior.
 
-Current evidence: the candidate implementation, shared 38-case corpus, and pending closure checklist
-are recorded in the [M1 Contract Review](../reviews/m1-contract-review.md). That record does not
-authorize M2 until its public gate and review coordinate are complete.
+Outcome: frozen for M2 entry at `m1-contract-v1`. The shared 38-case corpus, dual bindings, public
+CI coordinates, retained manifest, review correction, and unproven claims are recorded in the
+[M1 Contract Review](../reviews/m1-contract-review.md).
 
 ## M2 — Invocation
 

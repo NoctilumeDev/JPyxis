@@ -1,6 +1,6 @@
 # M1 Contract Profile
 
-Status: `M1 CANDIDATE · IMPLEMENTATION-BACKED`
+Status: `M1 FROZEN · IMPLEMENTATION-BACKED`
 
 This document defines the bounded semantic surface implemented during M1. It is normative only for
 the M1 corpus and the `example.affine-batch` reference contract.

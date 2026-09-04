@@ -1,8 +1,8 @@
 # Contributing
 
-JPyxis has frozen its M0 blueprint and is reviewing the bounded M1 contract prototype. Contributions
-must remain inside the current milestone; invocation, runtime, lifecycle, and Evolution implementation
-is premature until its preceding gate is satisfied.
+JPyxis has frozen its M0 blueprint and bounded M1 contract layer. The next construction boundary is
+M2 invocation. Contributions must remain inside the current milestone; runtime, lifecycle, and
+Evolution implementation is premature until its preceding gate is satisfied.
 
 ## Evidence labels
 
@@ -39,7 +39,8 @@ Prefer primary sources. A project page can establish what that project claims or
 - Do not let definition code own application authorization or business persistence.
 - Do not couple internal domain objects to generated wire objects.
 - Do not implement an Evolution item merely because an attachment point exists.
-- Do not add M2 invocation or later-stage implementation before the M1 exit criteria are met.
+- Do not alter frozen M1 semantics through an M2 transport shortcut.
+- Do not add M3 runtime or later-stage implementation before the M2 exit criteria are met.
 
 ## M1 verification
 

@@ -8,15 +8,17 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M1 CONTRACT PROTOTYPE · CLOSURE REVIEW PENDING · M2 BLOCKED`**
+**`M1 CONTRACT FROZEN · M2 INVOCATION NEXT`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. **No cross-process invocation exists yet.** There is no mapper proxy,
 gRPC transport, Python worker, NumPy execution, lifecycle engine, or production framework.
 
-The M0 blueprint remains frozen at `m0-blueprint-v1`. M1 is executable `PROTOTYPE` evidence pending
-closure review; it must not be cited as proof of performance, production readiness, distribution,
-GPU support, runtime replaceability, or clean-machine reproducibility.
+The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
+`m1-contract-v1`. M1 validates only cross-binding contract identity, value validation, the selected
+compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
+not be cited as proof of process invocation, performance, production readiness, distribution, GPU
+support, runtime replaceability, or clean-machine reproducibility.
 
 ## Problem statement
 
@@ -192,8 +194,8 @@ node scripts/verify-m1.mjs
 
 The [M1 Contract Profile](docs/spec/m1-contract-profile.md) defines the bounded semantics,
 [ADR-0006](docs/adr/0006-m1-canonical-contract-profile.md) records the representation decision, and
-the [M1 Contract Review](docs/reviews/m1-contract-review.md) shows what is covered and what remains
-unproven. M2 stays blocked until that review is closed at a public immutable revision.
+the [M1 Contract Review](docs/reviews/m1-contract-review.md) records the accepted evidence and what
+remains unproven. M2 may now investigate the bounded invocation question without weakening M1.
 
 ## Documentation map
 

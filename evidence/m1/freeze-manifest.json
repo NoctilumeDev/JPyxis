@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M1",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m1-contract-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/6",
+    "reviewedHeadSha": "ad5eb370d47d8a8b6b858d9316349641e986ff1c",
+    "mergeSha": "8051f6d252fbbee4fb53341aadfe9e4a173e81ec"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33852163865,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33852163865",
+      "artifactId": 9928750853,
+      "artifactName": "m1-conformance-9de697ae1efd59f80c94e7a334a546eaaab2484a"
+    },
+    "mainRun": {
+      "id": 33852395736,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33852395736",
+      "artifactId": 9928835115,
+      "artifactName": "m1-conformance-8051f6d252fbbee4fb53341aadfe9e4a173e81ec"
+    },
+    "environment": {
+      "runner": "GitHub Actions ubuntu-latest",
+      "java": "17",
+      "python": "3.12",
+      "mavenWrapper": "3.9.11"
+    }
+  },
+  "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3",
+  "contractDigest": "sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3",
+  "caseCount": 38,
+  "bindings": [
+    "java",
+    "python"
+  ],
+  "assertions": {
+    "lockedIdentity": true,
+    "corpusExpectations": true,
+    "crossBindingReportEquality": true,
+    "typedNormalizedValueEquality": true,
+    "m2ImplementationAbsent": true
+  },
+  "explicitlyUnproven": [
+    "network invocation",
+    "gRPC or Protobuf mapping",
+    "Python worker execution",
+    "NumPy runtime execution",
+    "lifecycle",
+    "performance",
+    "clean-machine reproducibility"
+  ]
+}
