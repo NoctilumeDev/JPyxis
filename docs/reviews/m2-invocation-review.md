@@ -1,10 +1,13 @@
 # M2 Invocation Review
 
-Status: `READY FOR PUBLIC REVIEW`
+Status: `FROZEN FOR M3 ENTRY`
 
-M2 is locally accepted as a bounded invocation candidate. This record does not freeze M2 or authorize
-M3. Public reviewed-head and merged-main evidence must still be obtained and read back before a freeze
-coordinate can be created.
+Freeze coordinate: `m2-invocation-v1`
+
+M2 is accepted as a validated, bounded invocation prototype. This record authorizes only the M3
+Runtime-abstraction experiment defined by the roadmap. It does not promote lifecycle, retry,
+routing, recovery, performance, security, accelerator, multi-host, clean-machine, production, or
+business-success claims.
 
 ## Implemented boundary
 
@@ -56,6 +59,12 @@ generates both carrier bindings from the one Proto source, starts and stops real
 serially, retains each bundle, and invokes the offline verifier. Disposable output remains under
 `build/m2`; it is not source-controlled milestone evidence.
 
+Public verification repeated the complete repository, M1, and M2 gates on GitHub Actions
+`ubuntu-latest`, Java 17.0.20.1, Python 3.12.14, Node.js 22.23.2, and the checked-in Maven wrapper.
+The downloaded reviewed-head and merged-main M2 summaries were byte-identical and each reported the
+same 24-scenario matrix and explicitly unproven list as the local result. The offline verifier was
+also rerun against the downloaded merged-main success bundle and returned `PASS`.
+
 ## Authority and dependency review
 
 - M1 remains independent of gRPC, Protobuf, NumPy, and cross-language process execution.
@@ -96,12 +105,27 @@ and corrected these defects before public review:
 - [x] Host API and M1 dependency boundaries remain intact.
 - [x] Offline bundle verification distinguishes `PASS`, `FAIL`, and `INCONCLUSIVE`.
 - [x] Missing, corrupt, reordered, and conflicting evidence cannot produce `PASS`.
-- [ ] The reviewed head passes the required public status check.
-- [ ] The reviewed-head artifact is downloaded or read back and agrees with the local matrix.
-- [ ] The merge commit passes the same required status check on `main`.
-- [ ] The merged-main artifact is downloaded or read back and agrees with the reviewed head.
-- [ ] Exact public coordinates and a freeze manifest are retained in the repository.
-- [ ] An annotated M2 freeze tag resolves to the accepted closure commit.
+- [x] The reviewed head passes the required public status check.
+- [x] The reviewed-head artifact is downloaded and agrees with the local matrix.
+- [x] The merge commit passes the same required status check on `main`.
+- [x] The merged-main artifact is downloaded and agrees with the reviewed head.
+- [x] Exact public coordinates and a freeze manifest are retained in the repository.
+- [x] The annotated M2 freeze coordinate is defined; the protected tag is created from the accepted
+  closure commit, never from the implementation branch.
+
+## Public evidence coordinates
+
+- implementation PR: [#8](https://github.com/NoctilumeDev/JPyxis/pull/8);
+- reviewed head: `36a1870a400c5bf3da1de0e0954bbd177b421b8b`;
+- reviewed-head CI: [run 33859575101](https://github.com/NoctilumeDev/JPyxis/actions/runs/33859575101), artifact `9931642374`;
+- GitHub reviewed merge revision inside that artifact: `4ffb6eabc55a12274067917852d1770f9dede4ed`;
+- implementation merge: `67870a1cacb216450817d401727f929c086d729c`;
+- merged-main CI: [run 33859986888](https://github.com/NoctilumeDev/JPyxis/actions/runs/33859986888), artifact `9931793483`;
+- both public conformance-summary SHA-256 values: `99977d50098b62c2c3e6f77e8a5baa9a45056012cd6aa2ca07b9da1239af65a0`;
+- retained evidence index: [`evidence/m2/freeze-manifest.json`](../../evidence/m2/freeze-manifest.json).
+
+The reviewed-head artifact records GitHub's temporary pull-request merge revision rather than the
+branch head. Both coordinates are retained instead of treating one as the other.
 
 ## Explicitly unproven
 
@@ -114,4 +138,7 @@ and corrected these defects before public review:
 - clean-machine reproduction;
 - production readiness or business success.
 
-These claims belong to later named gates. They must not be inferred from the M2 candidate.
+These claims belong to later named gates. They must not be inferred from the M2 prototype.
+
+M2 is therefore frozen for M3 entry. M3 must add a second conforming Runtime fixture or implementation
+without changing the frozen host contract, authority rules, or public failure meaning.

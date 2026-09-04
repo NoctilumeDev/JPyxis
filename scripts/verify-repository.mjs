@@ -30,6 +30,7 @@ const requiredFiles = [
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
   "evidence/m1/freeze-manifest.json",
+  "evidence/m2/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -170,8 +171,8 @@ for (const file of listFiles(invocationJavaRoot).filter((item) => item.endsWith(
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M1 CONTRACT FROZEN · M2 INVOCATION CANDIDATE UNDER REVIEW",
-  "M2 invocation candidate",
+  "M2 INVOCATION FROZEN · M3 RUNTIME ABSTRACTION NEXT",
+  "M2 invocation prototype",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
@@ -240,6 +241,33 @@ for (const [label, actual, expected] of [
   ["main CI run", evidenceManifest.publicEvidence?.mainRun?.id, 33852395736],
 ]) {
   if (actual !== expected) fail(`M1 evidence manifest has wrong ${label}: ${actual}`);
+}
+
+const m2EvidenceManifest = fs.existsSync(path.join(root, "evidence/m2/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m2/freeze-manifest.json"), "utf8"))
+  : {};
+for (const [label, actual, expected] of [
+  ["schema version", m2EvidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", m2EvidenceManifest.milestone, "M2"],
+  ["evidence state", m2EvidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", m2EvidenceManifest.freezeCoordinate, "m2-invocation-v1"],
+  ["scenario count", m2EvidenceManifest.scenarioCount, 24],
+  ["executable scenarios", m2EvidenceManifest.scenarioGroups?.executable, 18],
+  ["mutation scenarios", m2EvidenceManifest.scenarioGroups?.evidenceMutation, 5],
+  ["verifier-failure scenarios", m2EvidenceManifest.scenarioGroups?.verifierFailure, 1],
+  [
+    "implementation merge",
+    m2EvidenceManifest.implementation?.mergeSha,
+    "67870a1cacb216450817d401727f929c086d729c",
+  ],
+  ["main CI run", m2EvidenceManifest.publicEvidence?.mainRun?.id, 33859986888],
+  [
+    "public summary digest",
+    m2EvidenceManifest.publicEvidence?.conformanceSummarySha256,
+    "sha256:99977d50098b62c2c3e6f77e8a5baa9a45056012cd6aa2ca07b9da1239af65a0",
+  ],
+]) {
+  if (actual !== expected) fail(`M2 evidence manifest has wrong ${label}: ${actual}`);
 }
 
 if (failures.length > 0) {

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M2",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m2-invocation-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/8",
+    "reviewedHeadSha": "36a1870a400c5bf3da1de0e0954bbd177b421b8b",
+    "reviewedMergeRevision": "4ffb6eabc55a12274067917852d1770f9dede4ed",
+    "mergeSha": "67870a1cacb216450817d401727f929c086d729c"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33859575101,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33859575101",
+      "artifactId": 9931642374,
+      "artifactName": "m2-invocation-4ffb6eabc55a12274067917852d1770f9dede4ed"
+    },
+    "mainRun": {
+      "id": 33859986888,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33859986888",
+      "artifactId": 9931793483,
+      "artifactName": "m2-invocation-67870a1cacb216450817d401727f929c086d729c"
+    },
+    "conformanceSummarySha256": "sha256:99977d50098b62c2c3e6f77e8a5baa9a45056012cd6aa2ca07b9da1239af65a0",
+    "environment": {
+      "runner": "GitHub Actions ubuntu-latest",
+      "os": "linux 6.17.0-1022-azure",
+      "architecture": "x64",
+      "java": "17.0.20.1",
+      "python": "3.12.14",
+      "node": "22.23.2",
+      "mavenWrapper": "3.9.11"
+    }
+  },
+  "contract": {
+    "identity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3",
+    "digest": "sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3"
+  },
+  "definition": {
+    "identity": "jpyxis:definition:example/affine-batch@1.0.0",
+    "digest": "sha256:0f6120586e61fe2243388d098d94eea2bfbbeaf1c93b803ff28eb01a9176bb8b"
+  },
+  "scenarioCount": 24,
+  "scenarioGroups": {
+    "executable": 18,
+    "evidenceMutation": 5,
+    "verifierFailure": 1
+  },
+  "assertions": {
+    "crossProcessInvocation": true,
+    "typedHostBoundary": true,
+    "oneAuthoritativeTerminalState": true,
+    "stableFailureCategories": true,
+    "lateResultCannotRewriteTerminal": true,
+    "offlineBundleVerification": true,
+    "tamperCannotPass": true,
+    "m1DependencyBoundaryPreserved": true
+  },
+  "explicitlyUnproven": [
+    "general runtime replaceability",
+    "deployment lifecycle",
+    "retry safety",
+    "multi-worker routing",
+    "durable recovery",
+    "performance",
+    "production readiness",
+    "security isolation",
+    "accelerator support",
+    "multi-host behavior",
+    "clean-machine reproducibility",
+    "business success"
+  ]
+}
