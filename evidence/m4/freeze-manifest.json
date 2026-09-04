@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M4",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m4-lifecycle-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/12",
+    "reviewedHeadSha": "ba22022067aa5415a3da056bac6d4cdac571378f",
+    "reviewedMergeRevision": "8bb5a51bfda025fa0815a1b88c47195bb0de39ed",
+    "mergeSha": "9658aba368302f594505be9aa51854fd683227bf"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33874834785,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33874834785",
+      "artifactId": 9937509164,
+      "artifactName": "m4-lifecycle-8bb5a51bfda025fa0815a1b88c47195bb0de39ed"
+    },
+    "mainRun": {
+      "id": 33875311460,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33875311460",
+      "artifactId": 9937685623,
+      "artifactName": "m4-lifecycle-9658aba368302f594505be9aa51854fd683227bf"
+    },
+    "conformanceSummarySha256": "sha256:206b7478d8cb94988b855482f9310d79fff5d31d04663a95f2664462324b575e",
+    "environment": {
+      "runner": "GitHub Actions ubuntu-latest",
+      "os": "linux 6.17.0-1022-azure",
+      "architecture": "x64",
+      "java": "17.0.20.1",
+      "node": "22.23.2",
+      "mavenWrapper": "3.9.11"
+    }
+  },
+  "artifacts": [
+    {
+      "identity": "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest": "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    {
+      "identity": "jpyxis:definition:example/affine-batch-plan@2.0.0",
+      "digest": "sha256:b520c6a2ee781613e93cd7d6e9fa428dbb8ae666772d15ca8eca0a7b5cf014f0"
+    }
+  ],
+  "scenarioCount": 11,
+  "scenarioGroups": {
+    "executable": 9,
+    "evidenceMutation": 2
+  },
+  "assertions": {
+    "artifactIdentityIsImmutable": true,
+    "onlyValidatedArtifactsLoad": true,
+    "failedCandidatePreservesActive": true,
+    "atomicActiveBinding": true,
+    "inFlightInvocationPinning": true,
+    "drainingRejectsNewWork": true,
+    "forcedTerminationIsExplicit": true,
+    "rollbackReusesImmutableArtifact": true,
+    "slowCapabilityCallsStayOutsideStateLock": true,
+    "offlineBundleVerification": true
+  },
+  "explicitlyUnproven": [
+    "durable state and restart recovery",
+    "real worker process supervision or forced termination",
+    "multi-worker placement and routing",
+    "retry and idempotency policy",
+    "arbitrary plugin compatibility",
+    "clean-machine reproducibility",
+    "performance",
+    "production readiness",
+    "security isolation",
+    "accelerator support",
+    "multi-host behavior",
+    "business success"
+  ]
+}

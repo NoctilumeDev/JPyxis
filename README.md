@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M4 LIFECYCLE PROTOTYPE · REVIEW PENDING`**
+**`M4 LIFECYCLE FROZEN · M5 RESILIENCE NEXT`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -17,13 +17,15 @@ definition, retained evidence bundles, and offline verifier. M2 is a frozen sing
 M3 is now a frozen bounded prototype that runs one runtime-neutral definition plan through NumPy and a
 dependency-free Python reference runtime while retaining the same host contract and Control-owned
 terminal decision. Its reviewed-head and merged-main evidence agree and remain independently
-verifiable after both runtime processes exit. M4 now has a review candidate that separates immutable
-artifact facts, deployment state, active bindings, and invocation drain obligations in a new module;
-it is not frozen until public evidence and review close the milestone.
+verifiable after both runtime processes exit. M4 is now a frozen bounded prototype that separates
+immutable artifact facts, deployment state, active bindings, and invocation drain obligations in a
+new module. Its reviewed-head and merged-main lifecycle evidence agree and remain independently
+verifiable after the Java process exits.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
-bounded runtime-replacement boundary is frozen at `m3-runtime-v1`. M1 validates only cross-binding contract identity, value validation, the selected
+bounded runtime-replacement boundary is frozen at `m3-runtime-v1`. The bounded lifecycle boundary is
+frozen at `m4-lifecycle-v1`. M1 validates only cross-binding contract identity, value validation, the selected
 compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
 support, runtime replaceability, or clean-machine reproducibility. The M3 freeze supports only
@@ -267,7 +269,7 @@ and validation state. `DeploymentManager` alone decides load/warm/activate/drain
 and the active binding for one slot. Runtime lifecycle capabilities report observations but cannot
 write those facts.
 
-The candidate gate exercises immutable identity conflict, failed warmup, activation preconditions,
+The frozen gate exercises immutable identity conflict, failed warmup, activation preconditions,
 atomic cutover, in-flight pinning, graceful drain, forced-termination requirements, and rollback to
 a previously validated artifact. Slow capability calls execute outside the state lock, so warming a
 candidate does not block admissions to the current active version. The complete regression chain is:
@@ -283,7 +285,9 @@ node scripts/verify-m4.mjs
 M4 does not move invocation terminal-state authority into lifecycle code. It records only which
 deployment owes service to accepted work and whether a forced-termination decision is required. See
 [ADR-0009](docs/adr/0009-m4-lifecycle-authority-and-cutover.md) and the
-[M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md).
+[M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md). Exact public coordinates, review
+corrections, and unproven claims are retained in the
+[M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md).
 
 ## Documentation map
 
@@ -338,6 +342,7 @@ deployment owes service to accepted work and whether a forced-termination decisi
 - [M1 Contract Review](docs/reviews/m1-contract-review.md)
 - [M2 Invocation Review](docs/reviews/m2-invocation-review.md)
 - [M3 Runtime Review](docs/reviews/m3-runtime-review.md)
+- [M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md)
 
 ## Explicit non-goals for the single-node baseline
 
