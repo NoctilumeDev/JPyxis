@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package jpyxis.invocation.v1;
+
+option java_multiple_files = true;
+option java_package = "io.jpyxis.invocation.wire.v1";
+option java_outer_classname = "InvocationWire";
+
+service InvocationWorker {
+  rpc Probe(TransportProbeRequest) returns (TransportProbeReport);
+  rpc Invoke(InvokeRequest) returns (WorkerReport);
+}
+
+message TransportProbeRequest {}
+
+message TransportProbeReport {
+  string worker_identity = 1;
+  string worker_version = 2;
+  string runtime_identity = 3;
+  string runtime_version = 4;
+}
+
+message InvocationCoordinates {
+  string contract_identity = 1;
+  string contract_digest = 2;
+  string definition_identity = 3;
+  string definition_digest = 4;
+  string invocation_id = 5;
+  string attempt_id = 6;
+  string trace_id = 7;
+}
+
+enum DType {
+  DTYPE_UNSPECIFIED = 0;
+  DTYPE_FLOAT32 = 1;
+  DTYPE_INT32 = 2;
+}
+
+enum Layout {
+  LAYOUT_UNSPECIFIED = 0;
+  LAYOUT_ROW_MAJOR = 1;
+}
+
+message TensorValue {
+  DType dtype = 1;
+  repeated int32 shape = 2;
+  Layout layout = 3;
+  repeated float float_values = 4;
+  repeated sint32 int_values = 5;
+}
+
+message AffineInput {
+  TensorValue values = 1;
+  float scale = 2;
+  float bias = 3;
+}
+
+message AffineOutput {
+  TensorValue values = 1;
+  int32 rows = 2;
+}
+
+message InvokeRequest {
+  InvocationCoordinates coordinates = 1;
+  int64 deadline_unix_millis = 2;
+  AffineInput input = 3;
+}
+
+enum WorkerFailureCategory {
+  WORKER_FAILURE_CATEGORY_UNSPECIFIED = 0;
+  WORKER_FAILURE_CATEGORY_CONTRACT = 1;
+  WORKER_FAILURE_CATEGORY_DEFINITION = 2;
+  WORKER_FAILURE_CATEGORY_RUNTIME = 3;
+}
+
+message WorkerFailure {
+  WorkerFailureCategory category = 1;
+  string code = 2;
+  string summary = 3;
+  bool retryable = 4;
+  string origin_layer = 5;
+  string causal_reference = 6;
+}
+
+message WorkerReport {
+  InvocationCoordinates observed_coordinates = 1;
+  string worker_identity = 2;
+  string worker_version = 3;
+  string runtime_identity = 4;
+  string runtime_version = 5;
+  oneof observation {
+    AffineOutput output = 10;
+    WorkerFailure failure = 11;
+  }
+}

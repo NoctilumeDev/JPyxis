@@ -23,9 +23,12 @@ const requiredFiles = [
   "docs/adr/0004-first-reference-vertical-slice.md",
   "docs/adr/0005-first-verifiable-end-to-end-closure.md",
   "docs/adr/0006-m1-canonical-contract-profile.md",
+  "docs/adr/0007-m2-invocation-authority-and-races.md",
   "docs/spec/m1-contract-profile.md",
+  "docs/spec/m2-invocation-profile.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
+  "docs/reviews/m2-invocation-review.md",
   "evidence/m1/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
@@ -34,15 +37,25 @@ const requiredFiles = [
   "bindings/java/src/main/java/io/jpyxis/contract/ContractParser.java",
   "bindings/python/jpyxis_contract/parser.py",
   "scripts/verify-m1.mjs",
+  "scripts/verify-m2.mjs",
+  "scripts/verify-m2-bundle.mjs",
+  "spec/m2/proto/jpyxis_invocation_v1.proto",
+  "spec/m2/definitions/example_affine_v1.py",
+  "invocation/java/pom.xml",
+  "invocation/java/src/main/java/io/jpyxis/host/AffineBatchMapper.java",
+  "invocation/java/src/main/java/io/jpyxis/invocation/InvocationManager.java",
+  "invocation/java/src/main/java/io/jpyxis/invocation/transport/InvocationTransport.java",
+  "invocation/java/src/main/java/io/jpyxis/invocation/transport/grpc/GrpcInvocationTransport.java",
+  "invocation/python/requirements-m2.txt",
+  "invocation/python/jpyxis_worker/server.py",
 ];
 
-const prematureM2Entries = [
-  "proto",
+const prematureM3Entries = [
   "plugins",
   "jpyxis-core",
   "jpyxis-control",
-  "jpyxis-host-java",
-  "bindings/python/jpyxis_worker",
+  "runtime-spi",
+  "invocation/runtime",
 ];
 
 function fail(message) {
@@ -62,15 +75,15 @@ for (const relative of requiredFiles) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing required file: ${relative}`);
 }
 
-for (const relative of prematureM2Entries) {
+for (const relative of prematureM3Entries) {
   if (fs.existsSync(path.join(root, relative))) {
-    fail(`M1 repository contains premature M2 implementation entry: ${relative}`);
+    fail(`M2 repository contains premature M3 implementation entry: ${relative}`);
   }
 }
 
 const files = listFiles(root);
 const textExtensions = new Set([
-  "", ".cmd", ".java", ".json", ".md", ".mjs", ".properties", ".py", ".xml", ".yaml", ".yml",
+  "", ".cmd", ".java", ".json", ".md", ".mjs", ".properties", ".proto", ".py", ".xml", ".yaml", ".yml",
 ]);
 const textFiles = files.filter((file) => textExtensions.has(path.extname(file).toLowerCase()));
 const markdownFiles = textFiles.filter((file) => path.extname(file).toLowerCase() === ".md");
@@ -107,46 +120,73 @@ for (const file of markdownFiles) {
   }
 }
 
-const implementationText = files
-  .filter((file) => [".java", ".py", ".xml"].includes(path.extname(file).toLowerCase()))
-  .map((file) => fs.readFileSync(file, "utf8"))
-  .join("\n");
+const m1Java = readTreeText("bindings/java", new Set([".java", ".xml"]));
+const m1Python = readTreeText("bindings/python", new Set([".py"]));
 for (const [label, pattern] of [
   ["gRPC", /\bio\.grpc\b|grpcio/],
   ["Protocol Buffers", /\bcom\.google\.protobuf\b|protobuf-java/],
   ["NumPy runtime", /(?:^|\n)\s*(?:import|from)\s+numpy\b/],
-  ["Spring", /\borg\.springframework\b/],
 ]) {
-  if (pattern.test(implementationText)) fail(`premature M2 dependency detected: ${label}`);
+  if (pattern.test(`${m1Java}\n${m1Python}`)) fail(`frozen M1 binding acquired an M2 dependency: ${label}`);
+}
+if (/ProcessBuilder|Runtime\.getRuntime|jpyxis_contract|import\s+.*python/i.test(m1Java)) {
+  fail("frozen Java M1 binding contains cross-binding execution");
+}
+if (/(?:^|\n)\s*(?:import|from)\s+(?:subprocess|jpype|py4j|java)\b|subprocess\./i.test(m1Python)) {
+  fail("frozen Python M1 binding contains Java or subprocess execution");
 }
 
-const javaImplementation = files
-  .filter((file) => path.extname(file).toLowerCase() === ".java")
-  .map((file) => fs.readFileSync(file, "utf8"))
-  .join("\n");
-const pythonImplementation = files
-  .filter((file) => path.extname(file).toLowerCase() === ".py")
-  .map((file) => fs.readFileSync(file, "utf8"))
-  .join("\n");
-if (/ProcessBuilder|Runtime\.getRuntime|jpyxis_contract|import\s+.*python/i.test(javaImplementation)) {
-  fail("Java binding contains a cross-binding execution or Python dependency");
+const hostApi = readTreeText(
+  "invocation/java/src/main/java/io/jpyxis/host", new Set([".java"]),
+);
+for (const [label, pattern] of [
+  ["gRPC", /\bio\.grpc\b/],
+  ["generated Protobuf", /\bcom\.google\.protobuf\b|invocation\.wire/],
+  ["Python", /\bpython\b/i],
+  ["NumPy", /\bnumpy\b/i],
+]) {
+  if (pattern.test(hostApi)) fail(`public Java host API leaks ${label}`);
 }
-if (/(?:^|\n)\s*(?:import|from)\s+(?:subprocess|jpype|py4j|java)\b|subprocess\./i.test(
-  pythonImplementation,
-)) {
-  fail("Python binding contains a cross-binding execution or Java dependency");
+
+const implementationText = readTreeText("invocation", new Set([".java", ".py", ".xml"]));
+for (const [label, pattern] of [
+  ["Spring", /\borg\.springframework\b/],
+  ["database", /\b(?:jdbc|redis|mongodb|hibernate)\b/i],
+  ["message queue", /\b(?:kafka|rabbitmq|activemq)\b/i],
+  ["future runtime", /(?:^|\n)\s*(?:import|from)\s+(?:torch|onnxruntime|pyarrow)\b/],
+]) {
+  if (pattern.test(implementationText)) fail(`M2 implementation contains out-of-scope ${label} dependency`);
+}
+
+const invocationJavaRoot = path.join(root, "invocation/java/src/main/java");
+for (const file of listFiles(invocationJavaRoot).filter((item) => item.endsWith(".java"))) {
+  const relative = path.relative(invocationJavaRoot, file).replaceAll(path.sep, "/");
+  const content = fs.readFileSync(file, "utf8");
+  const isGrpcAdapter = relative.startsWith("io/jpyxis/invocation/transport/grpc/");
+  if (!isGrpcAdapter && /\b(?:io\.grpc|com\.google\.protobuf|io\.jpyxis\.invocation\.wire)\b/.test(content)) {
+    fail(`${relative}: carrier implementation leaked outside the gRPC adapter`);
+  }
 }
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M1 CONTRACT FROZEN · M2 INVOCATION NEXT",
-  "No cross-process invocation exists yet.",
+  "M1 CONTRACT FROZEN · M2 INVOCATION CANDIDATE UNDER REVIEW",
+  "M2 invocation candidate",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
   "E1 High-performance Data Plane",
 ]) {
   if (!readme.includes(statement)) fail(`README.md: missing boundary statement: ${statement}`);
+}
+
+const workflowText = fs.readFileSync(path.join(root, ".github/workflows/repository-gates.yml"), "utf8");
+for (const statement of [
+  "Verify M2 invocation repository",
+  "node scripts/verify-m2.mjs",
+  "build/m2/runs",
+]) {
+  if (!workflowText.includes(statement)) fail(`repository workflow is missing: ${statement}`);
 }
 
 const wrapperProperties = fs.readFileSync(
@@ -209,5 +249,14 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-only implementation boundary intact.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1 freeze and M2 invocation boundaries intact.`,
 );
+
+function readTreeText(relative, extensions) {
+  const directory = path.join(root, relative);
+  if (!fs.existsSync(directory)) return "";
+  return listFiles(directory)
+    .filter((file) => extensions.has(path.extname(file).toLowerCase()))
+    .map((file) => fs.readFileSync(file, "utf8"))
+    .join("\n");
+}
