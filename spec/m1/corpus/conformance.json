@@ -1,0 +1,889 @@
+{
+  "schemaVersion": "jpyxis.io/conformance-corpus/v1alpha1",
+  "contract": "../contracts/example.affine-batch.v1.json",
+  "cases": [
+    {
+      "id": "input-valid-b1",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK",
+        "bindings": {
+          "B": 1
+        }
+      }
+    },
+    {
+      "id": "input-valid-b2",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [2, 4],
+          "layout": "ROW_MAJOR",
+          "values": [0, 1, 2, 3, 4, 5, 6, 7]
+        },
+        "scale": 0.5,
+        "bias": -1
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK",
+        "bindings": {
+          "B": 2
+        }
+      }
+    },
+    {
+      "id": "input-missing-scale",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_MISSING_FIELD"
+      }
+    },
+    {
+      "id": "input-unknown-field",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 2,
+        "bias": 1,
+        "runtime": "numpy"
+      },
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_UNKNOWN_FIELD"
+      }
+    },
+    {
+      "id": "input-wrong-rank",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_RANK_MISMATCH"
+      }
+    },
+    {
+      "id": "input-wrong-dtype",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float64",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_DTYPE_MISMATCH"
+      }
+    },
+    {
+      "id": "input-wrong-fixed-dimension",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 5],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4, 5]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_SHAPE_MISMATCH"
+      }
+    },
+    {
+      "id": "input-batch-below-minimum",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [0, 4],
+          "layout": "ROW_MAJOR",
+          "values": []
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_DIMENSION_OUT_OF_RANGE"
+      }
+    },
+    {
+      "id": "input-batch-above-maximum",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [33, 4],
+          "layout": "ROW_MAJOR",
+          "values": []
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_DIMENSION_OUT_OF_RANGE"
+      }
+    },
+    {
+      "id": "input-wrong-value-count",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [2, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_VALUE_COUNT_MISMATCH"
+      }
+    },
+    {
+      "id": "input-wrong-layout",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "COLUMN_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 2,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "TENSOR_LAYOUT_MISMATCH"
+      }
+    },
+    {
+      "id": "input-non-finite-scale",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": {
+          "$fixtureFloat": "NaN"
+        },
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_NON_FINITE"
+      }
+    },
+    {
+      "id": "input-float32-overflow",
+      "kind": "input",
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [1, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4]
+        },
+        "scale": 1e39,
+        "bias": 1
+      },
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_SCALAR_OUT_OF_RANGE"
+      }
+    },
+    {
+      "id": "output-valid-b2",
+      "kind": "output",
+      "bindings": {
+        "B": 2
+      },
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [2, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        "rows": 2
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK",
+        "bindings": {
+          "B": 2
+        }
+      }
+    },
+    {
+      "id": "output-shape-disagrees-with-input",
+      "kind": "output",
+      "bindings": {
+        "B": 2
+      },
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [3, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        },
+        "rows": 2
+      },
+      "expected": {
+        "accepted": false,
+        "code": "SYMBOL_BINDING_MISMATCH"
+      }
+    },
+    {
+      "id": "output-row-count-disagrees-with-input",
+      "kind": "output",
+      "bindings": {
+        "B": 2
+      },
+      "value": {
+        "values": {
+          "dtype": "float32",
+          "shape": [2, 4],
+          "layout": "ROW_MAJOR",
+          "values": [1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        "rows": 3
+      },
+      "expected": {
+        "accepted": false,
+        "code": "SYMBOL_BINDING_MISMATCH"
+      }
+    },
+    {
+      "id": "type-optional-field-absent",
+      "kind": "type",
+      "type": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": [
+          {
+            "name": "weight",
+            "required": false,
+            "type": {
+              "kind": "scalar",
+              "scalarType": "float32",
+              "finite": true
+            }
+          }
+        ]
+      },
+      "value": {},
+      "expected": {
+        "accepted": true,
+        "code": "OK",
+        "bindings": {}
+      }
+    },
+    {
+      "id": "type-optional-field-present",
+      "kind": "type",
+      "type": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": [
+          {
+            "name": "weight",
+            "required": false,
+            "type": {
+              "kind": "scalar",
+              "scalarType": "float32",
+              "finite": true
+            }
+          }
+        ]
+      },
+      "value": {
+        "weight": 0.5
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK",
+        "bindings": {}
+      }
+    },
+    {
+      "id": "type-optional-field-invalid",
+      "kind": "type",
+      "type": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": [
+          {
+            "name": "weight",
+            "required": false,
+            "type": {
+              "kind": "scalar",
+              "scalarType": "float32",
+              "finite": true
+            }
+          }
+        ]
+      },
+      "value": {
+        "weight": "heavy"
+      },
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_TYPE_MISMATCH"
+      }
+    },
+    {
+      "id": "type-int32-rejects-floating-number",
+      "kind": "type",
+      "type": {
+        "kind": "scalar",
+        "scalarType": "int32"
+      },
+      "value": 1.0,
+      "expected": {
+        "accepted": false,
+        "code": "VALUE_TYPE_MISMATCH"
+      }
+    },
+    {
+      "id": "compat-scalar-equivalent",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "scalar",
+        "scalarType": "float32",
+        "finite": true
+      },
+      "candidateType": {
+        "kind": "scalar",
+        "scalarType": "float32",
+        "finite": true
+      },
+      "expected": {
+        "supported": true,
+        "relation": "EQUIVALENT"
+      }
+    },
+    {
+      "id": "compat-tensor-widens-batch",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 64
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "CANDIDATE_ACCEPTS_SUPERSET"
+      }
+    },
+    {
+      "id": "compat-tensor-narrows-batch",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 16
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "CANDIDATE_ACCEPTS_SUBSET"
+      }
+    },
+    {
+      "id": "compat-tensor-overlapping-batch",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 16,
+            "max": 64
+          },
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "OVERLAPS"
+      }
+    },
+    {
+      "id": "compat-tensor-dtype-disjoint",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "int32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "fixed": 4
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "DISJOINT"
+      }
+    },
+    {
+      "id": "compat-record-adds-optional-field",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": []
+      },
+      "candidateType": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": [
+          {
+            "name": "weight",
+            "required": false,
+            "type": {
+              "kind": "scalar",
+              "scalarType": "float32",
+              "finite": true
+            }
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "CANDIDATE_ACCEPTS_SUPERSET"
+      }
+    },
+    {
+      "id": "compat-record-adds-required-field",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": []
+      },
+      "candidateType": {
+        "kind": "record",
+        "unknownFields": "REJECT",
+        "fields": [
+          {
+            "name": "weight",
+            "required": true,
+            "type": {
+              "kind": "scalar",
+              "scalarType": "float32",
+              "finite": true
+            }
+          }
+        ]
+      },
+      "expected": {
+        "supported": true,
+        "relation": "DISJOINT"
+      }
+    },
+    {
+      "id": "compat-repeated-symbol-is-explicitly-unsupported",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "symbol": "C",
+            "min": 1,
+            "max": 32
+          }
+        ]
+      },
+      "expected": {
+        "supported": false,
+        "code": "COMPATIBILITY_PROFILE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "compat-equals-symbol-is-explicitly-unsupported",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "scalar",
+        "scalarType": "int32",
+        "equalsSymbol": "B"
+      },
+      "candidateType": {
+        "kind": "scalar",
+        "scalarType": "int32",
+        "equalsSymbol": "B"
+      },
+      "expected": {
+        "supported": false,
+        "code": "COMPATIBILITY_PROFILE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "evidence-success-pass",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0001",
+        "attemptId": "attempt-0001",
+        "traceId": "trace-0001",
+        "invocationOutcome": "SUCCEEDED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK"
+      }
+    },
+    {
+      "id": "evidence-expected-failure-pass",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0002",
+        "attemptId": "attempt-0002",
+        "traceId": "trace-0002",
+        "invocationOutcome": "FAILED",
+        "expectedInvocationOutcome": "FAILED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK"
+      }
+    },
+    {
+      "id": "evidence-incomplete-inconclusive",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0003",
+        "attemptId": "attempt-0003",
+        "traceId": "trace-0003",
+        "invocationOutcome": "TIMED_OUT",
+        "expectedInvocationOutcome": "TIMED_OUT",
+        "acceptanceVerdict": "INCONCLUSIVE",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "INCOMPLETE",
+        "integrity": "UNKNOWN",
+        "conflicts": ["terminal observation missing"]
+      },
+      "expected": {
+        "accepted": true,
+        "code": "OK"
+      }
+    },
+    {
+      "id": "evidence-incomplete-cannot-pass",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0004",
+        "attemptId": "attempt-0004",
+        "traceId": "trace-0004",
+        "invocationOutcome": "SUCCEEDED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "INCOMPLETE",
+        "integrity": "UNKNOWN",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_PASS_REQUIRES_COMPLETE"
+      }
+    },
+    {
+      "id": "evidence-conflict-cannot-pass",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0005",
+        "attemptId": "attempt-0005",
+        "traceId": "trace-0005",
+        "invocationOutcome": "SUCCEEDED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": ["two terminal observations"]
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_CONFLICT"
+      }
+    },
+    {
+      "id": "evidence-outcome-mismatch-cannot-pass",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0006",
+        "attemptId": "attempt-0006",
+        "traceId": "trace-0006",
+        "invocationOutcome": "FAILED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_OUTCOME_MISMATCH"
+      }
+    },
+    {
+      "id": "evidence-missing-trace-rejected",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0007",
+        "attemptId": "attempt-0007",
+        "invocationOutcome": "SUCCEEDED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_MISSING_FIELD"
+      }
+    },
+    {
+      "id": "evidence-identity-format-rejected",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "contractIdentity": "contract-without-authority#sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contractDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "definitionArtifactIdentity": "artifact:example.affine-python@1.0.0",
+        "definitionArtifactDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "invocationId": "inv-0008",
+        "attemptId": "attempt-0008",
+        "traceId": "trace-0008",
+        "invocationOutcome": "SUCCEEDED",
+        "expectedInvocationOutcome": "SUCCEEDED",
+        "acceptanceVerdict": "PASS",
+        "projectEvidenceState": "PROTOTYPE",
+        "completeness": "COMPLETE",
+        "integrity": "VERIFIED",
+        "conflicts": []
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_IDENTITY_INVALID"
+      }
+    },
+    {
+      "id": "evidence-collapsed-status-rejected",
+      "kind": "evidence",
+      "value": {
+        "schemaVersion": "jpyxis.io/evidence-envelope/v1alpha1",
+        "status": "PASS"
+      },
+      "expected": {
+        "accepted": false,
+        "code": "EVIDENCE_UNKNOWN_FIELD"
+      }
+    }
+  ]
+}

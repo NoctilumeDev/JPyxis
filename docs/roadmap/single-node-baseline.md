@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0 FROZEN · M1 NEXT`
+Status: `M0 FROZEN · M1 PROTOTYPE IN REVIEW · M2 BLOCKED`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -78,6 +78,10 @@ Acceptance:
 Not proven:
 
 - network invocation, runtime replacement, lifecycle, performance, or distributed behavior.
+
+Current evidence: the candidate implementation, shared 38-case corpus, and pending closure checklist
+are recorded in the [M1 Contract Review](../reviews/m1-contract-review.md). That record does not
+authorize M2 until its public gate and review coordinate are complete.
 
 ## M2 — Invocation
 

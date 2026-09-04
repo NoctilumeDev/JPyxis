@@ -114,6 +114,13 @@ The comparison with MyBatis is structural rather than an API promise: a mapper i
 
 The exact annotation or proxy API remains an M1 experiment.
 
+## M1 representation decision
+
+[ADR-0006](../adr/0006-m1-canonical-contract-profile.md) selects a small canonical JPyxis semantic
+model with a restricted JSON conformance encoding. Protobuf remains the planned M2 control carrier;
+it does not become Contract Core authority. This resolves the M1 representation question for the
+reference slice without changing the frozen M0 principle.
+
 ## Contract acceptance tests planned for M1
 
 - identical contract produces deterministic identity;
