@@ -49,6 +49,8 @@ jobs:
         run: node scripts/verify-m3.mjs
       - name: Verify M4 lifecycle
         run: node scripts/verify-m4.mjs
+      - name: Verify M5 resilience candidate
+        run: node scripts/verify-m5.mjs
       - name: Retain M1 conformance reports
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -85,5 +87,15 @@ jobs:
           path: |
             build/m4/conformance-summary.json
             build/m4/runs
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Retain M5 resilience evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: m5-resilience-${{ github.sha }}
+          path: |
+            build/m5/conformance-summary.json
+            build/m5/runs
           if-no-files-found: ignore
           retention-days: 14
