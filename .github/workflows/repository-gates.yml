@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Verify M3 runtime repository
+    name: Verify M4 lifecycle repository
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -47,6 +47,8 @@ jobs:
         run: node scripts/verify-m2.mjs
       - name: Verify M3 runtime abstraction
         run: node scripts/verify-m3.mjs
+      - name: Verify M4 lifecycle
+        run: node scripts/verify-m4.mjs
       - name: Retain M1 conformance reports
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -73,5 +75,15 @@ jobs:
           path: |
             build/m3/conformance-summary.json
             build/m3/runs
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Retain M4 lifecycle evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: m4-lifecycle-${{ github.sha }}
+          path: |
+            build/m4/conformance-summary.json
+            build/m4/runs
           if-no-files-found: ignore
           retention-days: 14

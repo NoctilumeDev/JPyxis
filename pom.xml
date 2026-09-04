@@ -15,6 +15,7 @@
   <modules>
     <module>bindings/java</module>
     <module>invocation/java</module>
+    <module>lifecycle/java</module>
   </modules>
 
   <properties>
