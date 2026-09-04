@@ -84,6 +84,10 @@ Passing builds were not treated as sufficient evidence. Review corrected these i
 - missing capability reports are rejected explicitly rather than producing an incidental null failure;
 - repository actions were upgraded and pinned to Node 24-capable releases before public freeze;
 - the main protection rule was advanced from the frozen M2 check to the required M3 check before merge.
+- both workers now start their gRPC server before publishing `WORKER_LISTENING`;
+  [public run 33868616055](https://github.com/NoctilumeDev/JPyxis/actions/runs/33868616055)
+  exposed that the earlier observation could race ahead of actual readiness and produce
+  `WORKER_UNAVAILABLE`.
 
 ## Closure gate
 
