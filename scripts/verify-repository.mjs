@@ -26,6 +26,7 @@ const requiredFiles = [
   "docs/spec/m1-contract-profile.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
+  "evidence/m1/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -138,7 +139,7 @@ if (/(?:^|\n)\s*(?:import|from)\s+(?:subprocess|jpype|py4j|java)\b|subprocess\./
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M1 CONTRACT PROTOTYPE · CLOSURE REVIEW PENDING · M2 BLOCKED",
+  "M1 CONTRACT FROZEN · M2 INVOCATION NEXT",
   "No cross-process invocation exists yet.",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
@@ -172,8 +173,33 @@ for (const workflow of files.filter((file) => /\.github[\\/]workflows[\\/].+\.ya
 const review = fs.existsSync(path.join(root, "docs/reviews/m1-contract-review.md"))
   ? fs.readFileSync(path.join(root, "docs/reviews/m1-contract-review.md"), "utf8")
   : "";
-for (const statement of ["CLOSURE REVIEW PENDING", "M2 remains blocked", "38 cases"]) {
+for (const statement of [
+  "FROZEN FOR M2 ENTRY",
+  "m1-contract-v1",
+  "38 cases",
+  "8051f6d252fbbee4fb53341aadfe9e4a173e81ec",
+  "33852395736",
+]) {
   if (!review.includes(statement)) fail(`M1 review is missing: ${statement}`);
+}
+
+const evidenceManifest = fs.existsSync(path.join(root, "evidence/m1/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m1/freeze-manifest.json"), "utf8"))
+  : {};
+for (const [label, actual, expected] of [
+  ["schema version", evidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", evidenceManifest.milestone, "M1"],
+  ["evidence state", evidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", evidenceManifest.freezeCoordinate, "m1-contract-v1"],
+  ["case count", evidenceManifest.caseCount, 38],
+  [
+    "implementation merge",
+    evidenceManifest.implementation?.mergeSha,
+    "8051f6d252fbbee4fb53341aadfe9e4a173e81ec",
+  ],
+  ["main CI run", evidenceManifest.publicEvidence?.mainRun?.id, 33852395736],
+]) {
+  if (actual !== expected) fail(`M1 evidence manifest has wrong ${label}: ${actual}`);
 }
 
 if (failures.length > 0) {
