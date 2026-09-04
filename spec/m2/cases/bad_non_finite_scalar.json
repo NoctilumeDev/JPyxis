@@ -1,0 +1,10 @@
+{
+  "values": {
+    "dtype": "float32",
+    "shape": [1, 4],
+    "layout": "ROW_MAJOR",
+    "values": [1, 2, 3, 4]
+  },
+  "scale": {"$fixtureFloat": "NaN"},
+  "bias": 1
+}

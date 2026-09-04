@@ -1,0 +1,10 @@
+{
+  "values": {
+    "dtype": "float32",
+    "shape": [0, 4],
+    "layout": "ROW_MAJOR",
+    "values": []
+  },
+  "scale": 2,
+  "bias": 1
+}

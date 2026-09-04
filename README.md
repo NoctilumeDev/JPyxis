@@ -8,11 +8,13 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M1 CONTRACT FROZEN · M2 INVOCATION NEXT`**
+**`M1 CONTRACT FROZEN · M2 INVOCATION CANDIDATE UNDER REVIEW`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
-and a shared conformance corpus. **No cross-process invocation exists yet.** There is no mapper proxy,
-gRPC transport, Python worker, NumPy execution, lifecycle engine, or production framework.
+and a shared conformance corpus. It also contains one bounded M2 candidate: a typed Java mapper,
+Java-owned invocation decision, loopback gRPC/Protobuf carrier, separate Python worker, NumPy affine
+definition, retained evidence bundles, and offline verifier. This is a review candidate, not a frozen
+milestone or a production framework.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`. M1 validates only cross-binding contract identity, value validation, the selected
@@ -197,6 +199,31 @@ The [M1 Contract Profile](docs/spec/m1-contract-profile.md) defines the bounded 
 the [M1 Contract Review](docs/reviews/m1-contract-review.md) records the accepted evidence and what
 remains unproven. M2 may now investigate the bounded invocation question without weakening M1.
 
+## M2 invocation candidate
+
+M2 implements only the first reference path fixed by ADR-0004. The Worker reports execution; the Java
+Invocation Manager alone commits one terminal outcome; an external Acceptance Harness later reads the
+retained bundle and emits a separate verdict. Neither gRPC status nor a Worker success label can
+become invocation or project truth by itself.
+
+Run the complete local candidate gate from the repository root:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+node scripts/verify-m2.mjs
+```
+
+`verify-m2.mjs` creates an isolated Python environment under the ignored `build/` directory, builds
+the Java host, generates both carrier bindings from one Proto source, starts real Worker processes,
+executes the success and failure matrix serially, stops both runtime processes, and runs the offline
+verifier over retained bundles. The current candidate matrix contains 18 executable cases, five
+tamper cases, and one verifier-failure case.
+
+The candidate does not establish runtime replaceability, lifecycle, retry safety, recovery,
+performance, production readiness, security isolation, accelerators, multi-host behavior,
+clean-machine reproducibility, or business success. Those claims remain behind later named gates.
+
 ## Documentation map
 
 ### Foundation
@@ -218,6 +245,7 @@ remains unproven. M2 may now investigate the bounded invocation question without
 - [Failure Model](docs/architecture/failure-model.md)
 - [Contract Principles](docs/architecture/contract-principles.md)
 - [M1 Contract Profile](docs/spec/m1-contract-profile.md)
+- [M2 Invocation Profile](docs/spec/m2-invocation-profile.md)
 
 ### Research and direction
 
@@ -236,12 +264,14 @@ remains unproven. M2 may now investigate the bounded invocation question without
 - [ADR-0004: First reference vertical slice](docs/adr/0004-first-reference-vertical-slice.md)
 - [ADR-0005: First verifiable end-to-end closure](docs/adr/0005-first-verifiable-end-to-end-closure.md)
 - [ADR-0006: M1 canonical contract profile](docs/adr/0006-m1-canonical-contract-profile.md)
+- [ADR-0007: M2 invocation authority and race rules](docs/adr/0007-m2-invocation-authority-and-races.md)
 
 ### Review records
 
 - [M0 Architecture Review Gate](docs/reviews/m0-review-gate.md)
 - [M0 Literature Closure](docs/reviews/m0-literature-closure.md)
 - [M1 Contract Review](docs/reviews/m1-contract-review.md)
+- [M2 Invocation Review](docs/reviews/m2-invocation-review.md)
 
 ## Explicit non-goals for the single-node baseline
 
