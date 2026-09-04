@@ -34,9 +34,11 @@ const requiredFiles = [
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
   "docs/reviews/m3-runtime-review.md",
+  "docs/reviews/m4-lifecycle-review.md",
   "evidence/m1/freeze-manifest.json",
   "evidence/m2/freeze-manifest.json",
   "evidence/m3/freeze-manifest.json",
+  "evidence/m4/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -237,7 +239,7 @@ if (/io\.jpyxis\.lifecycle/.test(invocationJavaText)) {
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M4 LIFECYCLE PROTOTYPE · REVIEW PENDING",
+  "M4 LIFECYCLE FROZEN · M5 RESILIENCE NEXT",
   "M2 invocation prototype",
   "M3 runtime abstraction prototype",
   "M4 lifecycle prototype",
@@ -383,6 +385,55 @@ for (const [label, actual, expected] of [
   if (actual !== expected) fail(`M3 evidence manifest has wrong ${label}: ${actual}`);
 }
 
+const m4EvidenceManifest = fs.existsSync(path.join(root, "evidence/m4/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m4/freeze-manifest.json"), "utf8"))
+  : {};
+const m4Review = fs.existsSync(path.join(root, "docs/reviews/m4-lifecycle-review.md"))
+  ? fs.readFileSync(path.join(root, "docs/reviews/m4-lifecycle-review.md"), "utf8")
+  : "";
+for (const statement of [
+  "Status: `FROZEN FOR M5 ENTRY`",
+  "`ArtifactRegistry` alone changes artifact state",
+  "`DeploymentManager` alone changes deployment state",
+  "206b7478d8cb94988b855482f9310d79fff5d31d04663a95f2664462324b575e",
+  "m4-lifecycle-v1",
+]) {
+  if (!m4Review.includes(statement)) fail(`M4 review is missing: ${statement}`);
+}
+for (const [label, actual, expected] of [
+  ["schema version", m4EvidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", m4EvidenceManifest.milestone, "M4"],
+  ["evidence state", m4EvidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", m4EvidenceManifest.freezeCoordinate, "m4-lifecycle-v1"],
+  ["scenario count", m4EvidenceManifest.scenarioCount, 11],
+  ["executable scenarios", m4EvidenceManifest.scenarioGroups?.executable, 9],
+  ["mutation scenarios", m4EvidenceManifest.scenarioGroups?.evidenceMutation, 2],
+  [
+    "implementation merge",
+    m4EvidenceManifest.implementation?.mergeSha,
+    "9658aba368302f594505be9aa51854fd683227bf",
+  ],
+  ["main CI run", m4EvidenceManifest.publicEvidence?.mainRun?.id, 33875311460],
+  ["pull-request CI run", m4EvidenceManifest.publicEvidence?.pullRequestRun?.id, 33874834785],
+  [
+    "v1 artifact digest",
+    m4EvidenceManifest.artifacts?.[0]?.digest,
+    "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  ],
+  [
+    "v2 artifact digest",
+    m4EvidenceManifest.artifacts?.[1]?.digest,
+    "sha256:b520c6a2ee781613e93cd7d6e9fa428dbb8ae666772d15ca8eca0a7b5cf014f0",
+  ],
+  [
+    "public summary digest",
+    m4EvidenceManifest.publicEvidence?.conformanceSummarySha256,
+    "sha256:206b7478d8cb94988b855482f9310d79fff5d31d04663a95f2664462324b575e",
+  ],
+]) {
+  if (actual !== expected) fail(`M4 evidence manifest has wrong ${label}: ${actual}`);
+}
+
 if (failures.length > 0) {
   console.error(`Repository verification failed with ${failures.length} issue(s):`);
   failures.forEach((failure) => console.error(`- ${failure}`));
@@ -390,7 +441,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2/M3 freezes intact and the bounded M4 candidate remains separated from M5.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2/M3/M4 freezes intact and M5 remains unimplemented.`,
 );
 
 function readTreeText(relative, extensions) {

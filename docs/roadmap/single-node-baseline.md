@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M3 FROZEN · M4 IN REVIEW`
+Status: `M0-M4 FROZEN · M5 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -164,6 +164,11 @@ Acceptance:
 - new work stops entering a draining deployment;
 - accepted work receives a defined completion or forced-termination outcome;
 - rollback returns to a previously validated artifact without mutating it.
+
+Outcome: frozen for M5 entry at `m4-lifecycle-v1`. The immutable Registry, Deployment Manager,
+atomic cutover, pin/drain rules, rollback, reviewed-head and merged-main public runs, downloaded
+artifact readback, dependency review, and remaining unproven claims are recorded in the
+[M4 Lifecycle Review](../reviews/m4-lifecycle-review.md).
 
 ## M5 — Resilience
 

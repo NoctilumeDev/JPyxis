@@ -1,6 +1,6 @@
 # M4 Lifecycle Profile
 
-Status: `M4 CONSTRUCTION PROFILE · REVIEW PENDING`
+Status: `M4 FROZEN · IMPLEMENTATION-BACKED`
 
 ## Frozen inputs
 
