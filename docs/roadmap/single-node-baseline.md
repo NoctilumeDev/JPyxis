@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M5 FROZEN · M6 NEXT`
+Status: `M0-M5 FROZEN · M6 CANDIDATE UNDER CONSTRUCTION`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 

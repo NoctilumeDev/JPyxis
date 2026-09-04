@@ -27,11 +27,13 @@ const requiredFiles = [
   "docs/adr/0008-m3-runtime-capability-resolution.md",
   "docs/adr/0009-m4-lifecycle-authority-and-cutover.md",
   "docs/adr/0010-m5-resilience-authority-and-recovery.md",
+  "docs/adr/0011-m6-clean-reproduction-boundary.md",
   "docs/spec/m1-contract-profile.md",
   "docs/spec/m2-invocation-profile.md",
   "docs/spec/m3-runtime-profile.md",
   "docs/spec/m4-lifecycle-profile.md",
   "docs/spec/m5-resilience-profile.md",
+  "docs/spec/m6-reproducibility-profile.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
@@ -88,12 +90,14 @@ const requiredFiles = [
   "scripts/verify-m5.mjs",
   "scripts/verify-m5-bundle.mjs",
   "scripts/verify-m5-evidence.mjs",
+  "scripts/m6-resource-probe.mjs",
+  "scripts/verify-m6.mjs",
+  "scripts/verify-m6-evidence.mjs",
 ];
 
 const prematureM6Entries = [
   "evidence/m6",
   "docs/reviews/m6-reproducibility-review.md",
-  "scripts/verify-m6.mjs",
 ];
 
 function fail(message) {
@@ -274,10 +278,19 @@ if (/com\.fasterxml\.jackson|java\.nio\.file|ProcessBuilder/.test(resilienceCore
 if (/io\.jpyxis\.resilience/.test(invocationJavaText) || /io\.jpyxis\.resilience/.test(lifecycleText)) {
   fail("a frozen predecessor depends forward on M5 resilience");
 }
+const frozenImplementationText = [
+  readTreeText("bindings", new Set([".java", ".py", ".xml"])),
+  implementationText,
+  lifecycleText,
+  readTreeText("resilience", new Set([".java", ".xml"])),
+].join("\n");
+if (/io\.jpyxis\.m6|scripts[\\/]verify-m6|m6-resource-probe/.test(frozenImplementationText)) {
+  fail("a frozen M1-M5 implementation depends forward on the M6 reproduction lab");
+}
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M0–M5 FROZEN · M6 REPRODUCIBILITY NEXT",
+  "M0–M5 FROZEN · M6 REPRODUCIBILITY CANDIDATE",
   "M2 invocation prototype",
   "M3 runtime abstraction prototype",
   "M4 lifecycle prototype",
@@ -293,14 +306,17 @@ for (const statement of [
 const workflowText = fs.readFileSync(path.join(root, ".github/workflows/repository-gates.yml"), "utf8");
 for (const statement of [
   "Verify M5 resilience repository",
+  "Reproduce M6 single-node candidate",
   "node scripts/verify-m2.mjs",
   "node scripts/verify-m3.mjs",
   "node scripts/verify-m4.mjs",
   "node scripts/verify-m5.mjs",
+  "node scripts/verify-m6.mjs --public-clean",
   "build/m2/runs",
   "build/m3/runs",
   "build/m4/runs",
   "build/m5/runs",
+  "build/m6/bundle",
 ]) {
   if (!workflowText.includes(statement)) fail(`repository workflow is missing: ${statement}`);
 }
@@ -553,7 +569,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M5 freezes intact and M6 remains unimplemented.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M5 freezes intact and M6 remains an unfrozen candidate.`,
 );
 
 function readTreeText(relative, extensions) {
