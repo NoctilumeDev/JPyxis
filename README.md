@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M4 LIFECYCLE FROZEN · M5 RESILIENCE NEXT`**
+**`M0–M4 FROZEN · M5 RESILIENCE CANDIDATE`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -21,6 +21,11 @@ verifiable after both runtime processes exit. M4 is now a frozen bounded prototy
 immutable artifact facts, deployment state, active bindings, and invocation drain obligations in a
 new module. Its reviewed-head and merged-main lifecycle evidence agree and remain independently
 verifiable after the Java process exits.
+M5 is now under construction in a separate resilience module. Its current local candidate adds a
+hash-chained durable journal, worker-instance supervision and epoch fencing, bounded retry decisions,
+desired-intent recovery, and M4 reconciliation through public lifecycle actions. These claims remain
+candidate evidence until pull-request review, merged-main CI, retained-artifact readback, and a
+separate freeze record agree.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
@@ -289,6 +294,36 @@ deployment owes service to accepted work and whether a forced-termination decisi
 corrections, and unproven claims are retained in the
 [M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md).
 
+## M5 resilience candidate
+
+M5 keeps three new facts under separate owners: `WorkerSupervisor` owns worker instance state and
+routing eligibility; `ResilientInvocationManager` owns logical invocation state, attempt lineage,
+retry decisions, and the terminal outcome for the reference profile; `ControlIntentRegistry` owns
+desired deployment intent. M4 continues to own immutable artifacts, actual deployment state, and
+active bindings.
+
+The local candidate exercises two supervised worker processes, load/warmup/invocation/drain/unload
+faults, explicit unknown outcomes, idempotency-gated retry, retry exhaustion, Control restart,
+epoch fencing, M4 public-action reconciliation, telemetry failure, and late observations. Its
+offline verifier also rejects truncated, reordered, corrupt, or incomplete retained evidence.
+
+Run the candidate and every frozen predecessor from the repository root:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+node scripts/verify-m2.mjs
+node scripts/verify-m3.mjs
+node scripts/verify-m4.mjs
+node scripts/verify-m5.mjs
+```
+
+This is not yet an M5 freeze. It does not prove production durability, multi-host recovery,
+distributed consensus, arbitrary side-effect safety, performance, clean-machine reproducibility,
+resource isolation, accelerators, or production readiness. See
+[ADR-0010](docs/adr/0010-m5-resilience-authority-and-recovery.md) and the
+[M5 Resilience Profile](docs/spec/m5-resilience-profile.md).
+
 ## Documentation map
 
 ### Foundation
@@ -313,6 +348,7 @@ corrections, and unproven claims are retained in the
 - [M2 Invocation Profile](docs/spec/m2-invocation-profile.md)
 - [M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md)
 - [M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md)
+- [M5 Resilience Profile](docs/spec/m5-resilience-profile.md)
 
 ### Research and direction
 
@@ -334,6 +370,7 @@ corrections, and unproven claims are retained in the
 - [ADR-0007: M2 invocation authority and race rules](docs/adr/0007-m2-invocation-authority-and-races.md)
 - [ADR-0008: M3 runtime capability resolution](docs/adr/0008-m3-runtime-capability-resolution.md)
 - [ADR-0009: M4 lifecycle authority and cutover](docs/adr/0009-m4-lifecycle-authority-and-cutover.md)
+- [ADR-0010: M5 resilience authority and recovery](docs/adr/0010-m5-resilience-authority-and-recovery.md)
 
 ### Review records
 

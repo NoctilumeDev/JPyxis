@@ -26,10 +26,12 @@ const requiredFiles = [
   "docs/adr/0007-m2-invocation-authority-and-races.md",
   "docs/adr/0008-m3-runtime-capability-resolution.md",
   "docs/adr/0009-m4-lifecycle-authority-and-cutover.md",
+  "docs/adr/0010-m5-resilience-authority-and-recovery.md",
   "docs/spec/m1-contract-profile.md",
   "docs/spec/m2-invocation-profile.md",
   "docs/spec/m3-runtime-profile.md",
   "docs/spec/m4-lifecycle-profile.md",
+  "docs/spec/m5-resilience-profile.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
@@ -75,12 +77,15 @@ const requiredFiles = [
   "scripts/verify-m4.mjs",
   "scripts/verify-m4-bundle.mjs",
   "scripts/verify-m4-evidence.mjs",
-];
-
-const prematureM5Entries = [
-  "resilience",
-  "supervision",
-  "recovery",
+  "resilience/java/pom.xml",
+  "resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+  "resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+  "resilience/java/src/main/java/io/jpyxis/resilience/core/ControlIntentRegistry.java",
+  "resilience/java/src/main/java/io/jpyxis/resilience/evidence/DurableResilienceJournal.java",
+  "resilience/java/src/main/java/io/jpyxis/resilience/assembly/ControlRecoveryCoordinator.java",
+  "scripts/verify-m5.mjs",
+  "scripts/verify-m5-bundle.mjs",
+  "scripts/verify-m5-evidence.mjs",
 ];
 
 function fail(message) {
@@ -98,12 +103,6 @@ function listFiles(directory) {
 
 for (const relative of requiredFiles) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing required file: ${relative}`);
-}
-
-for (const relative of prematureM5Entries) {
-  if (fs.existsSync(path.join(root, relative))) {
-    fail(`M4 repository contains premature M5 implementation entry: ${relative}`);
-  }
 }
 
 const files = listFiles(root);
@@ -237,12 +236,38 @@ if (/io\.jpyxis\.lifecycle/.test(invocationJavaText)) {
   fail("frozen M2/M3 invocation module depends backwards on M4 lifecycle");
 }
 
+const resilienceSemanticText = ["api", "core", "evidence", "port"]
+  .map((name) => readTreeText(
+    `resilience/java/src/main/java/io/jpyxis/resilience/${name}`, new Set([".java"]),
+  ))
+  .join("\n");
+for (const [label, pattern] of [
+  ["M4 lifecycle implementation", /io\.jpyxis\.lifecycle/],
+  ["reference or assembly implementation", /io\.jpyxis\.resilience\.(?:reference|assembly)/],
+  ["gRPC", /\bio\.grpc\b/],
+  ["generated Protobuf", /\bcom\.google\.protobuf\b/],
+  ["Spring", /\borg\.springframework\b/],
+  ["Python or Runtime product", /\b(?:python|numpy|onnxruntime|torch)\b/i],
+]) {
+  if (pattern.test(resilienceSemanticText)) fail(`M5 semantic boundary imports ${label}`);
+}
+const resilienceCoreText = readTreeText(
+  "resilience/java/src/main/java/io/jpyxis/resilience/core", new Set([".java"]),
+);
+if (/com\.fasterxml\.jackson|java\.nio\.file|ProcessBuilder/.test(resilienceCoreText)) {
+  fail("M5 Core owns an evidence encoding, filesystem, or process implementation");
+}
+if (/io\.jpyxis\.resilience/.test(invocationJavaText) || /io\.jpyxis\.resilience/.test(lifecycleText)) {
+  fail("a frozen predecessor depends forward on M5 resilience");
+}
+
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M4 LIFECYCLE FROZEN · M5 RESILIENCE NEXT",
+  "M0–M4 FROZEN · M5 RESILIENCE CANDIDATE",
   "M2 invocation prototype",
   "M3 runtime abstraction prototype",
   "M4 lifecycle prototype",
+  "M5 resilience candidate",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
@@ -257,9 +282,11 @@ for (const statement of [
   "node scripts/verify-m2.mjs",
   "node scripts/verify-m3.mjs",
   "node scripts/verify-m4.mjs",
+  "node scripts/verify-m5.mjs",
   "build/m2/runs",
   "build/m3/runs",
   "build/m4/runs",
+  "build/m5/runs",
 ]) {
   if (!workflowText.includes(statement)) fail(`repository workflow is missing: ${statement}`);
 }
@@ -441,7 +468,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2/M3/M4 freezes intact and M5 remains unimplemented.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M4 freezes intact and the M5 candidate stays within its declared boundary.`,
 );
 
 function readTreeText(relative, extensions) {
