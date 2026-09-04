@@ -1,0 +1,5 @@
+{
+  "contract": "spec/m1/contracts/example.affine-batch.v1.json",
+  "contractIdentity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3",
+  "contractDigest": "sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3"
+}

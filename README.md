@@ -4,15 +4,19 @@
 >
 > Control governs. Definitions describe. Runtimes execute. Contracts bind.
 
-JPyxis is a planned framework for governing heterogeneous compute workloads through explicit, versioned contracts. Its first reference profile will study a Java control plane, a Python definition frontend, and an existing CPU runtime. Those languages and runtimes are reference adapters, not the identity of the architecture.
+JPyxis is a staged research framework for governing heterogeneous compute workloads through explicit, versioned contracts. Its first reference profile studies a Java control plane, a Python definition frontend, and an existing CPU runtime. Those languages and runtimes are reference adapters, not the identity of the architecture.
 
 ## Status
 
-**`M0 FROZEN · M1 CONTRACT NEXT · BLUEPRINT ONLY`**
+**`M1 CONTRACT PROTOTYPE · CLOSURE REVIEW PENDING · M2 BLOCKED`**
 
-No framework implementation exists in this repository. The documents describe hypotheses, boundaries, frozen M0 state models, and future experiments. They must not be cited as evidence that JPyxis is implemented, performant, production-ready, distributed, GPU-capable, or reproducible.
+The repository now contains the bounded M1 contract model, independent Java and Python validators,
+and a shared conformance corpus. **No cross-process invocation exists yet.** There is no mapper proxy,
+gRPC transport, Python worker, NumPy execution, lifecycle engine, or production framework.
 
-The M0 blueprint is frozen at `m0-blueprint-v1`. The next accepted work is the bounded M1 contract design; no framework production code exists yet.
+The M0 blueprint remains frozen at `m0-blueprint-v1`. M1 is executable `PROTOTYPE` evidence pending
+closure review; it must not be cited as proof of performance, production readiness, distribution,
+GPU support, runtime replaceability, or clean-machine reproducibility.
 
 ## Problem statement
 
@@ -159,6 +163,37 @@ Execution does not verify itself. [ADR-0005](docs/adr/0005-first-verifiable-end-
 separates invocation outcome, acceptance verdict, and project evidence state, and requires retained
 evidence that can be checked after the Java and Python processes exit.
 
+## M1 contract prototype
+
+M1 chooses a canonical JPyxis semantic model rather than making the first Protobuf carrier the owner
+of contract meaning. The bounded profile currently implements records, float32 and int32 scalars,
+row-major tensors, fixed and symbolic dimensions, strict optionality, deterministic identity,
+semantic value-set compatibility, and the minimum evidence-envelope separation required by ADR-0005.
+
+```text
+contract + identity lock + 36-case corpus
+                    │
+          ┌─────────┴─────────┐
+          ↓                   ↓
+ independent Java       independent Python
+     binding                 binding
+          └─────────┬─────────┘
+                    ↓
+       cross-binding report equality
+```
+
+Run the complete local M1 candidate gate from the repository root:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+```
+
+The [M1 Contract Profile](docs/spec/m1-contract-profile.md) defines the bounded semantics,
+[ADR-0006](docs/adr/0006-m1-canonical-contract-profile.md) records the representation decision, and
+the [M1 Contract Review](docs/reviews/m1-contract-review.md) shows what is covered and what remains
+unproven. M2 stays blocked until that review is closed at a public immutable revision.
+
 ## Documentation map
 
 ### Foundation
@@ -179,6 +214,7 @@ evidence that can be checked after the Java and Python processes exit.
 - [State Machines](docs/architecture/state-machines.md)
 - [Failure Model](docs/architecture/failure-model.md)
 - [Contract Principles](docs/architecture/contract-principles.md)
+- [M1 Contract Profile](docs/spec/m1-contract-profile.md)
 
 ### Research and direction
 
@@ -196,11 +232,13 @@ evidence that can be checked after the Java and Python processes exit.
 - [ADR-0003: Reuse external runtimes](docs/adr/0003-reuse-external-runtimes.md)
 - [ADR-0004: First reference vertical slice](docs/adr/0004-first-reference-vertical-slice.md)
 - [ADR-0005: First verifiable end-to-end closure](docs/adr/0005-first-verifiable-end-to-end-closure.md)
+- [ADR-0006: M1 canonical contract profile](docs/adr/0006-m1-canonical-contract-profile.md)
 
 ### Review records
 
 - [M0 Architecture Review Gate](docs/reviews/m0-review-gate.md)
 - [M0 Literature Closure](docs/reviews/m0-literature-closure.md)
+- [M1 Contract Review](docs/reviews/m1-contract-review.md)
 
 ## Explicit non-goals for the single-node baseline
 

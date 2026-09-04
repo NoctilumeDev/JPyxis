@@ -1,6 +1,8 @@
 # Contributing
 
-JPyxis has frozen its M0 blueprint and is entering M1 contract design. Contributions must remain inside the current milestone; invocation, runtime, lifecycle, and Evolution implementation is premature until its preceding gate is satisfied.
+JPyxis has frozen its M0 blueprint and is reviewing the bounded M1 contract prototype. Contributions
+must remain inside the current milestone; invocation, runtime, lifecycle, and Evolution implementation
+is premature until its preceding gate is satisfied.
 
 ## Evidence labels
 
@@ -38,6 +40,21 @@ Prefer primary sources. A project page can establish what that project claims or
 - Do not couple internal domain objects to generated wire objects.
 - Do not implement an Evolution item merely because an attachment point exists.
 - Do not add M2 invocation or later-stage implementation before the M1 exit criteria are met.
+
+## M1 verification
+
+M1 changes must keep the language-neutral contract and corpus authoritative while the Java and Python
+bindings remain independent implementations. Run:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+git diff --check
+```
+
+A new corpus case must name its expected stable result. A binding-specific exception, generated wire
+type, runtime object, or generic value cannot become the shared answer merely to make both reports
+agree.
 
 ## Review posture
 
