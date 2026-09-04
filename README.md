@@ -8,21 +8,23 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M3 RUNTIME ABSTRACTION PROTOTYPE · REVIEW PENDING`**
+**`M3 RUNTIME ABSTRACTION FROZEN · M4 LIFECYCLE NEXT`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
 Java-owned invocation decision, loopback gRPC/Protobuf carrier, separate Python worker, NumPy affine
 definition, retained evidence bundles, and offline verifier. M2 is a frozen single-slice prototype.
-M3 now has a review candidate that runs one runtime-neutral definition plan through NumPy and a
+M3 is now a frozen bounded prototype that runs one runtime-neutral definition plan through NumPy and a
 dependency-free Python reference runtime while retaining the same host contract and Control-owned
-terminal decision. M3 is not frozen until its implementation and public evidence pass review.
+terminal decision. Its reviewed-head and merged-main evidence agree and remain independently
+verifiable after both runtime processes exit.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
-`m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`. M1 validates only cross-binding contract identity, value validation, the selected
+`m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
+bounded runtime-replacement boundary is frozen at `m3-runtime-v1`. M1 validates only cross-binding contract identity, value validation, the selected
 compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
-support, runtime replaceability, or clean-machine reproducibility. The M3 candidate may support only
+support, runtime replaceability, or clean-machine reproducibility. The M3 freeze supports only
 the bounded replacement claim recorded by its own gate; it cannot retroactively widen M1 or M2.
 
 ## Problem statement
@@ -215,34 +217,44 @@ Run the complete local candidate gate from the repository root:
 node scripts/verify-repository.mjs
 node scripts/verify-m1.mjs
 node scripts/verify-m2.mjs
-node scripts/verify-m3.mjs
 ```
 
 `verify-m2.mjs` creates an isolated Python environment under the ignored `build/` directory, builds
 the Java host, generates both carrier bindings from one Proto source, starts real Worker processes,
 executes the success and failure matrix serially, stops both runtime processes, and runs the offline
-verifier over retained bundles. The current candidate matrix contains 18 executable cases, five
+verifier over retained bundles. The frozen matrix contains 18 executable cases, five
 tamper cases, and one verifier-failure case.
 
 The frozen prototype does not establish runtime replaceability, lifecycle, retry safety, recovery,
 performance, production readiness, security isolation, accelerators, multi-host behavior,
 clean-machine reproducibility, or business success. Those claims remain behind later named gates.
 
-## M3 runtime abstraction candidate
+## M3 runtime abstraction prototype
 
 M3 adds a product-neutral runtime capability requirement, pre-dispatch capability resolution, a
 pinned runtime binding, a narrow Python Runtime Provider SPI, and two CPU fixtures. The M3 definition
 plan describes the bounded affine operation without importing either runtime. NumPy arrays stay in
 the NumPy provider; the reference provider uses only scalar Python and explicit float32 rounding.
 
-The current candidate gate executes both providers against the same host contract and definition,
+The frozen gate executes both providers against the same host contract and definition,
 compares exact float32 results with an independent oracle, verifies stable failure meaning, rejects
 an incompatible capability before dispatch, rejects a changed binding before runtime start, and
 rechecks retained evidence after the Java and Python processes exit. See
 [ADR-0008](docs/adr/0008-m3-runtime-capability-resolution.md) and the
-[M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md).
+[M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md). The accepted public coordinates,
+review corrections, and unproven claims are retained in the
+[M3 Runtime Review](docs/reviews/m3-runtime-review.md).
 
-This candidate does not prove an open plugin ecosystem, arbitrary third-party compatibility,
+Run the complete frozen regression chain from the repository root:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+node scripts/verify-m2.mjs
+node scripts/verify-m3.mjs
+```
+
+This freeze does not prove an open plugin ecosystem, arbitrary third-party compatibility,
 dynamic installation, general operation portability, lifecycle, performance, production readiness,
 accelerators, distribution, or clean-machine reproducibility.
 
@@ -296,6 +308,7 @@ accelerators, distribution, or clean-machine reproducibility.
 - [M0 Literature Closure](docs/reviews/m0-literature-closure.md)
 - [M1 Contract Review](docs/reviews/m1-contract-review.md)
 - [M2 Invocation Review](docs/reviews/m2-invocation-review.md)
+- [M3 Runtime Review](docs/reviews/m3-runtime-review.md)
 
 ## Explicit non-goals for the single-node baseline
 

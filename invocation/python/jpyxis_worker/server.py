@@ -343,6 +343,7 @@ def main(argv: list[str] | None = None) -> int:
         bound_port = server.add_insecure_port(f"127.0.0.1:{arguments.port}")
         if bound_port == 0:
             raise RuntimeError("worker could not bind the requested loopback port")
+        server.start()
         recorder.record(
             "WORKER_LISTENING",
             details={
@@ -352,7 +353,6 @@ def main(argv: list[str] | None = None) -> int:
                 "recorderHealthy": recorder.healthy,
             },
         )
-        server.start()
         server.wait_for_termination()
         return 0
     finally:

@@ -1,6 +1,6 @@
 # ADR-0008: Runtime Capability Resolution
 
-Status: `ACCEPTED FOR M3 CONSTRUCTION`
+Status: `ACCEPTED · M3 FROZEN`
 
 ## Context
 

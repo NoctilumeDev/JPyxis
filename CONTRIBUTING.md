@@ -1,8 +1,8 @@
 # Contributing
 
-JPyxis has frozen M0, M1, and M2. The current construction boundary is the bounded M3 runtime
-abstraction candidate. Contributions must remain inside this milestone; lifecycle, resilience, and
-Evolution implementation is premature until its preceding gate is satisfied.
+JPyxis has frozen M0 through M3. The next construction boundary is M4 lifecycle. Contributions must
+preserve the frozen layers; resilience and Evolution implementation remain premature until their
+preceding gates are satisfied.
 
 ## Evidence labels
 
@@ -40,7 +40,7 @@ Prefer primary sources. A project page can establish what that project claims or
 - Do not couple internal domain objects to generated wire objects.
 - Do not implement an Evolution item merely because an attachment point exists.
 - Do not alter frozen M1 semantics through an M2 transport shortcut.
-- Do not add M4 lifecycle or later-stage implementation before the M3 exit criteria are met.
+- Do not add M5 resilience or later-stage implementation before the M4 exit criteria are met.
 - Do not branch on Runtime implementation names inside Host API, Control, or Core.
 - Do not let provider-native values cross the Runtime Provider boundary.
 - Do not treat provider registration alone as proof of runtime replaceability.
