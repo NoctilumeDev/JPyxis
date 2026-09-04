@@ -7,6 +7,7 @@ public record InvocationAttempt(
         InvocationCoordinates coordinates,
         String contractDigest,
         String definitionDigest,
+        RuntimeBinding runtimeBinding,
         long deadlineUnixMillis,
         AffineBatchInput input) {
 }

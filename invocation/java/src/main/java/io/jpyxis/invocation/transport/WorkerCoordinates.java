@@ -7,5 +7,6 @@ public record WorkerCoordinates(
         String definitionDigest,
         String invocationId,
         String attemptId,
-        String traceId) {
+        String traceId,
+        RuntimeBinding runtimeBinding) {
 }

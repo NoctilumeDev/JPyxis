@@ -8,19 +8,22 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M2 INVOCATION FROZEN · M3 RUNTIME ABSTRACTION NEXT`**
+**`M3 RUNTIME ABSTRACTION PROTOTYPE · REVIEW PENDING`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
 Java-owned invocation decision, loopback gRPC/Protobuf carrier, separate Python worker, NumPy affine
-definition, retained evidence bundles, and offline verifier. M2 is a frozen single-slice prototype,
-not a production framework.
+definition, retained evidence bundles, and offline verifier. M2 is a frozen single-slice prototype.
+M3 now has a review candidate that runs one runtime-neutral definition plan through NumPy and a
+dependency-free Python reference runtime while retaining the same host contract and Control-owned
+terminal decision. M3 is not frozen until its implementation and public evidence pass review.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`. M1 validates only cross-binding contract identity, value validation, the selected
 compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
-support, runtime replaceability, or clean-machine reproducibility.
+support, runtime replaceability, or clean-machine reproducibility. The M3 candidate may support only
+the bounded replacement claim recorded by its own gate; it cannot retroactively widen M1 or M2.
 
 ## Problem statement
 
@@ -64,7 +67,7 @@ flowchart TB
         DEFINITION["Definition Plugin<br/>Python first"]
         TRANSPORT["Transport Plugin<br/>gRPC candidate"]
         DATA["Data-plane Plugin<br/>Protobuf candidate"]
-        RUNTIME["Runtime Plugin<br/>NumPy CPU first"]
+        RUNTIME["Runtime Plugins<br/>NumPy + reference CPU fixtures"]
         OTHER["Other plugins<br/>store · scheduler · telemetry"]
     end
 
@@ -212,6 +215,7 @@ Run the complete local candidate gate from the repository root:
 node scripts/verify-repository.mjs
 node scripts/verify-m1.mjs
 node scripts/verify-m2.mjs
+node scripts/verify-m3.mjs
 ```
 
 `verify-m2.mjs` creates an isolated Python environment under the ignored `build/` directory, builds
@@ -223,6 +227,24 @@ tamper cases, and one verifier-failure case.
 The frozen prototype does not establish runtime replaceability, lifecycle, retry safety, recovery,
 performance, production readiness, security isolation, accelerators, multi-host behavior,
 clean-machine reproducibility, or business success. Those claims remain behind later named gates.
+
+## M3 runtime abstraction candidate
+
+M3 adds a product-neutral runtime capability requirement, pre-dispatch capability resolution, a
+pinned runtime binding, a narrow Python Runtime Provider SPI, and two CPU fixtures. The M3 definition
+plan describes the bounded affine operation without importing either runtime. NumPy arrays stay in
+the NumPy provider; the reference provider uses only scalar Python and explicit float32 rounding.
+
+The current candidate gate executes both providers against the same host contract and definition,
+compares exact float32 results with an independent oracle, verifies stable failure meaning, rejects
+an incompatible capability before dispatch, rejects a changed binding before runtime start, and
+rechecks retained evidence after the Java and Python processes exit. See
+[ADR-0008](docs/adr/0008-m3-runtime-capability-resolution.md) and the
+[M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md).
+
+This candidate does not prove an open plugin ecosystem, arbitrary third-party compatibility,
+dynamic installation, general operation portability, lifecycle, performance, production readiness,
+accelerators, distribution, or clean-machine reproducibility.
 
 ## Documentation map
 
@@ -246,6 +268,7 @@ clean-machine reproducibility, or business success. Those claims remain behind l
 - [Contract Principles](docs/architecture/contract-principles.md)
 - [M1 Contract Profile](docs/spec/m1-contract-profile.md)
 - [M2 Invocation Profile](docs/spec/m2-invocation-profile.md)
+- [M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md)
 
 ### Research and direction
 
@@ -265,6 +288,7 @@ clean-machine reproducibility, or business success. Those claims remain behind l
 - [ADR-0005: First verifiable end-to-end closure](docs/adr/0005-first-verifiable-end-to-end-closure.md)
 - [ADR-0006: M1 canonical contract profile](docs/adr/0006-m1-canonical-contract-profile.md)
 - [ADR-0007: M2 invocation authority and race rules](docs/adr/0007-m2-invocation-authority-and-races.md)
+- [ADR-0008: M3 runtime capability resolution](docs/adr/0008-m3-runtime-capability-resolution.md)
 
 ### Review records
 

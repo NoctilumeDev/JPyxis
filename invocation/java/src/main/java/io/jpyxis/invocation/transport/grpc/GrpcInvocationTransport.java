@@ -14,6 +14,8 @@ import io.grpc.StatusRuntimeException;
 import io.jpyxis.contract.JsonSupport;
 import io.jpyxis.invocation.transport.InvocationAttempt;
 import io.jpyxis.invocation.transport.InvocationTransport;
+import io.jpyxis.invocation.transport.RuntimeBinding;
+import io.jpyxis.invocation.transport.RuntimeCapabilityReport;
 import io.jpyxis.invocation.transport.TransportCall;
 import io.jpyxis.invocation.transport.TransportException;
 import io.jpyxis.invocation.transport.WorkerCoordinates;
@@ -27,12 +29,14 @@ import io.jpyxis.invocation.wire.v1.InvocationWorkerGrpc;
 import io.jpyxis.invocation.wire.v1.Layout;
 import io.jpyxis.invocation.wire.v1.TensorValue;
 import io.jpyxis.invocation.wire.v1.TransportProbeRequest;
+import io.jpyxis.invocation.wire.v1.TransportProbeReport;
 import io.jpyxis.invocation.wire.v1.WorkerFailure;
 import io.jpyxis.invocation.wire.v1.WorkerReport;
 
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public final class GrpcInvocationTransport implements InvocationTransport {
     private final ManagedChannel channel;
@@ -42,11 +46,24 @@ public final class GrpcInvocationTransport implements InvocationTransport {
     }
 
     @Override
-    public void probe(Duration timeout) throws TransportException {
+    public RuntimeCapabilityReport probe(Duration timeout) throws TransportException {
         try {
-            InvocationWorkerGrpc.newBlockingStub(channel)
+            TransportProbeReport report = InvocationWorkerGrpc.newBlockingStub(channel)
                     .withDeadlineAfter(timeout.toNanos(), TimeUnit.NANOSECONDS)
                     .probe(TransportProbeRequest.getDefaultInstance());
+            return new RuntimeCapabilityReport(
+                    new RuntimeBinding(
+                            report.getRuntimeIdentity(),
+                            report.getRuntimeVersion(),
+                            report.getRuntimeCapabilityIdentity(),
+                            report.getRuntimeCapabilityVersion()),
+                    report.getOperationIdentity(),
+                    report.getSupportedDtypesList().stream()
+                            .map(this::dtypeName)
+                            .collect(Collectors.toUnmodifiableSet()),
+                    report.getSupportedLayoutsList().stream()
+                            .map(this::layoutName)
+                            .collect(Collectors.toUnmodifiableSet()));
         } catch (StatusRuntimeException exception) {
             throw mapFailure(exception);
         }
@@ -86,7 +103,11 @@ public final class GrpcInvocationTransport implements InvocationTransport {
                         .setDefinitionDigest(attempt.definitionDigest())
                         .setInvocationId(attempt.coordinates().invocationId())
                         .setAttemptId(attempt.coordinates().attemptId())
-                        .setTraceId(attempt.coordinates().traceId()))
+                        .setTraceId(attempt.coordinates().traceId())
+                        .setRuntimeIdentity(attempt.runtimeBinding().runtimeIdentity())
+                        .setRuntimeVersion(attempt.runtimeBinding().runtimeVersion())
+                        .setRuntimeCapabilityIdentity(attempt.runtimeBinding().capabilityIdentity())
+                        .setRuntimeCapabilityVersion(attempt.runtimeBinding().capabilityVersion()))
                 .setDeadlineUnixMillis(attempt.deadlineUnixMillis())
                 .setInput(AffineInput.newBuilder()
                         .setValues(tensor)
@@ -109,7 +130,12 @@ public final class GrpcInvocationTransport implements InvocationTransport {
                         coordinates.getDefinitionDigest(),
                         coordinates.getInvocationId(),
                         coordinates.getAttemptId(),
-                        coordinates.getTraceId()),
+                        coordinates.getTraceId(),
+                        new RuntimeBinding(
+                                coordinates.getRuntimeIdentity(),
+                                coordinates.getRuntimeVersion(),
+                                coordinates.getRuntimeCapabilityIdentity(),
+                                coordinates.getRuntimeCapabilityVersion())),
                 report.getWorkerIdentity(),
                 report.getWorkerVersion(),
                 report.getRuntimeIdentity(),
@@ -170,6 +196,10 @@ public final class GrpcInvocationTransport implements InvocationTransport {
         coordinateNode.put("invocationId", coordinates.getInvocationId());
         coordinateNode.put("attemptId", coordinates.getAttemptId());
         coordinateNode.put("traceId", coordinates.getTraceId());
+        coordinateNode.put("runtimeIdentity", coordinates.getRuntimeIdentity());
+        coordinateNode.put("runtimeVersion", coordinates.getRuntimeVersion());
+        coordinateNode.put("runtimeCapabilityIdentity", coordinates.getRuntimeCapabilityIdentity());
+        coordinateNode.put("runtimeCapabilityVersion", coordinates.getRuntimeCapabilityVersion());
         if (report.hasFailure()) {
             WorkerFailure workerFailure = report.getFailure();
             ObjectNode failure = node.putObject("failure");
@@ -183,6 +213,21 @@ public final class GrpcInvocationTransport implements InvocationTransport {
             node.set("output", output.deepCopy());
         }
         return node;
+    }
+
+    private String dtypeName(DType dtype) {
+        return switch (dtype) {
+            case DTYPE_FLOAT32 -> "float32";
+            case DTYPE_INT32 -> "int32";
+            default -> "UNSPECIFIED";
+        };
+    }
+
+    private String layoutName(Layout layout) {
+        return switch (layout) {
+            case LAYOUT_ROW_MAJOR -> "ROW_MAJOR";
+            default -> "UNSPECIFIED";
+        };
     }
 
     private TransportException mapFailure(Throwable throwable) {

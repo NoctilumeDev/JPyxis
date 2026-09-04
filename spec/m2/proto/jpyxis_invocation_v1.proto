@@ -18,6 +18,11 @@ message TransportProbeReport {
   string worker_version = 2;
   string runtime_identity = 3;
   string runtime_version = 4;
+  string runtime_capability_identity = 5;
+  string runtime_capability_version = 6;
+  string operation_identity = 7;
+  repeated DType supported_dtypes = 8;
+  repeated Layout supported_layouts = 9;
 }
 
 message InvocationCoordinates {
@@ -28,6 +33,10 @@ message InvocationCoordinates {
   string invocation_id = 5;
   string attempt_id = 6;
   string trace_id = 7;
+  string runtime_identity = 8;
+  string runtime_version = 9;
+  string runtime_capability_identity = 10;
+  string runtime_capability_version = 11;
 }
 
 enum DType {
