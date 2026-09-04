@@ -101,7 +101,7 @@ jobs:
           retention-days: 14
 
   reproduce-m6:
-    name: Reproduce M6 single-node candidate
+    name: Verify M6 single-node baseline
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:

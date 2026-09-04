@@ -1,6 +1,6 @@
 # ADR-0011: M6 Clean Reproduction Boundary
 
-Status: `ACCEPTED FOR M6 CONSTRUCTION`
+Status: `ACCEPTED · M6 FROZEN`
 
 ## Context
 

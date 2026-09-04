@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M5 FROZEN · M6 CANDIDATE UNDER CONSTRUCTION`
+Status: `M0-M6 FROZEN · SINGLE-NODE BASELINE COMPLETE`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -244,6 +244,13 @@ Exit gate:
 - each accepted run records an independent verdict without deriving it from invocation success alone;
 - the 16 GB target is accepted, narrowed, or rejected from observations;
 - the baseline is tagged and frozen only if all required evidence is present.
+
+Outcome: frozen at `m6-reproducibility-v1`. The implementation PR and merged-main revision each ran
+the complete 13-phase journey on a fresh public 16 GB-class Ubuntu host without project dependency
+caches. Both retained bundles passed independent offline readback, all eight evidence mutations were
+rejected from `PASS`, all recorded runtime processes stopped, and the bounded resource decision was
+`ACCEPT`. Exact coordinates, measurements, corrections, and unproven claims are recorded in the
+[M6 Reproducibility Review](../reviews/m6-reproducibility-review.md).
 
 ## Stop conditions
 
