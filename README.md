@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M0–M5 FROZEN · M6 REPRODUCIBILITY NEXT`**
+**`M0–M5 FROZEN · M6 REPRODUCIBILITY CANDIDATE`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -24,8 +24,10 @@ verifiable after the Java process exits.
 M5 is now a frozen bounded prototype in a separate resilience module. It adds a
 hash-chained durable journal, worker-instance supervision and epoch fencing, bounded retry decisions,
 desired-intent recovery, and M4 reconciliation through public lifecycle actions. Its reviewed-head
-and merged-main checks, downloaded evidence bundles, and offline verifier agree. M6 remains the next
-milestone and has not begun.
+and merged-main checks, downloaded evidence bundles, and offline verifier agree. M6 is now under
+construction as an outer reproduction and evidence layer; it does not alter M1–M5 ownership or
+implementation semantics. Until its fresh public run and independent evidence readback pass, M6 is
+an unfrozen candidate rather than a project fact.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
@@ -327,6 +329,32 @@ resource isolation, accelerators, or production readiness. See
 corrections, and unproven claims are retained in the
 [M5 Resilience Review](docs/reviews/m5-resilience-review.md).
 
+## M6 reproducibility candidate
+
+M6 composes the frozen gates into one ordered, retained journey: immutable source inspection,
+isolated bootstrap, clean build, M1–M5 regression, real Java-to-Python invocation, lifecycle and
+failure recovery, resource observation, rollback/final-state checks, runtime shutdown, and offline
+evidence verification. It is deliberately an outer reference lab. Frozen semantic modules do not
+import it, and an invocation success label cannot become the M6 acceptance verdict.
+
+The local command is diagnostic and must remain `INCONCLUSIVE` because a prepared workstation is
+not the authoritative clean environment:
+
+```text
+node scripts/verify-m6.mjs
+```
+
+The dedicated GitHub-hosted job starts from a fresh Ubuntu virtual machine, restores no dependency
+cache, invokes the same script with `--public-clean`, and retains the complete bundle. Only that
+coordinate may produce the public `PASS` candidate needed for review. The predeclared 16 GB
+decision also requires an observed 14–18 GiB host, the full journey, a process-tree peak at or below
+12 GiB, at least 2 GiB host memory remaining, no positive swap growth, and successful offline
+predecessor verification.
+
+See [ADR-0011](docs/adr/0011-m6-clean-reproduction-boundary.md) and the
+[M6 Reproducibility Profile](docs/spec/m6-reproducibility-profile.md). No M6 freeze review, evidence
+manifest, tag, or baseline-freeze claim exists yet.
+
 ## Documentation map
 
 ### Foundation
@@ -352,6 +380,7 @@ corrections, and unproven claims are retained in the
 - [M3 Runtime Abstraction Profile](docs/spec/m3-runtime-profile.md)
 - [M4 Lifecycle Profile](docs/spec/m4-lifecycle-profile.md)
 - [M5 Resilience Profile](docs/spec/m5-resilience-profile.md)
+- [M6 Reproducibility Profile](docs/spec/m6-reproducibility-profile.md)
 
 ### Research and direction
 
@@ -374,6 +403,7 @@ corrections, and unproven claims are retained in the
 - [ADR-0008: M3 runtime capability resolution](docs/adr/0008-m3-runtime-capability-resolution.md)
 - [ADR-0009: M4 lifecycle authority and cutover](docs/adr/0009-m4-lifecycle-authority-and-cutover.md)
 - [ADR-0010: M5 resilience authority and recovery](docs/adr/0010-m5-resilience-authority-and-recovery.md)
+- [ADR-0011: M6 clean reproduction boundary](docs/adr/0011-m6-clean-reproduction-boundary.md)
 
 ### Review records
 

@@ -99,3 +99,34 @@ jobs:
             build/m5/runs
           if-no-files-found: ignore
           retention-days: 14
+
+  reproduce-m6:
+    name: Reproduce M6 single-node candidate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out immutable candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Set up Java without dependency cache
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Set up Python without dependency cache
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Reproduce clean M1-M6 candidate
+        run: node scripts/verify-m6.mjs --public-clean
+      - name: Retain M6 reproduction evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: m6-reproduction-${{ github.sha }}
+          path: |
+            build/m6/conformance-summary.json
+            build/m6/bundle
+            build/m6/mutations
+            build/m6/logs
+          if-no-files-found: error
+          retention-days: 14
