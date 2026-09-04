@@ -78,7 +78,7 @@ const harnessDigest = `sha256:${crypto
 const harnessIdentity = `jpyxis:contract:${contractDocument.metadata.namespace}/${contractDocument.metadata.name}@${contractDocument.metadata.version}#${harnessDigest}`;
 assert.equal(harnessDigest, identityLock.contractDigest, "harness digest differs from the lock");
 assert.equal(harnessIdentity, identityLock.contractIdentity, "harness identity differs from the lock");
-assert.equal(corpusDocument.cases.length, 36, "M1 corpus size changed without review update");
+assert.equal(corpusDocument.cases.length, 38, "M1 corpus size changed without review update");
 const caseIds = corpusDocument.cases.map((item) => item.id);
 assert.ok(caseIds.every((id) => typeof id === "string" && id.length > 0), "corpus case id is missing");
 assert.equal(new Set(caseIds).size, caseIds.length, "corpus case ids must be unique");

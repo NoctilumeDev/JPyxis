@@ -168,10 +168,11 @@ evidence that can be checked after the Java and Python processes exit.
 M1 chooses a canonical JPyxis semantic model rather than making the first Protobuf carrier the owner
 of contract meaning. The bounded profile currently implements records, float32 and int32 scalars,
 row-major tensors, fixed and symbolic dimensions, strict optionality, deterministic identity,
-semantic value-set compatibility, and the minimum evidence-envelope separation required by ADR-0005.
+semantic value-set compatibility for the uncorrelated M1 subset, explicit rejection outside that
+subset, and the minimum evidence-envelope separation required by ADR-0005.
 
 ```text
-contract + identity lock + 36-case corpus
+contract + identity lock + 38-case corpus
                     │
           ┌─────────┴─────────┐
           ↓                   ↓

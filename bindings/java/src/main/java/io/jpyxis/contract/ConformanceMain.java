@@ -55,9 +55,9 @@ public final class ConformanceMain {
                         parser.parseType(caseNode.get("type")),
                         JsonSupport.decodeFixtureValues(caseNode.get("value")),
                         readBindings(caseNode.get("bindings"))));
-                case "compatibility" -> compatibilityResult(compatibilityChecker.compare(
+                case "compatibility" -> compatibilityResult(compatibilityChecker,
                         parser.parseType(caseNode.get("baseType")),
-                        parser.parseType(caseNode.get("candidateType"))));
+                        parser.parseType(caseNode.get("candidateType")));
                 case "evidence" -> validationResultWithoutBindings(
                         evidenceValidator.validate(caseNode.get("value")));
                 default -> throw new ContractException("CORPUS_INVALID", "Unknown case kind: " + kind);
@@ -131,9 +131,19 @@ public final class ConformanceMain {
         return node;
     }
 
-    private static ObjectNode compatibilityResult(CompatibilityRelation relation) {
+    private static ObjectNode compatibilityResult(
+            CompatibilityChecker checker, TypeSpec base, TypeSpec candidate) {
         ObjectNode node = JsonSupport.MAPPER.createObjectNode();
-        node.put("relation", relation.name());
+        try {
+            node.put("supported", true);
+            node.put("relation", checker.compare(base, candidate).name());
+        } catch (ContractException exception) {
+            if (!exception.code().equals("COMPATIBILITY_PROFILE_UNSUPPORTED")) {
+                throw exception;
+            }
+            node.put("supported", false);
+            node.put("code", exception.code());
+        }
         return node;
     }
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from enum import Enum
 
-from .model import RecordSpec, ScalarSpec, TensorSpec, TypeSpec
+from .model import ContractError, RecordSpec, ScalarSpec, TensorSpec, TypeSpec
 
 
 class CompatibilityRelation(str, Enum):
@@ -16,6 +16,12 @@ class CompatibilityRelation(str, Enum):
 
 
 def compare_types(base: TypeSpec, candidate: TypeSpec) -> CompatibilityRelation:
+    _require_supported(base)
+    _require_supported(candidate)
+    return _compare_supported(base, candidate)
+
+
+def _compare_supported(base: TypeSpec, candidate: TypeSpec) -> CompatibilityRelation:
     if type(base) is not type(candidate):
         return CompatibilityRelation.DISJOINT
     if isinstance(base, ScalarSpec) and isinstance(candidate, ScalarSpec):
@@ -51,13 +57,7 @@ def _compare_scalar(base: ScalarSpec, candidate: ScalarSpec) -> CompatibilityRel
             if candidate.finite
             else CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET
         )
-    if base.equals_symbol == candidate.equals_symbol:
-        return result
-    if base.equals_symbol is None:
-        return _combine(result, CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET)
-    if candidate.equals_symbol is None:
-        return _combine(result, CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET)
-    return CompatibilityRelation.OVERLAPS
+    return result
 
 
 def _compare_tensor(base: TensorSpec, candidate: TensorSpec) -> CompatibilityRelation:
@@ -112,7 +112,7 @@ def _compare_record(base: RecordSpec, candidate: RecordSpec) -> CompatibilityRel
                 return CompatibilityRelation.DISJOINT
             result = _combine(result, CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET)
             continue
-        field_relation = compare_types(base_field.type_spec, candidate_field.type_spec)
+        field_relation = _compare_supported(base_field.type_spec, candidate_field.type_spec)
         if base_field.required != candidate_field.required:
             field_relation = _combine(
                 field_relation,
@@ -135,3 +135,34 @@ def _compare_record(base: RecordSpec, candidate: RecordSpec) -> CompatibilityRel
             return CompatibilityRelation.DISJOINT
         result = _combine(result, CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET)
     return result
+
+
+def _require_supported(type_spec: TypeSpec) -> None:
+    symbol_occurrences: dict[str, int] = {}
+
+    def collect(current: TypeSpec) -> None:
+        if isinstance(current, ScalarSpec):
+            if current.equals_symbol is not None:
+                _unsupported("equalsSymbol creates a cross-value correlation")
+            return
+        if isinstance(current, TensorSpec):
+            for dimension in current.dimensions:
+                if dimension.symbol is None:
+                    continue
+                occurrences = symbol_occurrences.get(dimension.symbol, 0) + 1
+                symbol_occurrences[dimension.symbol] = occurrences
+                if occurrences > 1:
+                    _unsupported(
+                        "repeated symbol creates a cross-value correlation: "
+                        f"{dimension.symbol}"
+                    )
+            return
+        if isinstance(current, RecordSpec):
+            for field in current.fields:
+                collect(field.type_spec)
+
+    collect(type_spec)
+
+
+def _unsupported(message: str) -> None:
+    raise ContractError("COMPATIBILITY_PROFILE_UNSUPPORTED", message)

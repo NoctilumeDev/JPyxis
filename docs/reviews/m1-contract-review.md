@@ -12,7 +12,7 @@ at an immutable revision.
 - locked SHA-256 contract identity for `example.affine-batch@1.0.0`;
 - strict Java 17 parser, validator, normalizer, compatibility checker, and evidence-envelope checker;
 - independent Python 3.10+ implementation of the same responsibilities;
-- one language-neutral corpus with 36 cases;
+- one language-neutral corpus with 38 cases;
 - one cross-binding harness that compares complete report bodies;
 - static repository checks that reject named M2 dependencies and modules.
 
@@ -24,7 +24,7 @@ loads, embeds, invokes, generates, or imports the other.
 | Group | Cases | Boundary exercised |
 | --- | ---: | --- |
 | Value and type validation | 20 | records, required and optional fields, unknown-field rejection, float32 and int32, tensor dtype, rank, fixed and symbolic shape, batch bounds, layout, flattened value count, non-finite and overflow values, cross-input/output symbol binding |
-| Compatibility | 7 | equivalent, widening, narrowing, overlap, disjoint dtype, optional-field addition, required-field addition |
+| Compatibility | 9 | equivalent, widening, narrowing, overlap, disjoint dtype, optional-field addition, required-field addition, and explicit rejection of two correlated-symbol forms that M1 cannot soundly classify |
 | Evidence metadata | 9 | success and expected-failure PASS, incomplete INCONCLUSIVE, incomplete/conflicting/mismatched PASS rejection, missing coordinate, malformed identity, collapsed status rejection |
 
 Accepted value cases also emit a typed normalized projection. Java and Python must produce identical
@@ -58,7 +58,7 @@ evidence, not a clean-machine or public-CI closure coordinate.
 | Invalid output cannot become success | Output cases emit `accepted: false`; success eligibility is not produced. |
 | Untyped values do not bypass validation | Unknown fields, wrong scalar types, wrong tensor metadata, and collapsed evidence status are rejected. |
 | Identity is deterministic | Both bindings match one checked-in digest and identity lock. |
-| Compatibility is explicit | Seven fixtures use the named semantic value-set relations. |
+| Compatibility is explicit | Seven fixtures use named semantic value-set relations; two prove that correlated constraints return `COMPATIBILITY_PROFILE_UNSUPPORTED` rather than a false relation. |
 | Outcome axes remain separate | Evidence fixtures require three distinct fields and allow expected-failure acceptance. |
 | Incomplete or conflicting evidence cannot PASS | Dedicated negative cases reject both conditions. |
 

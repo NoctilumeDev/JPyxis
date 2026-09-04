@@ -9,7 +9,7 @@ from pathlib import Path
 from .codec import decode_fixture_values, load_json, write_json
 from .compatibility import compare_types
 from .evidence import validate_evidence_envelope
-from .model import RawJsonValue, ValidationResult
+from .model import ContractError, RawJsonValue, TypeSpec, ValidationResult
 from .normalization import normalize_value
 from .parser import parse_contract, parse_type
 from .validation import validate_value
@@ -57,11 +57,9 @@ def run(
                 )
             )
         elif kind == "compatibility":
-            actual = {
-                "relation": compare_types(
-                    parse_type(case["baseType"]), parse_type(case["candidateType"])
-                ).value
-            }
+            actual = _compatibility_result(
+                parse_type(case["baseType"]), parse_type(case["candidateType"])
+            )
         elif kind == "evidence":
             actual = _validation_result_without_bindings(
                 validate_evidence_envelope(case["value"])
@@ -118,6 +116,17 @@ def _validation_result(result: ValidationResult) -> dict[str, RawJsonValue]:
 
 def _validation_result_without_bindings(result: ValidationResult) -> dict[str, RawJsonValue]:
     return {"accepted": result.accepted, "code": result.code}
+
+
+def _compatibility_result(
+    base: TypeSpec, candidate: TypeSpec
+) -> dict[str, RawJsonValue]:
+    try:
+        return {"supported": True, "relation": compare_types(base, candidate).value}
+    except ContractError as error:
+        if error.code != "COMPATIBILITY_PROFILE_UNSUPPORTED":
+            raise
+        return {"supported": False, "code": error.code}
 
 
 def main() -> int:

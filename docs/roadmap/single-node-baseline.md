@@ -79,7 +79,7 @@ Not proven:
 
 - network invocation, runtime replacement, lifecycle, performance, or distributed behavior.
 
-Current evidence: the candidate implementation, shared 36-case corpus, and pending closure checklist
+Current evidence: the candidate implementation, shared 38-case corpus, and pending closure checklist
 are recorded in the [M1 Contract Review](../reviews/m1-contract-review.md). That record does not
 authorize M2 until its public gate and review coordinate are complete.
 

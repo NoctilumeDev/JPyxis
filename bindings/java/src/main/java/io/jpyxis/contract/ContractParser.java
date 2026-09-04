@@ -188,8 +188,9 @@ public final class ContractParser {
         Map<String, DimensionSpec> symbols = new HashMap<>();
         collectDimensions(input, symbols);
         collectDimensions(output, symbols);
-        validateScalarSymbols(input, symbols);
-        validateScalarSymbols(output, symbols);
+        Set<String> guaranteedBindings = new HashSet<>();
+        validateSymbolOrder(input, symbols, guaranteedBindings, true);
+        validateSymbolOrder(output, symbols, guaranteedBindings, true);
     }
 
     private void collectDimensions(TypeSpec type, Map<String, DimensionSpec> symbols) {
@@ -209,13 +210,34 @@ public final class ContractParser {
         }
     }
 
-    private void validateScalarSymbols(TypeSpec type, Map<String, DimensionSpec> symbols) {
+    private void validateSymbolOrder(
+            TypeSpec type,
+            Map<String, DimensionSpec> symbols,
+            Set<String> guaranteedBindings,
+            boolean requiredPath) {
         if (type instanceof ScalarSpec scalar && scalar.equalsSymbol() != null) {
             if (!symbols.containsKey(scalar.equalsSymbol())) {
                 invalid("Unknown scalar equalsSymbol: " + scalar.equalsSymbol());
             }
+            if (!guaranteedBindings.contains(scalar.equalsSymbol())) {
+                invalid("scalar.equalsSymbol must refer to a previously guaranteed symbol: "
+                        + scalar.equalsSymbol());
+            }
+        } else if (type instanceof TensorSpec tensor) {
+            if (requiredPath) {
+                tensor.dimensions().stream()
+                        .map(DimensionSpec::symbol)
+                        .filter(symbol -> symbol != null)
+                        .forEach(guaranteedBindings::add);
+            }
         } else if (type instanceof RecordSpec record) {
-            record.fields().forEach(field -> validateScalarSymbols(field.type(), symbols));
+            for (FieldSpec field : record.fields()) {
+                validateSymbolOrder(
+                        field.type(),
+                        symbols,
+                        guaranteedBindings,
+                        requiredPath && field.required());
+            }
         }
     }
 

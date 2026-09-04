@@ -412,6 +412,7 @@
         "finite": true
       },
       "expected": {
+        "supported": true,
         "relation": "EQUIVALENT"
       }
     },
@@ -449,6 +450,7 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "CANDIDATE_ACCEPTS_SUPERSET"
       }
     },
@@ -486,6 +488,7 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "CANDIDATE_ACCEPTS_SUBSET"
       }
     },
@@ -523,6 +526,7 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "OVERLAPS"
       }
     },
@@ -550,6 +554,7 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "DISJOINT"
       }
     },
@@ -577,6 +582,7 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "CANDIDATE_ACCEPTS_SUPERSET"
       }
     },
@@ -604,7 +610,68 @@
         ]
       },
       "expected": {
+        "supported": true,
         "relation": "DISJOINT"
+      }
+    },
+    {
+      "id": "compat-repeated-symbol-is-explicitly-unsupported",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          }
+        ]
+      },
+      "candidateType": {
+        "kind": "tensor",
+        "dtype": "float32",
+        "layout": "ROW_MAJOR",
+        "dimensions": [
+          {
+            "symbol": "B",
+            "min": 1,
+            "max": 32
+          },
+          {
+            "symbol": "C",
+            "min": 1,
+            "max": 32
+          }
+        ]
+      },
+      "expected": {
+        "supported": false,
+        "code": "COMPATIBILITY_PROFILE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "compat-equals-symbol-is-explicitly-unsupported",
+      "kind": "compatibility",
+      "baseType": {
+        "kind": "scalar",
+        "scalarType": "int32",
+        "equalsSymbol": "B"
+      },
+      "candidateType": {
+        "kind": "scalar",
+        "scalarType": "int32",
+        "equalsSymbol": "B"
+      },
+      "expected": {
+        "supported": false,
+        "code": "COMPATIBILITY_PROFILE_UNSUPPORTED"
       }
     },
     {

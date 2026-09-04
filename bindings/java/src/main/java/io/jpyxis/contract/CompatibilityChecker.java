@@ -7,12 +7,18 @@ import io.jpyxis.contract.ContractModel.ScalarSpec;
 import io.jpyxis.contract.ContractModel.TensorSpec;
 import io.jpyxis.contract.ContractModel.TypeSpec;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public final class CompatibilityChecker {
     public CompatibilityRelation compare(TypeSpec base, TypeSpec candidate) {
+        requireSupported(base);
+        requireSupported(candidate);
+        return compareSupported(base, candidate);
+    }
+
+    private CompatibilityRelation compareSupported(TypeSpec base, TypeSpec candidate) {
         if (base.getClass() != candidate.getClass()) {
             return CompatibilityRelation.DISJOINT;
         }
@@ -38,16 +44,7 @@ public final class CompatibilityChecker {
                     ? CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET
                     : CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET;
         }
-        if (Objects.equals(base.equalsSymbol(), candidate.equalsSymbol())) {
-            return result;
-        }
-        if (base.equalsSymbol() == null) {
-            return result.combine(CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET);
-        }
-        if (candidate.equalsSymbol() == null) {
-            return result.combine(CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET);
-        }
-        return CompatibilityRelation.OVERLAPS;
+        return result;
     }
 
     private CompatibilityRelation compareTensor(TensorSpec base, TensorSpec candidate) {
@@ -105,7 +102,8 @@ public final class CompatibilityChecker {
                 result = result.combine(CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET);
                 continue;
             }
-            CompatibilityRelation fieldRelation = compare(baseField.type(), candidateField.type());
+            CompatibilityRelation fieldRelation = compareSupported(
+                    baseField.type(), candidateField.type());
             if (baseField.required() != candidateField.required()) {
                 fieldRelation = fieldRelation.combine(candidateField.required()
                         ? CompatibilityRelation.CANDIDATE_ACCEPTS_SUBSET
@@ -129,6 +127,41 @@ public final class CompatibilityChecker {
             result = result.combine(CompatibilityRelation.CANDIDATE_ACCEPTS_SUPERSET);
         }
         return result;
+    }
+
+    private void requireSupported(TypeSpec type) {
+        Map<String, Integer> symbolOccurrences = new HashMap<>();
+        collectCompatibilitySymbols(type, symbolOccurrences);
+    }
+
+    private void collectCompatibilitySymbols(TypeSpec type, Map<String, Integer> symbolOccurrences) {
+        if (type instanceof ScalarSpec scalar) {
+            if (scalar.equalsSymbol() != null) {
+                unsupported("equalsSymbol creates a cross-value correlation");
+            }
+            return;
+        }
+        if (type instanceof TensorSpec tensor) {
+            for (DimensionSpec dimension : tensor.dimensions()) {
+                if (dimension.symbol() == null) {
+                    continue;
+                }
+                int occurrences = symbolOccurrences.merge(dimension.symbol(), 1, Integer::sum);
+                if (occurrences > 1) {
+                    unsupported("repeated symbol creates a cross-value correlation: "
+                            + dimension.symbol());
+                }
+            }
+            return;
+        }
+        if (type instanceof RecordSpec record) {
+            record.fields().forEach(field -> collectCompatibilitySymbols(
+                    field.type(), symbolOccurrences));
+        }
+    }
+
+    private static void unsupported(String message) {
+        throw new ContractException("COMPATIBILITY_PROFILE_UNSUPPORTED", message);
     }
 
     private Map<String, FieldSpec> fieldsByName(RecordSpec record) {

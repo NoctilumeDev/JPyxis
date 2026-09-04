@@ -46,6 +46,11 @@ A symbolic dimension declares one ASCII name and inclusive integer bounds. Repea
 symbol must bind to the same observed size. The reference contract binds `B` from input tensor shape
 and reuses it for output tensor shape and `rows`.
 
+Input fields are traversed in declared order, followed by output fields. A scalar `equalsSymbol` may
+refer only to a symbol already introduced through required fields on that path. A forward reference,
+or a reference whose only earlier binder is optional, makes the contract invalid; otherwise the
+parser could accept a document whose validation result depends on field presence or traversal order.
+
 The M1 JSON value carrier represents a tensor as:
 
 ```json
@@ -97,6 +102,12 @@ Compatibility compares the typed normalized values accepted by two named type de
 lexemes are converted before this relation is considered, so the JSON number `1` may be admitted as
 input for both an int32 and a float32 parser while the resulting typed values remain distinct.
 
+The M1 compatibility checker is sound only for the uncorrelated subset: a symbolic dimension may
+occur at most once within each compared type, and scalar `equalsSymbol` constraints are excluded.
+Those constructs remain valid for contract and value validation, but their compatibility requires
+reasoning across multiple value positions. M1 returns the explicit non-relation
+`COMPATIBILITY_PROFILE_UNSUPPORTED` for them instead of guessing a relation.
+
 | Verdict | Meaning |
 | --- | --- |
 | `EQUIVALENT` | Both definitions accept the same values. |
@@ -136,7 +147,7 @@ sentinel is not a public JPyxis value representation.
 
 Both bindings emit the same language-neutral report body. The top-level verification command checks:
 
-1. each binding agrees with every expected verdict;
+1. each binding agrees with every expected relation or explicit unsupported result;
 2. both bindings compute the locked contract identity;
 3. accepted scalar, record, and tensor values produce the same typed normalized projection;
 4. both report bodies are identical after removing the binding label;

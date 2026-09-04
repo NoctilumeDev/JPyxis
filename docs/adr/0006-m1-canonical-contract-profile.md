@@ -36,7 +36,7 @@ Java and Python bindings independently implement:
 - canonical identity;
 - input and output value validation;
 - symbolic dimension binding;
-- compatibility as a relation between accepted value sets;
+- compatibility as a relation between accepted value sets for the uncorrelated M1 subset;
 - the minimum evidence-envelope rules required by ADR-0005.
 
 The shared conformance corpus is the authority for M1 examples. Neither binding invokes the other.
@@ -54,6 +54,13 @@ M1 reports one of:
 
 This is a semantic value-set relation, not a deployment, wire, source, or rolling-upgrade decision.
 Later policy may consume it, but it may not silently rename it as general compatibility.
+
+M1 computes these relations only when symbolic dimensions occur once within each compared type and
+no scalar uses `equalsSymbol`. Repeated symbols and `equalsSymbol` create correlations between value
+positions; the interval and structural checker cannot soundly classify those constraints. It must
+return `COMPATIBILITY_PROFILE_UNSUPPORTED` rather than manufacture one of the five relations. Contract
+validation still enforces correlated symbols for the reference algorithm. General correlated-schema
+compatibility requires a later decision and conformance expansion.
 
 ## Consequences
 

@@ -1,6 +1,7 @@
 package io.jpyxis.contract;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
@@ -53,6 +54,46 @@ class ContractProfileTest {
         Path file = directory.resolve("duplicate.json");
         Files.writeString(file, "{\"name\":\"first\",\"name\":\"second\"}\n");
         assertThrows(JsonProcessingException.class, () -> JsonSupport.read(file));
+    }
+
+    @Test
+    void forwardSymbolReferenceIsRejected() throws Exception {
+        ObjectNode contract = referenceContractDocument();
+        ArrayNode fields = (ArrayNode) contract.at("/spec/operation/input/fields");
+        fields.insert(0, symbolScalarField("rows"));
+
+        ContractException exception = assertThrows(
+                ContractException.class, () -> new ContractParser().parse(contract));
+        assertEquals("CONTRACT_DOCUMENT_INVALID", exception.code());
+    }
+
+    @Test
+    void optionalSymbolBinderIsNotGuaranteed() throws Exception {
+        ObjectNode contract = referenceContractDocument();
+        ArrayNode fields = (ArrayNode) contract.at("/spec/operation/input/fields");
+        ((ObjectNode) fields.get(0)).put("required", false);
+        fields.insert(1, symbolScalarField("rows"));
+
+        ContractException exception = assertThrows(
+                ContractException.class, () -> new ContractParser().parse(contract));
+        assertEquals("CONTRACT_DOCUMENT_INVALID", exception.code());
+    }
+
+    private static ObjectNode referenceContractDocument() throws Exception {
+        return (ObjectNode) JsonSupport.read(
+                ROOT.resolve("spec/m1/contracts/example.affine-batch.v1.json"));
+    }
+
+    private static ObjectNode symbolScalarField(String name) {
+        ObjectNode type = JsonSupport.MAPPER.createObjectNode();
+        type.put("kind", "scalar");
+        type.put("scalarType", "int32");
+        type.put("equalsSymbol", "B");
+        ObjectNode field = JsonSupport.MAPPER.createObjectNode();
+        field.put("name", name);
+        field.put("required", true);
+        field.set("type", type);
+        return field;
     }
 
     private static Path findRepositoryRoot() {

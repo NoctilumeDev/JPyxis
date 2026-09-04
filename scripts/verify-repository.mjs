@@ -172,7 +172,7 @@ for (const workflow of files.filter((file) => /\.github[\\/]workflows[\\/].+\.ya
 const review = fs.existsSync(path.join(root, "docs/reviews/m1-contract-review.md"))
   ? fs.readFileSync(path.join(root, "docs/reviews/m1-contract-review.md"), "utf8")
   : "";
-for (const statement of ["CLOSURE REVIEW PENDING", "M2 remains blocked", "36 cases"]) {
+for (const statement of ["CLOSURE REVIEW PENDING", "M2 remains blocked", "38 cases"]) {
   if (!review.includes(statement)) fail(`M1 review is missing: ${statement}`);
 }
 

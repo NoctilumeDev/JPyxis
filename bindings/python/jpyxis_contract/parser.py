@@ -176,18 +176,32 @@ def _validate_symbols(input_type: RecordSpec, output_type: RecordSpec) -> None:
             for field in type_spec.fields:
                 collect(field.type_spec)
 
-    def validate(type_spec: TypeSpec) -> None:
+    guaranteed_bindings: set[str] = set()
+
+    def validate(type_spec: TypeSpec, required_path: bool) -> None:
         if isinstance(type_spec, ScalarSpec) and type_spec.equals_symbol is not None:
             if type_spec.equals_symbol not in symbols:
                 _invalid(f"Unknown scalar equalsSymbol: {type_spec.equals_symbol}")
+            if type_spec.equals_symbol not in guaranteed_bindings:
+                _invalid(
+                    "scalar.equalsSymbol must refer to a previously guaranteed symbol: "
+                    f"{type_spec.equals_symbol}"
+                )
+        elif isinstance(type_spec, TensorSpec):
+            if required_path:
+                guaranteed_bindings.update(
+                    dimension.symbol
+                    for dimension in type_spec.dimensions
+                    if dimension.symbol is not None
+                )
         elif isinstance(type_spec, RecordSpec):
             for field in type_spec.fields:
-                validate(field.type_spec)
+                validate(field.type_spec, required_path and field.required)
 
     collect(input_type)
     collect(output_type)
-    validate(input_type)
-    validate(output_type)
+    validate(input_type, True)
+    validate(output_type, True)
 
 
 def _object(value: RawJsonValue, label: str) -> dict[str, RawJsonValue]:
