@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M5",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m5-resilience-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/14",
+    "reviewedHeadSha": "49f4baf9025d8a0d3290ddcfee2221ed0ae38d2b",
+    "reviewedMergeRevision": "61541915db47748d48226aa048ff0472d6fda05a",
+    "mergeSha": "5097d5dbfbe431bdc1f9480e70fca58e0274912c"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33882755890,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33882755890",
+      "artifactId": 9940660473,
+      "artifactName": "m5-resilience-61541915db47748d48226aa048ff0472d6fda05a"
+    },
+    "mainRun": {
+      "id": 33883312634,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33883312634",
+      "artifactId": 9940898688,
+      "artifactName": "m5-resilience-5097d5dbfbe431bdc1f9480e70fca58e0274912c"
+    },
+    "conformanceSummarySha256": "sha256:ee3e82cba98b44f0344a3c4316aab367ccc7183b0e0084fb9094f9c290fdf8e9",
+    "environment": {
+      "runner": "GitHub Actions ubuntu-latest",
+      "os": "linux 6.17.0-1022-azure",
+      "architecture": "x64",
+      "java": "17.0.20.1",
+      "node": "22.23.2",
+      "mavenWrapper": "3.9.11"
+    }
+  },
+  "artifacts": [
+    {
+      "identity": "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest": "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    {
+      "identity": "jpyxis:definition:example/affine-batch-plan@2.0.0",
+      "digest": "sha256:b520c6a2ee781613e93cd7d6e9fa428dbb8ae666772d15ca8eca0a7b5cf014f0"
+    }
+  ],
+  "scenarioCount": 16,
+  "scenarioGroups": {
+    "executable": 12,
+    "evidenceMutation": 4
+  },
+  "testCount": 15,
+  "assertions": {
+    "durableHashChainedJournal": true,
+    "workerEligibilityHasSingleAuthority": true,
+    "workerEpochFencingOnRestart": true,
+    "logicalInvocationAndAttemptsAreSeparate": true,
+    "retryRequiresIdempotencyEvidence": true,
+    "retryBudgetIsBounded": true,
+    "uncertainOutcomeIsExplicit": true,
+    "lateObservationCannotRewriteTerminal": true,
+    "desiredIntentAndActualDeploymentAreSeparate": true,
+    "restartReconcilesThroughM4PublicActions": true,
+    "telemetryFailureCannotRewriteState": true,
+    "realLocalWorkerProcessesAreSupervised": true,
+    "offlineBundleVerification": true
+  },
+  "explicitlyUnproven": [
+    "power-loss crash consistency and production durable stores",
+    "operating-system or hardware security isolation",
+    "arbitrary plugin compatibility",
+    "multi-host scheduling and consensus",
+    "accelerator support",
+    "zero-copy or high-throughput data planes",
+    "production telemetry backends",
+    "clean-machine reproducibility",
+    "performance",
+    "production readiness",
+    "business transaction success"
+  ]
+}

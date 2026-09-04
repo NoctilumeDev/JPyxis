@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Verify M4 lifecycle repository
+    name: Verify M5 resilience repository
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

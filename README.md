@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M0–M4 FROZEN · M5 RESILIENCE CANDIDATE`**
+**`M0–M5 FROZEN · M6 REPRODUCIBILITY NEXT`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -21,17 +21,18 @@ verifiable after both runtime processes exit. M4 is now a frozen bounded prototy
 immutable artifact facts, deployment state, active bindings, and invocation drain obligations in a
 new module. Its reviewed-head and merged-main lifecycle evidence agree and remain independently
 verifiable after the Java process exits.
-M5 is now under construction in a separate resilience module. Its current local candidate adds a
+M5 is now a frozen bounded prototype in a separate resilience module. It adds a
 hash-chained durable journal, worker-instance supervision and epoch fencing, bounded retry decisions,
-desired-intent recovery, and M4 reconciliation through public lifecycle actions. These claims remain
-candidate evidence until pull-request review, merged-main CI, retained-artifact readback, and a
-separate freeze record agree.
+desired-intent recovery, and M4 reconciliation through public lifecycle actions. Its reviewed-head
+and merged-main checks, downloaded evidence bundles, and offline verifier agree. M6 remains the next
+milestone and has not begun.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
 bounded runtime-replacement boundary is frozen at `m3-runtime-v1`. The bounded lifecycle boundary is
-frozen at `m4-lifecycle-v1`. M1 validates only cross-binding contract identity, value validation, the selected
-compatibility subset, and minimum evidence-envelope semantics in its recorded environments. It must
+frozen at `m4-lifecycle-v1`; the bounded resilience boundary is frozen at `m5-resilience-v1`. M1
+validates only cross-binding contract identity, value validation, the selected compatibility subset,
+and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
 support, runtime replaceability, or clean-machine reproducibility. The M3 freeze supports only
 the bounded replacement claim recorded by its own gate; it cannot retroactively widen M1 or M2.
@@ -294,7 +295,7 @@ deployment owes service to accepted work and whether a forced-termination decisi
 corrections, and unproven claims are retained in the
 [M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md).
 
-## M5 resilience candidate
+## M5 resilience prototype
 
 M5 keeps three new facts under separate owners: `WorkerSupervisor` owns worker instance state and
 routing eligibility; `ResilientInvocationManager` owns logical invocation state, attempt lineage,
@@ -302,12 +303,12 @@ retry decisions, and the terminal outcome for the reference profile; `ControlInt
 desired deployment intent. M4 continues to own immutable artifacts, actual deployment state, and
 active bindings.
 
-The local candidate exercises two supervised worker processes, load/warmup/invocation/drain/unload
+The frozen gate exercises two supervised worker processes, load/warmup/invocation/drain/unload
 faults, explicit unknown outcomes, idempotency-gated retry, retry exhaustion, Control restart,
 epoch fencing, M4 public-action reconciliation, telemetry failure, and late observations. Its
 offline verifier also rejects truncated, reordered, corrupt, or incomplete retained evidence.
 
-Run the candidate and every frozen predecessor from the repository root:
+Run the complete frozen regression chain from the repository root:
 
 ```text
 node scripts/verify-repository.mjs
@@ -318,11 +319,13 @@ node scripts/verify-m4.mjs
 node scripts/verify-m5.mjs
 ```
 
-This is not yet an M5 freeze. It does not prove production durability, multi-host recovery,
+The freeze does not prove production durability, multi-host recovery,
 distributed consensus, arbitrary side-effect safety, performance, clean-machine reproducibility,
 resource isolation, accelerators, or production readiness. See
 [ADR-0010](docs/adr/0010-m5-resilience-authority-and-recovery.md) and the
-[M5 Resilience Profile](docs/spec/m5-resilience-profile.md).
+[M5 Resilience Profile](docs/spec/m5-resilience-profile.md). Exact public coordinates, review
+corrections, and unproven claims are retained in the
+[M5 Resilience Review](docs/reviews/m5-resilience-review.md).
 
 ## Documentation map
 
@@ -380,6 +383,7 @@ resource isolation, accelerators, or production readiness. See
 - [M2 Invocation Review](docs/reviews/m2-invocation-review.md)
 - [M3 Runtime Review](docs/reviews/m3-runtime-review.md)
 - [M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md)
+- [M5 Resilience Review](docs/reviews/m5-resilience-review.md)
 
 ## Explicit non-goals for the single-node baseline
 
