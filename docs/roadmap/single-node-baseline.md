@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M2 FROZEN · M3 PROTOTYPE IN REVIEW`
+Status: `M0-M3 FROZEN · M4 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -138,6 +138,11 @@ Acceptance:
 Not proven:
 
 - arbitrary third-party plugin compatibility or ecosystem maturity.
+
+Outcome: frozen for M4 entry at `m3-runtime-v1`. The two-runtime matrix, pre-execution rejection
+boundaries, reviewed-head and merged-main public runs, downloaded artifact readback, dependency
+review, and remaining unproven claims are recorded in the
+[M3 Runtime Review](../reviews/m3-runtime-review.md).
 
 ## M4 — Lifecycle
 

@@ -31,8 +31,10 @@ const requiredFiles = [
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
+  "docs/reviews/m3-runtime-review.md",
   "evidence/m1/freeze-manifest.json",
   "evidence/m2/freeze-manifest.json",
+  "evidence/m3/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -204,9 +206,9 @@ for (const file of listFiles(invocationJavaRoot).filter((item) => item.endsWith(
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M3 RUNTIME ABSTRACTION PROTOTYPE · REVIEW PENDING",
+  "M3 RUNTIME ABSTRACTION FROZEN · M4 LIFECYCLE NEXT",
   "M2 invocation prototype",
-  "M3 runtime abstraction candidate",
+  "M3 runtime abstraction prototype",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
@@ -306,6 +308,47 @@ for (const [label, actual, expected] of [
   if (actual !== expected) fail(`M2 evidence manifest has wrong ${label}: ${actual}`);
 }
 
+const m3EvidenceManifest = fs.existsSync(path.join(root, "evidence/m3/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m3/freeze-manifest.json"), "utf8"))
+  : {};
+const m3Review = fs.existsSync(path.join(root, "docs/reviews/m3-runtime-review.md"))
+  ? fs.readFileSync(path.join(root, "docs/reviews/m3-runtime-review.md"), "utf8")
+  : "";
+for (const statement of [
+  "FROZEN FOR M4 ENTRY",
+  "m3-runtime-v1",
+  "ten scenarios",
+  "8c54840733335be18cbe006f273e5994d3a931eb",
+  "33867080260",
+]) {
+  if (!m3Review.includes(statement)) fail(`M3 review is missing: ${statement}`);
+}
+for (const [label, actual, expected] of [
+  ["schema version", m3EvidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", m3EvidenceManifest.milestone, "M3"],
+  ["evidence state", m3EvidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", m3EvidenceManifest.freezeCoordinate, "m3-runtime-v1"],
+  ["scenario count", m3EvidenceManifest.scenarioCount, 10],
+  ["executable scenarios", m3EvidenceManifest.scenarioGroups?.executable, 8],
+  ["mutation scenarios", m3EvidenceManifest.scenarioGroups?.evidenceMutation, 2],
+  [
+    "implementation merge",
+    m3EvidenceManifest.implementation?.mergeSha,
+    "eb5950576168c872e0014b2fb27901de7081bcc4",
+  ],
+  ["main CI run", m3EvidenceManifest.publicEvidence?.mainRun?.id, 33867080260],
+  ["pull-request CI run", m3EvidenceManifest.publicEvidence?.pullRequestRun?.id, 33866645415],
+  ["first Runtime fixture", m3EvidenceManifest.runtimeFixtures?.[0], "numpy.cpu@2.2.6"],
+  ["second Runtime fixture", m3EvidenceManifest.runtimeFixtures?.[1], "python.reference@3.12.14"],
+  [
+    "public summary digest",
+    m3EvidenceManifest.publicEvidence?.conformanceSummarySha256,
+    "sha256:878a5c91cf765dae16b9a3a39a719c7ae9bee43d0bffc94f4fd6687af56d837f",
+  ],
+]) {
+  if (actual !== expected) fail(`M3 evidence manifest has wrong ${label}: ${actual}`);
+}
+
 if (failures.length > 0) {
   console.error(`Repository verification failed with ${failures.length} issue(s):`);
   failures.forEach((failure) => console.error(`- ${failure}`));
@@ -313,7 +356,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2 freezes intact and M3 runtime boundaries present.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2/M3 freezes intact and M4 remains unimplemented.`,
 );
 
 function readTreeText(relative, extensions) {

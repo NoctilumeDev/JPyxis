@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M3",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m3-runtime-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/10",
+    "reviewedHeadSha": "8c54840733335be18cbe006f273e5994d3a931eb",
+    "reviewedMergeRevision": "87e69a442dfcb5df1d9db04bfce31aeaaba274e0",
+    "mergeSha": "eb5950576168c872e0014b2fb27901de7081bcc4"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33866645415,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33866645415",
+      "artifactId": 9934292628,
+      "artifactName": "m3-runtime-87e69a442dfcb5df1d9db04bfce31aeaaba274e0"
+    },
+    "mainRun": {
+      "id": 33867080260,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33867080260",
+      "artifactId": 9934464719,
+      "artifactName": "m3-runtime-eb5950576168c872e0014b2fb27901de7081bcc4"
+    },
+    "conformanceSummarySha256": "sha256:878a5c91cf765dae16b9a3a39a719c7ae9bee43d0bffc94f4fd6687af56d837f",
+    "environment": {
+      "runner": "GitHub Actions ubuntu-latest",
+      "os": "linux 6.17.0-1022-azure",
+      "architecture": "x64",
+      "java": "17.0.20.1",
+      "python": "3.12.14",
+      "node": "22.23.2",
+      "mavenWrapper": "3.9.11",
+      "numpyRuntime": "2.2.6",
+      "referenceRuntime": "3.12.14"
+    }
+  },
+  "contract": {
+    "identity": "jpyxis:contract:example/affine-batch@1.0.0#sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3",
+    "digest": "sha256:7088bbcf650bbacb534e75fff3de20c3fa2367338d6369f531e6cc6c477b4de3"
+  },
+  "definition": {
+    "identity": "jpyxis:definition:example/affine-batch-plan@1.0.0",
+    "digest": "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+  },
+  "runtimeFixtures": [
+    "numpy.cpu@2.2.6",
+    "python.reference@3.12.14"
+  ],
+  "scenarioCount": 10,
+  "scenarioGroups": {
+    "executable": 8,
+    "evidenceMutation": 2
+  },
+  "assertions": {
+    "sameHostContract": true,
+    "sameDefinitionPlan": true,
+    "exactCrossRuntimeAgreement": true,
+    "stableCrossRuntimeFailureMeaning": true,
+    "capabilityMismatchFailsBeforeDispatch": true,
+    "bindingMismatchFailsBeforeRuntimeStart": true,
+    "runtimeNativeValuesRemainInProviders": true,
+    "offlineBundleVerification": true
+  },
+  "explicitlyUnproven": [
+    "arbitrary third-party plugin compatibility",
+    "dynamic plugin installation",
+    "general operation portability",
+    "deployment lifecycle",
+    "multi-worker routing",
+    "performance",
+    "production readiness",
+    "security isolation",
+    "accelerator support",
+    "multi-host behavior",
+    "clean-machine reproducibility",
+    "business success"
+  ]
+}

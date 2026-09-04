@@ -1,6 +1,6 @@
 # M3 Runtime Abstraction Profile
 
-Status: `DESIGNED · IMPLEMENTATION IN PROGRESS`
+Status: `M3 FROZEN · IMPLEMENTATION-BACKED`
 
 ## Frozen inputs
 
