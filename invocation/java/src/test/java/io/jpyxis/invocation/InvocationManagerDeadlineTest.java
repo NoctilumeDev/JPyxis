@@ -6,6 +6,8 @@ import io.jpyxis.contract.JsonSupport;
 import io.jpyxis.host.InvocationOptions;
 import io.jpyxis.invocation.transport.InvocationAttempt;
 import io.jpyxis.invocation.transport.InvocationTransport;
+import io.jpyxis.invocation.transport.RuntimeBinding;
+import io.jpyxis.invocation.transport.RuntimeCapabilityReport;
 import io.jpyxis.invocation.transport.TransportCall;
 import io.jpyxis.invocation.transport.WorkerCoordinates;
 import io.jpyxis.invocation.transport.WorkerExecutionReport;
@@ -16,6 +18,7 @@ import java.nio.file.Path;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,8 +33,9 @@ class InvocationManagerDeadlineTest {
         AtomicBoolean cancelled = new AtomicBoolean();
         InvocationTransport slowTransport = new InvocationTransport() {
             @Override
-            public void probe(Duration timeout) {
+            public RuntimeCapabilityReport probe(Duration timeout) {
                 // Transport discovery is already complete for this focused race test.
+                return capability();
             }
 
             @Override
@@ -92,7 +96,8 @@ class InvocationManagerDeadlineTest {
                         attempt.definitionDigest(),
                         attempt.coordinates().invocationId(),
                         attempt.coordinates().attemptId(),
-                        attempt.coordinates().traceId()),
+                        attempt.coordinates().traceId(),
+                        attempt.runtimeBinding()),
                 "test.worker",
                 "test",
                 "test.runtime",
@@ -100,5 +105,17 @@ class InvocationManagerDeadlineTest {
                 output,
                 null,
                 JsonSupport.MAPPER.createObjectNode());
+    }
+
+    private static RuntimeCapabilityReport capability() {
+        return new RuntimeCapabilityReport(
+                new RuntimeBinding(
+                        "test.runtime",
+                        "test",
+                        "jpyxis.capability/affine-float32",
+                        "1"),
+                "jpyxis.operation/affine-batch@1",
+                Set.of("float32"),
+                Set.of("ROW_MAJOR"));
     }
 }

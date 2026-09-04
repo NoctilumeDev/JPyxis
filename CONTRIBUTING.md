@@ -1,7 +1,7 @@
 # Contributing
 
-JPyxis has frozen its M0 blueprint and bounded M1 contract layer. The next construction boundary is
-M2 invocation. Contributions must remain inside the current milestone; runtime, lifecycle, and
+JPyxis has frozen M0, M1, and M2. The current construction boundary is the bounded M3 runtime
+abstraction candidate. Contributions must remain inside this milestone; lifecycle, resilience, and
 Evolution implementation is premature until its preceding gate is satisfied.
 
 ## Evidence labels
@@ -40,7 +40,10 @@ Prefer primary sources. A project page can establish what that project claims or
 - Do not couple internal domain objects to generated wire objects.
 - Do not implement an Evolution item merely because an attachment point exists.
 - Do not alter frozen M1 semantics through an M2 transport shortcut.
-- Do not add M3 runtime or later-stage implementation before the M2 exit criteria are met.
+- Do not add M4 lifecycle or later-stage implementation before the M3 exit criteria are met.
+- Do not branch on Runtime implementation names inside Host API, Control, or Core.
+- Do not let provider-native values cross the Runtime Provider boundary.
+- Do not treat provider registration alone as proof of runtime replaceability.
 
 ## M1 verification
 
@@ -56,6 +59,24 @@ git diff --check
 A new corpus case must name its expected stable result. A binding-specific exception, generated wire
 type, runtime object, or generic value cannot become the shared answer merely to make both reports
 agree.
+
+## M3 verification
+
+M3 changes must keep M1 and M2 green and then pass the independent runtime gate:
+
+```text
+node scripts/verify-repository.mjs
+node scripts/verify-m1.mjs
+node scripts/verify-m2.mjs
+node scripts/verify-m3.mjs
+node scripts/verify-m3-evidence.mjs build/m3
+git diff --check
+```
+
+The two M3 fixtures must use the same host contract and runtime-neutral definition. Capability
+mismatch must fail before dispatch when knowable, and a pinned-binding mismatch must fail before
+runtime execution. Product-specific types and names belong only to the outer composition root and
+provider implementation.
 
 ## Review posture
 

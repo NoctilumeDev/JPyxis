@@ -16,6 +16,8 @@ import io.jpyxis.host.InvocationCoordinates;
 import io.jpyxis.host.InvocationOptions;
 import io.jpyxis.invocation.transport.InvocationAttempt;
 import io.jpyxis.invocation.transport.InvocationTransport;
+import io.jpyxis.invocation.transport.RuntimeBinding;
+import io.jpyxis.invocation.transport.RuntimeCapabilityReport;
 import io.jpyxis.invocation.transport.TransportCall;
 import io.jpyxis.invocation.transport.TransportException;
 import io.jpyxis.invocation.transport.WorkerExecutionReport;
@@ -41,6 +43,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public final class InvocationManager implements AutoCloseable {
     private static final Duration PROBE_LIMIT = Duration.ofSeconds(1);
+    private static final String RUNTIME_CAPABILITY_IDENTITY = "jpyxis.capability/affine-float32";
+    private static final String RUNTIME_CAPABILITY_VERSION = "1";
+    private static final String OPERATION_IDENTITY = "jpyxis.operation/affine-batch@1";
     private final InvocationTransport transport;
     private final AlgorithmContract contract;
     private final String definitionIdentity;
@@ -115,13 +120,12 @@ public final class InvocationManager implements AutoCloseable {
 
         long deadlineNanos = System.nanoTime() + options.timeout().toNanos();
         long deadlineUnixMillis = Instant.now().plus(options.timeout()).toEpochMilli();
-        recorder.record("ATTEMPT_PINNED", coordinates, pinnedDetails(), false);
-
+        RuntimeCapabilityReport runtimeCapability;
         try {
             long probeNanos = Math.max(
                     1,
                     Math.min(PROBE_LIMIT.toNanos(), Math.max(1, deadlineNanos - System.nanoTime())));
-            transport.probe(Duration.ofNanos(probeNanos));
+            runtimeCapability = transport.probe(Duration.ofNanos(probeNanos));
             recorder.record("TRANSPORT_READY", coordinates, empty, false);
         } catch (TransportException exception) {
             if (exception.kind() == TransportException.Kind.DEADLINE_EXCEEDED
@@ -142,6 +146,33 @@ public final class InvocationManager implements AutoCloseable {
                     false,
                     null);
         }
+
+        if (runtimeCapability == null || !runtimeCapability.supports(
+                RUNTIME_CAPABILITY_IDENTITY,
+                RUNTIME_CAPABILITY_VERSION,
+                OPERATION_IDENTITY,
+                "float32",
+                "ROW_MAJOR")) {
+            recorder.record(
+                    "RUNTIME_CAPABILITY_REJECTED",
+                    coordinates,
+                    runtimeCapabilityDetails(runtimeCapability),
+                    false);
+            return commitFailure(
+                    terminal,
+                    TerminalState.FAILED,
+                    coordinates,
+                    runtimeCapabilityFailure(),
+                    false,
+                    null);
+        }
+        RuntimeBinding runtimeBinding = runtimeCapability.binding();
+        recorder.record(
+                "RUNTIME_CAPABILITY_RESOLVED",
+                coordinates,
+                runtimeCapabilityDetails(runtimeCapability),
+                false);
+        recorder.record("ATTEMPT_PINNED", coordinates, pinnedDetails(runtimeBinding), false);
 
         if (options.cancellationToken().isCancellationRequested()) {
             return commitFailure(
@@ -167,6 +198,7 @@ public final class InvocationManager implements AutoCloseable {
                 coordinates,
                 contract.digest(),
                 definitionDigest,
+                runtimeBinding,
                 deadlineUnixMillis,
                 toTypedInput(canonicalInput));
         recorder.record("DISPATCH_STARTED", coordinates, empty, false);
@@ -210,7 +242,8 @@ public final class InvocationManager implements AutoCloseable {
                 return withRecorderHealth(terminal.get());
             }
 
-            InvocationExecution candidate = evaluateReport(report, inputValidation, coordinates);
+            InvocationExecution candidate = evaluateReport(
+                    report, inputValidation, coordinates, runtimeBinding);
             if (terminal.compareAndSet(null, candidate)) {
                 recorder.record(
                         terminalEvent(candidate.state()),
@@ -344,8 +377,9 @@ public final class InvocationManager implements AutoCloseable {
     private InvocationExecution evaluateReport(
             WorkerExecutionReport report,
             ValidationResult inputValidation,
-            InvocationCoordinates coordinates) {
-        if (!coordinatesMatch(report, coordinates)) {
+            InvocationCoordinates coordinates,
+            RuntimeBinding runtimeBinding) {
+        if (!coordinatesMatch(report, coordinates, runtimeBinding)) {
             return failureExecution(
                     TerminalState.FAILED,
                     coordinates,
@@ -426,14 +460,7 @@ public final class InvocationManager implements AutoCloseable {
     }
 
     private InvocationFailure mapWorkerFailure(WorkerFailureObservation failure) {
-        String expectedCode = switch (failure.kind()) {
-            case CONTRACT -> "WORKER_CONTRACT_REJECTED";
-            case DEFINITION -> "DEFINITION_PREPARATION_FAILED";
-            case RUNTIME -> "RUNTIME_EXECUTION_FAILED";
-            case UNSPECIFIED -> null;
-        };
-        if (expectedCode == null
-                || !failure.code().equals(expectedCode)
+        if (!validWorkerFailureCode(failure.kind(), failure.code())
                 || failure.retryable()
                 || failure.originLayer().isBlank()
                 || failure.causalReference().isBlank()) {
@@ -455,8 +482,8 @@ public final class InvocationManager implements AutoCloseable {
         };
         return new InvocationFailure(
                 category,
-                expectedCode,
-                publicWorkerSummary(category),
+                failure.code(),
+                publicWorkerSummary(category, failure.code()),
                 false,
                 false,
                 false,
@@ -464,7 +491,23 @@ public final class InvocationManager implements AutoCloseable {
                 failure.causalReference());
     }
 
-    private boolean coordinatesMatch(WorkerExecutionReport report, InvocationCoordinates expected) {
+    private boolean validWorkerFailureCode(
+            WorkerFailureObservation.Kind kind,
+            String code) {
+        return switch (kind) {
+            case CONTRACT -> code.equals("WORKER_CONTRACT_REJECTED");
+            case DEFINITION -> code.equals("DEFINITION_PREPARATION_FAILED");
+            case RUNTIME -> code.equals("RUNTIME_EXECUTION_FAILED")
+                    || code.equals("RUNTIME_CAPABILITY_UNSUPPORTED")
+                    || code.equals("RUNTIME_BINDING_MISMATCH");
+            case UNSPECIFIED -> false;
+        };
+    }
+
+    private boolean coordinatesMatch(
+            WorkerExecutionReport report,
+            InvocationCoordinates expected,
+            RuntimeBinding runtimeBinding) {
         var actual = report.coordinates();
         return actual.contractIdentity().equals(contract.identity())
                 && actual.contractDigest().equals(contract.digest())
@@ -472,7 +515,10 @@ public final class InvocationManager implements AutoCloseable {
                 && actual.definitionDigest().equals(definitionDigest)
                 && actual.invocationId().equals(expected.invocationId())
                 && actual.attemptId().equals(expected.attemptId())
-                && actual.traceId().equals(expected.traceId());
+                && actual.traceId().equals(expected.traceId())
+                && actual.runtimeBinding().equals(runtimeBinding)
+                && report.runtimeIdentity().equals(runtimeBinding.runtimeIdentity())
+                && report.runtimeVersion().equals(runtimeBinding.runtimeVersion());
     }
 
     private AffineBatchInput toTypedInput(JsonNode input) {
@@ -580,7 +626,13 @@ public final class InvocationManager implements AutoCloseable {
                 "transport-observation");
     }
 
-    private String publicWorkerSummary(FailureCategory category) {
+    private String publicWorkerSummary(FailureCategory category, String code) {
+        if (code.equals("RUNTIME_BINDING_MISMATCH")) {
+            return "The worker runtime no longer matches the binding pinned before dispatch";
+        }
+        if (code.equals("RUNTIME_CAPABILITY_UNSUPPORTED")) {
+            return "The selected runtime does not support the required capability";
+        }
         return switch (category) {
             case CONTRACT_FAULT -> "Worker rejected the pinned contract or request coordinates";
             case DEFINITION_FAULT -> "The selected definition artifact could not be prepared";
@@ -599,13 +651,43 @@ public final class InvocationManager implements AutoCloseable {
         return details;
     }
 
-    private ObjectNode pinnedDetails() {
+    private ObjectNode pinnedDetails(RuntimeBinding runtimeBinding) {
         ObjectNode details = JsonSupport.MAPPER.createObjectNode();
         details.put("contractIdentity", contract.identity());
         details.put("contractDigest", contract.digest());
         details.put("definitionIdentity", definitionIdentity);
         details.put("definitionDigest", definitionDigest);
+        details.put("runtimeIdentity", runtimeBinding.runtimeIdentity());
+        details.put("runtimeVersion", runtimeBinding.runtimeVersion());
+        details.put("runtimeCapabilityIdentity", runtimeBinding.capabilityIdentity());
+        details.put("runtimeCapabilityVersion", runtimeBinding.capabilityVersion());
         return details;
+    }
+
+    private ObjectNode runtimeCapabilityDetails(RuntimeCapabilityReport report) {
+        ObjectNode details = JsonSupport.MAPPER.createObjectNode();
+        if (report == null || report.binding() == null) {
+            details.put("status", "ABSENT");
+            return details;
+        }
+        details.put("runtimeIdentity", report.binding().runtimeIdentity());
+        details.put("runtimeVersion", report.binding().runtimeVersion());
+        details.put("capabilityIdentity", report.binding().capabilityIdentity());
+        details.put("capabilityVersion", report.binding().capabilityVersion());
+        details.put("operationIdentity", report.operationIdentity());
+        return details;
+    }
+
+    private InvocationFailure runtimeCapabilityFailure() {
+        return new InvocationFailure(
+                FailureCategory.RUNTIME_FAULT,
+                "RUNTIME_CAPABILITY_UNSUPPORTED",
+                "The worker does not advertise the required runtime capability",
+                false,
+                false,
+                false,
+                "INVOCATION_MANAGER",
+                "runtime-capability-resolution");
     }
 
     private ObjectNode bindings(ValidationResult result) {

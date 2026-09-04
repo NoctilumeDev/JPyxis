@@ -24,8 +24,10 @@ const requiredFiles = [
   "docs/adr/0005-first-verifiable-end-to-end-closure.md",
   "docs/adr/0006-m1-canonical-contract-profile.md",
   "docs/adr/0007-m2-invocation-authority-and-races.md",
+  "docs/adr/0008-m3-runtime-capability-resolution.md",
   "docs/spec/m1-contract-profile.md",
   "docs/spec/m2-invocation-profile.md",
+  "docs/spec/m3-runtime-profile.md",
   "docs/reviews/m0-review-gate.md",
   "docs/reviews/m1-contract-review.md",
   "docs/reviews/m2-invocation-review.md",
@@ -40,6 +42,9 @@ const requiredFiles = [
   "scripts/verify-m1.mjs",
   "scripts/verify-m2.mjs",
   "scripts/verify-m2-bundle.mjs",
+  "scripts/verify-m3.mjs",
+  "scripts/verify-m3-bundle.mjs",
+  "scripts/verify-m3-evidence.mjs",
   "spec/m2/proto/jpyxis_invocation_v1.proto",
   "spec/m2/definitions/example_affine_v1.py",
   "invocation/java/pom.xml",
@@ -49,14 +54,19 @@ const requiredFiles = [
   "invocation/java/src/main/java/io/jpyxis/invocation/transport/grpc/GrpcInvocationTransport.java",
   "invocation/python/requirements-m2.txt",
   "invocation/python/jpyxis_worker/server.py",
+  "invocation/python/jpyxis_worker/m3_server.py",
+  "invocation/python/jpyxis_worker/runtime_spi.py",
+  "invocation/python/jpyxis_worker/worker_common.py",
+  "invocation/python/jpyxis_worker/runtimes/numpy_runtime.py",
+  "invocation/python/jpyxis_worker/runtimes/reference_runtime.py",
+  "invocation/python/requirements-m3.txt",
+  "spec/m3/definitions/example_affine_plan_v1.py",
 ];
 
-const prematureM3Entries = [
-  "plugins",
-  "jpyxis-core",
-  "jpyxis-control",
-  "runtime-spi",
-  "invocation/runtime",
+const prematureM4Entries = [
+  "lifecycle",
+  "deployment",
+  "scheduler",
 ];
 
 function fail(message) {
@@ -76,9 +86,9 @@ for (const relative of requiredFiles) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing required file: ${relative}`);
 }
 
-for (const relative of prematureM3Entries) {
+for (const relative of prematureM4Entries) {
   if (fs.existsSync(path.join(root, relative))) {
-    fail(`M2 repository contains premature M3 implementation entry: ${relative}`);
+    fail(`M3 repository contains premature M4 implementation entry: ${relative}`);
   }
 }
 
@@ -156,7 +166,30 @@ for (const [label, pattern] of [
   ["message queue", /\b(?:kafka|rabbitmq|activemq)\b/i],
   ["future runtime", /(?:^|\n)\s*(?:import|from)\s+(?:torch|onnxruntime|pyarrow)\b/],
 ]) {
-  if (pattern.test(implementationText)) fail(`M2 implementation contains out-of-scope ${label} dependency`);
+  if (pattern.test(implementationText)) fail(`M3 implementation contains out-of-scope ${label} dependency`);
+}
+
+const runtimeNeutralText = [
+  "invocation/python/jpyxis_worker/runtime_spi.py",
+  "invocation/python/jpyxis_worker/m3_server.py",
+  "spec/m3/definitions/example_affine_plan_v1.py",
+  "invocation/java/src/main/java/io/jpyxis/invocation/InvocationManager.java",
+].map((relative) => fs.readFileSync(path.join(root, relative), "utf8")).join("\n");
+for (const [label, pattern] of [
+  ["NumPy provider identity", /numpy\.cpu/],
+  ["reference provider identity", /python\.reference/],
+  ["NumPy value", /(?:^|\n)\s*(?:import|from)\s+numpy\b/],
+]) {
+  if (pattern.test(runtimeNeutralText)) fail(`M3 neutral runtime boundary leaks ${label}`);
+}
+for (const relative of [
+  "invocation/python/jpyxis_worker/runtimes/numpy_runtime.py",
+  "invocation/python/jpyxis_worker/runtimes/reference_runtime.py",
+]) {
+  const source = fs.readFileSync(path.join(root, relative), "utf8");
+  if (/jpyxis_invocation_v1_pb2|io\.jpyxis\.host/.test(source)) {
+    fail(`${relative}: runtime provider imports an outer carrier or host type`);
+  }
 }
 
 const invocationJavaRoot = path.join(root, "invocation/java/src/main/java");
@@ -171,8 +204,9 @@ for (const file of listFiles(invocationJavaRoot).filter((item) => item.endsWith(
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M2 INVOCATION FROZEN · M3 RUNTIME ABSTRACTION NEXT",
+  "M3 RUNTIME ABSTRACTION PROTOTYPE · REVIEW PENDING",
   "M2 invocation prototype",
+  "M3 runtime abstraction candidate",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
@@ -183,9 +217,11 @@ for (const statement of [
 
 const workflowText = fs.readFileSync(path.join(root, ".github/workflows/repository-gates.yml"), "utf8");
 for (const statement of [
-  "Verify M2 invocation repository",
+  "Verify M3 runtime repository",
   "node scripts/verify-m2.mjs",
+  "node scripts/verify-m3.mjs",
   "build/m2/runs",
+  "build/m3/runs",
 ]) {
   if (!workflowText.includes(statement)) fail(`repository workflow is missing: ${statement}`);
 }
@@ -277,7 +313,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1 freeze and M2 invocation boundaries intact.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1/M2 freezes intact and M3 runtime boundaries present.`,
 );
 
 function readTreeText(relative, extensions) {

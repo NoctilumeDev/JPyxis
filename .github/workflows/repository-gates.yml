@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Verify M2 invocation repository
+    name: Verify M3 runtime repository
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -36,13 +36,17 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: invocation/python/requirements-m2.txt
+          cache-dependency-path: |
+            invocation/python/requirements-m2.txt
+            invocation/python/requirements-m3.txt
       - name: Verify repository boundary
         run: node scripts/verify-repository.mjs
       - name: Verify M1 cross-binding conformance
         run: node scripts/verify-m1.mjs
       - name: Verify M2 invocation closure
         run: node scripts/verify-m2.mjs
+      - name: Verify M3 runtime abstraction
+        run: node scripts/verify-m3.mjs
       - name: Retain M1 conformance reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -59,5 +63,15 @@ jobs:
           path: |
             build/m2/conformance-summary.json
             build/m2/runs
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Retain M3 runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: m3-runtime-${{ github.sha }}
+          path: |
+            build/m3/conformance-summary.json
+            build/m3/runs
           if-no-files-found: ignore
           retention-days: 14

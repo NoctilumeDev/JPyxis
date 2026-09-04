@@ -1,34 +1,36 @@
-"""Separate-process M2 Python worker for the affine reference slice."""
+"""M3 worker with a runtime-neutral definition and replaceable execution provider."""
 
 from __future__ import annotations
 
 import argparse
 import hashlib
 import importlib.util
-import os
 import platform
-import time
 from concurrent import futures
 from pathlib import Path
 from types import ModuleType
 from typing import Any
 
 import grpc
-import numpy as np
 
 from jpyxis_contract.parser import parse_contract
 from jpyxis_contract.validation import validate_value
+from jpyxis_worker.runtime_spi import (
+    AFFINE_PLAN_SCHEMA,
+    DefinitionPlan,
+    RuntimeBinding,
+    RuntimeCapability,
+    RuntimeRequest,
+    supports_affine_profile,
+)
+from jpyxis_worker.runtimes import create_runtime_registry
 from jpyxis_worker.worker_common import ObservationRecorder
 
 import jpyxis_invocation_v1_pb2 as wire
 import jpyxis_invocation_v1_pb2_grpc as wire_grpc
 
-WORKER_IDENTITY = "jpyxis.worker.python-affine"
-WORKER_VERSION = "m2-v1alpha1"
-RUNTIME_IDENTITY = "numpy.cpu"
-RUNTIME_CAPABILITY_IDENTITY = "jpyxis.capability/affine-float32"
-RUNTIME_CAPABILITY_VERSION = "1"
-OPERATION_IDENTITY = "jpyxis.operation/affine-batch@1"
+WORKER_IDENTITY = "jpyxis.worker.python-runtime"
+WORKER_VERSION = "m3-v1alpha1"
 
 
 class DefinitionArtifact:
@@ -36,62 +38,64 @@ class DefinitionArtifact:
         self.path = path
         self.identity = identity
         self.digest = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
-        self.module: ModuleType | None = None
+        self.plan: DefinitionPlan | None = None
         self.preparation_failure: str | None = None
         try:
-            specification = importlib.util.spec_from_file_location("jpyxis_m2_definition", path)
-            if specification is None or specification.loader is None:
-                raise RuntimeError("definition module has no loader")
-            module = importlib.util.module_from_spec(specification)
-            specification.loader.exec_module(module)
-            declared_identity = getattr(module, "DEFINITION_IDENTITY", None)
-            if declared_identity != identity:
+            module = _load_module(path)
+            if getattr(module, "DEFINITION_IDENTITY", None) != identity:
                 raise RuntimeError("definition identity does not match the selected artifact")
-            if not callable(getattr(module, "execute", None)):
-                raise RuntimeError("definition does not expose execute")
-            self.module = module
-        except Exception as error:  # boundary converts diagnostics into a stable report
+            describe = getattr(module, "describe", None)
+            if not callable(describe):
+                raise RuntimeError("definition does not expose describe")
+            description = describe()
+            if not isinstance(description, dict) or set(description) != {
+                "schemaVersion", "operationIdentity"
+            }:
+                raise RuntimeError("definition plan shape is outside the M3 profile")
+            if not all(isinstance(value, str) for value in description.values()):
+                raise RuntimeError("definition plan values must be strings")
+            if description["schemaVersion"] != AFFINE_PLAN_SCHEMA:
+                raise RuntimeError("definition plan schema is unsupported")
+            self.plan = DefinitionPlan(
+                schema_version=description["schemaVersion"],
+                operation_identity=description["operationIdentity"],
+            )
+        except Exception as error:  # stable envelope owns public meaning
             self.preparation_failure = type(error).__name__
 
-    def execute(self, values: np.ndarray, scale: np.float32, bias: np.float32) -> np.ndarray:
-        if self.module is None:
-            raise RuntimeError("definition is not prepared")
-        return self.module.execute(values, scale, bias)
 
-
-class InvocationWorker(wire_grpc.InvocationWorkerServicer):
+class RuntimeInvocationWorker(wire_grpc.InvocationWorkerServicer):
     def __init__(
         self,
         contract_path: Path,
         definition_path: Path,
         definition_identity: str,
+        runtime_provider: str,
         recorder: ObservationRecorder,
         fault_mode: str,
-        delay_ms: int,
     ) -> None:
         self.contract = parse_contract(contract_path)
         self.definition = DefinitionArtifact(definition_path, definition_identity)
+        self.provider = create_runtime_registry().resolve(runtime_provider)
         self.recorder = recorder
         self.fault_mode = fault_mode
-        self.delay_ms = delay_ms
 
     def Probe(
         self, request: wire.TransportProbeRequest, context: grpc.ServicerContext
     ) -> wire.TransportProbeReport:
-        self.recorder.record("TRANSPORT_PROBED")
-        return wire.TransportProbeReport(
-            worker_identity=WORKER_IDENTITY,
-            worker_version=WORKER_VERSION,
-            runtime_identity=RUNTIME_IDENTITY,
-            runtime_version=np.__version__,
-            runtime_capability_identity=RUNTIME_CAPABILITY_IDENTITY,
-            runtime_capability_version=RUNTIME_CAPABILITY_VERSION,
-            operation_identity=OPERATION_IDENTITY,
-            supported_dtypes=[wire.DTYPE_FLOAT32],
-            supported_layouts=[wire.LAYOUT_ROW_MAJOR],
+        del request, context
+        binding = self._advertised_binding()
+        self.recorder.record(
+            "RUNTIME_CAPABILITY_ADVERTISED",
+            details={
+                "runtimeIdentity": binding.runtime_identity,
+                "capabilityIdentity": binding.capability.capability_identity,
+            },
         )
+        return _probe_report(binding)
 
     def Invoke(self, request: wire.InvokeRequest, context: grpc.ServicerContext) -> wire.WorkerReport:
+        del context
         coordinates = request.coordinates
         self.recorder.record("WORKER_REQUEST_OBSERVED", coordinates)
 
@@ -107,6 +111,20 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
                 coordinate_error,
                 "PYTHON_DEFINITION_BOUNDARY",
                 "worker-coordinate-validation",
+            )
+
+        binding_error = self._binding_error(coordinates)
+        if binding_error is not None:
+            self.recorder.record(
+                "RUNTIME_BINDING_REJECTED", coordinates, {"code": binding_error}
+            )
+            return self._failure(
+                coordinates,
+                wire.WORKER_FAILURE_CATEGORY_RUNTIME,
+                "RUNTIME_BINDING_MISMATCH",
+                "The pinned runtime binding no longer matches the worker provider",
+                "RUNTIME_REGISTRY",
+                "runtime-binding-validation",
             )
 
         canonical_input = _input_to_canonical(request.input)
@@ -127,12 +145,8 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
             "WORKER_INPUT_VALIDATED", coordinates, {"bindings": dict(validation.bindings)}
         )
 
-        if self.definition.preparation_failure is not None:
-            self.recorder.record(
-                "DEFINITION_PREPARATION_FAILED",
-                coordinates,
-                {"diagnosticType": self.definition.preparation_failure},
-            )
+        if self.definition.preparation_failure is not None or self.definition.plan is None:
+            self.recorder.record("DEFINITION_PREPARATION_FAILED", coordinates)
             return self._failure(
                 coordinates,
                 wire.WORKER_FAILURE_CATEGORY_DEFINITION,
@@ -142,35 +156,35 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
                 "definition-preparation",
             )
 
-        if self.fault_mode == "invalid_failure":
+        if not supports_affine_profile(self.provider.binding, self.definition.plan):
+            self.recorder.record("RUNTIME_CAPABILITY_REJECTED", coordinates)
             return self._failure(
                 coordinates,
-                wire.WORKER_FAILURE_CATEGORY_UNSPECIFIED,
-                "UNTRUSTED_WORKER_CODE",
-                "This worker-controlled message must not become public API",
-                "",
-                "",
+                wire.WORKER_FAILURE_CATEGORY_RUNTIME,
+                "RUNTIME_CAPABILITY_UNSUPPORTED",
+                "The selected runtime does not satisfy the definition requirement",
+                "RUNTIME_REGISTRY",
+                "runtime-capability-resolution",
             )
 
-        if self.fault_mode == "terminate":
-            self.recorder.record("WORKER_TERMINATING", coordinates)
-            self.recorder.close()
-            os._exit(86)
-
-        cancellation_observed = self._delay_and_observe_cancellation(context, coordinates)
-        self.recorder.record("RUNTIME_STARTED", coordinates)
+        tensor = canonical_input["values"]
+        runtime_request = RuntimeRequest(
+            definition=self.definition.plan,
+            shape=tuple(tensor["shape"]),
+            values=tuple(float(value) for value in tensor["values"]),
+            scale=float(canonical_input["scale"]),
+            bias=float(canonical_input["bias"]),
+        )
+        self.recorder.record(
+            "RUNTIME_STARTED",
+            coordinates,
+            {"runtimeIdentity": self.provider.binding.runtime_identity},
+        )
         try:
             if self.fault_mode == "runtime_failure":
-                raise RuntimeError("intentional M2 runtime failure")
-            shape = tuple(request.input.values.shape)
-            values = np.asarray(request.input.values.float_values, dtype=np.float32).reshape(shape)
-            result = self.definition.execute(
-                values, np.float32(request.input.scale), np.float32(request.input.bias)
-            )
-            if not isinstance(result, np.ndarray):
-                raise TypeError("definition result is not an ndarray")
-            result = np.asarray(result, dtype=np.float32)
-        except Exception as error:  # runtime diagnostics remain behind a stable envelope
+                raise RuntimeError("intentional M3 runtime failure")
+            result = self.provider.execute(runtime_request)
+        except Exception as error:
             self.recorder.record(
                 "RUNTIME_FAILED", coordinates, {"diagnosticType": type(error).__name__}
             )
@@ -179,47 +193,38 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
                 wire.WORKER_FAILURE_CATEGORY_RUNTIME,
                 "RUNTIME_EXECUTION_FAILED",
                 "The selected runtime failed during execution",
-                "NUMPY_RUNTIME",
+                "RUNTIME_PROVIDER",
                 "runtime-execution",
             )
 
-        self.recorder.record(
-            "RUNTIME_COMPLETED",
-            coordinates,
-            {"cancellationObserved": cancellation_observed},
-            late=cancellation_observed,
-        )
-        output_shape = list(result.shape)
-        rows = output_shape[0]
-        if self.fault_mode == "malformed_output":
-            rows += 1
+        self.recorder.record("RUNTIME_COMPLETED", coordinates)
         output = wire.AffineOutput(
             values=wire.TensorValue(
                 dtype=wire.DTYPE_FLOAT32,
-                shape=output_shape,
+                shape=result.shape,
                 layout=wire.LAYOUT_ROW_MAJOR,
-                float_values=result.reshape(-1).tolist(),
+                float_values=result.values,
             ),
-            rows=rows,
+            rows=result.shape[0],
         )
-        self.recorder.record(
-            "WORKER_REPORT_EMITTED", coordinates, {"observation": "OUTPUT"}, late=cancellation_observed
-        )
+        self.recorder.record("WORKER_REPORT_EMITTED", coordinates, {"observation": "OUTPUT"})
         return self._report(coordinates, output=output)
 
-    def _delay_and_observe_cancellation(
-        self, context: grpc.ServicerContext, coordinates: Any
-    ) -> bool:
-        if self.delay_ms <= 0:
-            return not context.is_active()
-        end = time.monotonic() + self.delay_ms / 1000
-        cancellation_observed = False
-        while time.monotonic() < end:
-            if not context.is_active() and not cancellation_observed:
-                cancellation_observed = True
-                self.recorder.record("CANCELLATION_OBSERVED", coordinates)
-            time.sleep(min(0.01, max(0, end - time.monotonic())))
-        return cancellation_observed
+    def _advertised_binding(self) -> RuntimeBinding:
+        binding = self.provider.binding
+        if self.fault_mode != "incompatible_capability":
+            return binding
+        return RuntimeBinding(
+            runtime_identity=binding.runtime_identity,
+            runtime_version=binding.runtime_version,
+            capability=RuntimeCapability(
+                capability_identity="jpyxis.capability/incompatible-fixture",
+                capability_version="1",
+                operation_identity="jpyxis.operation/incompatible@1",
+                dtypes=("float32",),
+                layouts=("ROW_MAJOR",),
+            ),
+        )
 
     def _coordinate_error(self, coordinates: Any) -> str | None:
         expected = {
@@ -235,6 +240,21 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
             return "invocation, attempt, and trace identities are required"
         return None
 
+    def _binding_error(self, coordinates: Any) -> str | None:
+        binding = self.provider.binding
+        expected = {
+            "runtime_identity": binding.runtime_identity,
+            "runtime_version": binding.runtime_version,
+            "runtime_capability_identity": binding.capability.capability_identity,
+            "runtime_capability_version": binding.capability.capability_version,
+        }
+        if self.fault_mode == "runtime_binding_mismatch":
+            expected["runtime_version"] = f"{binding.runtime_version}-changed"
+        for name, value in expected.items():
+            if getattr(coordinates, name) != value:
+                return f"{name} mismatch"
+        return None
+
     def _failure(
         self,
         coordinates: Any,
@@ -244,7 +264,9 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
         origin_layer: str,
         causal_reference: str,
     ) -> wire.WorkerReport:
-        self.recorder.record("WORKER_REPORT_EMITTED", coordinates, {"observation": "FAILURE", "code": code})
+        self.recorder.record(
+            "WORKER_REPORT_EMITTED", coordinates, {"observation": "FAILURE", "code": code}
+        )
         return self._report(
             coordinates,
             failure=wire.WorkerFailure(
@@ -264,16 +286,15 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
         output: wire.AffineOutput | None = None,
         failure: wire.WorkerFailure | None = None,
     ) -> wire.WorkerReport:
-        observed_coordinates = wire.InvocationCoordinates()
-        observed_coordinates.CopyFrom(coordinates)
-        if self.fault_mode == "mismatched_coordinates":
-            observed_coordinates.trace_id = f"{coordinates.trace_id}-mismatch"
+        observed = wire.InvocationCoordinates()
+        observed.CopyFrom(coordinates)
+        binding = self.provider.binding
         report = wire.WorkerReport(
-            observed_coordinates=observed_coordinates,
+            observed_coordinates=observed,
             worker_identity=WORKER_IDENTITY,
             worker_version=WORKER_VERSION,
-            runtime_identity=RUNTIME_IDENTITY,
-            runtime_version=np.__version__,
+            runtime_identity=binding.runtime_identity,
+            runtime_version=binding.runtime_version,
         )
         if output is not None:
             report.output.CopyFrom(output)
@@ -282,15 +303,37 @@ class InvocationWorker(wire_grpc.InvocationWorkerServicer):
         return report
 
 
+def _load_module(path: Path) -> ModuleType:
+    specification = importlib.util.spec_from_file_location("jpyxis_m3_definition", path)
+    if specification is None or specification.loader is None:
+        raise RuntimeError("definition module has no loader")
+    module = importlib.util.module_from_spec(specification)
+    specification.loader.exec_module(module)
+    return module
+
+
+def _probe_report(binding: RuntimeBinding) -> wire.TransportProbeReport:
+    capability = binding.capability
+    dtype_by_name = {"float32": wire.DTYPE_FLOAT32, "int32": wire.DTYPE_INT32}
+    layout_by_name = {"ROW_MAJOR": wire.LAYOUT_ROW_MAJOR}
+    return wire.TransportProbeReport(
+        worker_identity=WORKER_IDENTITY,
+        worker_version=WORKER_VERSION,
+        runtime_identity=binding.runtime_identity,
+        runtime_version=binding.runtime_version,
+        runtime_capability_identity=capability.capability_identity,
+        runtime_capability_version=capability.capability_version,
+        operation_identity=capability.operation_identity,
+        supported_dtypes=[dtype_by_name[item] for item in capability.dtypes],
+        supported_layouts=[layout_by_name[item] for item in capability.layouts],
+    )
+
+
 def _input_to_canonical(value: wire.AffineInput) -> dict[str, Any]:
     tensor = value.values
     dtype = "float32" if tensor.dtype == wire.DTYPE_FLOAT32 else "int32"
     layout = "ROW_MAJOR" if tensor.layout == wire.LAYOUT_ROW_MAJOR else "UNSPECIFIED"
-    values: list[float] | list[int]
-    if tensor.dtype == wire.DTYPE_FLOAT32:
-        values = list(tensor.float_values)
-    else:
-        values = list(tensor.int_values)
+    values = list(tensor.float_values) if tensor.dtype == wire.DTYPE_FLOAT32 else list(tensor.int_values)
     return {
         "values": {
             "dtype": dtype,
@@ -309,34 +352,35 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--contract", type=Path, required=True)
     parser.add_argument("--definition", type=Path, required=True)
     parser.add_argument("--definition-identity", required=True)
+    parser.add_argument("--runtime-provider", required=True)
     parser.add_argument("--observations", type=Path, required=True)
     parser.add_argument(
         "--fault-mode",
         choices=(
             "normal",
-            "invalid_failure",
-            "malformed_output",
-            "mismatched_coordinates",
+            "incompatible_capability",
+            "runtime_binding_mismatch",
             "runtime_failure",
-            "terminate",
         ),
         default="normal",
     )
-    parser.add_argument("--delay-ms", type=int, default=0)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     arguments = build_parser().parse_args(argv)
-    recorder = ObservationRecorder(arguments.observations)
+    recorder = ObservationRecorder(
+        arguments.observations,
+        "jpyxis.io/m3-observation/v1alpha1",
+    )
     try:
-        worker = InvocationWorker(
+        worker = RuntimeInvocationWorker(
             arguments.contract,
             arguments.definition,
             arguments.definition_identity,
+            arguments.runtime_provider,
             recorder,
             arguments.fault_mode,
-            arguments.delay_ms,
         )
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
         wire_grpc.add_InvocationWorkerServicer_to_server(worker, server)
@@ -348,7 +392,7 @@ def main(argv: list[str] | None = None) -> int:
             details={
                 "port": bound_port,
                 "python": platform.python_version(),
-                "runtime": np.__version__,
+                "runtime": worker.provider.binding.runtime_identity,
                 "recorderHealthy": recorder.healthy,
             },
         )

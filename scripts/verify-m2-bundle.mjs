@@ -145,6 +145,14 @@ function verifyCoordinates(manifest, outcome, rawReport, host, worker, failures,
     if (observed?.definitionDigest !== manifest.definition.digest) {
       rawMismatches.push("definitionDigest");
     }
+    if (observed?.runtimeIdentity !== undefined
+        && observed.runtimeIdentity !== manifest.capabilities.runtime) {
+      rawMismatches.push("runtimeIdentity");
+    }
+    if (observed?.runtimeVersion !== undefined
+        && observed.runtimeVersion !== manifest.capabilities.runtimeVersion) {
+      rawMismatches.push("runtimeVersion");
+    }
     if (manifest.allowRawCoordinateMismatch === true) {
       if (rawMismatches.length === 0 || outcome.failure?.code !== "WORKER_COORDINATE_MISMATCH") {
         failures.push("coordinate-mismatch fixture did not produce a rejected mismatched report");
@@ -175,19 +183,30 @@ function verifyObservationSequence(observations, label, failures, checks) {
 }
 
 function verifyObservationOrder(host, worker, failures, checks) {
-  verifyPartialOrder(host, "host", [
+  const hostPairs = [
     ["INVOCATION_ACCEPTED", "INPUT_VALIDATED"],
     ["INVOCATION_ACCEPTED", "INPUT_REJECTED"],
     ["INPUT_VALIDATED", "ATTEMPT_PINNED"],
-    ["ATTEMPT_PINNED", "TRANSPORT_READY"],
-    ["TRANSPORT_READY", "DISPATCH_STARTED"],
     ["DISPATCH_STARTED", "DISPATCHED"],
     ["DISPATCHED", "RESPONSE_OBSERVED"],
     ["RESPONSE_OBSERVED", "OUTPUT_VALIDATED"],
     ["RESPONSE_OBSERVED", "OUTPUT_REJECTED"],
     ["OUTPUT_VALIDATED", "TERMINAL_SUCCEEDED"],
     ["OUTPUT_REJECTED", "TERMINAL_FAILED"],
-  ], failures);
+  ];
+  if (host.some((item) => item.event === "RUNTIME_CAPABILITY_RESOLVED")) {
+    hostPairs.push(
+      ["TRANSPORT_READY", "RUNTIME_CAPABILITY_RESOLVED"],
+      ["RUNTIME_CAPABILITY_RESOLVED", "ATTEMPT_PINNED"],
+      ["ATTEMPT_PINNED", "DISPATCH_STARTED"],
+    );
+  } else {
+    hostPairs.push(
+      ["ATTEMPT_PINNED", "TRANSPORT_READY"],
+      ["TRANSPORT_READY", "DISPATCH_STARTED"],
+    );
+  }
+  verifyPartialOrder(host, "host", hostPairs, failures);
   verifyPartialOrder(worker, "worker", [
     ["WORKER_REQUEST_OBSERVED", "WORKER_INPUT_VALIDATED"],
     ["WORKER_REQUEST_OBSERVED", "WORKER_INPUT_REJECTED"],
