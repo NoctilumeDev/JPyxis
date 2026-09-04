@@ -37,10 +37,12 @@ const requiredFiles = [
   "docs/reviews/m2-invocation-review.md",
   "docs/reviews/m3-runtime-review.md",
   "docs/reviews/m4-lifecycle-review.md",
+  "docs/reviews/m5-resilience-review.md",
   "evidence/m1/freeze-manifest.json",
   "evidence/m2/freeze-manifest.json",
   "evidence/m3/freeze-manifest.json",
   "evidence/m4/freeze-manifest.json",
+  "evidence/m5/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -88,6 +90,12 @@ const requiredFiles = [
   "scripts/verify-m5-evidence.mjs",
 ];
 
+const prematureM6Entries = [
+  "evidence/m6",
+  "docs/reviews/m6-reproducibility-review.md",
+  "scripts/verify-m6.mjs",
+];
+
 function fail(message) {
   failures.push(message);
 }
@@ -103,6 +111,12 @@ function listFiles(directory) {
 
 for (const relative of requiredFiles) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing required file: ${relative}`);
+}
+
+for (const relative of prematureM6Entries) {
+  if (fs.existsSync(path.join(root, relative))) {
+    fail(`M5 freeze contains premature M6 evidence entry: ${relative}`);
+  }
 }
 
 const files = listFiles(root);
@@ -263,11 +277,11 @@ if (/io\.jpyxis\.resilience/.test(invocationJavaText) || /io\.jpyxis\.resilience
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M0–M4 FROZEN · M5 RESILIENCE CANDIDATE",
+  "M0–M5 FROZEN · M6 REPRODUCIBILITY NEXT",
   "M2 invocation prototype",
   "M3 runtime abstraction prototype",
   "M4 lifecycle prototype",
-  "M5 resilience candidate",
+  "M5 resilience prototype",
   "Core defines semantics; plugins provide capabilities.",
   "M0 Architecture",
   "M1 Contract",
@@ -278,7 +292,7 @@ for (const statement of [
 
 const workflowText = fs.readFileSync(path.join(root, ".github/workflows/repository-gates.yml"), "utf8");
 for (const statement of [
-  "Verify M4 lifecycle repository",
+  "Verify M5 resilience repository",
   "node scripts/verify-m2.mjs",
   "node scripts/verify-m3.mjs",
   "node scripts/verify-m4.mjs",
@@ -461,6 +475,77 @@ for (const [label, actual, expected] of [
   if (actual !== expected) fail(`M4 evidence manifest has wrong ${label}: ${actual}`);
 }
 
+const m5EvidenceManifest = fs.existsSync(path.join(root, "evidence/m5/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m5/freeze-manifest.json"), "utf8"))
+  : {};
+const m5Review = fs.existsSync(path.join(root, "docs/reviews/m5-resilience-review.md"))
+  ? fs.readFileSync(path.join(root, "docs/reviews/m5-resilience-review.md"), "utf8")
+  : "";
+for (const statement of [
+  "Status: `FROZEN FOR M6 ENTRY`",
+  "`WorkerSupervisor` alone owns local worker instance state and routing eligibility",
+  "`ResilientInvocationManager` separates one logical invocation from its bounded attempts",
+  "ee3e82cba98b44f0344a3c4316aab367ccc7183b0e0084fb9094f9c290fdf8e9",
+  "m5-resilience-v1",
+]) {
+  if (!m5Review.includes(statement)) fail(`M5 review is missing: ${statement}`);
+}
+for (const [label, actual, expected] of [
+  ["schema version", m5EvidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", m5EvidenceManifest.milestone, "M5"],
+  ["evidence state", m5EvidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", m5EvidenceManifest.freezeCoordinate, "m5-resilience-v1"],
+  ["scenario count", m5EvidenceManifest.scenarioCount, 16],
+  ["executable scenarios", m5EvidenceManifest.scenarioGroups?.executable, 12],
+  ["mutation scenarios", m5EvidenceManifest.scenarioGroups?.evidenceMutation, 4],
+  ["Java test count", m5EvidenceManifest.testCount, 15],
+  [
+    "reviewed head",
+    m5EvidenceManifest.implementation?.reviewedHeadSha,
+    "49f4baf9025d8a0d3290ddcfee2221ed0ae38d2b",
+  ],
+  [
+    "reviewed merge revision",
+    m5EvidenceManifest.implementation?.reviewedMergeRevision,
+    "61541915db47748d48226aa048ff0472d6fda05a",
+  ],
+  [
+    "implementation merge",
+    m5EvidenceManifest.implementation?.mergeSha,
+    "5097d5dbfbe431bdc1f9480e70fca58e0274912c",
+  ],
+  ["pull-request CI run", m5EvidenceManifest.publicEvidence?.pullRequestRun?.id, 33882755890],
+  ["pull-request artifact", m5EvidenceManifest.publicEvidence?.pullRequestRun?.artifactId, 9940660473],
+  ["main CI run", m5EvidenceManifest.publicEvidence?.mainRun?.id, 33883312634],
+  ["main artifact", m5EvidenceManifest.publicEvidence?.mainRun?.artifactId, 9940898688],
+  [
+    "public summary digest",
+    m5EvidenceManifest.publicEvidence?.conformanceSummarySha256,
+    "sha256:ee3e82cba98b44f0344a3c4316aab367ccc7183b0e0084fb9094f9c290fdf8e9",
+  ],
+]) {
+  if (actual !== expected) fail(`M5 evidence manifest has wrong ${label}: ${actual}`);
+}
+for (const assertion of [
+  "durableHashChainedJournal",
+  "workerEligibilityHasSingleAuthority",
+  "workerEpochFencingOnRestart",
+  "logicalInvocationAndAttemptsAreSeparate",
+  "retryRequiresIdempotencyEvidence",
+  "retryBudgetIsBounded",
+  "uncertainOutcomeIsExplicit",
+  "lateObservationCannotRewriteTerminal",
+  "desiredIntentAndActualDeploymentAreSeparate",
+  "restartReconcilesThroughM4PublicActions",
+  "telemetryFailureCannotRewriteState",
+  "realLocalWorkerProcessesAreSupervised",
+  "offlineBundleVerification",
+]) {
+  if (m5EvidenceManifest.assertions?.[assertion] !== true) {
+    fail(`M5 evidence manifest is missing assertion: ${assertion}`);
+  }
+}
+
 if (failures.length > 0) {
   console.error(`Repository verification failed with ${failures.length} issue(s):`);
   failures.forEach((failure) => console.error(`- ${failure}`));
@@ -468,7 +553,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M4 freezes intact and the M5 candidate stays within its declared boundary.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M5 freezes intact and M6 remains unimplemented.`,
 );
 
 function readTreeText(relative, extensions) {

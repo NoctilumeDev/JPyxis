@@ -1,6 +1,6 @@
 # M5 Resilience Profile
 
-Status: `CANDIDATE FOR M5 CONSTRUCTION`
+Status: `M5 FROZEN · IMPLEMENTATION-BACKED`
 
 This profile freezes the bounded failure, supervision, retry, restart, and evidence questions that
 M5 must answer. It does not widen the M1-M4 claims.

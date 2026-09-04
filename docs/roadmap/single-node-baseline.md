@@ -1,6 +1,6 @@
 # Single-node Baseline
 
-Status: `M0-M4 FROZEN · M5 CONSTRUCTION`
+Status: `M0-M5 FROZEN · M6 NEXT`
 
 M0-M6 are delivery milestones. Each milestone proves one architecture hypothesis and defines what remains unproven. The sequence is serial: later work may not use an earlier document or prototype as if it were validated evidence.
 
@@ -194,6 +194,11 @@ Acceptance:
 Not proven:
 
 - independent-machine failure, network partition across hosts, or cluster consensus.
+
+Outcome: frozen for M6 entry at `m5-resilience-v1`. The durable journal, worker supervision,
+epoch fencing, attempt lineage, bounded idempotency-aware retry, desired-intent recovery, M4 public
+reconciliation, reviewed-head and merged-main runs, downloaded artifact readback, and remaining
+unproven claims are recorded in the [M5 Resilience Review](../reviews/m5-resilience-review.md).
 
 ## M6 — Reproducibility
 
