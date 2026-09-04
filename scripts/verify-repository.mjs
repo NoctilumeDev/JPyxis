@@ -40,11 +40,13 @@ const requiredFiles = [
   "docs/reviews/m3-runtime-review.md",
   "docs/reviews/m4-lifecycle-review.md",
   "docs/reviews/m5-resilience-review.md",
+  "docs/reviews/m6-reproducibility-review.md",
   "evidence/m1/freeze-manifest.json",
   "evidence/m2/freeze-manifest.json",
   "evidence/m3/freeze-manifest.json",
   "evidence/m4/freeze-manifest.json",
   "evidence/m5/freeze-manifest.json",
+  "evidence/m6/freeze-manifest.json",
   "spec/m1/contracts/example.affine-batch.v1.json",
   "spec/m1/corpus/conformance.json",
   "spec/m1/identity.lock.json",
@@ -95,11 +97,6 @@ const requiredFiles = [
   "scripts/verify-m6-evidence.mjs",
 ];
 
-const prematureM6Entries = [
-  "evidence/m6",
-  "docs/reviews/m6-reproducibility-review.md",
-];
-
 function fail(message) {
   failures.push(message);
 }
@@ -115,12 +112,6 @@ function listFiles(directory) {
 
 for (const relative of requiredFiles) {
   if (!fs.existsSync(path.join(root, relative))) fail(`missing required file: ${relative}`);
-}
-
-for (const relative of prematureM6Entries) {
-  if (fs.existsSync(path.join(root, relative))) {
-    fail(`M5 freeze contains premature M6 evidence entry: ${relative}`);
-  }
 }
 
 const files = listFiles(root);
@@ -290,7 +281,7 @@ if (/io\.jpyxis\.m6|scripts[\\/]verify-m6|m6-resource-probe/.test(frozenImplemen
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 for (const statement of [
-  "M0–M5 FROZEN · M6 REPRODUCIBILITY CANDIDATE",
+  "M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE",
   "M2 invocation prototype",
   "M3 runtime abstraction prototype",
   "M4 lifecycle prototype",
@@ -306,7 +297,7 @@ for (const statement of [
 const workflowText = fs.readFileSync(path.join(root, ".github/workflows/repository-gates.yml"), "utf8");
 for (const statement of [
   "Verify M5 resilience repository",
-  "Reproduce M6 single-node candidate",
+  "Verify M6 single-node baseline",
   "node scripts/verify-m2.mjs",
   "node scripts/verify-m3.mjs",
   "node scripts/verify-m4.mjs",
@@ -562,6 +553,63 @@ for (const assertion of [
   }
 }
 
+const m6EvidenceManifest = fs.existsSync(path.join(root, "evidence/m6/freeze-manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(root, "evidence/m6/freeze-manifest.json"), "utf8"))
+  : {};
+const m6Review = fs.existsSync(path.join(root, "docs/reviews/m6-reproducibility-review.md"))
+  ? fs.readFileSync(path.join(root, "docs/reviews/m6-reproducibility-review.md"), "utf8")
+  : "";
+for (const statement of [
+  "Status: `SINGLE-NODE BASELINE FROZEN`",
+  "M6 is an outer Reference Reproduction Lab",
+  "No evidence mutation can produce `PASS`.",
+  "m6-reproducibility-v1",
+  "33893320414",
+  "33894052160",
+  "3d31fbb40a611de2e06caee58401645de73415dd87147ee196eb3b0ff0da57fc",
+  "e9794d8d614535e96506711eb788ba353edc274a5e1584bf7990e242a8dd35ce",
+]) {
+  if (!m6Review.includes(statement)) fail(`M6 review is missing: ${statement}`);
+}
+for (const [label, actual, expected] of [
+  ["schema version", m6EvidenceManifest.schemaVersion, "jpyxis.io/milestone-evidence/v1alpha1"],
+  ["milestone", m6EvidenceManifest.milestone, "M6"],
+  ["evidence state", m6EvidenceManifest.evidenceState, "VALIDATED"],
+  ["freeze coordinate", m6EvidenceManifest.freezeCoordinate, "m6-reproducibility-v1"],
+  ["reviewed head", m6EvidenceManifest.implementation?.reviewedHeadSha, "d18b273f640aec459a4fdb71d0c3af7440841cb2"],
+  ["reviewed merge revision", m6EvidenceManifest.implementation?.reviewedMergeRevision, "0476063b3579d93bfe00d77d4123f0404e53a39c"],
+  ["implementation merge", m6EvidenceManifest.implementation?.mergeSha, "d2738ef2429399aac849b6114898d53fc4cdcb18"],
+  ["pull-request run", m6EvidenceManifest.publicEvidence?.pullRequestRun?.id, 33893320414],
+  ["pull-request artifact", m6EvidenceManifest.publicEvidence?.pullRequestRun?.artifactId, 9944832354],
+  ["main run", m6EvidenceManifest.publicEvidence?.mainRun?.id, 33894052160],
+  ["main artifact", m6EvidenceManifest.publicEvidence?.mainRun?.artifactId, 9945122089],
+  ["phase count", m6EvidenceManifest.phaseCount, 13],
+  ["mutation count", m6EvidenceManifest.mutationCount, 8],
+  ["resource decision", m6EvidenceManifest.resourceDecision?.result, "ACCEPT"],
+  ["main process-tree peak", m6EvidenceManifest.resourceDecision?.mainRun?.peakProcessTreeRssBytes, 668938240],
+  ["main minimum available memory", m6EvidenceManifest.resourceDecision?.mainRun?.minimumAvailableBytes, 15255392256],
+  ["main swap growth", m6EvidenceManifest.resourceDecision?.mainRun?.swapGrowthBytes, 0],
+]) {
+  if (actual !== expected) fail(`M6 evidence manifest has wrong ${label}: ${actual}`);
+}
+for (const assertion of [
+  "freshHostedMachine",
+  "immutableCleanSource",
+  "dependencyCachesDisabled",
+  "orderedEndToEndJourney",
+  "predecessorEvidenceReverifiedOffline",
+  "retainedEvidenceSurvivesRuntimeShutdown",
+  "allRecordedRuntimeProcessesStopped",
+  "negativeEvidenceMutationsRejected",
+  "acceptanceVerdictOwnedByOfflineVerifier",
+  "sixteenGiBReferenceTargetAccepted",
+  "m1ThroughM5FrozenBoundariesUnchanged",
+]) {
+  if (m6EvidenceManifest.assertions?.[assertion] !== true) {
+    fail(`M6 evidence manifest is missing assertion: ${assertion}`);
+  }
+}
+
 if (failures.length > 0) {
   console.error(`Repository verification failed with ${failures.length} issue(s):`);
   failures.forEach((failure) => console.error(`- ${failure}`));
@@ -569,7 +617,7 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M5 freezes intact and M6 remains an unfrozen candidate.`,
+  `Repository verification passed: ${textFiles.length} text files, ${markdownFiles.length} Markdown files, M1-M6 freezes intact and the single-node baseline is complete.`,
 );
 
 function readTreeText(relative, extensions) {

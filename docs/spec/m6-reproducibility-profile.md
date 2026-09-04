@@ -1,6 +1,6 @@
 # M6 Reproducibility Profile
 
-Status: `M6 CANDIDATE · NOT VALIDATED · NOT FROZEN`
+Status: `M6 FROZEN · SINGLE-NODE BASELINE COMPLETE`
 
 This profile fixes the construction and acceptance boundary for the single-node baseline closure. It
 does not widen the semantics frozen by M1-M5.

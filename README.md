@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M0–M5 FROZEN · M6 REPRODUCIBILITY CANDIDATE`**
+**`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -24,15 +24,16 @@ verifiable after the Java process exits.
 M5 is now a frozen bounded prototype in a separate resilience module. It adds a
 hash-chained durable journal, worker-instance supervision and epoch fencing, bounded retry decisions,
 desired-intent recovery, and M4 reconciliation through public lifecycle actions. Its reviewed-head
-and merged-main checks, downloaded evidence bundles, and offline verifier agree. M6 is now under
-construction as an outer reproduction and evidence layer; it does not alter M1–M5 ownership or
-implementation semantics. Until its fresh public run and independent evidence readback pass, M6 is
-an unfrozen candidate rather than a project fact.
+and merged-main checks, downloaded evidence bundles, and offline verifier agree. M6 is now a frozen
+outer reproduction and evidence layer; it does not alter M1–M5 ownership or implementation
+semantics. Two fresh public 16 GB-class runs completed the full ordered journey without dependency
+caches, and both downloaded bundles passed independent offline readback.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
 bounded runtime-replacement boundary is frozen at `m3-runtime-v1`. The bounded lifecycle boundary is
-frozen at `m4-lifecycle-v1`; the bounded resilience boundary is frozen at `m5-resilience-v1`. M1
+frozen at `m4-lifecycle-v1`; the bounded resilience boundary is frozen at `m5-resilience-v1`; and
+the complete single-node reproduction baseline is frozen at `m6-reproducibility-v1`. M1
 validates only cross-binding contract identity, value validation, the selected compatibility subset,
 and minimum evidence-envelope semantics in its recorded environments. It must
 not be cited as proof of process invocation, performance, production readiness, distribution, GPU
@@ -106,14 +107,15 @@ Within that boundary, M0-M6 must eventually provide real implementation, automat
 The candidate reference environment is:
 
 ```text
-RAM:      16 GB target, currently INFERRED rather than observed
+RAM:      16 GB-class, observed for the bounded M0-M6 reference slice
 CPU:      commodity x86-64
 GPU:      not required
 Topology: bounded single-node workers
 Runtime:  CPU baseline
 ```
 
-The `16 GB single-machine capable` claim becomes a project fact only after M6 records actual measurements.
+The bounded `16 GB single-machine capable` claim is validated only for the frozen reference slice;
+it is not a general minimum-hardware or production-capacity claim.
 
 ## Architecture constitution
 
@@ -329,7 +331,7 @@ resource isolation, accelerators, or production readiness. See
 corrections, and unproven claims are retained in the
 [M5 Resilience Review](docs/reviews/m5-resilience-review.md).
 
-## M6 reproducibility candidate
+## M6 reproducibility baseline
 
 M6 composes the frozen gates into one ordered, retained journey: immutable source inspection,
 isolated bootstrap, clean build, M1–M5 regression, real Java-to-Python invocation, lifecycle and
@@ -337,7 +339,7 @@ failure recovery, resource observation, rollback/final-state checks, runtime shu
 evidence verification. It is deliberately an outer reference lab. Frozen semantic modules do not
 import it, and an invocation success label cannot become the M6 acceptance verdict.
 
-The local command is diagnostic and must remain `INCONCLUSIVE` because a prepared workstation is
+The local command is diagnostic and remains `INCONCLUSIVE` because a prepared workstation is
 not the authoritative clean environment:
 
 ```text
@@ -346,14 +348,16 @@ node scripts/verify-m6.mjs
 
 The dedicated GitHub-hosted job starts from a fresh Ubuntu virtual machine, restores no dependency
 cache, invokes the same script with `--public-clean`, and retains the complete bundle. Only that
-coordinate may produce the public `PASS` candidate needed for review. The predeclared 16 GB
+coordinate produced the public `PASS` evidence accepted by the M6 review. The predeclared 16 GB
 decision also requires an observed 14–18 GiB host, the full journey, a process-tree peak at or below
 12 GiB, at least 2 GiB host memory remaining, no positive swap growth, and successful offline
 predecessor verification.
 
-See [ADR-0011](docs/adr/0011-m6-clean-reproduction-boundary.md) and the
-[M6 Reproducibility Profile](docs/spec/m6-reproducibility-profile.md). No M6 freeze review, evidence
-manifest, tag, or baseline-freeze claim exists yet.
+See [ADR-0011](docs/adr/0011-m6-clean-reproduction-boundary.md), the
+[M6 Reproducibility Profile](docs/spec/m6-reproducibility-profile.md), and the
+[M6 Reproducibility Review](docs/reviews/m6-reproducibility-review.md). The review and
+[`evidence/m6/freeze-manifest.json`](evidence/m6/freeze-manifest.json) preserve the exact public
+coordinates, resource observations, limits, and claims that remain unproven.
 
 ## Documentation map
 
@@ -414,6 +418,7 @@ manifest, tag, or baseline-freeze claim exists yet.
 - [M3 Runtime Review](docs/reviews/m3-runtime-review.md)
 - [M4 Lifecycle Review](docs/reviews/m4-lifecycle-review.md)
 - [M5 Resilience Review](docs/reviews/m5-resilience-review.md)
+- [M6 Reproducibility Review](docs/reviews/m6-reproducibility-review.md)
 
 ## Explicit non-goals for the single-node baseline
 

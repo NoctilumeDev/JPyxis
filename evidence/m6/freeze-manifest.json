@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "jpyxis.io/milestone-evidence/v1alpha1",
+  "milestone": "M6",
+  "evidenceState": "VALIDATED",
+  "freezeCoordinate": "m6-reproducibility-v1",
+  "implementation": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/16",
+    "reviewedHeadSha": "d18b273f640aec459a4fdb71d0c3af7440841cb2",
+    "reviewedMergeRevision": "0476063b3579d93bfe00d77d4123f0404e53a39c",
+    "mergeSha": "d2738ef2429399aac849b6114898d53fc4cdcb18"
+  },
+  "publicEvidence": {
+    "pullRequestRun": {
+      "id": 33893320414,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33893320414",
+      "artifactId": 9944832354,
+      "artifactName": "m6-reproduction-0476063b3579d93bfe00d77d4123f0404e53a39c",
+      "conformanceSummarySha256": "sha256:3d31fbb40a611de2e06caee58401645de73415dd87147ee196eb3b0ff0da57fc"
+    },
+    "mainRun": {
+      "id": 33894052160,
+      "url": "https://github.com/NoctilumeDev/JPyxis/actions/runs/33894052160",
+      "artifactId": 9945122089,
+      "artifactName": "m6-reproduction-d2738ef2429399aac849b6114898d53fc4cdcb18",
+      "conformanceSummarySha256": "sha256:e9794d8d614535e96506711eb788ba353edc274a5e1584bf7990e242a8dd35ce"
+    },
+    "environment": {
+      "runner": "GitHub Actions ubuntu-24.04",
+      "os": "linux 6.17.0-1022-azure",
+      "architecture": "x64",
+      "logicalCpuCount": 4,
+      "java": "17.0.20.1",
+      "python": "3.12.14",
+      "node": "22.23.2",
+      "mavenWrapper": "3.9.11",
+      "containerRequired": false,
+      "dependencyCachesEnabled": false
+    }
+  },
+  "phaseCount": 13,
+  "mutationCount": 8,
+  "resourceDecision": {
+    "result": "ACCEPT",
+    "scope": "bounded M0-M6 CPU-only reference slice on a 14-18 GiB fresh hosted machine",
+    "pullRequestRun": {
+      "physicalMemoryBytes": 16765378560,
+      "peakProcessTreeRssBytes": 683585536,
+      "minimumAvailableBytes": 14934568960,
+      "swapGrowthBytes": 0
+    },
+    "mainRun": {
+      "physicalMemoryBytes": 16766414848,
+      "peakProcessTreeRssBytes": 668938240,
+      "minimumAvailableBytes": 15255392256,
+      "swapGrowthBytes": 0
+    }
+  },
+  "assertions": {
+    "freshHostedMachine": true,
+    "immutableCleanSource": true,
+    "dependencyCachesDisabled": true,
+    "orderedEndToEndJourney": true,
+    "predecessorEvidenceReverifiedOffline": true,
+    "retainedEvidenceSurvivesRuntimeShutdown": true,
+    "allRecordedRuntimeProcessesStopped": true,
+    "negativeEvidenceMutationsRejected": true,
+    "acceptanceVerdictOwnedByOfflineVerifier": true,
+    "sixteenGiBReferenceTargetAccepted": true,
+    "m1ThroughM5FrozenBoundariesUnchanged": true
+  },
+  "explicitlyUnproven": [
+    "production readiness or performance guarantees",
+    "security isolation",
+    "GPU or accelerator support",
+    "multi-host behavior, partitions, consensus, or cluster scheduling",
+    "zero-copy or high-throughput data planes",
+    "arbitrary third-party plugin compatibility",
+    "reproducibility across arbitrary operating systems or package mirrors",
+    "business transaction success"
+  ]
+}
