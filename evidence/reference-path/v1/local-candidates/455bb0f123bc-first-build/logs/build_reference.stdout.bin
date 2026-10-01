@@ -1,0 +1,28 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/lenovo/Desktop/GitHubProjects/JPyxis-reference-audit/reference/java/src/main/java/io/jpyxis/reference/ReferenceControl.java:[175,82] 无法将类 io.jpyxis.lifecycle.core.DeploymentManager中的方法 pinInvocation应用到给定类型;
+  需要: java.lang.String,java.lang.String,java.lang.String,io.jpyxis.lifecycle.api.LifecycleContext
+  找到:    java.lang.String,java.lang.String,io.jpyxis.lifecycle.api.LifecycleContext
+  原因: 实际参数列表和形式参数列表长度不同
+[ERROR] /C:/Users/lenovo/Desktop/GitHubProjects/JPyxis-reference-audit/reference/java/src/main/java/io/jpyxis/reference/ReferenceControl.java:[285,53] 无法将类 io.jpyxis.resilience.core.ResilientInvocationManager中的方法 recordLateObservation应用到给定类型;
+  需要: java.lang.String,java.lang.String,io.jpyxis.resilience.api.AttemptObservation,io.jpyxis.resilience.api.ResilienceContext
+  找到:    io.jpyxis.resilience.api.AttemptPlan,io.jpyxis.resilience.api.AttemptObservation,io.jpyxis.resilience.api.ResilienceContext
+  原因: 实际参数列表和形式参数列表长度不同
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project jpyxis-reference-java: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/lenovo/Desktop/GitHubProjects/JPyxis-reference-audit/reference/java/src/main/java/io/jpyxis/reference/ReferenceControl.java:[175,82] 无法将类 io.jpyxis.lifecycle.core.DeploymentManager中的方法 pinInvocation应用到给定类型;
+[ERROR]   需要: java.lang.String,java.lang.String,java.lang.String,io.jpyxis.lifecycle.api.LifecycleContext
+[ERROR]   找到:    java.lang.String,java.lang.String,io.jpyxis.lifecycle.api.LifecycleContext
+[ERROR]   原因: 实际参数列表和形式参数列表长度不同
+[ERROR] /C:/Users/lenovo/Desktop/GitHubProjects/JPyxis-reference-audit/reference/java/src/main/java/io/jpyxis/reference/ReferenceControl.java:[285,53] 无法将类 io.jpyxis.resilience.core.ResilientInvocationManager中的方法 recordLateObservation应用到给定类型;
+[ERROR]   需要: java.lang.String,java.lang.String,io.jpyxis.resilience.api.AttemptObservation,io.jpyxis.resilience.api.ResilienceContext
+[ERROR]   找到:    io.jpyxis.resilience.api.AttemptPlan,io.jpyxis.resilience.api.AttemptObservation,io.jpyxis.resilience.api.ResilienceContext
+[ERROR]   原因: 实际参数列表和形式参数列表长度不同
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :jpyxis-reference-java

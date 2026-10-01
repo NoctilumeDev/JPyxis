@@ -1,0 +1,872 @@
+{
+  "schemaVersion": "jpyxis.io/reference-observations/v1alpha1",
+  "evidenceState": "OBSERVATIONS_RETAINED",
+  "sourceRevision": "455bb0f123bc97dedd458ef3940349ba248f0d5a",
+  "files": [
+    {
+      "path": "command-observations.json",
+      "bytes": 3895,
+      "sha256": "sha256:bd87f038c574ed13df71d877c510a188bebcc8773b1deedcf6c5642799014215"
+    },
+    {
+      "path": "first-failure.json",
+      "bytes": 381,
+      "sha256": "sha256:00c3ac5f854e318ee4a6d9e9bd1cfe92eff528d09b9d9f8bc990953840668fca"
+    },
+    {
+      "path": "generated/jpyxis_invocation_v1_pb2.py",
+      "bytes": 6226,
+      "sha256": "sha256:41dfb1251cc7d88ac7e029a66799bf3a1da560195a86ec9437e50059db8c796c"
+    },
+    {
+      "path": "generated/jpyxis_invocation_v1_pb2_grpc.py",
+      "bytes": 5367,
+      "sha256": "sha256:bce61fcf8678048872cee82bf7220c98edf3e044ed1f4c8b0e7c1ea2c0aea73e"
+    },
+    {
+      "path": "independent-shutdown.json",
+      "bytes": 198,
+      "sha256": "sha256:0006d47b47325f0ddcb2e1643ddad7929590c2c4d162a40977e784d1031a103e"
+    },
+    {
+      "path": "input-inventory.json",
+      "bytes": 41043,
+      "sha256": "sha256:c8d73dd9ac01bd50f7d8750aad17b3f1da260fb3106ecf9d8644bc42f1a4c3f9"
+    },
+    {
+      "path": "inputs/bindings/java/pom.xml",
+      "bytes": 2430,
+      "sha256": "sha256:2a97c921cd2591f3c1d987c15d4e2eab727a8ca354c968a62fab301856c26303"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/CompatibilityChecker.java",
+      "bytes": 7453,
+      "sha256": "sha256:97347d27c668a2bac86b8b0d48c7e4317cafcdab2a4a12a4075b1e66e6bd981e"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/CompatibilityRelation.java",
+      "bytes": 618,
+      "sha256": "sha256:e34a83c24242cd363d67817d3a3ea6aa5a7ca1e977781947bdbbd587b5687217"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ConformanceMain.java",
+      "bytes": 8580,
+      "sha256": "sha256:80a70af954a56aa064eed36f6ce8afe97e68762d338a3788c0b8c1ce55e037ca"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ContractException.java",
+      "bytes": 298,
+      "sha256": "sha256:ea6d98b940b71e22a6e90f4679b75e3a354aca41157b20dc5000fa1ebf4a7494"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ContractModel.java",
+      "bytes": 1545,
+      "sha256": "sha256:683b6148d5d4f4b63510eddeec11c76dc18b81313217ea2467ff0fbf446ee097"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ContractParser.java",
+      "bytes": 14540,
+      "sha256": "sha256:0f7804442da3747246c30bf45d181a5690194342b7ad1ea542b6444baa0b7562"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/EvidenceEnvelopeValidator.java",
+      "bytes": 5415,
+      "sha256": "sha256:c56cab874a752d302abcb3045eba84c3fdbe7ac1f7c627c87e173317eab4d84c"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/JsonSupport.java",
+      "bytes": 5677,
+      "sha256": "sha256:da7df5f4cce8e14154f8ad919ce1d72e4a7528b877b72244e5e29bf8d4f42dad"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ValidationResult.java",
+      "bytes": 614,
+      "sha256": "sha256:00ded22a449f835a645043636008bbe1bb3a282a1740ca05bb42380010dc6c43"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ValueNormalizer.java",
+      "bytes": 2103,
+      "sha256": "sha256:83c0f70750d47405aa47ae91a6b7e94cb35ef947a99a97885d70b27a1fe9c11c"
+    },
+    {
+      "path": "inputs/bindings/java/src/main/java/io/jpyxis/contract/ValueValidator.java",
+      "bytes": 6762,
+      "sha256": "sha256:d740ac62a52db0ceda70e49d83b973adc6ed5598d77bff1e8d8ef2d42a66d38d"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/codec.py",
+      "bytes": 2991,
+      "sha256": "sha256:99754b6ffc4e5918c2bdda008bdcd6b23e7d7cb4c972127edb391767570ffb06"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/compatibility.py",
+      "bytes": 6515,
+      "sha256": "sha256:34c1d3f352057d57866156ac5696cdcb4d2f0190e1ef8c996ab2317418f8511f"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/conformance.py",
+      "bytes": 5187,
+      "sha256": "sha256:07d1bf1ea51ea3c107fb8a45054c795f74bcd6a5b0aa7c7fe20b23a4e3052fc8"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/evidence.py",
+      "bytes": 3502,
+      "sha256": "sha256:b69a06c8a95bde354ef20ac8c08922155149ccc78da698769e795ba2e3650e59"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/model.py",
+      "bytes": 2219,
+      "sha256": "sha256:eb154450ca69f810647aa16959db188d394192f49e2ed06fd43b321aeb6af968"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/normalization.py",
+      "bytes": 1163,
+      "sha256": "sha256:cf38ed7f0a9695b44309bc40eb061f5521ab2bb9fb45382c0747f5c558311d5a"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/parser.py",
+      "bytes": 10707,
+      "sha256": "sha256:e9b9950343c1b73d10b5aa01862a5282f7d216f1db3097c465e4d10cb9ce3a02"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/validation.py",
+      "bytes": 4441,
+      "sha256": "sha256:691a7271d6d35cc3e1851f84f4c32e864ef90e4082d38e6cc22b990e8f305d8f"
+    },
+    {
+      "path": "inputs/bindings/python/jpyxis_contract/__init__.py",
+      "bytes": 100,
+      "sha256": "sha256:ce3a29f1bae87e88a88cb7d186c3048fba5b88ad43e2f3eca4381b6c6f448a85"
+    },
+    {
+      "path": "inputs/bindings/python/tests/test_contract.py",
+      "bytes": 3832,
+      "sha256": "sha256:5bce9a51888d337127616e0e0ab73d16530de348da671fd29ca7c9373ea3ff1d"
+    },
+    {
+      "path": "inputs/docs/adr/0014-reference-path-realization-and-dispatch.md",
+      "bytes": 3261,
+      "sha256": "sha256:d58745522d7f9935485c3ce8d4ef597e00b926048b9fda7da708408aae4d1c70"
+    },
+    {
+      "path": "inputs/docs/spec/productization-reference-path-contract-v1.md",
+      "bytes": 19029,
+      "sha256": "sha256:d057a8782d82d393ef3cee00fff8a6ffcfcb2a568ac017cd655b9d4362512bdb"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/.gitattributes",
+      "bytes": 19,
+      "sha256": "sha256:75214165f4a5f89f8ada3b08f71f2638f8ff090d3d034aa1d169f22f88cc2c06"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/entry-manifest.json",
+      "bytes": 1083,
+      "sha256": "sha256:8a462211e4d79c6e4263302bc337cdae3e2dcbfba8cb49a3eea3e3221bf953be"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/main33-ci.json",
+      "bytes": 1496,
+      "sha256": "sha256:41b61de520a4e6dcc0f099aa9e2636a00aeda9f14e960bd791378a9d58506b7a"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/main33-contract-freeze-readback.json",
+      "bytes": 537,
+      "sha256": "sha256:4e4ca754db627848cb9d6264c3233abd6b2d5b2529622c414fb005e10b762435"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/main33-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:fb2791218ae856d84286843ebb3aff0e2fea06603c457106875411a939919b79"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/main33-m4-readback.json",
+      "bytes": 6300,
+      "sha256": "sha256:baca5a5d6563c878e0c940093ec62e42566c2fdf37ff54a00586d2de944fb26c"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/main33-readback.json",
+      "bytes": 5178,
+      "sha256": "sha256:4284664b083c1870e5677f33dac3975cb46907d4832e40bc7a676851fd4a7a9e"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-ci.json",
+      "bytes": 1502,
+      "sha256": "sha256:240839c7620ecd613aa7658b7aa98b4210c4a73c8f57b65e2d8f0e7def0ec820"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-contract-freeze-readback.json",
+      "bytes": 537,
+      "sha256": "sha256:5eff213ee620680d56649fb822cb39e31851b4a17f0dd90cfc46128565333c36"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:ee7bb76b972d1bada6eeba5c03b57570c954b5b77246753b266cdb3a36ca1ea9"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-m4-readback.json",
+      "bytes": 6298,
+      "sha256": "sha256:7bedd17ade7e8fe61b2b00abcca246db44abdf8561dbfc9a4815570242d7088d"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-merge.json",
+      "bytes": 230,
+      "sha256": "sha256:f7d8708269ef12beb79b1968ce08ab99a327b07336619e44f42046103894b614"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/pr33-readback.json",
+      "bytes": 5176,
+      "sha256": "sha256:18eca0b21d76bab3bab897c090e9b1e374fc77b76741774e5524873b015ad248"
+    },
+    {
+      "path": "inputs/evidence/reference-path/v1/runtime-entry/retention.json",
+      "bytes": 2234,
+      "sha256": "sha256:c18e07da897f1b8b30c8a44ac1f28ba57ca70f489803c93e56fa2a64161cbcc9"
+    },
+    {
+      "path": "inputs/experiments/reference-path/verify-contract-entry.mjs",
+      "bytes": 3613,
+      "sha256": "sha256:bab45c8de01fe6dda2914fab091aa4a5addcdceb60fdbfbc0ba47e572fb8ffa3"
+    },
+    {
+      "path": "inputs/experiments/reference-path/verify-contract-freeze.mjs",
+      "bytes": 3890,
+      "sha256": "sha256:30229bba28abf34a5ea37ba5d95392aba0d7965ad210985f572ade742a737d56"
+    },
+    {
+      "path": "inputs/invocation/java/pom.xml",
+      "bytes": 4313,
+      "sha256": "sha256:444ba17713dc16ee2d41a63bacac1b1b5062551e9da9a97d2e149639713b96d4"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/AffineBatchInput.java",
+      "bytes": 220,
+      "sha256": "sha256:3e7123f5407e2d7af0a25905e80452de4083f216926196a768bab6f34d916773"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/AffineBatchMapper.java",
+      "bytes": 246,
+      "sha256": "sha256:cd62996299ebcb97fba975100b2fcf880b53736e9391123616b6a2cae3f79f1b"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/AffineBatchMappers.java",
+      "bytes": 750,
+      "sha256": "sha256:ed0c4eff7ab981b36be02bea37f7d9e050fd6346c7788eab6c781040fc05d3c8"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/AffineBatchResult.java",
+      "bytes": 207,
+      "sha256": "sha256:8cae345e93a4f0b509ce5085af254f1a0be1d20741e532a496d14232bb9fed64"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/CancellationToken.java",
+      "bytes": 1275,
+      "sha256": "sha256:41712e05888e74ffb5dfa506ee7d18e8caaf4f22e9435deb692ed12f3aea7894"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/FailureCategory.java",
+      "bytes": 179,
+      "sha256": "sha256:78a9e4106db80295f3e098b3c501412fad5ef37a02de7138fc830a18c414b2a9"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/Float32Tensor.java",
+      "bytes": 322,
+      "sha256": "sha256:27d12490ec3e4671959a949dfbbb69ef0c30d47dcfc7418d6c35f08ad6025db9"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/InvocationCoordinates.java",
+      "bytes": 213,
+      "sha256": "sha256:83f57076d53f482e5c13d7a3eb8feb73e7e67bcaf2bc05cff037b6d9ee64558b"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/InvocationOptions.java",
+      "bytes": 713,
+      "sha256": "sha256:c620024855d8991fd5ea4bbe298e21f62525b5f623bdf6e05b54cf31de7f3a4d"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/host/JPyxisInvocationException.java",
+      "bytes": 1546,
+      "sha256": "sha256:b43ee16fb3ee398cdf6c6c10b80e6c392efbcacb08495cba83b6f51db934bbc2"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/DefaultAffineBatchMapper.java",
+      "bytes": 2849,
+      "sha256": "sha256:26c1b2737dc38a25f41152b6d6ae2498945bd0232e9bc660fecd1ee6c02c8bdf"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/HostObservationRecorder.java",
+      "bytes": 3374,
+      "sha256": "sha256:35c6d107ca40ed17bae5b1ae84af70f4804f0aab5b4243c076de0c9a6a9b33e1"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/InvocationExecution.java",
+      "bytes": 464,
+      "sha256": "sha256:75637c78a1f6287b6432ca203e34ce306ebe672680d60b30679d97169ba45c62"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/InvocationFailure.java",
+      "bytes": 355,
+      "sha256": "sha256:ce06b58ff4adad2f72b3ac24181044ebc792bf91e1297d4c75ff2ea3ccbb38b5"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/InvocationManager.java",
+      "bytes": 32022,
+      "sha256": "sha256:c023a18f8ecae1382b21446343b022ada61bf7c04c52292231d3ea880184d67b"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/M2InvocationMain.java",
+      "bytes": 6843,
+      "sha256": "sha256:98cdc1e6e985613e004d6b4db72322dd548fe3193180b4f5eed26e83e757d94a"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/TerminalState.java",
+      "bytes": 117,
+      "sha256": "sha256:ee6780b0d2266bc50abf06a6d45daa9ac60ea1078bb5aa0f15e596a822f0e51c"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/grpc/GrpcInvocationTransport.java",
+      "bytes": 12916,
+      "sha256": "sha256:4219eb608ec51f37ee9bb130bc47c63a14558efcc171c9272f37ce4982f63284"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/InvocationAttempt.java",
+      "bytes": 375,
+      "sha256": "sha256:1d2c5f26e836b57e946db4fe036d10affe65898755ce4f5fd3f88ed0fca1d045"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/InvocationTransport.java",
+      "bytes": 316,
+      "sha256": "sha256:05a288a350bbb1d351f90388098a98ed72fcca61d46538481ca1108f83a1031e"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/RuntimeBinding.java",
+      "bytes": 207,
+      "sha256": "sha256:9a99f4e3893257461bf052dfe9493a0ebdf6a1eaf290a19cfc62bac78b25d5d9"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/RuntimeCapabilityReport.java",
+      "bytes": 1244,
+      "sha256": "sha256:48ca5c0dd83ae7e71698cfc3863b72accfee7213936aaebc2ffde99e706b0734"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/TransportCall.java",
+      "bytes": 208,
+      "sha256": "sha256:a8a3dc964cb5ee7a72533a9e7701a58404b3387abcd2d31e86eca6ee5c0a2047"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/TransportException.java",
+      "bytes": 456,
+      "sha256": "sha256:6b66985749ba9ee0e83955beb125fac28af5d7bfa3cfdb3236ab3fd4744aa91d"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/WorkerCoordinates.java",
+      "bytes": 328,
+      "sha256": "sha256:d97a2d102e43dfd1edbbbd3e6d257404aa519071068f317132e304c6a60312da"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/WorkerExecutionReport.java",
+      "bytes": 455,
+      "sha256": "sha256:a6c53c26d41a223ca8b3df1dd8148df914a6976f7fe075c836ec4a6a6e761729"
+    },
+    {
+      "path": "inputs/invocation/java/src/main/java/io/jpyxis/invocation/transport/WorkerFailureObservation.java",
+      "bytes": 340,
+      "sha256": "sha256:ad331a3a754af5b9e05d1425d1fb7ee02e96b6024a6af475917f700e21a3567e"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/m3_server.py",
+      "bytes": 16305,
+      "sha256": "sha256:ee6caeb9bf1b1b7c7af538e9478c5989fa1004b61d9602799783c095dc312688"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/runtimes/numpy_runtime.py",
+      "bytes": 1593,
+      "sha256": "sha256:2c6978cc01f1f435226f4cc6c036a4fcdced11e23660e0b54295fc73ea86fb30"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/runtimes/reference_runtime.py",
+      "bytes": 1547,
+      "sha256": "sha256:6e53fcc8af551cd2c618628592cd403d88ff54abbff4ec357e7bf9ae0b3f7abc"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/runtimes/__init__.py",
+      "bytes": 489,
+      "sha256": "sha256:eeee11a8ceb559cc154cfd76bbf4ec6565bd010e238986101e34f16ae4b1f7ca"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/runtime_spi.py",
+      "bytes": 2664,
+      "sha256": "sha256:94ecb7b9d903d0cbf34d1062f8c6a4387341065de235328934afbce5602be532"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/server.py",
+      "bytes": 13833,
+      "sha256": "sha256:75dd59206fee5626d8100d4bfb0a3139980b8d0fd7a590ba9a94f9aa46ce53a7"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/worker_common.py",
+      "bytes": 2678,
+      "sha256": "sha256:619bdacd69abb05d6fc2b8cac485555afbefc1d2fed18a1cc841467f862a31cc"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/__init__.py",
+      "bytes": 111,
+      "sha256": "sha256:1647c0f4a0340d1a072335636fbd9db001287e02bc6cdb943be99c6df49180a1"
+    },
+    {
+      "path": "inputs/invocation/python/jpyxis_worker/__main__.py",
+      "bytes": 51,
+      "sha256": "sha256:540fd0a5992ca535482a9d44b2e268ce3a39bb47a0576f301214afa5ef4494b9"
+    },
+    {
+      "path": "inputs/invocation/python/requirements-m2.txt",
+      "bytes": 117,
+      "sha256": "sha256:9cc62ac4eea340bd8ecd81d6439d61fbcf936b04db11ec9bc8bc8820df2f6b90"
+    },
+    {
+      "path": "inputs/invocation/python/requirements-m3.txt",
+      "bytes": 24,
+      "sha256": "sha256:2550f4831470fc7f21af3ecd7c59086dcc6d5e669ab6d6f2bedc408463881c6b"
+    },
+    {
+      "path": "inputs/lifecycle/java/pom.xml",
+      "bytes": 2436,
+      "sha256": "sha256:354fea42689228a215468e5b393391683e8659c9e59cce3f33863563dc8ca603"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactCoordinate.java",
+      "bytes": 693,
+      "sha256": "sha256:b3c1a119534e6bc944a054f6cc3c772d9bf365a61550608694a32c8bae00938d"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactPayload.java",
+      "bytes": 734,
+      "sha256": "sha256:a8b52c8d7acf9ef40fa41e61ad4e73f31c51902bad4693042d6670ad8e3fdc7a"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactSnapshot.java",
+      "bytes": 233,
+      "sha256": "sha256:c4ebdcb8f8fe52220b836dece44bb9fcee6b5358f682935bcb0f8557d2ce8792"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactState.java",
+      "bytes": 140,
+      "sha256": "sha256:7225b29f9fbd1836e1d2f81da6995b483ddaa65718c1bbb8659b3bad319d3036"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/DeploymentSnapshot.java",
+      "bytes": 298,
+      "sha256": "sha256:372a2229130b0f31a4185a80061ebfba6a26f70cdca79680f023fddf86b67434"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/DeploymentState.java",
+      "bytes": 185,
+      "sha256": "sha256:c8f15e1af5d28a0a79dbe85b55c7d59fc696eebb008f0013d166e91b819bb80a"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/InvocationPin.java",
+      "bytes": 242,
+      "sha256": "sha256:43ea35306c247204fc28b4f1d1529de0976c0fedf9c776d4532586e6faeaa883"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/LifecycleContext.java",
+      "bytes": 579,
+      "sha256": "sha256:ba2d153aa5b585d1319f49ed95fdc92aacb9a23ef6c125bf459eacbc17fb2000"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/LifecycleException.java",
+      "bytes": 949,
+      "sha256": "sha256:9d10ed2a94dcf92c411a7ffee153eef301b5a3a47c8407c8f436e2b10e9925a0"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/PinReleaseOutcome.java",
+      "bytes": 126,
+      "sha256": "sha256:cf9a31b4c8990e4aad33de9aaa647a2208abd85d4e93481ec47f4b17700e891f"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/RuntimeHandle.java",
+      "bytes": 702,
+      "sha256": "sha256:094324a5f2d71423a7c26843eb31b2fd3e06017c0f84952ba23d393d3da86506"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/core/ArtifactRegistry.java",
+      "bytes": 9857,
+      "sha256": "sha256:09cf3c6b67d62071f8bc8e0dd3dfa8214a976d30e6c5a0db473fa25e0882666c"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/core/DeploymentManager.java",
+      "bytes": 28820,
+      "sha256": "sha256:6aebf75cb5c0bfaf6a68c6b0fd26f810fd2a427afdaad22f2d3ec188c668bba5"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/EventOwner.java",
+      "bytes": 138,
+      "sha256": "sha256:9e4140dbc625aa2acf9a8b67da52c87359e42ea09aa13eb4879afc2c24a6981e"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/InMemoryLifecycleJournal.java",
+      "bytes": 953,
+      "sha256": "sha256:5576cb4d3a8e55227d779a7a25150e7aff9899b26acbaeebbc11939cef95d9bf"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleEvent.java",
+      "bytes": 441,
+      "sha256": "sha256:31c3256de34738fb43c615d8323a49689dc7427640d021931a63bd773e7831f3"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleEventDraft.java",
+      "bytes": 773,
+      "sha256": "sha256:6556df37e8e20530a45bf1dc170715996f4eb36d445e4f04fb0af9110dcadfbf"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleJournal.java",
+      "bytes": 181,
+      "sha256": "sha256:a234a07cd69a402bd9f7a3a523fbe6266fd660fe05595fdb558132db39a2f9d7"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/port/DeploymentRuntime.java",
+      "bytes": 405,
+      "sha256": "sha256:7e450c4406d5beaba30dc2688b7160b31de75d90773a0e3d26f16394f3e4f54c"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/port/LifecycleCapabilityException.java",
+      "bytes": 449,
+      "sha256": "sha256:785bec03e08a727bee78fff51787e5b5457ba2866a71406a6ae7df5cf5d3c880"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/reference/M4LifecycleMain.java",
+      "bytes": 15106,
+      "sha256": "sha256:35f791ee9096e9defaf2b06c6e960d9259614aca001dea44b3b40676641d5860"
+    },
+    {
+      "path": "inputs/lifecycle/java/src/main/java/io/jpyxis/lifecycle/reference/ReferenceLifecycleRuntime.java",
+      "bytes": 2371,
+      "sha256": "sha256:f4b2901921519be8fa9b2327b625c3fc4450d6b6b82d1005100f0e1e47b97b25"
+    },
+    {
+      "path": "inputs/pom.xml",
+      "bytes": 2802,
+      "sha256": "sha256:15532c74ac71d443657b20190212f0e6542b0bc93abaeeae7ffc4b8430e8b897"
+    },
+    {
+      "path": "inputs/reference/java/pom.xml",
+      "bytes": 1859,
+      "sha256": "sha256:c21d7bd68ecc0139288dba0f5799a9f61d594d8cd504dc8ee90d6c54402cc00d"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/EnvironmentSpec.java",
+      "bytes": 2046,
+      "sha256": "sha256:1a583e9a76cf4cd6fde49a8c98ad91cd00d2cea9b57fc32372d97d6f5f77b701"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/OwnedPythonWorkers.java",
+      "bytes": 9255,
+      "sha256": "sha256:d8b11fcf0724aacab2e0d465f4c5258f36d8c1a2fdcb0196af10353aa9e5f293"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/ReferenceControl.java",
+      "bytes": 30146,
+      "sha256": "sha256:33bd06b2ab4b17679a4ac6df20eeaac4f19a653fc6e8c0c6690a5b20a9b16011"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/ReferenceJourneyMain.java",
+      "bytes": 10881,
+      "sha256": "sha256:4c18577a903b43a290721b01565011962bee2e9203da362080ada264005cc5f6"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/ReferenceJson.java",
+      "bytes": 1904,
+      "sha256": "sha256:73c6ce6b7661ffaa9fe16f06991fdd3202a30ce906b432cbca5088089b63519b"
+    },
+    {
+      "path": "inputs/reference/java/src/main/java/io/jpyxis/reference/SourceJournal.java",
+      "bytes": 1138,
+      "sha256": "sha256:fc45bf0357e3a7dc4949cf8a151f8985e28cc91c1e21c983ecea0557e0c81381"
+    },
+    {
+      "path": "inputs/reference/python/reference_worker.py",
+      "bytes": 9849,
+      "sha256": "sha256:88901e254db8ab9b80f7fdf5bf656decaceb00581a47f131579c3887b76bdfa8"
+    },
+    {
+      "path": "inputs/resilience/java/pom.xml",
+      "bytes": 2608,
+      "sha256": "sha256:d87b112a7cc813058182a3ab3752714687c518287ecad1afde17cf09cf39e769"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservation.java",
+      "bytes": 1519,
+      "sha256": "sha256:5557b2d105f9631d545dc6e1aacb9336aeb388bc6a78f0c05dcfe9af9ee2d6ca"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservationKind.java",
+      "bytes": 173,
+      "sha256": "sha256:8b20213449b348a8311bfcadb766d080fd15f3087cc441676c2eab64b69c37cc"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptPlan.java",
+      "bytes": 286,
+      "sha256": "sha256:b38ea43071ae0a203bc346353e40dddccbb252012ce65cf5b9f6d114dcc11782"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptSnapshot.java",
+      "bytes": 275,
+      "sha256": "sha256:230cf8917570c4474495f0e50935d1c35e3af616b39c907c7277da6e041afbc7"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/DesiredBinding.java",
+      "bytes": 829,
+      "sha256": "sha256:2647d9097cb994dc208baef7bb959ef304023bc89f083e75450baf38d54316be"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/IdempotencyMode.java",
+      "bytes": 116,
+      "sha256": "sha256:c3cdc1e5c0e96c658324959ac378c3db385524dd063714170643a59426bd0a35"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationRequest.java",
+      "bytes": 1372,
+      "sha256": "sha256:6012a69629d3ba2085d3e4c9949122bdbff3d58f1bda297dfb229343e02bc996"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationSnapshot.java",
+      "bytes": 608,
+      "sha256": "sha256:fb5318bd6bd999f02f78e45ff7608fd2ce127762a4192b86f09102af9bf4a332"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/LogicalInvocationState.java",
+      "bytes": 289,
+      "sha256": "sha256:0fb48e3d21a6fbc6ba5ba01eeba6beed0dd21b4ab6f0cc6d7621a2e30b33efda"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceContext.java",
+      "bytes": 476,
+      "sha256": "sha256:023ad401d1ca5e2f72cc194c7928d237d682e6289dcbfd6caf78d37f19b2cece"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceException.java",
+      "bytes": 908,
+      "sha256": "sha256:6d8918280e1261e712ca8570230da50f0d2adb1e871b29fce1aa6c3774c121a7"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerHandle.java",
+      "bytes": 672,
+      "sha256": "sha256:0ab195e5ac8f870491af47c42cbd45ba1c102ff420737b21a9689796318da7bd"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerSnapshot.java",
+      "bytes": 285,
+      "sha256": "sha256:c5c76e2b663ec9ccd2f420e5d2be7be3d49ac6bade262da1f59e572a87cd045f"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerState.java",
+      "bytes": 161,
+      "sha256": "sha256:cfe5b8c05befa7d0f653a2ba61d0e1d964cb99bd92332fc1aaa98bb1ec87de4f"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/assembly/ControlRecoveryCoordinator.java",
+      "bytes": 4763,
+      "sha256": "sha256:f10502f9f1de927c76800d727aa719f8d907a8f8fe813e7754eea089ad2fe451"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/core/ControlIntentRegistry.java",
+      "bytes": 3589,
+      "sha256": "sha256:622ef11be80ee5255c50001b86ca901c487c8084067c5bd6fdbb6d7094fbe9ac"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+      "bytes": 31293,
+      "sha256": "sha256:4ee882be4e8585564759a5b4b8f21a6d137749342bcf034a2fb3dfc8f904ffd0"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+      "bytes": 22686,
+      "sha256": "sha256:68b9268f3d809b1d8ed22170f5816aeb4ce2c4fc7742fc16d1e429d6c5a667f2"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/DurableResilienceJournal.java",
+      "bytes": 10416,
+      "sha256": "sha256:d8dcc0947c728d7120c1716f2d6aaa8b1681d437d6fdfa19a48621801625306c"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/EventOwner.java",
+      "bytes": 256,
+      "sha256": "sha256:dc93bc1015e6aac6e108280b71c68e0579477b21e78b17d9334659004f31b1b4"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEvent.java",
+      "bytes": 518,
+      "sha256": "sha256:0e6cbeab5ae84b4378fb88c3863886df308d51f413b388ed4779d8c1a801e035"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEventDraft.java",
+      "bytes": 1166,
+      "sha256": "sha256:8328e42cbb0958271b76e9310d16aabe216b9d569c7917dc2be26b73b1fa878f"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceJournal.java",
+      "bytes": 251,
+      "sha256": "sha256:3e5165c82a149aeac9f65ff40f1488e678cd061506a269dc4d527fce9cc03434"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceMetrics.java",
+      "bytes": 1522,
+      "sha256": "sha256:d85cdc5441e23cfd61f01e61e2adb2aa349f1b49b9edc4214ad1382e22313d9c"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/port/AttemptExecutor.java",
+      "bytes": 242,
+      "sha256": "sha256:a2c72e30204ac631341b6becb739b512374e71340d091ed2d13e794b4f039bc9"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/port/TelemetrySink.java",
+      "bytes": 275,
+      "sha256": "sha256:5a8a6f51ff9ffdcf6c0600aa9cc7e4a0553671ebf90403d0f0529b2c786ee9ad"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControl.java",
+      "bytes": 426,
+      "sha256": "sha256:ce2c1667c4761bf6fd505a243fc49c4754f80c4f5c5dd81bb93da594fd5b3082"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControlException.java",
+      "bytes": 454,
+      "sha256": "sha256:07c96d43d37d78d0c007f2ce73421f3f7c4c2558e730deb846d582c0d079593c"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/FaultInjectingLifecycleRuntime.java",
+      "bytes": 2464,
+      "sha256": "sha256:ba83598df24c79f021e14f74509a0fab4c895e47d678463d521cf9295180d208"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/LocalWorkerChildMain.java",
+      "bytes": 573,
+      "sha256": "sha256:8f82a2dd61b8149b888a6c3f1cfc647b76de374b2d0513705278ca9f9d16abd5"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/LocalWorkerProcessControl.java",
+      "bytes": 6241,
+      "sha256": "sha256:9da55ee86e3ec51319b1d5ba5c4daf32d3bdfd503e30f02ed2864adc2f4383ef"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/M5ResilienceMain.java",
+      "bytes": 27345,
+      "sha256": "sha256:18ef4f55ba80100fc0156bd39852e196dd101f54b5331866ad22379f123a3e06"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/ReferenceAttemptExecutor.java",
+      "bytes": 2019,
+      "sha256": "sha256:f75432218b124d9f3b6b1ba918231324cc235961756a8212958ba2d67702980e"
+    },
+    {
+      "path": "inputs/resilience/java/src/main/java/io/jpyxis/resilience/reference/ReferenceTelemetrySink.java",
+      "bytes": 756,
+      "sha256": "sha256:814f246610646320120d30416f5560b52a1d8587f9f85907064e5cbdc3541b2f"
+    },
+    {
+      "path": "inputs/scripts/verify-reference-path-evidence.mjs",
+      "bytes": 19963,
+      "sha256": "sha256:e0622e7e32369988ee31f4138b052fa2406b8e3b07f321740509f9f56352fc0c"
+    },
+    {
+      "path": "inputs/scripts/verify-reference-path.mjs",
+      "bytes": 15588,
+      "sha256": "sha256:d060acdea15acb383f74c6f44f0f558765eb7886e8b045dda1bbf68bdeb1fda9"
+    },
+    {
+      "path": "inputs/spec/m1/contracts/example.affine-batch.v1.json",
+      "bytes": 2124,
+      "sha256": "sha256:5a38e33d73b4a2413fcf1bb474b99112ef0f8daf3ed0b42ed71a91d0ad424e2c"
+    },
+    {
+      "path": "inputs/spec/m2/proto/jpyxis_invocation_v1.proto",
+      "bytes": 2471,
+      "sha256": "sha256:56ae3ad4217e8396cc9a8279e34fd51be085a8303bd8a4bda0b3b1a830714af7"
+    },
+    {
+      "path": "inputs/spec/m3/definitions/example_affine_plan_v1.py",
+      "bytes": 344,
+      "sha256": "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    {
+      "path": "inputs/spec/reference/definitions/example_affine_plan_v2.py",
+      "bytes": 347,
+      "sha256": "sha256:722426789e41a4e4aa44f04d2f09fc29795ea7f2efd8e9cb4ee49edc4936992d"
+    },
+    {
+      "path": "logs/build_reference.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/build_reference.stdout.bin",
+      "bytes": 2879,
+      "sha256": "sha256:7dc942b3659f83d3b1adcc691f920f8cdaa1364f380bcfbc517891c4e25446ab"
+    },
+    {
+      "path": "logs/check_installation.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/check_installation.stdout.bin",
+      "bytes": 31,
+      "sha256": "sha256:672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "path": "logs/construct_environment.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/construct_environment.stdout.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/generate_frozen_carrier.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/generate_frozen_carrier.stdout.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/installed_inventory.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/installed_inventory.stdout.bin",
+      "bytes": 160,
+      "sha256": "sha256:107d86781e3eb65655a375d37af2fdf72bc78b3e13dffaacd4bbf4660ea4577b"
+    },
+    {
+      "path": "logs/install_pinned_inputs.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/install_pinned_inputs.stdout.bin",
+      "bytes": 2254,
+      "sha256": "sha256:c3a14f32e4bcd6ccb9c6c9f0a3ad6c35119c2e25d490ab07b4c7b11d1eea2049"
+    },
+    {
+      "path": "logs/selected_interpreter.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/selected_interpreter.stdout.bin",
+      "bytes": 16,
+      "sha256": "sha256:6877d6d2b9c7405cc7f999574eed2c9d7d7199eb9bfb91c3b4be8b48e4c3221a"
+    },
+    {
+      "path": "source.json",
+      "bytes": 374,
+      "sha256": "sha256:1857811c4fe0fa95648628f04d1fc229746cc14fb3dbe46684decc4a39afc44a"
+    }
+  ]
+}
