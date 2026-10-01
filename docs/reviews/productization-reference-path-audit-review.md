@@ -186,3 +186,13 @@ must determine whether a versioned outer composition guard closes the obligation
 affected frozen M5 review section must be reopened. Neither is silently selected here. General
 scheduling, runtime ecosystems, OS resource authority, Evidence adapters, façades and Spring Boot
 remain outside this boundary.
+
+## Second instance-identity counterexample
+
+The subsequent [superseded-instance report](m5-instance-failure-counterexample.md) records a distinct
+failure of the proposed minimum repair: an unmodified old attempt's unknown outcome can make a
+healthy replacement worker instance ineligible. Its first receipt, raw bytes, probe, controls and
+storage readback remain immutable. PR #19's initial contract candidate is preserved as an unmerged
+superseded candidate; it is not part of this audit-only publication or a runtime qualification.
+The productization audit remains `STOP_MODEL_COUNTEREXAMPLE`. The next reviewed minimum is M5
+identity conservation through both operand admission and the following Supervisor-owned effect.
