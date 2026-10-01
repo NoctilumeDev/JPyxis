@@ -68,6 +68,11 @@ first harness. Their archive mapping is in
 [retention.json](../../evidence/productization-audit/first-instance-failure/retention.json).
 The first receipt and first output directory are never overwritten or recomputed.
 
+Committed storage at `4441d9e82ad821f6c6e729757eaeba340bd8479c` passed both the new instance-probe
+readback and the unchanged original coordinate-probe readback. The
+[storage record](../../evidence/productization-audit/first-instance-failure/storage-readback.json)
+retains that narrower result and the unchanged original checkout hashes.
+
 Read back immutable committed storage with:
 
 ```text

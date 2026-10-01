@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "jpyxis.io/retained-probe-readback/v1alpha1",
+  "retentionCommit": "4441d9e82ad821f6c6e729757eaeba340bd8479c",
+  "storageReadback": "VERIFIED",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE",
+  "secondReceiptSha256": "sha256:969d63ff66c181e5a902bf0dea35af34aa704b2286261ca4af2581d38ebc11b4",
+  "firstCoordinateReceiptStorageReadback": "VERIFIED",
+  "firstCoordinateReceiptSha256": "sha256:0b6ce408ba543c119ddcc93f3bb8e5be2c7f06b5fbe7ef35d2899a1dba07eb0d",
+  "scope": "Committed raw bytes, probe/harness hashes, predecessor Git blobs, controls and parsed observations only",
+  "runtimeGuardsQualified": false,
+  "contractFrozen": false,
+  "originalDirtyCheckoutPreserved": true,
+  "originalHead": "9632a4f45c2190da6440e455667090fdd88e4a69",
+  "originalReadmeSha256": "sha256:64a1afafec7483e1e3db485b6ab7dfd583b3f6b734ad4fb786bc0daa697059b7",
+  "originalCandidateSha256": "sha256:6f935df1ae541a9295b43df6ae758c5544c873d980f68b09793020e2745ceaeb"
+}
