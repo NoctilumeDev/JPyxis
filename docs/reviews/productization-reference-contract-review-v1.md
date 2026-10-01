@@ -31,6 +31,10 @@ requirements closure and the three runtime package versions. Exact observed patc
 facts remain receipts. The public clean predecessor already ran Python 3.12.14 and the unchanged
 pinned dependencies on a CPU Ubuntu VM; local Windows witnesses have their own Environment
 coordinate. This is neither a portability guarantee nor a new environment-building platform.
+The explicit schema version participates in the canonical Environment digest, separately from
+the six workload fields. The requirements inventory uses a fixed filename-to-byte-digest encoding.
+This pre-freeze clarification preserves initial candidate `4677843a7de050e03583210b449e7eec702b64f2`;
+only the complete revised candidate can establish content qualification.
 
 Prequalifying a fresh actual candidate before M4 admission avoids requiring new LOADING/STANDBY
 abort transitions. Its launch owner can dispose qualification failures. Existing M4 state graph,

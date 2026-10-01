@@ -42,7 +42,8 @@ One deployment operand binds:
 Artifact validation must associate the actual definition plan with the exact computation contract,
 without replacing ArtifactRegistry's ownership. Execution qualification is a later decision.
 
-The first `EnvironmentSpec` contains only these fields, under a versioned reference-profile schema:
+The first `EnvironmentSpec` has required `schemaVersion` equal to
+`jpyxis.io/reference-environment/v1alpha1` and only these six workload fields:
 
 | Field | Rule and workload reason |
 | --- | --- |
@@ -53,10 +54,13 @@ The first `EnvironmentSpec` contains only these fields, under a versioned refere
 | `requirementsClosureDigest` | SHA-256 of the canonical inventory of both existing M2/M3 requirements-file byte digests, including the included file. |
 | `runtimePackages` | Exact versions of `numpy`, `grpcio` and `protobuf` required by the selected computation/transport, taken from the retained pinned inputs. |
 
-Unknown fields, missing fields, null/non-string scalar fields, empty scalar fields, a package map
-with different keys, or unsupported versions are rejected. The specification is UTF-8 JSON with
+Unknown fields, missing fields, a different schema version, null/non-string scalar fields, empty
+scalar fields, a package map with different keys, or unsupported versions are rejected. The specification is UTF-8 JSON with
 recursively sorted object keys, no insignificant whitespace and these exact values; SHA-256 of
-those bytes is its identity. Local Linux and Windows specifications are distinct. Specification
+those bytes, including the schema version, is its identity. The requirements-closure inventory is
+a canonical JSON object mapping the two repository-relative requirements filenames to their
+`sha256:`-prefixed raw-byte hashes; the same sorted-key encoding determines its digest. Local Linux
+and Windows specifications are distinct. Specification
 values precede the candidate; a candidate report cannot supply its own expected specification.
 No native ABI catalogue, wheel portability, dependency solver or environment-builder ecosystem is
 introduced. Existing dependency versions and predecessor thresholds are not changed by this contract.
