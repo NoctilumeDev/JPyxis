@@ -1,6 +1,6 @@
 # Productization Reference Path Audit Review
 
-Status: `LOCAL AUDIT STOP · MODEL COUNTEREXAMPLE OBSERVED · NO CONTRACT FREEZE`
+Status: `PUBLISHED AUDIT STOP · MODEL COUNTEREXAMPLE OBSERVED · NO PRODUCT CONTRACT FREEZE`
 
 Client review date: 2026-10-01. Audit base: `9632a4f45c2190da6440e455667090fdd88e4a69`.
 Source tree: `815c1af197cd1e430f49b64de4784605b1f720f0`.
@@ -186,3 +186,21 @@ must determine whether a versioned outer composition guard closes the obligation
 affected frozen M5 review section must be reopened. Neither is silently selected here. General
 scheduling, runtime ecosystems, OS resource authority, Evidence adapters, façades and Spring Boot
 remain outside this boundary.
+
+## Publication round after the first STOP
+
+The preceding round is historical. [PR #18](https://github.com/NoctilumeDev/JPyxis/pull/18) published
+the audit-only changes without repairing runtime. The
+[publication manifest](../../evidence/productization-audit/publication.json) and separately retained
+[PR](../../evidence/productization-audit/pr18-readback.json) and
+[main](../../evidence/productization-audit/main18-readback.json) readbacks bind the exact coordinates.
+
+| Required record | Publication round |
+| --- | --- |
+| Did | Published final audit head `c1c629a71ea2998e52fbc23fd5e31110a3f06848`, verified PR artifacts, protected-merged PR #18, and independently reverified exact-main artifacts. |
+| Why | Put the retained failure and its qualification boundary into project truth before choosing a repair. |
+| Original plan | Audit-only PR with protected checks and retained evidence readback. |
+| Actual | Required PR run `36841706762` and main run `36842471936` succeeded; downloaded M5/M6 evidence passed and all eight M6 mutations retained their declared verdicts. Main is `11e13099a9b81cf019844c8e4d1d1786ed913c53`. |
+| Failed premise | None added by publication. The model counterexamples, normalized-storage commit and raw-text hygiene failure remain preserved. |
+| Final state | Counterexample entered main; storage and baseline publication verified. M5 guard repair, audit A acceptance and productization remain unqualified. |
+| Next authority | The user's subsequent instruction authorizes a separate minimal M5 coordinate contract, then a separately qualified implementation and fresh audit A. The [contract review](m5-coordinate-validation-review.md) records that boundary. |
