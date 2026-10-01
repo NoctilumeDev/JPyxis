@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "jpyxis.io/productization-audit-v3/v1alpha1",
+  "state": "AUDIT_A_RECHECKED_PUBLICATION_PENDING",
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "candidateBeforeFirstExecution": "f451c0813bdfbdeb4483a4a7d51e323d6a76973f",
+  "entry": "entry-manifest.json",
+  "sourceFacts": "source-facts.json",
+  "m5Receipt": "first-m5/receipt.json",
+  "m4Receipt": "first-m4/receipt.json",
+  "m5ReceiptSha256": "sha256:47c1c573c78c19c27421bab917a77a690d464b56bc4e9f90e4f026909277ae73",
+  "m4ReceiptSha256": "sha256:970620df87d5d1dbc4a2521a1e396289beca3cdbbd324ddec40c7dd886447c2b",
+  "m5Cases": 10,
+  "m4Cases": 3,
+  "independentModelReadback": "PASS",
+  "newModelCounterexampleObserved": false,
+  "productizationQualified": false,
+  "contractBQualified": false,
+  "nextAuthority": "Qualify this separate audit publication, then draft and qualify minimum deployment-realization/dispatch-continuity contract B; runtime C-G remains gated",
+  "scope": "Public M4/M5 model rerun and exact-source remaining composition boundary; no real environment, process freshness, cleanup or product-path proof"
+}

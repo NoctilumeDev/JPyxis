@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "jpyxis.io/m4-retired-handle-audit-v3/v1alpha1",
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "sourceTree": "71392dbf9b4f58a801a0973ca2c4fe36e5d9ecd6",
+  "candidateHead": "f451c0813bdfbdeb4483a4a7d51e323d6a76973f",
+  "sources": [
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactCoordinate.java",
+      "gitBlob": "6d97bb63cbf025745ce34561d6b6d5de14d85720",
+      "sha256": "sha256:b3c1a119534e6bc944a054f6cc3c772d9bf365a61550608694a32c8bae00938d"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactPayload.java",
+      "gitBlob": "8858c251d6fed12e87f4ba08c1137c39ca679435",
+      "sha256": "sha256:a8b52c8d7acf9ef40fa41e61ad4e73f31c51902bad4693042d6670ad8e3fdc7a"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactSnapshot.java",
+      "gitBlob": "3bd4396dbdfbbdc74889ec25b432e24040607175",
+      "sha256": "sha256:c4ebdcb8f8fe52220b836dece44bb9fcee6b5358f682935bcb0f8557d2ce8792"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactState.java",
+      "gitBlob": "8195f79159528c33dc69ac6d52b5dd648a2a44ad",
+      "sha256": "sha256:7225b29f9fbd1836e1d2f81da6995b483ddaa65718c1bbb8659b3bad319d3036"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/DeploymentSnapshot.java",
+      "gitBlob": "5fb2a2ebdcaf058b2cc54e7ec5d3fa3296977ead",
+      "sha256": "sha256:372a2229130b0f31a4185a80061ebfba6a26f70cdca79680f023fddf86b67434"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/DeploymentState.java",
+      "gitBlob": "3435f2b1a8aca7c4654b7dfd466e77ce34b7ea2a",
+      "sha256": "sha256:c8f15e1af5d28a0a79dbe85b55c7d59fc696eebb008f0013d166e91b819bb80a"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/InvocationPin.java",
+      "gitBlob": "9906bbd7ad9e3b8be5fc0e54c2b0b250d6c7d1ae",
+      "sha256": "sha256:43ea35306c247204fc28b4f1d1529de0976c0fedf9c776d4532586e6faeaa883"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/LifecycleContext.java",
+      "gitBlob": "5c90007da57a9d8f8c4ff08d82219331a59d1017",
+      "sha256": "sha256:ba2d153aa5b585d1319f49ed95fdc92aacb9a23ef6c125bf459eacbc17fb2000"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/LifecycleException.java",
+      "gitBlob": "de5952463b6cf47934802bf2687052d63aacda8e",
+      "sha256": "sha256:9d10ed2a94dcf92c411a7ffee153eef301b5a3a47c8407c8f436e2b10e9925a0"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/PinReleaseOutcome.java",
+      "gitBlob": "f7d28be2cb82908fb09e8042618ea1998aad3b0c",
+      "sha256": "sha256:cf9a31b4c8990e4aad33de9aaa647a2208abd85d4e93481ec47f4b17700e891f"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/RuntimeHandle.java",
+      "gitBlob": "ee3e8eb0b7248d7b12eba48469710a4d8784c556",
+      "sha256": "sha256:094324a5f2d71423a7c26843eb31b2fd3e06017c0f84952ba23d393d3da86506"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/core/ArtifactRegistry.java",
+      "gitBlob": "fbd036b002d1ea1ea462cdc145d53afb54c8ea62",
+      "sha256": "sha256:09cf3c6b67d62071f8bc8e0dd3dfa8214a976d30e6c5a0db473fa25e0882666c"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/core/DeploymentManager.java",
+      "gitBlob": "9ca3bb313dbd9c1e8396e6dd118c73d154b127d9",
+      "sha256": "sha256:6aebf75cb5c0bfaf6a68c6b0fd26f810fd2a427afdaad22f2d3ec188c668bba5"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/EventOwner.java",
+      "gitBlob": "5b0c774b7bb8e595ae1dcdc1438beb9ef3ab9db0",
+      "sha256": "sha256:9e4140dbc625aa2acf9a8b67da52c87359e42ea09aa13eb4879afc2c24a6981e"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/InMemoryLifecycleJournal.java",
+      "gitBlob": "77e35c4efac850b50d899d66e9336a1bdad5e23a",
+      "sha256": "sha256:5576cb4d3a8e55227d779a7a25150e7aff9899b26acbaeebbc11939cef95d9bf"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleEvent.java",
+      "gitBlob": "de6861fd3e2076fa66ce37c9c4ad70282c2292bb",
+      "sha256": "sha256:31c3256de34738fb43c615d8323a49689dc7427640d021931a63bd773e7831f3"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleEventDraft.java",
+      "gitBlob": "ea40ea7bc6f5eab660f7aaf0bf56a2e004bfce73",
+      "sha256": "sha256:6556df37e8e20530a45bf1dc170715996f4eb36d445e4f04fb0af9110dcadfbf"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/evidence/LifecycleJournal.java",
+      "gitBlob": "73f619bb464af30f4ebe185748295d9c13a38b1a",
+      "sha256": "sha256:a234a07cd69a402bd9f7a3a523fbe6266fd660fe05595fdb558132db39a2f9d7"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/port/DeploymentRuntime.java",
+      "gitBlob": "385f62a31d4911485ebe53db110c91899566fc2b",
+      "sha256": "sha256:7e450c4406d5beaba30dc2688b7160b31de75d90773a0e3d26f16394f3e4f54c"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/port/LifecycleCapabilityException.java",
+      "gitBlob": "002832fada5aa47468fc78fd1d057b26f37fcb1b",
+      "sha256": "sha256:785bec03e08a727bee78fff51787e5b5457ba2866a71406a6ae7df5cf5d3c880"
+    }
+  ],
+  "harness": [
+    {
+      "path": "experiments/productization-audit-v3/RetiredHandleProbe.java",
+      "gitBlob": "d0abf676f0b0fe70fab3e8f5fc18a6afe654a5a9",
+      "sha256": "sha256:5ed88ad640c526d63362825a98a23f82a9dacb8998a5c631fdf1e452abf540c1"
+    },
+    {
+      "path": "experiments/productization-audit-v3/run-retired-handle.mjs",
+      "gitBlob": "08bbfd2f8bb493c979d004e6d970d0f19f3ad2b8",
+      "sha256": "sha256:dde95690b3034dd5288130adb2380e3c13db3a8eabff33635be558246db8bd17"
+    },
+    {
+      "path": "experiments/productization-audit-v3/verify-retired-handle.mjs",
+      "gitBlob": "824c428ef1070015f1c927733361a6d5fce26d85",
+      "sha256": "sha256:752b8ab3a97c17690db1ad0afb3de6bd09d23cc3193fa9108d8cee2f120ac10f"
+    }
+  ],
+  "compileExit": 0,
+  "compileStdoutSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "compileStderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "startedAt": "2026-10-01T15:55:18.655Z",
+  "runs": [
+    {
+      "id": "fresh_handle_rollback_control",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "fresh_handle_rollback_control.stdout.bin",
+      "stderr": "fresh_handle_rollback_control.stderr.bin",
+      "stdoutSha256": "sha256:806155b5906e873e3fed06cbecf859a4ccd8602b23a309ff97720a22a49282ff",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "retired_handle_rollback",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "retired_handle_rollback.stdout.bin",
+      "stderr": "retired_handle_rollback.stderr.bin",
+      "stdoutSha256": "sha256:a2c2d79e4fb33609734dff47a2c8f2419c8a1de27f5e38aea4a5cfaf49193fb9",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "retired_cloned_tuple_rollback",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "retired_cloned_tuple_rollback.stdout.bin",
+      "stderr": "retired_cloned_tuple_rollback.stderr.bin",
+      "stdoutSha256": "sha256:6d04889330985c48f580ec15d3fb7a1d7636f6a1c4b572477b0f8ad06a02893d",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "Audit A public M4 model only; synthetic capability, in-memory journal; no real Runtime/process/artifact-contract validation claim",
+  "sourcesUnchangedAtEnd": true,
+  "completedAt": "2026-10-01T15:55:19.648Z"
+}

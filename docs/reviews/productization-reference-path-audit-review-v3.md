@@ -6,6 +6,14 @@ Status: `AUDIT A RERUN CANDIDATE · PUBLICATION PENDING · NO CONTRACT B`
 
 Entry is exact main `a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7`, tree `71392dbf9b4f58a801a0973ca2c4fe36e5d9ecd6`, which separately closed the M4 v2 guard qualification record. The entry
 manifest binds that main, its PR/main executions and independently downloaded artifact readbacks.
+The [entry manifest](../../evidence/productization-audit-v3/entry-manifest.json) retains the separate
+PR #30 closure, and the [source facts](../../evidence/productization-audit-v3/source-facts.json) bind
+28 inspected public source and normative files. The current public role-map commit is
+`d9e94a30f914cd147015ea3f1e8e91b933c4b7b0`; its
+[map](https://github.com/NoctilumeDev/NoctilumeDev/blob/d9e94a30f914cd147015ea3f1e8e91b933c4b7b0/docs/repository-system-map.md)
+has the same blob `0dd3fc2678de83c88bfbf234559bdf6a484fff46` as the prior pinned map. JPyxis owns
+computation-domain state and facts; resource grants and external Evidence/Verdict authority stay
+with their declared owners.
 M5 v2 coordinate guards and M4 v2 canonical handle guards have separate normative contracts,
 implementation and qualification records. Their public-model scope does not become real product
 execution through this audit. Old failures and frozen tags remain historical inputs.
@@ -20,7 +28,16 @@ these model probes.
 
 ## Rechecked known counterexamples
 
-The first immutable candidate has not executed. Ten M5 and three M4 checks are planned.
+| Fresh source-bound matrix | Derived result |
+| --- | --- |
+| M5 honest plan, instance/epoch/policy substitutions | 4 PASS; substitutions rejected before observation or terminal effect |
+| M5 old-instance UNKNOWN, current-instance UNKNOWN, replacement success | 3 PASS; logical result and replacement state remain independent |
+| M5 foreign worker/instance/epoch handle returns | 3 PASS; rejected before probe, routing or stop |
+| M4 fresh rollback, same-object retired return, cloned retired tuple | 3 PASS; fresh success and both guarded rejections preserve the declared facts |
+
+The complete candidate `f451c0813bdfbdeb4483a4a7d51e323d6a76973f` was committed before
+execution. The [audit manifest](../../evidence/productization-audit-v3/audit-manifest.json) binds
+the first receipts and their SHA-256; the [retention reader](../../experiments/productization-audit-v3/verify-retained-audit.mjs) checks their Git bytes and derives both matrices again.
 
 The complete first receipts, compile logs and case stdout/stderr are retained with a Git-byte
 ledger. Original archives, the mixed unmerged v2 candidate and first guard candidates remain
@@ -93,7 +110,7 @@ do not prove JPyxis execution.
 | First workload needs side effects, distribution, accelerators or adversarial isolation | False for the retained stateless affine, typed float32, CPU reference profile. No broader workload is selected. |
 | Composition must silently rewrite frozen semantics | No such necessity found: preserve M2 terminal meaning, M3 binding, M4 lifecycle and canonical conservation, M5 logical decision and epoch policy. Explicit composition operands and guarded dispatch belong to a separately reviewed outer contract. |
 
-No result is asserted before the first immutable execution.
+No new model counterexample outside the repaired boundaries was observed by this bounded rerun.
 The remaining composition, Environment, process freshness and physical cleanup requirements remain
 unqualified obligations. Closing known local guard premises permits drafting one minimum contract
 only after this audit publication qualifies. It does not permit treating guards or prose as a real
@@ -113,7 +130,10 @@ general Environment builder or external Evidence/Verdict authority enters this c
 | Did | Recheck exact qualified public source, original guard failures and remaining composition falsifiers. |
 | Why | A product contract needs guarded local premises and an explicit remaining seam. |
 | Original plan | Close M4 guards separately, rerun A, then decide the minimum B question. |
-| Actual | Immutable candidate is prepared; no probe result yet. |
+| Actual | Ten M5 and three M4 first checks passed independent readback. The remaining source-level composition seam persists. |
 | Failed premise | Historical unguarded plan/handle adoption remains documented; no new failed premise is asserted from missing product implementation. |
-| Final state | Audit A v3 execution and publication pending; B remains gated. |
+| Final state | Audit A rechecked; independent publication qualification pending. B content/runtime remain unfrozen and unqualified. |
 | Next authority | Qualify this audit publication, then separately draft and qualify minimum B; runtime remains gated by B. |
+
+First M5 receipt SHA-256: `sha256:47c1c573c78c19c27421bab917a77a690d464b56bc4e9f90e4f026909277ae73`.
+First M4 receipt SHA-256: `sha256:970620df87d5d1dbc4a2521a1e396289beca3cdbbd324ddec40c7dd886447c2b`.
