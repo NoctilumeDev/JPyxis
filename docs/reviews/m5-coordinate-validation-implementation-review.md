@@ -64,6 +64,18 @@ commit, first log and partial output remain retained. This is parameter transpor
 behavioral execution or a new model counterexample. A fixed module-relative Surefire directory
 removes that shell quoting dependency; a later candidate must rerun the entire gate.
 
+Candidate `064c2f9e236983e09a0bd0191ceadf0ab4241bc9` then passed the complete local M5 gate:
+the original sixteen cases/four mutations and supplemental 35 cases, five durable replay fixtures
+and three mutations. A separate reader reran the supplemental bundle with that exact source and
+also returned `PASS`. Its serial local M6 clean build completed all thirteen phases and eight
+mutations, with recorded Runtime processes stopped. The final local verdict is `INCONCLUSIVE`,
+as required for an absent public-clean coordinate and unavailable Windows swap-growth observation;
+the resource decision is `PROVISIONAL`. Neither limitation is overridden or reported as acceptance.
+The [first integration failure](../../evidence/m5-coordinate-validation/v2/first-implementation/receipt.json)
+preserves its original raw log bytes and candidate coordinate. Public PR/main qualification remains
+pending; fresh jobs must run from the final published candidate rather than inherit these local
+results across a documentation commit.
+
 Required acceptance is serial local hygiene and M5/M6 gates, protected PR checks, independent
 downloaded PR artifact readback bound to the executed merge source, protected merge of the exact
 reviewed head, then fresh exact-main checks and independent artifact readback. Guard readback must
