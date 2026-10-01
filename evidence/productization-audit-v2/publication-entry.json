@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "jpyxis.io/m4-counterexample-publication-entry/v1alpha1",
+  "publicationBase": "fc87c62f68f7ca793fde629fa0c0f4259ff88745",
+  "publicationTree": "be643c9af1fd455ae3f7482d017fe7515f84bf1c",
+  "predecessorClosure": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/24",
+    "head": "735c034a51ded668d373a5e6fdb6764ce35593f6",
+    "prExecutedSource": "dbdb4a3c87ba0bb8c744d7669198d8213d304088",
+    "prRun": 36863290918,
+    "prArtifacts": {
+      "m5": 11162442354,
+      "m6": 11162807546
+    },
+    "mainRun": 36863878303,
+    "mainArtifacts": {
+      "m5": 11162268355,
+      "m6": 11162323429
+    },
+    "independentReadbacks": [
+      "predecessor-pr24-readback.json",
+      "predecessor-main24-readback.json"
+    ]
+  },
+  "probeBase": "a5553d94136a46cb93ff31caa3e138a5b7ff8731",
+  "firstProbeCandidate": "38d3dab41838b5fe7049b9cafa094392c2c622a7",
+  "preservedMixedCandidate": "a3ddae079dcbcee26e11af98335216ad4d9e2552",
+  "preservedMixedBranch": "docs/productization-reference-path-audit-v2",
+  "firstM4ReceiptSha256": "sha256:98845953495cc58fe224615b1a5735b56d1378cd01212f056a2f48eaea8a66d5",
+  "states": {
+    "m5CoordinateGuards": "QUALIFIED",
+    "productizationAuditA": "STOP_MODEL_COUNTEREXAMPLE",
+    "m4RepairContract": "NOT_FROZEN",
+    "m4RepairGuards": "NOT_IMPLEMENTED",
+    "realProductPath": "UNQUALIFIED"
+  },
+  "scope": "M4 first counterexample fact publication only; no M5 additional probes or M4 normative/runtime change"
+}
