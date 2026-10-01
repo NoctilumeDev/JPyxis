@@ -1,6 +1,6 @@
 # M5 Coordinate Validation and Owner Effect Contract v2
 
-Status: `REVIEWED v2 · CONTRACT ONLY · GUARD IMPLEMENTATION PENDING`
+Status: `ACCEPTED v2 · CONTRACT ONLY · GUARD IMPLEMENTATION PENDING`
 
 This contract belongs to [ADR-0012](../adr/0012-m5-instance-identity-conservation.md) and the
 [v2 review](../reviews/m5-coordinate-validation-review-v2.md). It supersedes the unmerged PR #19

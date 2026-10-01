@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "jpyxis.io/contract-qualification/v1alpha1",
+  "contractVersion": 2,
+  "evidenceState": "CONTRACT_CONTENT_VALIDATED",
+  "freezeCoordinate": "m5-coordinate-contract-v2",
+  "freezeEntryCondition": "This record's protected merge, exact-main checks/readback and annotated tag must close before guard implementation",
+  "guardImplementationQualified": false,
+  "productizationQualified": false,
+  "source": {
+    "base": "54846ec612ff00417d73052e9f4fb0f0edc602a7",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/21",
+    "reviewedHead": "59203d167a30d6d8ab644c96d2c11205aa9f3e21",
+    "executedPrMerge": "4cbcc29ed9ea4f542c1fa5852ddee54854f70ee9",
+    "acceptedMain": "882131f09911e6735e0de93aa9ee287fc4c82ebe",
+    "acceptedTree": "2ae0ded6ef885b1b21e2d20b6533844b4525ad19",
+    "mergedAt": "2026-10-01T10:31:14Z",
+    "specBlobAtAcceptedMain": "10c0713ce2eb4fc36299eb7cf41814b0fe98890d",
+    "adrBlobAtAcceptedMain": "a7a870a9417eb3755381b42d9f39eee8d83e0cee"
+  },
+  "prEvidence": {
+    "run": 36848729161,
+    "m5Artifact": 11154388972,
+    "m6Artifact": 11154033748,
+    "readback": "pr21-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36849655971,
+    "m5Artifact": 11155052005,
+    "m6Artifact": 11155091317,
+    "readback": "main21-readback.json"
+  },
+  "qualificationScope": "Reviewed M5 admission and atomic instance-scoped owner-effect contract; unchanged predecessor execution only",
+  "preservedFailureScope": "Both model probes and superseded PR 19 are retained; their counterexamples are not repaired by this contract",
+  "requiredChecks": ["Verify M5 resilience repository", "Verify M6 single-node baseline"],
+  "requiredDirectedImplementationMatrix": "docs/spec/m5-coordinate-validation-contract-v2.md",
+  "oldFrozenTagsUnchanged": true
+}

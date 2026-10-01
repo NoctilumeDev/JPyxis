@@ -331,6 +331,11 @@ resource isolation, accelerators, or production readiness. See
 corrections, and unproven claims are retained in the
 [M5 Resilience Review](docs/reviews/m5-resilience-review.md).
 
+The later [M5 coordinate and owner-effect contract v2](docs/spec/m5-coordinate-validation-contract-v2.md)
+records the two published public-model counterexamples and the minimum reopened identity boundary.
+Its [separate review](docs/reviews/m5-coordinate-validation-review-v2.md) qualifies contract authority;
+guard implementation and productization remain pending.
+
 ## M6 reproducibility baseline
 
 M6 composes the frozen gates into one ordered, retained journey: immutable source inspection,

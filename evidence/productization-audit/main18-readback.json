@@ -1,0 +1,64 @@
+{
+  "label": "main18",
+  "executedSource": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "executedTree": "82688caad25510ff987c1c9411e14d503eb6b772",
+  "m5": {
+    "verdict": "PASS",
+    "failures": []
+  },
+  "m6": {
+    "verdict": "PASS",
+    "failures": [],
+    "incomplete": []
+  },
+  "mutations": [
+    {
+      "id": "missing_phase",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "reordered_phase",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "dirty_source",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "changed_predecessor",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "missing_resource_observation",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "live_runtime_claim",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "failed_16gib_predicate",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "summary_owns_success",
+      "verdict": "FAIL"
+    }
+  ],
+  "m5SummarySha256": "sha256:ee3e82cba98b44f0344a3c4316aab367ccc7183b0e0084fb9094f9c290fdf8e9",
+  "m6SummarySha256": "sha256:6da700add924401704d46ef29be5bfcfdc63ae2f10b8cdbb883ad1a845c89a14",
+  "sourceSha256": "sha256:0950d43b0229adeb864bacb958798fbdc7bdfe5d9efc65c82b55ccf297557c11",
+  "resourceDecision": "ACCEPT",
+  "shutdown": {
+    "schemaVersion": "jpyxis.io/m6-runtime-shutdown/v1alpha1",
+    "observedAt": "2026-10-01T09:27:08.977Z",
+    "recordedProcessIds": [
+      6852,
+      6961
+    ],
+    "liveRecordedProcesses": [],
+    "allRuntimeProcessesStopped": true,
+    "authority": "host process identity observation after resource probe"
+  },
+  "scope": "audit publication predecessor readback; no M5 guard repair or productization promotion"
+}

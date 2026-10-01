@@ -1,6 +1,6 @@
 # Productization Reference Path Audit Review
 
-Status: `LOCAL AUDIT STOP · MODEL COUNTEREXAMPLE OBSERVED · NO CONTRACT FREEZE`
+Status: `PUBLISHED AUDIT STOP · MODEL COUNTEREXAMPLE OBSERVED · NO PRODUCT CONTRACT FREEZE`
 
 Client review date: 2026-10-01. Audit base: `9632a4f45c2190da6440e455667090fdd88e4a69`.
 Source tree: `815c1af197cd1e430f49b64de4784605b1f720f0`.
@@ -196,3 +196,20 @@ storage readback remain immutable. PR #19's initial contract candidate is preser
 superseded candidate; it is not part of this audit-only publication or a runtime qualification.
 The productization audit remains `STOP_MODEL_COUNTEREXAMPLE`. The next reviewed minimum is M5
 identity conservation through both operand admission and the following Supervisor-owned effect.
+
+## First-publication reconciliation
+
+The original local STOP round above remains historical. [PR #18](https://github.com/NoctilumeDev/JPyxis/pull/18)
+published its final head `c1c629a71ea2998e52fbc23fd5e31110a3f06848` without runtime repair and
+protected-merged to `11e13099a9b81cf019844c8e4d1d1786ed913c53`. Required PR run `36841706762`
+and exact-main run `36842471936` passed; their separately downloaded M5/M6 bundles and all eight
+M6 mutations were independently read back. The
+[manifest](../../evidence/productization-audit/publication.json) and retained PR/main readbacks
+bind that publication. It promoted only the counterexample into main. The normalized-storage
+candidate, raw-text hygiene failure and first raw receipt were preserved.
+
+The initial M5 contract candidate was then superseded unmerged by the second counterexample.
+Second publication and the separately reviewed
+[M5 contract v2](m5-coordinate-validation-review-v2.md) do not qualify guard implementation or close
+productization audit A. This record remains an effective product audit STOP until the separate
+guard qualification and fresh audit.
