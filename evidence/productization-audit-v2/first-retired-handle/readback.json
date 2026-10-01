@@ -1,0 +1,26 @@
+{
+  "storageReadback": "VERIFIED",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE",
+  "failures": [],
+  "observations": [
+    {
+      "id": "fresh_handle_rollback_control",
+      "exitCode": 0,
+      "rollbackState": "ACTIVE",
+      "retiredState": "RETIRED",
+      "activeBefore": "deployment-v2",
+      "activeAfter": "deployment-rollback",
+      "reusesRetiredTuple": false
+    },
+    {
+      "id": "retired_handle_rollback",
+      "exitCode": 2,
+      "rollbackState": "ACTIVE",
+      "retiredState": "RETIRED",
+      "activeBefore": "deployment-v2",
+      "activeAfter": "deployment-rollback",
+      "reusesRetiredTuple": true
+    }
+  ],
+  "scope": "M4 public model only; exact frozen rollback handle rule; no real worker/process or production claim"
+}
