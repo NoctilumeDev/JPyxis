@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "jpyxis.io/reference-contract-entry/v1alpha1",
+  "state": "AUDIT_A_QUALIFIED_MINIMUM_B_CONTENT_ENTRY",
+  "productizationQualified": false,
+  "contractQualified": false,
+  "source": {
+    "base": "42005e30e999242518a7435189e26269888c6750",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/31",
+    "head": "83246a32b805776474b89ee9ff5d13f61edaa4f9",
+    "executedPrMerge": "53fb3443d7dfc6c693da386e8ccd05f3b276c241",
+    "acceptedMain": "42005e30e999242518a7435189e26269888c6750",
+    "acceptedTree": "d98dc46571b660f4f72120515615d7c63b73eab1",
+    "mergedAt": "2026-10-01T16:13:58Z"
+  },
+  "prEvidence": {
+    "run": 36888607721,
+    "m4Artifact": 11176270818,
+    "cleanM4Artifact": 11175971236,
+    "m5Artifact": 11176665305,
+    "m6Artifact": 11175836321
+  },
+  "mainEvidence": {
+    "run": 36890435098,
+    "m4Artifact": 11176517437,
+    "cleanM4Artifact": 11176472635,
+    "m5Artifact": 11176367617,
+    "m6Artifact": 11177165222
+  },
+  "independentPrAndMainReadback": "PASS",
+  "resources": "ACCEPT",
+  "allRecordedProcessesStopped": true,
+  "auditModelCases": 13,
+  "auditGitFiles": 44,
+  "auditSourceFactFiles": 28,
+  "firstM5AuditReceiptSha256": "sha256:47c1c573c78c19c27421bab917a77a690d464b56bc4e9f90e4f026909277ae73",
+  "firstM4AuditReceiptSha256": "sha256:970620df87d5d1dbc4a2521a1e396289beca3cdbbd324ddec40c7dd886447c2b",
+  "qualifiedM4RetainedInputs": 473,
+  "systemMap": {
+    "commit": "d9e94a30f914cd147015ea3f1e8e91b933c4b7b0",
+    "blob": "0dd3fc2678de83c88bfbf234559bdf6a484fff46"
+  },
+  "scope": "Qualified Audit A permits minimum contract B content only; no runtime or real product-path qualification",
+  "nextAuthority": "Qualify contract content, then its separate immutable freeze record before any runtime implementation"
+}

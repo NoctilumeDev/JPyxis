@@ -1,0 +1,10 @@
+{
+  "revision": "42005e30e999242518a7435189e26269888c6750",
+  "verdict": "PASS",
+  "retainedGitFiles": 44,
+  "sourceFactFiles": 28,
+  "m5Cases": 10,
+  "m4Cases": 3,
+  "originalArchivesUnchanged": true,
+  "scope": "Bounded Audit A known guard rerun and exact-source composition finding; no real product path"
+}

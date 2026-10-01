@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "jpyxis.io/reference-contract-entry-retention/v1alpha1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "sha256:75214165f4a5f89f8ada3b08f71f2638f8ff090d3d034aa1d169f22f88cc2c06",
+      "bytes": 19
+    },
+    {
+      "path": "accepted-audit-baseline-environment.json",
+      "sha256": "sha256:8a42b102e46774f98f36ecf2a194a030f2291fffbf12c26f573d315afbd18d90",
+      "bytes": 809
+    },
+    {
+      "path": "entry-manifest.json",
+      "sha256": "sha256:f1af3634eb0072ea480e77ff838803f9bbb0badd93e2c3a7e2c644ce1ef5fa92",
+      "bytes": 1787
+    },
+    {
+      "path": "main31-audit-readback.json",
+      "sha256": "sha256:3d76f9655621c566b1cef23a515129ec7ad08498abf9ec6d3ab186dd5af9239e",
+      "bytes": 310
+    },
+    {
+      "path": "main31-m4-qualification-readback.json",
+      "sha256": "sha256:79a66dbde96a916538a906a53bc5044499508a183af00d4fcc529222f750bf00",
+      "bytes": 6681
+    },
+    {
+      "path": "main31-m4-readback.json",
+      "sha256": "sha256:9c158515d3fd1d9022930400ff8884167e01c1a824e7d4a164e2fcfe3b5fb7f0",
+      "bytes": 6300
+    },
+    {
+      "path": "main31-readback.json",
+      "sha256": "sha256:9dddd269db4a2dc585dcacc8ceb137959cf1812988a720591e06f7a16cabc99c",
+      "bytes": 5178
+    },
+    {
+      "path": "pr31-audit-readback.json",
+      "sha256": "sha256:b6f66329abd11e66cae9f34eb5db2618a41befe16fceb3bbe2e438bdaaa6606d",
+      "bytes": 310
+    },
+    {
+      "path": "pr31-m4-qualification-readback.json",
+      "sha256": "sha256:4ab3727a85b5fc91de6685b7c71119f67f6c2812a58e1972683d5858df240fc6",
+      "bytes": 6681
+    },
+    {
+      "path": "pr31-m4-readback.json",
+      "sha256": "sha256:820d90e060b1583b2776c6b863726bbda2398703ab0e2422b3afde36631993b3",
+      "bytes": 6298
+    },
+    {
+      "path": "pr31-readback.json",
+      "sha256": "sha256:b7ec79dc2d9fb840d619fd4ada1ce40f5771162676d9d11877ca179440ab7098",
+      "bytes": 5176
+    }
+  ]
+}
