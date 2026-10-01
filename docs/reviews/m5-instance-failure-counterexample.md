@@ -21,8 +21,8 @@ an actual computation. The logical outcome remains the correct `OUTCOME_UNKNOWN`
 
 The user's continuation instruction explicitly requires stopping on another model-level
 counterexample. The candidate contract is therefore not frozen and runtime implementation does not
-begin. [PR #19](https://github.com/NoctilumeDev/JPyxis/pull/19) is a draft, retaining its exact initial
-head and green CI as historical observations. It has no protected merge, exact-main readback, tag,
+begin. [PR #19](https://github.com/NoctilumeDev/JPyxis/pull/19) was made a draft at this first STOP,
+retaining its exact initial head and green CI as historical observations. It has no protected merge, exact-main readback, tag,
 or guard-entry qualification. Current main remains the audit publication base above.
 
 ## Exact public path
@@ -129,6 +129,12 @@ ADR-0012, the candidate coordinate contract or its review. Original local commit
 `f78287156a124c2799c6d12aca9ff19caf328a9d` remain preserved as provenance of the first capture and
 storage observation, although they descend from the unaccepted candidate. The copied bytes and
 runtime source binding do not change.
+
+[PR #20](https://github.com/NoctilumeDev/JPyxis/pull/20) is the separate audit-only publication.
+PR #19 was closed unmerged at `2026-10-01T10:01:17Z` as superseded by this counterexample; its remote
+head remains `3960255e4324c0396ec58991c570526a18bced0d`. This is not a failed runtime implementation
+or an accepted contract. The [supersession record](../../evidence/productization-audit/pr19-supersession.json)
+retains the candidate and replacement coordinates.
 
 | Required record | Second-publication round |
 | --- | --- |

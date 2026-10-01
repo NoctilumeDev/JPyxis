@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "jpyxis.io/contract-candidate-supersession/v1alpha1",
+  "candidatePullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/19",
+  "candidateHead": "3960255e4324c0396ec58991c570526a18bced0d",
+  "candidateBase": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "initialSuccessfulRun": 36844437108,
+  "state": "CLOSED_UNMERGED_SUPERSEDED_BY_COUNTEREXAMPLE",
+  "closedAt": "2026-10-01T10:01:17Z",
+  "mergedAt": null,
+  "contractFrozen": false,
+  "runtimeImplementation": false,
+  "reason": "Plan admission alone did not conserve instance identity through the following Supervisor-owned effect",
+  "replacementAuditPullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/20",
+  "replacementAuditBase": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "replacementInitialHead": "7cf10224e1c46bc761b55578851e0d0f32595b44",
+  "firstProbeRetentionCommit": "4441d9e82ad821f6c6e729757eaeba340bd8479c",
+  "firstStorageRecordCommit": "f78287156a124c2799c6d12aca9ff19caf328a9d",
+  "secondReceiptSha256": "sha256:969d63ff66c181e5a902bf0dea35af34aa704b2286261ca4af2581d38ebc11b4",
+  "nextAuthority": "Publish the second counterexample first; draft contract v2 from its independently qualified exact main"
+}
