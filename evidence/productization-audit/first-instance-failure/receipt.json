@@ -1,0 +1,354 @@
+{
+  "schemaVersion": "jpyxis.io/instance-failure-audit/v1alpha1",
+  "sourceBase": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "sourceTree": "82688caad25510ff987c1c9411e14d503eb6b772",
+  "checkoutHead": "3960255e4324c0396ec58991c570526a18bced0d",
+  "sources": [
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservation.java",
+      "gitBlob": "ee3ef4dcb6160d4b90384bb9af9140c65548c7be",
+      "sha256": "sha256:5557b2d105f9631d545dc6e1aacb9336aeb388bc6a78f0c05dcfe9af9ee2d6ca"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservationKind.java",
+      "gitBlob": "0673a1f4e58de9c52e9fcb2a7334dc187414e586",
+      "sha256": "sha256:8b20213449b348a8311bfcadb766d080fd15f3087cc441676c2eab64b69c37cc"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptPlan.java",
+      "gitBlob": "f07bd422f6ee29d047ce767977f465aee454e553",
+      "sha256": "sha256:b38ea43071ae0a203bc346353e40dddccbb252012ce65cf5b9f6d114dcc11782"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptSnapshot.java",
+      "gitBlob": "6298db3c4ecec9d5949855fc418141709edb52a6",
+      "sha256": "sha256:230cf8917570c4474495f0e50935d1c35e3af616b39c907c7277da6e041afbc7"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/DesiredBinding.java",
+      "gitBlob": "bd20e6c484c63198b034724cf126c0a32a8c2b2e",
+      "sha256": "sha256:2647d9097cb994dc208baef7bb959ef304023bc89f083e75450baf38d54316be"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/IdempotencyMode.java",
+      "gitBlob": "bbeb8b822e0abba748080c86399a8305aa819202",
+      "sha256": "sha256:c3cdc1e5c0e96c658324959ac378c3db385524dd063714170643a59426bd0a35"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationRequest.java",
+      "gitBlob": "084ef573967a643b720cc00dd73875a4ad75071a",
+      "sha256": "sha256:6012a69629d3ba2085d3e4c9949122bdbff3d58f1bda297dfb229343e02bc996"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationSnapshot.java",
+      "gitBlob": "fe67c0ad647dd67651abc7861356882aa8842673",
+      "sha256": "sha256:fb5318bd6bd999f02f78e45ff7608fd2ce127762a4192b86f09102af9bf4a332"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/LogicalInvocationState.java",
+      "gitBlob": "9da8291cbcc1ba99589cc97ebe7515fba2a2bbd2",
+      "sha256": "sha256:0fb48e3d21a6fbc6ba5ba01eeba6beed0dd21b4ab6f0cc6d7621a2e30b33efda"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceContext.java",
+      "gitBlob": "7f9191281f86e0e8f501d35aa1534bef66a98c5f",
+      "sha256": "sha256:023ad401d1ca5e2f72cc194c7928d237d682e6289dcbfd6caf78d37f19b2cece"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceException.java",
+      "gitBlob": "88375bba1bf52c178fc3050e8f04a7a46503e19e",
+      "sha256": "sha256:fdf2de80bb821649ed53200edbeb02f0981ef8b28845cd54fef90014198a8a82"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerHandle.java",
+      "gitBlob": "2b658a82b6c26b85a1650be56b14b46a98f5b77e",
+      "sha256": "sha256:0ab195e5ac8f870491af47c42cbd45ba1c102ff420737b21a9689796318da7bd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerSnapshot.java",
+      "gitBlob": "5a38f4a2be0d948f2dcb471037f66a68a473576e",
+      "sha256": "sha256:c5c76e2b663ec9ccd2f420e5d2be7be3d49ac6bade262da1f59e572a87cd045f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerState.java",
+      "gitBlob": "4b89794c8b23b221ddfa50e488e643f81eaecbde",
+      "sha256": "sha256:cfe5b8c05befa7d0f653a2ba61d0e1d964cb99bd92332fc1aaa98bb1ec87de4f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+      "gitBlob": "f2d8cb1e099a07b4fe1a59c74f017e3b80393250",
+      "sha256": "sha256:c620e4fb718f168f7a85a31a8717124486387f1f3284dfe43c4912306e81aedd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+      "gitBlob": "96b45f703c514153496ad65708666220a0335eb6",
+      "sha256": "sha256:7dc78e81d0a39c77863f02018aff30b13acbe57e69d997316c38d1612f494115"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/EventOwner.java",
+      "gitBlob": "e376bf32ec160246d6a4b1f769ab8109746647f4",
+      "sha256": "sha256:dc93bc1015e6aac6e108280b71c68e0579477b21e78b17d9334659004f31b1b4"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceJournal.java",
+      "gitBlob": "bc9d3063fd5af54717256c19bdc01e91f9573f9e",
+      "sha256": "sha256:3e5165c82a149aeac9f65ff40f1488e678cd061506a269dc4d527fce9cc03434"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEvent.java",
+      "gitBlob": "6f9421f0bec0e06d9c4076780d724691cecacceb",
+      "sha256": "sha256:0e6cbeab5ae84b4378fb88c3863886df308d51f413b388ed4779d8c1a801e035"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEventDraft.java",
+      "gitBlob": "8e0c61392dc2b83f8c14460871854a11f17cf74b",
+      "sha256": "sha256:8328e42cbb0958271b76e9310d16aabe216b9d569c7917dc2be26b73b1fa878f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControl.java",
+      "gitBlob": "898e3b1b4d10f734adf76571680932276809559e",
+      "sha256": "sha256:ce2c1667c4761bf6fd505a243fc49c4754f80c4f5c5dd81bb93da594fd5b3082"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControlException.java",
+      "gitBlob": "5bf109fa9f2170fa0d3c171fd27a08e81e30c4af",
+      "sha256": "sha256:07c96d43d37d78d0c007f2ce73421f3f7c4c2558e730deb846d582c0d079593c"
+    }
+  ],
+  "probeSource": {
+    "path": "build/coordinate-contract/InstanceFailureProbe.java",
+    "sha256": "sha256:855af7bd812945eba7b1143a2a2910023c9819b4a6237fa09d8d763918b2af87"
+  },
+  "harnessSource": {
+    "path": "build/coordinate-contract/run-instance-probe.mjs",
+    "sha256": "sha256:e24c19fec8f857d269e1aaa4e4d0dd7d8d10a4418b2504d6804189e6c49c0d98"
+  },
+  "java": "java version \"17.0.12\" 2024-07-16 LTS\r\nJava(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)\r\nJava HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)",
+  "startedAt": "2026-10-01T09:48:34.127Z",
+  "compileExit": 0,
+  "runs": [
+    {
+      "case": "same_instance_failure_control",
+      "exitCode": 0,
+      "stdoutSha256": "sha256:47b225c82c1e891547f077de8f0d48f8f5393a09634aab609675797a338eef30",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "same_instance_failure_control",
+        "scope": "M5 public model only; synthetic capability and in-memory journal",
+        "submittedPlanUnmodified": true,
+        "attemptInstance": "worker-a@epoch-1-1",
+        "beforeInstance": "worker-a@epoch-1-1",
+        "afterInstance": "worker-a@epoch-1-1",
+        "beforeState": "ELIGIBLE",
+        "afterState": "INELIGIBLE",
+        "currentCapabilityStillHealthy": true,
+        "logicalOutcome": "OUTCOME_UNKNOWN",
+        "unexpectedReplacementMutation": false,
+        "eventsAfterOldObservation": [
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "executionMayContinue": "true",
+              "resultDigest": "",
+              "logicalTraceId": "logical-trace",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "kind": "UNKNOWN_REMOTE_OUTCOME"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_FAILURE_OBSERVED",
+            "workerId": "worker-a",
+            "attemptId": "",
+            "details": {
+              "processAlive": "true",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "stage": "INVOCATION"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_INELIGIBLE",
+            "workerId": "worker-a",
+            "attemptId": "",
+            "details": {
+              "workerEpoch": "epoch-1",
+              "previousState": "ELIGIBLE",
+              "processId": "101",
+              "stage": "INVOCATION",
+              "instanceId": "worker-a@epoch-1-1",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "newState": "INELIGIBLE"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "RETRY_DENIED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "recovered": "false",
+              "reason": "IDEMPOTENCY_EVIDENCE_REQUIRED",
+              "observation": "UNKNOWN_REMOTE_OUTCOME",
+              "logicalTraceId": "logical-trace"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_UNKNOWN",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "newState": "OUTCOME_UNKNOWN",
+              "previousState": "ATTEMPTING",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "",
+              "recovered": "false"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "replacement_success_control",
+      "exitCode": 0,
+      "stdoutSha256": "sha256:d57b204da0a79f502edfbf0602c75886bb0934a8f661bbc635f5f74d5c21eca1",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "replacement_success_control",
+        "scope": "M5 public model only; synthetic capability and in-memory journal",
+        "submittedPlanUnmodified": true,
+        "attemptInstance": "worker-a@epoch-1-1",
+        "beforeInstance": "worker-a@epoch-1-2",
+        "afterInstance": "worker-a@epoch-1-2",
+        "beforeState": "ELIGIBLE",
+        "afterState": "ELIGIBLE",
+        "currentCapabilityStillHealthy": true,
+        "logicalOutcome": "SUCCEEDED",
+        "unexpectedReplacementMutation": false,
+        "eventsAfterOldObservation": [
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "code": "OK",
+              "kind": "SUCCEEDED",
+              "executionMayContinue": "false",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_SUCCEEDED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "newState": "SUCCEEDED",
+              "code": "OK",
+              "previousState": "ATTEMPTING",
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "recovered": "false"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "replacement_instance_failure",
+      "exitCode": 2,
+      "stdoutSha256": "sha256:4c3466cec8a7dbbe93bd9440146c98bc79f17281fb7ea7f4b20ed54eb32e0cb5",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "replacement_instance_failure",
+        "scope": "M5 public model only; synthetic capability and in-memory journal",
+        "submittedPlanUnmodified": true,
+        "attemptInstance": "worker-a@epoch-1-1",
+        "beforeInstance": "worker-a@epoch-1-2",
+        "afterInstance": "worker-a@epoch-1-2",
+        "beforeState": "ELIGIBLE",
+        "afterState": "INELIGIBLE",
+        "currentCapabilityStillHealthy": true,
+        "logicalOutcome": "OUTCOME_UNKNOWN",
+        "unexpectedReplacementMutation": true,
+        "eventsAfterOldObservation": [
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "kind": "UNKNOWN_REMOTE_OUTCOME",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "",
+              "executionMayContinue": "true"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_FAILURE_OBSERVED",
+            "workerId": "worker-a",
+            "attemptId": "",
+            "details": {
+              "stage": "INVOCATION",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "processAlive": "true"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_INELIGIBLE",
+            "workerId": "worker-a",
+            "attemptId": "",
+            "details": {
+              "newState": "INELIGIBLE",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST",
+              "instanceId": "worker-a@epoch-1-2",
+              "stage": "INVOCATION",
+              "processId": "102",
+              "previousState": "ELIGIBLE",
+              "workerEpoch": "epoch-1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "RETRY_DENIED",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "reason": "IDEMPOTENCY_EVIDENCE_REQUIRED",
+              "observation": "UNKNOWN_REMOTE_OUTCOME",
+              "recovered": "false"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_UNKNOWN",
+            "workerId": "worker-a",
+            "attemptId": "logical-a/attempt-1",
+            "details": {
+              "recovered": "false",
+              "resultDigest": "",
+              "logicalTraceId": "logical-trace",
+              "previousState": "ATTEMPTING",
+              "newState": "OUTCOME_UNKNOWN",
+              "code": "OLD_ATTEMPT_CHANNEL_LOST"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "scope": "public model only; no real worker, compute, durability or production claim",
+  "completedAt": "2026-10-01T09:48:34.982Z",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE"
+}
