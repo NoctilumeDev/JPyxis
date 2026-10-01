@@ -2,6 +2,16 @@
 
 Status: `FIRST COMPLETE CANDIDATE · ACTUAL EXECUTION AND QUALIFICATION PENDING`
 
+The first complete candidate was committed before verification at
+`455bb0f123bc97dedd458ef3940349ba248f0d5a`. Its first local build failed at the two reference
+composition call sites: M4 pin admission lacked the explicit pin ID, and the full plan had been
+passed to M5's ID-only late API. The retained [first-failure record](../../evidence/reference-path/v1/local-candidates/455bb0f123bc-first-build/failure-record.json)
+classifies this as `COMPOSITION_API_SIGNATURE_MISMATCH`; 176 original input/log files were archived
+before repair at `643b232`. No product worker had started and no qualification was granted.
+The minimal repair supplies a fresh pin ID and routes the already bound late observation through
+`recordObservation(plan, ...)`, whose existing terminal path validates the full plan before recording
+and ignoring the late observation. No module API or frozen semantic boundary changes.
+
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,
 exact-main gates and independent readbacks. Specification blob `4dab857362aa4362bd3c46c03a3a9e7135b70193`

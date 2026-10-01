@@ -172,7 +172,7 @@ final class ReferenceControl implements AutoCloseable {
         }
     };}
     Prepared prepare(JsonNode input){synchronized(lock){
-        String logical=UUID.randomUUID().toString();InvocationPin pin=deployments.pinInvocation(SLOT,logical,lc);
+        String logical=UUID.randomUUID().toString();InvocationPin pin=deployments.pinInvocation(SLOT,UUID.randomUUID().toString(),logical,lc);
         Candidate r=candidates.stream().filter(c->c.deploymentId.equals(pin.deploymentId())).findFirst().orElseThrow();
         InvocationRequest request=new InvocationRequest(logical,UUID.randomUUID().toString(),IdempotencyMode.NONE,"",1);
         r.invocations.accept(request,rc);AttemptPlan plan=r.invocations.prepareAttempt(logical,rc);
@@ -282,7 +282,7 @@ final class ReferenceControl implements AutoCloseable {
             ReferenceJson.require(report.failure()==null&&validator.validate(p.candidate.contract.operation().output(),report.canonicalOutput(),inputBindings).accepted()&&oracle(p.input,report.canonicalOutput()),"late typed output/oracle");
             var observation=AttemptObservation.succeeded(ReferenceJson.digest(ReferenceJson.canonical(report.canonicalOutput())));
             synchronized(lock){p.completionKnown=true;var before=p.candidate.supervisor.snapshot(p.candidate.workerId);
-                var snapshot=p.candidate.invocations.recordLateObservation(p.plan,observation,rc);
+                var snapshot=p.candidate.invocations.recordObservation(p.plan,observation,rc);
                 source.record("COMPOSITION_CONTROL","BOUND_LATE_OBSERVATION_RECORDED",Map.of("association",p.association,"lateSource",retained,"plan",p.plan,"snapshot",snapshot,"workerBefore",before,"workerAfter",p.candidate.supervisor.snapshot(p.candidate.workerId)));
                 return snapshot;
             }
