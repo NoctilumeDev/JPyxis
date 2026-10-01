@@ -1,6 +1,6 @@
 # Productization Reference Contract Review v1
 
-Status: `CONTRACT CONTENT CANDIDATE · SEPARATE FREEZE AND RUNTIME GATES PENDING`
+Status: `CONTRACT CONTENT QUALIFIED · SEPARATE FREEZE PUBLICATION AND RUNTIME GATES PENDING`
 
 ## Qualified entry
 
@@ -49,12 +49,34 @@ physical witnesses. The actual-path matrix includes success, all operand/identit
 continued/late execution, crash, qualification/cutover, retired aliases and false release reports.
 Independent semantic mutations prevent source self-claims or repaired hashes from owning success.
 
+## Accepted content and separate freeze publication
+
+Protected [PR #32](https://github.com/NoctilumeDev/JPyxis/pull/32) accepted reviewed head
+`3f5d7014679db4f33d23bed48a664a605926e134`, executed merge
+`9c6027f82b0f60e78b237e72361e62a63d317c3b` and main
+`4d52ba71a65ceae236c4dbed318c2028ee5f0c9a`. PR run `36894118564` and main run `36894824669`
+passed both unchanged required jobs. Downloaded PR and main artifacts independently passed
+M4's eleven legacy scenarios and both 28-case/three-mutation handle witnesses, M5's 35 coordinate
+cases/five durable fixtures/three mutations, and M6's thirteen phases/eight mutations. Resource
+decisions were ACCEPT, all recorded Runtime processes stopped, and the 473 retained guard files,
+44 Audit A files, thirteen audit observations and eleven entry files remained bound and readable.
+
+The [separate freeze record](../../evidence/reference-path/v1/contract-manifest.json) retains these
+coordinates and raw readbacks. Its immutable normative blobs are specification
+`4dab857362aa4362bd3c46c03a3a9e7135b70193` and ADR
+`e0138b897829631e0cc04234bab4429dadab5e4d`. Their historical candidate headers remain as accepted
+bytes; effective freeze authority requires this later publication's protected merge, exact-main
+gates and independent readback. This publication changes no runtime or normative content and creates
+no milestone or tag. The initial content candidate and its green predecessor run remain preserved;
+only the revised complete candidate supplies accepted content authority.
+
 ## Qualification and conserved scope
 
-This PR changes contract/ADR/review and entry evidence only. Content qualification requires both
-existing protected jobs, downloaded independent predecessor/retention readback, protected merge,
-exact-main gates and readback. A separate freeze-record publication binds the exact accepted main
-and normative blobs and closes the same gates before a separate runtime branch is authorized.
+This separate publication changes the review, readers and retained freeze evidence only. Content
+qualification completed the existing protected jobs, downloaded independent predecessor/retention
+readback, protected merge and exact-main gates/readback at the coordinates above. This freeze record
+binds that accepted main and normative blobs and must close the same gates before a separate runtime
+branch is authorized.
 No new milestone or unprotected tag is created. Implementation requires its own actual-path and
 clean-VM witness in addition to unchanged predecessors, and later protected main/readback closure.
 
@@ -69,7 +91,7 @@ receipts remain JPyxis facts. A larger semantic contradiction requires STOP befo
 | Did | Bound qualified Audit A and specified one actual operand/realization/dispatch/terminal contract. |
 | Why | Existing public carriers lack the association needed by a real product path. |
 | Original plan | Qualify A, then separately freeze minimum B before D runtime work. |
-| Actual | Contract content candidate only; no product runtime, schema implementation or real process execution added. |
+| Actual | Contract content qualified at exact main; separate freeze publication only, with no runtime implementation. |
 | Failed premise | Historical local shape/fresh-ID premises were already repaired and retained; no new counterexample is declared. |
-| Final state | A qualified; B content/publication/freeze pending; actual path unimplemented and unqualified. |
-| Next authority | Qualify this content and its separate immutable freeze record, then implement only the declared real matrix. |
+| Final state | A and B content qualified; separate freeze publication pending; actual path unimplemented and unqualified. |
+| Next authority | Close this immutable freeze publication through protected merge and exact-main readback, then implement only the declared real matrix. |

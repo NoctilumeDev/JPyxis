@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "jpyxis.io/reference-contract-qualification/v1alpha1",
+  "contractVersion": 1,
+  "evidenceState": "CONTRACT_CONTENT_QUALIFIED_FREEZE_RECORD_CANDIDATE",
+  "productizationQualified": false,
+  "runtimeImplementationQualified": false,
+  "source": {
+    "base": "42005e30e999242518a7435189e26269888c6750",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/32",
+    "reviewedHead": "3f5d7014679db4f33d23bed48a664a605926e134",
+    "firstContentCandidate": "4677843a7de050e03583210b449e7eec702b64f2",
+    "executedPrMerge": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+    "acceptedMain": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+    "acceptedTree": "a0493cb30f4f2261076491dcd1260ea661aba124",
+    "mergedAt": "2026-10-01T16:49:06Z",
+    "specBlob": "4dab857362aa4362bd3c46c03a3a9e7135b70193",
+    "adrBlob": "e0138b897829631e0cc04234bab4429dadab5e4d"
+  },
+  "prEvidence": {
+    "run": 36894118564,
+    "artifacts": {
+      "m4": {
+        "id": 11178757494,
+        "name": "m4-lifecycle-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "digest": "sha256:79307090193abc4a1b46d928d29ca105254aef8d055ea31586db157f0f025956"
+      },
+      "m4-clean": {
+        "id": 11178647666,
+        "name": "m4-handle-clean-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "digest": "sha256:c4a1ea30fdf369ba5c4cef778b040fd7c456e8dcc2373e2e2014a5bd722001f8"
+      },
+      "m5": {
+        "id": 11178397837,
+        "name": "m5-resilience-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "digest": "sha256:5e54b62207caead21e0dbf443d665a5b0a5f1f3e63c6f21fe0631e489ec4a415"
+      },
+      "m6": {
+        "id": 11178367868,
+        "name": "m6-reproduction-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+        "digest": "sha256:20877d954505f4840ef821454c3935ae0c28bab703bc2790f6f6723f92757e4e"
+      }
+    }
+  },
+  "mainEvidence": {
+    "run": 36894824669,
+    "artifacts": {
+      "m4": {
+        "id": 11178847262,
+        "name": "m4-lifecycle-4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "sha": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "digest": "sha256:47069c60967856ee87cbc9d0ddc981f6540c3f9de52f28c59ff6cd6fb6860752"
+      },
+      "m4-clean": {
+        "id": 11179762150,
+        "name": "m4-handle-clean-4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "sha": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "digest": "sha256:853d17764d2a3ec64f2a34cf128412ad99f740cbd063e69ffb87cee47966e61a"
+      },
+      "m5": {
+        "id": 11179112145,
+        "name": "m5-resilience-4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "sha": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "digest": "sha256:03f26158c459d77fd99bf32629e0556fe9834ceea5a22025e9ad67c6872782d3"
+      },
+      "m6": {
+        "id": 11179597006,
+        "name": "m6-reproduction-4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "sha": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+        "digest": "sha256:41e246ddafb4b0859aca1aca1930c106f9c229bd3b0e74557ebffc14265e5f46"
+      }
+    }
+  },
+  "requiredChecks": [
+    "Verify M5 resilience repository",
+    "Verify M6 single-node baseline"
+  ],
+  "independentPrAndMainReadback": "PASS",
+  "resources": "ACCEPT",
+  "allRecordedProcessesStopped": true,
+  "qualificationScope": "Bounded immutable deployment operands, Environment, real realization, dispatch continuity, terminal interpretation, rollback and physical cleanup contract only",
+  "freezeAuthority": "Exact accepted protected main and normative blobs after this separate freeze publication completes protected merge, exact-main gates and independent readback; no new milestone or tag",
+  "nextAuthority": "Only after that closure qualifies: a separate actual-path implementation branch reusing M2/M3/M4/M5 and the declared eighteen-row witness matrix",
+  "originalFailuresAndFrozenInputsUnchanged": true,
+  "retention": "contract-retention.json"
+}
