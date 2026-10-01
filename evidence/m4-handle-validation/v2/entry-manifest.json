@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "jpyxis.io/m4-handle-contract-entry/v1alpha1",
+  "contractVersion": 2,
+  "state": "REVIEWED_CONTENT_CANDIDATE",
+  "prospectiveFreezeTag": "m4-handle-contract-v2",
+  "guardImplementationQualified": false,
+  "productizationQualified": false,
+  "source": {
+    "base": "db866d2a997188c50bd3cf5c14852fc5a7d9cbe0",
+    "tree": "994d497b01a4f279bc1d43d30413681dd6120190",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/26",
+    "reviewedHead": "a1aaf593e56dcc219c56870fbbb8e360dfdd380e",
+    "executedPrMerge": "d3b04cd038bf6f2a4a2f863e0316fbc5cb8884e2",
+    "mergedAt": "2026-10-01T13:29:09Z"
+  },
+  "prEvidence": {
+    "run": 36868218661,
+    "m5Artifact": 11166715119,
+    "m6Artifact": 11166400334,
+    "readback": "predecessor-pr26-readback.json",
+    "auditReadback": "precontract-pr26-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36869025755,
+    "m5Artifact": 11166341459,
+    "m6Artifact": 11165347751,
+    "readback": "predecessor-main26-readback.json",
+    "auditReadback": "precontract-main26-readback.json"
+  },
+  "firstPrecontractReceiptSha256": "sha256:c2941d18a0c6ce5cc79945bff24caa51eda2308dac26c63b0e7e3d3453433b5a",
+  "firstRetiredReceiptSha256": "sha256:98845953495cc58fe224615b1a5735b56d1378cd01212f056a2f48eaea8a66d5",
+  "scope": "Minimum canonical handle conservation within one in-memory DeploymentManager; no guard, restart, real process or product qualification",
+  "entryCondition": "Contract content protected merge and exact-main qualification, separate retained closure and protected annotated tag must close before implementation",
+  "originalM4TagObject": "d41b8cbb478c0c8ac72ccca0a43cab6b0aba9386"
+}
