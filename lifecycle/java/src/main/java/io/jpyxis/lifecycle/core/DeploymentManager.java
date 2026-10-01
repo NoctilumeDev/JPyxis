@@ -30,6 +30,8 @@ public final class DeploymentManager {
     private final Map<String, String> activeBySlot = new LinkedHashMap<>();
     private final Map<String, PinEntry> outstandingPins = new LinkedHashMap<>();
     private final Map<String, PinEntry> forcedPins = new LinkedHashMap<>();
+    // Reservations survive every release path, including uncertain admission diagnostics.
+    private final Map<RuntimeHandle, DeploymentEntry> handleIdentityOwners = new LinkedHashMap<>();
 
     public DeploymentManager(ArtifactRegistry artifactRegistry, LifecycleJournal journal) {
         this.artifactRegistry = Objects.requireNonNull(artifactRegistry, "artifactRegistry");
@@ -77,10 +79,6 @@ public final class DeploymentManager {
         RuntimeHandle handle;
         try {
             handle = Objects.requireNonNull(entry.runtime.load(entry.artifact), "Runtime load returned null handle");
-            recordCapability(entry, "LOAD_SUCCEEDED", context, Map.of(
-                    "providerIdentity", handle.providerIdentity(),
-                    "providerVersion", handle.providerVersion(),
-                    "opaqueHandle", handle.opaqueHandle()));
         } catch (LifecycleCapabilityException | RuntimeException exception) {
             String code = capabilityCode(exception, "LOAD_FAILED");
             recordCapability(entry, "LOAD_FAILED", context, Map.of("code", code));
@@ -95,6 +93,51 @@ public final class DeploymentManager {
 
         synchronized (this) {
             requireState(entry, DeploymentState.LOADING);
+            DeploymentEntry priorOwner = handleIdentityOwners.get(handle);
+            if (priorOwner == null) {
+                handleIdentityOwners.put(handle, entry);
+            }
+            try {
+                recordCapability(entry, "LOAD_SUCCEEDED", context, Map.of(
+                        "providerIdentity", handle.providerIdentity(),
+                        "providerVersion", handle.providerVersion(),
+                        "opaqueHandle", handle.opaqueHandle()));
+            } catch (RuntimeException diagnosticFailure) {
+                transition(entry, DeploymentState.FAILED, "DEPLOYMENT_FAILED", context, Map.of(
+                        "stage", "HANDLE_ADMISSION",
+                        "code", "REQUIRED_LOAD_OBSERVATION_RECORD_FAILED"));
+                throw capabilityFailure("load observation", deploymentId, diagnosticFailure);
+            }
+            if (priorOwner != null) {
+                recordManager(entry, "RUNTIME_HANDLE_REJECTED", context, Map.of(
+                        "providerIdentity", handle.providerIdentity(),
+                        "providerVersion", handle.providerVersion(),
+                        "opaqueHandle", handle.opaqueHandle(),
+                        "priorOwnerDeploymentId", priorOwner.deploymentId,
+                        "priorOwnerState", priorOwner.state.name(),
+                        "priorOwnerArtifactIdentity", priorOwner.artifact.coordinate().identity(),
+                        "priorOwnerArtifactDigest", priorOwner.artifact.coordinate().digest(),
+                        "priorAdmissionDisposition", priorOwner.handle == null ? "UNKNOWN" : "ADMITTED",
+                        "priorReleaseObservation", priorOwner.releaseObservation,
+                        "reason", "CANONICAL_IDENTITY_ALREADY_RESERVED"));
+                transition(entry, DeploymentState.FAILED, "DEPLOYMENT_FAILED", context, Map.of(
+                        "stage", "HANDLE_ADMISSION",
+                        "code", LifecycleException.Code.RUNTIME_HANDLE_IDENTITY_CONFLICT.name()));
+                throw new LifecycleException(
+                        LifecycleException.Code.RUNTIME_HANDLE_IDENTITY_CONFLICT,
+                        "Runtime handle identity already belongs to deployment: " + priorOwner.deploymentId);
+            }
+            try {
+                recordManager(entry, "RUNTIME_HANDLE_ADMITTED", context, Map.of(
+                        "providerIdentity", handle.providerIdentity(),
+                        "providerVersion", handle.providerVersion(),
+                        "opaqueHandle", handle.opaqueHandle()));
+            } catch (RuntimeException diagnosticFailure) {
+                transition(entry, DeploymentState.FAILED, "DEPLOYMENT_FAILED", context, Map.of(
+                        "stage", "HANDLE_ADMISSION",
+                        "code", "REQUIRED_ADMISSION_RECORD_FAILED"));
+                throw capabilityFailure("handle admission", deploymentId, diagnosticFailure);
+            }
             entry.handle = handle;
             return snapshot(entry);
         }
@@ -106,7 +149,7 @@ public final class DeploymentManager {
         synchronized (this) {
             entry = requireDeployment(deploymentId);
             requireState(entry, DeploymentState.LOADING);
-            handle = requireHandle(entry);
+            handle = requireOwnedHandle(entry);
             transition(entry, DeploymentState.WARMING, "DEPLOYMENT_WARMING", context, Map.of());
         }
 
@@ -138,7 +181,7 @@ public final class DeploymentManager {
     public synchronized DeploymentSnapshot activate(String deploymentId, LifecycleContext context) {
         DeploymentEntry candidate = requireDeployment(deploymentId);
         requireState(candidate, DeploymentState.STANDBY);
-        requireHandle(candidate);
+        requireOwnedHandle(candidate);
 
         String currentId = activeBySlot.get(candidate.slot);
         DeploymentEntry current = currentId == null ? null : requireDeployment(currentId);
@@ -193,7 +236,7 @@ public final class DeploymentManager {
                 slot,
                 deployment.deploymentId,
                 deployment.artifact.coordinate(),
-                requireHandle(deployment));
+                requireOwnedHandle(deployment));
         PinEntry pinEntry = new PinEntry(pin, deployment);
         outstandingPins.put(pinId, pinEntry);
         deployment.pins.put(pinId, pinEntry);
@@ -301,7 +344,7 @@ public final class DeploymentManager {
                         LifecycleException.Code.OUTSTANDING_PINS,
                         "deployment still owes accepted work: " + deploymentId);
             }
-            handle = requireHandle(entry);
+            handle = requireOwnedHandle(entry);
             transition(entry, DeploymentState.UNLOADING, "DEPLOYMENT_UNLOADING", context, Map.of());
         }
 
@@ -318,12 +361,14 @@ public final class DeploymentManager {
                 transition(entry, DeploymentState.FAILED, "DEPLOYMENT_FAILED", context, Map.of(
                         "stage", "UNLOAD",
                         "code", code));
+                recordUnknownRelease(entry, handle, "UNLOAD", code, context);
             }
             throw capabilityFailure("unload", deploymentId, exception);
         }
 
         synchronized (this) {
             requireState(entry, DeploymentState.UNLOADING);
+            entry.releaseObservation = "REPORTED_RELEASED";
             transition(entry, DeploymentState.RETIRED, "DEPLOYMENT_RETIRED", context, Map.of());
             return snapshot(entry);
         }
@@ -387,13 +432,38 @@ public final class DeploymentManager {
             DeploymentEntry entry,
             RuntimeHandle handle,
             LifecycleContext context) {
+        synchronized (this) {
+            if (!requireOwnedHandle(entry).equals(handle)) {
+                throw new LifecycleException(LifecycleException.Code.CAPABILITY_FAILURE,
+                        "failed-handle release does not match the admitted owner");
+            }
+        }
         try {
             entry.runtime.unload(handle);
             recordCapability(entry, "FAILED_HANDLE_RELEASED", context, Map.of());
+            synchronized (this) {
+                entry.releaseObservation = "REPORTED_RELEASED";
+            }
         } catch (LifecycleCapabilityException | RuntimeException cleanupFailure) {
+            String code = capabilityCode(cleanupFailure, "FAILED_HANDLE_RELEASE_FAILED");
             recordCapability(entry, "FAILED_HANDLE_RELEASE_FAILED", context, Map.of(
-                    "code", capabilityCode(cleanupFailure, "FAILED_HANDLE_RELEASE_FAILED")));
+                    "code", code));
+            synchronized (this) {
+                recordUnknownRelease(entry, handle, "FAILED_WARMUP", code, context);
+            }
         }
+    }
+
+    private void recordUnknownRelease(
+            DeploymentEntry entry, RuntimeHandle handle, String stage, String code, LifecycleContext context) {
+        entry.releaseObservation = "UNKNOWN";
+        recordManager(entry, "RUNTIME_HANDLE_RELEASE_UNCERTAIN", context, Map.of(
+                "providerIdentity", handle.providerIdentity(),
+                "providerVersion", handle.providerVersion(),
+                "opaqueHandle", handle.opaqueHandle(),
+                "stage", stage,
+                "code", code,
+                "releaseObservation", "UNKNOWN"));
     }
 
     private void recordDrainClearedIfNeeded(DeploymentEntry entry, LifecycleContext context) {
@@ -497,6 +567,15 @@ public final class DeploymentManager {
         return entry.handle;
     }
 
+    private RuntimeHandle requireOwnedHandle(DeploymentEntry entry) {
+        RuntimeHandle handle = requireHandle(entry);
+        if (handleIdentityOwners.get(handle) != entry) {
+            throw new LifecycleException(LifecycleException.Code.CAPABILITY_FAILURE,
+                    "Runtime handle is not admitted to deployment: " + entry.deploymentId);
+        }
+        return handle;
+    }
+
     private DeploymentSnapshot snapshot(DeploymentEntry entry) {
         return new DeploymentSnapshot(
                 entry.deploymentId,
@@ -536,6 +615,7 @@ public final class DeploymentManager {
         private final Map<String, PinEntry> pins = new LinkedHashMap<>();
         private DeploymentState state;
         private RuntimeHandle handle;
+        private String releaseObservation = "NOT_OBSERVED";
         private boolean drainClearedRecorded;
 
         private DeploymentEntry(

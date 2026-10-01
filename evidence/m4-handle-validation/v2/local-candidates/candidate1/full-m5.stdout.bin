@@ -1,0 +1,25 @@
+two_workers_eligible_route: PASS
+load_failure_preserves_active: PASS
+warmup_crash_preserves_active: PASS
+unknown_outcome_retry_denied: PASS
+deduplicated_retry_succeeds: PASS
+drain_crash_requires_termination: PASS
+unload_failure_preserves_active: PASS
+retry_budget_exhausted: PASS
+restart_blocks_unsafe_retry: PASS
+restart_reconciles_and_retries: PASS
+telemetry_failure_isolated: PASS
+late_observation_cannot_rewrite_terminal: PASS
+bundle_missing: INCONCLUSIVE (evidence mutation)
+journal_truncated: FAIL (evidence mutation)
+journal_reordered: FAIL (evidence mutation)
+bundle_corrupt: FAIL (evidence mutation)
+{
+  "verdict": "PASS",
+  "cases": 35,
+  "failures": [],
+  "incomplete": [],
+  "sourceScope": "IMMUTABLE_GIT_SOURCE",
+  "durableReplayFixtures": 5
+}
+M5 resilience verification passed: 16 scenarios

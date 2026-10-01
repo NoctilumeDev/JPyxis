@@ -14,6 +14,7 @@ public final class LifecycleException extends RuntimeException {
         PIN_NOT_FOUND,
         OUTSTANDING_PINS,
         ARTIFACT_COORDINATE_MISMATCH,
+        RUNTIME_HANDLE_IDENTITY_CONFLICT,
         CAPABILITY_FAILURE,
         CONTROL_INTERRUPTED
     }

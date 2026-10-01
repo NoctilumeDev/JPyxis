@@ -1,0 +1,32 @@
+activate_v1: PASS
+unvalidated_artifact_rejected: PASS
+artifact_identity_conflict: PASS
+warm_failure_preserves_active: PASS
+activation_precondition_preserves_active: PASS
+atomic_cutover_and_pinning: PASS
+draining_rejects_new: PASS
+forced_termination_defined: PASS
+rollback_immutable: PASS
+bundle_missing: INCONCLUSIVE (evidence mutation)
+bundle_corrupt: FAIL (evidence mutation)
+M4 lifecycle verification passed: 11 scenarios
+{
+  "verdict": "PASS",
+  "cases": 28,
+  "mutations": [
+    {
+      "id": "missing_case_stdout",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "rehashed_foreign_cleanup",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "self_declared_alias_adoption",
+      "verdict": "FAIL"
+    }
+  ],
+  "failures": [],
+  "incomplete": []
+}
