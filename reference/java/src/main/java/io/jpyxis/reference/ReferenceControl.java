@@ -245,7 +245,7 @@ final class ReferenceControl implements AutoCloseable {
         }
         public void close(){probe.close();calls.forEach(GrpcInvocationTransport::close);}
     }
-    Path requiredRecordPath(Prepared p){return p.candidate.root.resolve("dispatch-"+p.plan.attemptId()+".json");}
+    Path requiredRecordPath(Prepared p){return p.candidate.root.resolve("dispatch-"+p.pin.pinId()+".json");}
     private static ClientInterceptor metadata(JsonNode association){
         String value=new String(ReferenceJson.canonical(association),java.nio.charset.StandardCharsets.UTF_8);
         String expected=ReferenceJson.digest(ReferenceJson.canonical(association));

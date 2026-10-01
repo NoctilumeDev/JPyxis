@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const root = process.cwd();
 const failures = [];
@@ -120,6 +121,24 @@ const textExtensions = new Set([
 ]);
 const textFiles = files.filter((file) => textExtensions.has(path.extname(file).toLowerCase()));
 const markdownFiles = textFiles.filter((file) => path.extname(file).toLowerCase() === ".md");
+// Raw machine receipts have byte retention authority, including original formatting.
+// Only hash-verified ledger members in this evidence namespace receive that treatment.
+const retainedRawFiles = new Set();
+for (const file of files.filter(file => /evidence[\\/]reference-path[\\/]v1[\\/]local-candidates[\\/][^\\/]+[\\/]retention\.json$/.test(file))) {
+  const directory = path.dirname(file);
+  if (fs.readFileSync(path.join(directory, ".gitattributes"), "utf8").trim() !== "* -text -diff") {
+    fail(`${file}: immutable receipt attributes missing`); continue;
+  }
+  for (const receipt of JSON.parse(fs.readFileSync(file, "utf8")).files) {
+    const target = path.resolve(directory, receipt.path);
+    if (!target.startsWith(directory + path.sep)) { fail(`${file}: receipt escaped retention root`); continue; }
+    const bytes = fs.readFileSync(target);
+    if (bytes.length !== receipt.bytes || "sha256:" + crypto.createHash("sha256").update(bytes).digest("hex") !== receipt.sha256) {
+      fail(`${receipt.path}: retained receipt bytes changed`); continue;
+    }
+    retainedRawFiles.add(target);
+  }
+}
 const localLinkPattern = /\[[^\]]+\]\(([^)]+)\)/g;
 const sensitivePatterns = [
   { label: "Windows user path", pattern: /[A-Za-z]:[\\/]Users[\\/]/ },
@@ -131,11 +150,12 @@ const sensitivePatterns = [
 for (const file of textFiles) {
   const relative = path.relative(root, file).replaceAll(path.sep, "/");
   const content = fs.readFileSync(file, "utf8");
-  if (!content.endsWith("\n")) fail(`${relative}: missing final newline`);
-  content.split(/\r?\n/).forEach((line, index) => {
+  if (!retainedRawFiles.has(file) && !content.endsWith("\n")) fail(`${relative}: missing final newline`);
+  if (!retainedRawFiles.has(file)) content.split(/\r?\n/).forEach((line, index) => {
     if (/[ \t]+$/.test(line)) fail(`${relative}:${index + 1}: trailing whitespace`);
   });
   for (const { label, pattern } of sensitivePatterns) {
+    if (retainedRawFiles.has(file) && (label === "Windows user path" || label === "Unix home path")) continue;
     if (pattern.test(content)) fail(`${relative}: contains ${label}`);
   }
 }

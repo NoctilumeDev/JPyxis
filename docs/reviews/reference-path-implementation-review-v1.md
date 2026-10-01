@@ -43,6 +43,18 @@ A fifth hash-repaired binary-report mutation must fail despite a matching JSON p
 continues across owned processes if observation recording fails; unavailable observations still cannot
 grant successful lifecycle release or product qualification.
 
+Candidate `b46bfa9883ebc377dfbe0e7f6f97cb54aa261e5e` failed before its first product wire call:
+the new receipt path used an opaque M5 attempt ID containing `/`. Its 209-file
+[first dispatch failure](../../evidence/reference-path/v1/local-candidates/b46bfa9883eb-first-dispatch/failure-record.json)
+was retained at `4e7c7ce744516bf6115d5b76a7852f85338884c0` before changing the filename to the
+existing explicit M4 pin ID. M2/M5 identities are unchanged. The same retained record contains an
+unchanged-source replay of repository verification: raw receipts without final newlines were treated
+as authored source. Repository validation now distinguishes only byte/hash-verified ledger members
+under the local-candidate archive from authored text formatting and locator-path rules; credential
+checks, all module semantics and the M6 resource predicate remain intact. A dedicated retained-file
+gate checks both current Git blobs and the first archive commit; full history is fetched only by
+the new actual-path job so those checks remain independently executable on a fresh VM.
+
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,
 exact-main gates and independent readbacks. Specification blob `4dab857362aa4362bd3c46c03a3a9e7135b70193`

@@ -112,7 +112,7 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
               for(const key of ['workerId','instanceId','controlEpoch','processId'])assert.equal(association.plan.worker[key],association.realization[key],`M5 worker ${key}`);
               const m2=association.m2;assert.equal(m2.contractDigest,operands.contractDigest);assert.equal(m2.definitionDigest,operands.definitionDigest);same(m2.runtimeBinding,binding);
               assert.ok(m3.some(r=>r.event==='RUNTIME_STARTED'&&r.invocationId===m2.coordinates.invocationId&&r.attemptId===m2.coordinates.attemptId&&r.traceId===m2.coordinates.traceId),'real M3 Runtime start missing');
-              same(read(`${base}/${parent}/dispatch-${association.plan.attemptId}.json`),association,'required immutable association receipt');
+              same(read(`${base}/${parent}/dispatch-${association.pin.pinId}.json`),association,'required immutable association receipt');
             }
             if(worker.event==='BOUND_REPORT_RETAINED'){
               verifyRetainedWireReport(worker.details.wireReportBase64,worker.details.report);
