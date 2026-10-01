@@ -1,0 +1,39 @@
+{
+  "classification": "RETAINED_BYTES_NORMALIZED_BY_GIT",
+  "failedRevision": "0808b70cbd986586893afe97ce9707b6e7da6c3e",
+  "firstReceiptSha256": "sha256:0b6ce408ba543c119ddcc93f3bb8e5be2c7f06b5fbe7ef35d2899a1dba07eb0d",
+  "probeRerun": false,
+  "receiptRecomputed": false,
+  "failures": [
+    {
+      "case": "honest_plan_control",
+      "expectedOriginalStdoutSha256": "sha256:33efa2179f3e713b972ec8681fe810bfa02113d08e23f527b2e2170b55dfae22",
+      "observedCommittedStdoutSha256": "sha256:986f6e0592c5e58b3b4726f5143ff165bcf9c6bf3b6be2049af4555dff089f05",
+      "cause": "Original Java println CRLF was normalized to LF by the repository JSON text rule"
+    },
+    {
+      "case": "worker_instance_substitution",
+      "expectedOriginalStdoutSha256": "sha256:b8c37440484c2cbb33d98d9a2d79cf1f82cc919f65551d66b57ca3bd67d81ea0",
+      "observedCommittedStdoutSha256": "sha256:6021b0df71b1889807e123cebc5e655dbb5f0f9fa8bdd0b98f8022395cde751a",
+      "cause": "Original Java println CRLF was normalized to LF by the repository JSON text rule"
+    },
+    {
+      "case": "worker_epoch_substitution",
+      "expectedOriginalStdoutSha256": "sha256:a142cd4c01e796a396cd4c5bca5271b55b44103b81ec8b56330410543228ed4c",
+      "observedCommittedStdoutSha256": "sha256:bd63eb0e2489ddaa9926b47b650832acf7a9e03abea811e653d4c8d9821f030d",
+      "cause": "Original Java println CRLF was normalized to LF by the repository JSON text rule"
+    },
+    {
+      "case": "idempotency_substitution",
+      "expectedOriginalStdoutSha256": "sha256:789b7c7bffc274b58a811737443c9a5b78c61e136a7b1bc261831607ff998b50",
+      "observedCommittedStdoutSha256": "sha256:6c72bc5df92a974d3db743df2c65b3a0c86776a781ddec46df99e0db9696daf9",
+      "cause": "Original Java println CRLF was normalized to LF by the repository JSON text rule"
+    },
+    {
+      "case": "worker_handle_substitution",
+      "expectedOriginalStdoutSha256": "sha256:21dbbb68dffad0283c53f2144c95df273677b229285138f2b89f259ae176330a",
+      "observedCommittedStdoutSha256": "sha256:ab5f64bf6fb962ffeba322334bad3589f0e7e983df98f77de4158503e8dffd84",
+      "cause": "Original Java println CRLF was normalized to LF by the repository JSON text rule"
+    }
+  ]
+}

@@ -125,6 +125,23 @@ source, probe and harness hashes, toolchain observations, raw journal projection
 Its SHA-256 is `0b6ce408ba543c119ddcc93f3bb8e5be2c7f06b5fbe7ef35d2899a1dba07eb0d`.
 The individual first stdout and stderr files are retained beside it.
 
+The first audit-saving commit `0808b70cbd986586893afe97ce9707b6e7da6c3e` applied the repository's
+ordinary JSON newline normalization to all five raw stdout files. Git-blob readback then failed
+their first-observation hashes. This is a separately retained storage-integrity failure, not another
+product-model run. The [failure record](../../evidence/productization-audit/storage-first-failure.json)
+names each original and normalized digest. A local `.gitattributes` rule disables text normalization
+only for this retained audit subtree; the original CRLF stdout bytes are re-added from the unchanged
+first-run files. Neither the failed saving commit nor the first receipt is amended or recomputed.
+
+Read back a final immutable audit commit's stored bytes with:
+
+```text
+node experiments/productization-audit/verify-retained-receipt.mjs <audit-commit-sha>
+```
+
+`VERIFIED` from this command means only that the first audit receipt and raw retained bytes agree.
+The product audit decision remains `STOP_MODEL_COUNTEREXAMPLE`.
+
 Reproduce from a checkout containing this audit with JDK 17 and Node, choosing a new output directory:
 
 ```text
