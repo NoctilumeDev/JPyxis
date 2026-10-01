@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "jpyxis.io/reference-contract-retention/v1alpha1",
+  "files": [
+    {
+      "path": "pr32-ci.json",
+      "bytes": 1502,
+      "sha256": "sha256:7dcae23c92a6c98422fb4c6b353844c5fad31a46ec9d7643c2014142e3663d43"
+    },
+    {
+      "path": "pr32-readback.json",
+      "bytes": 5176,
+      "sha256": "sha256:7abe11f11e72a614944b0e4d4dd8a975f78f1d29e78b28ec50f0a22eda29dac5"
+    },
+    {
+      "path": "pr32-m4-readback.json",
+      "bytes": 6298,
+      "sha256": "sha256:60b81713c1b4a8d6f39c4aaa0d048e38c742a7bdaba2e8d3f7da9b9a39552169"
+    },
+    {
+      "path": "pr32-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:ae1f35639450b3537f6e55970bdaee58154540e73c20ec2eb31a0edba8989756"
+    },
+    {
+      "path": "pr32-contract-entry-readback.json",
+      "bytes": 278,
+      "sha256": "sha256:8a6bf03a0d20ddf748ead01f01f4aeabca9a7b33745728c170b72e399b35430e"
+    },
+    {
+      "path": "main32-ci.json",
+      "bytes": 1496,
+      "sha256": "sha256:2e01469951ac410dbf4e32a610be625016589a68d8e6311bad9f1ab67e5d5a28"
+    },
+    {
+      "path": "main32-readback.json",
+      "bytes": 5178,
+      "sha256": "sha256:3c53b27eb124e4dad9252687f4c68b6c04f7a92986cae3bca0afb1d258bab215"
+    },
+    {
+      "path": "main32-m4-readback.json",
+      "bytes": 6300,
+      "sha256": "sha256:b43ce60588e700ac70c69e24e031d44942afeeed1bd194252ec2db819d4e08c6"
+    },
+    {
+      "path": "main32-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:1e13aa4529e5f9c2d90f05a20bfb1b56789fbe09debf6245cffa906a3bfa95c3"
+    },
+    {
+      "path": "main32-contract-entry-readback.json",
+      "bytes": 278,
+      "sha256": "sha256:a2b8f02d93b75512850b365d956cd3c42ef86c8eb9b83e256d151d52f2430096"
+    },
+    {
+      "path": "contract-manifest.json",
+      "bytes": 4113,
+      "sha256": "sha256:15425afc7b85acfbd7290762b76286c853636ddd4012ff504def882c286fb0a5"
+    }
+  ]
+}

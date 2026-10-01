@@ -348,9 +348,11 @@ Its separate qualification publication closed through protected PR #30 and exact
 The [fresh Audit A v3](docs/reviews/productization-reference-path-audit-review-v3.md) rechecked
 known guard failures and the remaining public composition seam. Its separate PR #31 publication
 completed protected merge and exact-main qualification. The
-[minimum reference contract B](docs/spec/productization-reference-path-contract-v1.md) is a
-[separate content candidate](docs/reviews/productization-reference-contract-review-v1.md); runtime
-and real-path qualification remain gated by its own content and freeze closure.
+[minimum reference contract B](docs/spec/productization-reference-path-contract-v1.md) completed
+[separate content qualification](docs/reviews/productization-reference-contract-review-v1.md)
+through protected PR #32 and exact-main readback. Its
+[immutable freeze record](evidence/reference-path/v1/contract-manifest.json) requires its own
+protected publication closure before runtime work. Actual product-path qualification remains pending.
 
 ## M6 reproducibility baseline
 

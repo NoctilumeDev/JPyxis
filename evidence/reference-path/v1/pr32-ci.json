@@ -1,0 +1,44 @@
+{
+  "label": "pr32",
+  "run": 36894118564,
+  "reviewedHead": "3f5d7014679db4f33d23bed48a664a605926e134",
+  "executedSha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+  "event": "pull_request",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Verify M5 resilience repository",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify M6 single-node baseline",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": {
+    "m4": {
+      "id": 11178757494,
+      "name": "m4-lifecycle-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "digest": "sha256:79307090193abc4a1b46d928d29ca105254aef8d055ea31586db157f0f025956"
+    },
+    "m4-clean": {
+      "id": 11178647666,
+      "name": "m4-handle-clean-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "digest": "sha256:c4a1ea30fdf369ba5c4cef778b040fd7c456e8dcc2373e2e2014a5bd722001f8"
+    },
+    "m5": {
+      "id": 11178397837,
+      "name": "m5-resilience-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "digest": "sha256:5e54b62207caead21e0dbf443d665a5b0a5f1f3e63c6f21fe0631e489ec4a415"
+    },
+    "m6": {
+      "id": 11178367868,
+      "name": "m6-reproduction-9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "sha": "9c6027f82b0f60e78b237e72361e62a63d317c3b",
+      "digest": "sha256:20877d954505f4840ef821454c3935ae0c28bab703bc2790f6f6723f92757e4e"
+    }
+  }
+}
