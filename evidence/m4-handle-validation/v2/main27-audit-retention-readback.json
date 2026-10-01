@@ -1,0 +1,164 @@
+{
+  "revision": "58082992dbe29d6302b2c427dcad9aebd75ace0a",
+  "retainedFiles": 61,
+  "firstReceiptSha256": "sha256:c2941d18a0c6ce5cc79945bff24caa51eda2308dac26c63b0e7e3d3453433b5a",
+  "originalM4PublicationUnchanged": true,
+  "readback": {
+    "storageReadback": "VERIFIED",
+    "modelAudit": "KNOWN_HANDLE_OWNERSHIP_GAP_CONFIRMED",
+    "failures": [],
+    "observations": [
+      {
+        "id": "fresh_rollback",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "retired_same_object",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "retired_cloned_tuple",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_loaded",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_warming",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_standby",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_active",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_draining",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_unloading",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "live_alias_cleanup",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "FAILED",
+        "unloadCalls": 1
+      },
+      {
+        "id": "warm_failed_release_reentry",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "warm_failed_cleanup_reentry",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "unload_failed_reentry",
+        "knownOwnershipGapObserved": true,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "concurrent_duplicate_returns",
+        "knownOwnershipGapObserved": true,
+        "candidateState": null,
+        "unloadCalls": 0
+      },
+      {
+        "id": "different_provider",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "different_version",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "different_opaque",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "ACTIVE",
+        "unloadCalls": 0
+      },
+      {
+        "id": "null_return",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_provider_null",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_provider_blank",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_version_null",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_version_blank",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_opaque_null",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "malformed_opaque_blank",
+        "knownOwnershipGapObserved": false,
+        "candidateState": "FAILED",
+        "unloadCalls": 0
+      },
+      {
+        "id": "separate_owner_lifetime",
+        "knownOwnershipGapObserved": false,
+        "candidateState": null,
+        "unloadCalls": 0
+      }
+    ],
+    "scope": "First pre-contract public model audit; 13 known identity-gap variants, 12 bounded controls; no repair or product qualification"
+  }
+}
