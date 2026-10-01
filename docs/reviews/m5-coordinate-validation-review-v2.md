@@ -1,6 +1,6 @@
 # M5 Coordinate and Owner Effect Review v2
 
-Status: `REVIEWED CONTRACT v2 · PUBLICATION GATE PENDING · RUNTIME GUARDS NOT QUALIFIED`
+Status: `ACCEPTED CONTRACT v2 · FREEZE RECORD GATE APPLIES · RUNTIME GUARDS NOT QUALIFIED`
 
 ## Bound evidence and minimum reopen
 
@@ -64,3 +64,33 @@ exact-main evidence is the predecessor, not execution of newly implemented v2 gu
 
 No M2/M4 real composition, Environment construction, general process cleanup, worker adoption,
 Spring façade, scheduler/resource grant or product verdict is established here.
+
+## Accepted content and freeze record
+
+The preceding candidate round is historical. [PR #21](https://github.com/NoctilumeDev/JPyxis/pull/21)
+published reviewed head `59203d167a30d6d8ab644c96d2c11205aa9f3e21` from base
+`54846ec612ff00417d73052e9f4fb0f0edc602a7`. Required PR run `36848729161` executed merge revision
+`4cbcc29ed9ea4f542c1fa5852ddee54854f70ee9`. Protected merge generated main
+`882131f09911e6735e0de93aa9ee287fc4c82ebe` at `2026-10-01T10:31:14Z`; its own run `36849655971`
+also passed. Separate downloaded M5/M6 artifacts passed the independent verifiers, all eight M6
+mutations retained their expected verdicts, resources were accepted and recorded runtime processes
+had exited. Both immutable model receipts remain verified. The
+[contract manifest](../../evidence/m5-coordinate-validation/v2/contract-manifest.json) and
+[PR](../../evidence/m5-coordinate-validation/v2/pr21-readback.json)/
+[main](../../evidence/m5-coordinate-validation/v2/main21-readback.json) readbacks bind these facts.
+
+This accepts the v2 contract content only. This freeze record itself must pass required PR and
+exact-main gates and independent artifact readback. The protected annotated tag
+`m5-coordinate-contract-v2` is created from that accepted closure main after those gates. Only that
+tag plus the retained closure evidence grants entry to the separate guard implementation. A label
+in this document, the accepted content's green run, or a preexisting M5 tag alone does not grant it.
+
+| Required record | Freeze-record round |
+| --- | --- |
+| Did | Bound PR #21, protected merge and exact-main artifact readback; retained content blobs and first failures; prepared this independent documentation closure. |
+| Why | Put accepted contract authority and its execution limit into project evidence before implementation. |
+| Original plan | Complete contract publication and freeze before any runtime change. |
+| Actual | Contract content passed its publication loop; this record and its prospective tag are the final contract closure gate. |
+| Failed premise | No new model premise failed in this round. V1 and both original counterexamples remain preserved. |
+| Final state | Accepted contract content; closure publication/tag pending. No guard behavior or product qualification. |
+| Next authority | After this record's protected main, readback and tag close, implement only v2 guards in a separate branch and qualify them independently. |
