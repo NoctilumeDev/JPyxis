@@ -1,0 +1,72 @@
+{
+  "evidenceRoot": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238",
+  "pythonExecutable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238\\environment\\Scripts\\python.exe",
+  "workerScript": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\reference\\python\\reference_worker.py",
+  "launchEnvironment": {
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONHASHSEED": "0",
+    "PYTHONPATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\bindings\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\invocation\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238\\generated;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\reference\\python",
+    "PATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238\\environment\\Scripts;C:\\WINDOWS\\System32",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238\\temporary",
+    "TMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\fc43f60dfea5-1790877729238\\temporary"
+  },
+  "environment": {
+    "schemaVersion": "jpyxis.io/reference-environment/v1alpha1",
+    "pythonImplementation": "CPython",
+    "pythonMajorMinor": "3.12",
+    "platform": "win32",
+    "architecture": "AMD64",
+    "requirementsClosureDigest": "sha256:53de94ba9af58ead779f19320783337033aa8728ae2eea0a8c02066440323f06",
+    "runtimePackages": {
+      "numpy": "2.2.6",
+      "grpcio": "1.83.1",
+      "protobuf": "7.35.1"
+    }
+  },
+  "definitions": {
+    "v1": {
+      "identity": "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "bytes": "IiIiUnVudGltZS1uZXV0cmFsIE0zIGRlZmluaXRpb24gcGxhbiBmb3IgdGhlIGV4aXN0aW5nIGFmZmluZSBob3N0IGNvbnRyYWN0LiIiIgoKREVGSU5JVElPTl9JREVOVElUWSA9ICJqcHl4aXM6ZGVmaW5pdGlvbjpleGFtcGxlL2FmZmluZS1iYXRjaC1wbGFuQDEuMC4wIgoKCmRlZiBkZXNjcmliZSgpIC0+IGRpY3Rbc3RyLCBzdHJdOgogICAgcmV0dXJuIHsKICAgICAgICAic2NoZW1hVmVyc2lvbiI6ICJqcHl4aXMuaW8vYWZmaW5lLWRlZmluaXRpb24tcGxhbi92MWFscGhhMSIsCiAgICAgICAgIm9wZXJhdGlvbklkZW50aXR5IjogImpweXhpcy5vcGVyYXRpb24vYWZmaW5lLWJhdGNoQDEiLAogICAgfQo="
+    },
+    "v2": {
+      "identity": "jpyxis:definition:example/affine-batch-plan@2.0.0",
+      "bytes": "IiIiU2Vjb25kIGltbXV0YWJsZSBNMy1jb25mb3JtYW50IGFmZmluZSBkZWZpbml0aW9uIGZvciByZWFsIGN1dG92ZXIgd2l0bmVzc2VzLiIiIgoKREVGSU5JVElPTl9JREVOVElUWSA9ICJqcHl4aXM6ZGVmaW5pdGlvbjpleGFtcGxlL2FmZmluZS1iYXRjaC1wbGFuQDIuMC4wIgoKCmRlZiBkZXNjcmliZSgpIC0+IGRpY3Rbc3RyLCBzdHJdOgogICAgcmV0dXJuIHsKICAgICAgICAic2NoZW1hVmVyc2lvbiI6ICJqcHl4aXMuaW8vYWZmaW5lLWRlZmluaXRpb24tcGxhbi92MWFscGhhMSIsCiAgICAgICAgIm9wZXJhdGlvbklkZW50aXR5IjogImpweXhpcy5vcGVyYXRpb24vYWZmaW5lLWJhdGNoQDEiLAogICAgfQo="
+    }
+  },
+  "requirementsBytes": {
+    "invocation/python/requirements-m2.txt": "Z3JwY2lvPT0xLjgzLjENCmdycGNpby10b29scz09MS44My4xDQpudW1weT09Mi4yLjYNCnByb3RvYnVmPT03LjM1LjENCnNldHVwdG9vbHM9PTgwLjkuMA0KdHlwaW5nLWV4dGVuc2lvbnM9PTQuMTYuMA0K",
+    "invocation/python/requirements-m3.txt": "LXIgcmVxdWlyZW1lbnRzLW0yLnR4dA0K"
+  },
+  "contractBytes": "ewogICJhcGlWZXJzaW9uIjogImpweXhpcy5pby9jb250cmFjdC92MWFscGhhMSIsCiAgImtpbmQiOiAiQWxnb3JpdGhtQ29udHJhY3QiLAogICJtZXRhZGF0YSI6IHsKICAgICJuYW1lc3BhY2UiOiAiZXhhbXBsZSIsCiAgICAibmFtZSI6ICJhZmZpbmUtYmF0Y2giLAogICAgInZlcnNpb24iOiAiMS4wLjAiCiAgfSwKICAic3BlYyI6IHsKICAgICJkZXRlcm1pbmlzbSI6ICJERVRFUk1JTklTVElDIiwKICAgICJzaWRlRWZmZWN0cyI6ICJOT05FIiwKICAgICJvcGVyYXRpb24iOiB7CiAgICAgICJuYW1lIjogImFwcGx5IiwKICAgICAgImlucHV0IjogewogICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgInVua25vd25GaWVsZHMiOiAiUkVKRUNUIiwKICAgICAgICAiZmllbGRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAibmFtZSI6ICJ2YWx1ZXMiLAogICAgICAgICAgICAicmVxdWlyZWQiOiB0cnVlLAogICAgICAgICAgICAidHlwZSI6IHsKICAgICAgICAgICAgICAia2luZCI6ICJ0ZW5zb3IiLAogICAgICAgICAgICAgICJkdHlwZSI6ICJmbG9hdDMyIiwKICAgICAgICAgICAgICAibGF5b3V0IjogIlJPV19NQUpPUiIsCiAgICAgICAgICAgICAgImRpbWVuc2lvbnMiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJzeW1ib2wiOiAiQiIsCiAgICAgICAgICAgICAgICAgICJtaW4iOiAxLAogICAgICAgICAgICAgICAgICAibWF4IjogMzIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJmaXhlZCI6IDQKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0KICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgICJuYW1lIjogInNjYWxlIiwKICAgICAgICAgICAgInJlcXVpcmVkIjogdHJ1ZSwKICAgICAgICAgICAgInR5cGUiOiB7CiAgICAgICAgICAgICAgImtpbmQiOiAic2NhbGFyIiwKICAgICAgICAgICAgICAic2NhbGFyVHlwZSI6ICJmbG9hdDMyIiwKICAgICAgICAgICAgICAiZmluaXRlIjogdHJ1ZQogICAgICAgICAgICB9CiAgICAgICAgICB9LAogICAgICAgICAgewogICAgICAgICAgICAibmFtZSI6ICJiaWFzIiwKICAgICAgICAgICAgInJlcXVpcmVkIjogdHJ1ZSwKICAgICAgICAgICAgInR5cGUiOiB7CiAgICAgICAgICAgICAgImtpbmQiOiAic2NhbGFyIiwKICAgICAgICAgICAgICAic2NhbGFyVHlwZSI6ICJmbG9hdDMyIiwKICAgICAgICAgICAgICAiZmluaXRlIjogdHJ1ZQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgXQogICAgICB9LAogICAgICAib3V0cHV0IjogewogICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgInVua25vd25GaWVsZHMiOiAiUkVKRUNUIiwKICAgICAgICAiZmllbGRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAibmFtZSI6ICJ2YWx1ZXMiLAogICAgICAgICAgICAicmVxdWlyZWQiOiB0cnVlLAogICAgICAgICAgICAidHlwZSI6IHsKICAgICAgICAgICAgICAia2luZCI6ICJ0ZW5zb3IiLAogICAgICAgICAgICAgICJkdHlwZSI6ICJmbG9hdDMyIiwKICAgICAgICAgICAgICAibGF5b3V0IjogIlJPV19NQUpPUiIsCiAgICAgICAgICAgICAgImRpbWVuc2lvbnMiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJzeW1ib2wiOiAiQiIsCiAgICAgICAgICAgICAgICAgICJtaW4iOiAxLAogICAgICAgICAgICAgICAgICAibWF4IjogMzIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJmaXhlZCI6IDQKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0KICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgICJuYW1lIjogInJvd3MiLAogICAgICAgICAgICAicmVxdWlyZWQiOiB0cnVlLAogICAgICAgICAgICAidHlwZSI6IHsKICAgICAgICAgICAgICAia2luZCI6ICJzY2FsYXIiLAogICAgICAgICAgICAgICJzY2FsYXJUeXBlIjogImludDMyIiwKICAgICAgICAgICAgICAiZXF1YWxzU3ltYm9sIjogIkIiCiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0KICAgIH0KICB9Cn0K",
+  "representativeInput": {
+    "values": {
+      "dtype": "float32",
+      "shape": [
+        2,
+        4
+      ],
+      "layout": "ROW_MAJOR",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        -1,
+        -2,
+        -3,
+        -4
+      ]
+    },
+    "scale": 2,
+    "bias": 1
+  },
+  "executionBuild": {
+    "sourceRevision": "fc43f60dfea5b835c9ece6650b43df226a5b8071",
+    "sourceTree": "ba5423aebf4299d5544dce833a7df2882e69fc66",
+    "inputInventoryDigest": "sha256:ea6129df16fd763d6af95b876d898cef900ed244415f53d4118274b95b3e963b",
+    "constructionReceiptDigest": "sha256:5b8fee2b9f72014c4f0c67a50a1e8ba9e8ba48d584567f578a8796ace26366e8"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion":"jpyxis.io/reference-additional-physical-observation/v1alpha1",
+  "candidate":"fc43f60dfea5b835c9ece6650b43df226a5b8071",
+  "captureBasis":"Retained direct Win32_Process read during first-failure investigation",
+  "originalLauncherPid":33816,
+  "workerReportedPid":31296,
+  "laterObservedProcess":{"pid":31296,"parentPid":12836,"executablePath":"C:\\WINDOWS\\system32\\conhost.exe","createdAt":"2026-10-02T02:07:09.337037+08:00"},
+  "matchesOwnedWorkerDescriptor":false,
+  "cleanupActionForLaterProcess":"NONE_TARGET_NOT_OWNED",
+  "failedPremise":"A Windows venv redirector Process PID is always the actual CPython worker PID",
+  "classification":"WINDOWS_VENV_LAUNCH_SHAPE_MISMATCH",
+  "qualificationGranted":false,
+  "scope":"Original root shutdown facts remain unchanged; later PID reuse cannot identify or authorize cleanup of the original worker"
+}
