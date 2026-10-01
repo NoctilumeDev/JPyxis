@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "jpyxis.io/audit-publication/v1alpha1",
+  "qualification": "SECOND_COUNTEREXAMPLE_PUBLISHED_BASELINE_REVERIFIED",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE",
+  "runtimeRepairQualified": false,
+  "productizationQualified": false,
+  "base": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/20",
+  "reviewedHead": "a9c0169eaf4fd429001d291c2a4a4692226cd2e6",
+  "publicationCommits": ["7cf10224e1c46bc761b55578851e0d0f32595b44", "a9c0169eaf4fd429001d291c2a4a4692226cd2e6"],
+  "pr": {
+    "run": 36846602653,
+    "executedRevision": "d17d5ae61812550955e292d840a14f0018eefefb",
+    "parents": ["11e13099a9b81cf019844c8e4d1d1786ed913c53", "a9c0169eaf4fd429001d291c2a4a4692226cd2e6"],
+    "m5Artifact": 11154345331,
+    "m6Artifact": 11154365656,
+    "readback": "pr20-readback.json"
+  },
+  "main": {
+    "run": 36847395525,
+    "revision": "54846ec612ff00417d73052e9f4fb0f0edc602a7",
+    "parents": ["11e13099a9b81cf019844c8e4d1d1786ed913c53", "a9c0169eaf4fd429001d291c2a4a4692226cd2e6"],
+    "mergedAt": "2026-10-01T10:09:56Z",
+    "m5Artifact": 11154486173,
+    "m6Artifact": 11154535928,
+    "readback": "main20-readback.json"
+  },
+  "executedTree": "60ebe98a10c73de15ec70cabeb59e789683c9a12",
+  "secondReceiptSha256": "sha256:969d63ff66c181e5a902bf0dea35af34aa704b2286261ca4af2581d38ebc11b4",
+  "bothImmutableReceiptStorageReadbacks": "VERIFIED",
+  "preservedOriginalBranch": "docs/m5-instance-failure-counterexample",
+  "preservedOriginalHead": "f78287156a124c2799c6d12aca9ff19caf328a9d",
+  "supersededContractPullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/19",
+  "supersededContractHead": "3960255e4324c0396ec58991c570526a18bced0d",
+  "supersededContractState": "CLOSED_UNMERGED_NOT_FROZEN",
+  "mergeMethod": "protected merge commit; original capture/candidate histories preserved separately",
+  "requiredChecks": ["Verify M5 resilience repository", "Verify M6 single-node baseline"],
+  "nextAuthority": "Draft contract v2 for bounded M5 instance identity conservation; no runtime or product qualification inferred"
+}
