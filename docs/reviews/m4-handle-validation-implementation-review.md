@@ -1,6 +1,6 @@
 # M4 Handle Validation Implementation Review
 
-Status: `LOCAL DIRECTED/PREDECESSOR CHECKS VERIFIED · PUBLIC GUARD QUALIFICATION PENDING`
+Status: `QUALIFIED BOUNDED M4 V2 GUARDS · PRODUCTIZATION AUDIT A RERUN ENTRY`
 
 ## Qualified contract entry
 
@@ -39,7 +39,7 @@ The clean M6 VM uploads a separate `m4-handle-clean` artifact because its origin
 copy contains only predecessor summaries/runs. This preserves new raw guard readback from that
 fresh VM without changing the old M6 bundle, phase matrix or predicates.
 Missing stdout must be INCONCLUSIVE; hash-repaired foreign cleanup and self-declared alias
-adoption must be FAIL. This review describes planned witnesses until immutable execution completes.
+adoption must be FAIL. Both immutable PR and exact-main executions supplied these witnesses.
 
 ## Retained local execution
 
@@ -72,4 +72,24 @@ model receipts at their bound source rather than treating the repaired source as
 No public RuntimeRegistry service, durable/cross-Manager ownership, environment builder, provider
 binding oracle, resource authority, actual process freshness/cleanup or product path is established.
 The old frozen normative files/tags/fixtures and both first M4 receipt archives stay intact.
-Productization Audit A remains STOP until this separate guard qualification permits its rerun.
+The historical Audit A STOP remains intact. These qualified guards permit a new Audit A rerun
+after this separate qualification record completes its own publication gates; they do not permit B.
+
+## Public qualification
+
+PR #29 reviewed head `b070c158622671dc5fda74c950d01c4f9a5446cd` executed at
+`99e6e5ed934ad1a3c1662b133b8ddd71fd664075` and merged through the protected path to
+`a5fc73b8d0b2f7724338873d14377af8a26e3021`, tree `eefb640ac987cc09333ecd49ce76f4e0d5f0b09d`.
+PR run `36880640714` and exact-main run `36882074318` both passed required gates.
+Separate downloaded M4, clean-VM M4, M5 and M6 artifacts passed independent source-bound
+readback: eleven legacy M4 scenarios, 28 handle cases and three mutations on each VM, 35 M5
+coordinate cases, five durable fixtures, three coordinate mutations, thirteen M6 phases and eight
+M6 mutations. Both resource decisions were ACCEPT and all recorded Runtime processes stopped.
+
+The [implementation manifest](../../evidence/m4-handle-validation/v2/implementation-manifest.json)
+binds reviewed, executed and accepted coordinates. Both exact-main guard input sets and their
+mutation inputs are retained byte-for-byte with a separate ledger. All original audit archive trees,
+local candidate receipts and frozen normative blobs remain unchanged. No first guard failure was
+observed. Qualification covers the declared in-memory model; it supplies no real product-path or
+actual process-freshness result. This PR publishes only that qualification closure, without new
+Audit A probes or a contract B candidate.
