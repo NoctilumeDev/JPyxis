@@ -75,6 +75,16 @@ Runtime-start coordinates. Supplemental readback derives all eighteen original j
 while preserving the first FAIL and granting no product qualification. Fresh candidate execution,
 public clean CI and the unchanged M6 resource acceptance remain required.
 
+The fresh local candidate `09c55ea49d63a39d4f1102507274f00e5213a970` passes all eighteen actual
+families and five independently checked mutations, with all owned processes stopped. Its first
+public run `36911817066` executes merge source `1580e04811b36a804252ceeea40673c402db5aaf` and all
+three jobs pass. Independent download is nevertheless INCONCLUSIVE: upload-artifact omitted the
+retained hidden `.gitattributes` member. The [original incomplete public bundle](../../evidence/reference-path/v1/public-candidates/09c55ea49d63-first-retention/retention.json)
+retains 4,524 actual/mutation members and explicitly lists every absent member; no omitted bytes
+were fabricated. The original archive is committed at `72275e39d1eed9abd867281ca979adc61b6e12e8`
+before enabling hidden-file retention in the new actual-path upload only. Green runner-local
+readback does not override this downloaded-artifact rejection or grant product qualification.
+
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,
 exact-main gates and independent readbacks. Specification blob `4dab857362aa4362bd3c46c03a3a9e7135b70193`
