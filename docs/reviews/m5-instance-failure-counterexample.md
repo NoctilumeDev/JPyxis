@@ -145,3 +145,18 @@ retains the candidate and replacement coordinates.
 | Failed premise | Operand admission alone conserves identity through subsequent owner effects. |
 | Final state | Reviewable second audit publication; required checks, protected merge and exact-main artifact readback are pending. No runtime or contract promotion. |
 | Next authority | After publication qualifies, draft only contract v2 for admission, replay/late reports and instance-scoped owner-effect continuity. |
+
+## Completed publication readback
+
+PR #20 protected-merged to main `54846ec612ff00417d73052e9f4fb0f0edc602a7`. Required PR run
+`36846602653` and exact-main run `36847395525` both succeeded. Downloaded M5/M6 bundles passed
+independent verification, all eight M6 mutations retained their declared non-PASS verdicts, the
+resource predicate was accepted and recorded runtime processes had exited. Both first model receipts
+also passed immutable Git-blob storage readback. The
+[publication manifest](../../evidence/productization-audit/publication-second.json) retains source,
+parents, tree, runs, artifact IDs and readback hashes. The original local capture branch is also
+retained remotely; its unaccepted contract remains outside main.
+
+Only the second counterexample's publication is qualified. Runtime guards, contract freeze and
+productization audit A are not promoted. The separately reviewed minimum now permits
+[contract v2](m5-coordinate-validation-review-v2.md) construction from that exact main.
