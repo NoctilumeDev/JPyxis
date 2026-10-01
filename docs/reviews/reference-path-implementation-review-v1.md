@@ -1,6 +1,6 @@
 # Bounded Reference Path Implementation Review v1
 
-Status: `FIRST COMPLETE CANDIDATE · ACTUAL EXECUTION AND QUALIFICATION PENDING`
+Status: `ACTUAL JOURNEY DIAGNOSTICS COMPLETE · QUALIFICATION PENDING`
 
 The first complete candidate was committed before verification at
 `455bb0f123bc97dedd458ef3940349ba248f0d5a`. Its first local build failed at the two reference
@@ -54,6 +54,26 @@ under the local-candidate archive from authored text formatting and locator-path
 checks, all module semantics and the M6 resource predicate remain intact. A dedicated retained-file
 gate checks both current Git blobs and the first archive commit; full history is fetched only by
 the new actual-path job so those checks remain independently executable on a fresh VM.
+
+Candidate `ef7884f42c8c45720ed12ef219cb46c35c39124a` completed all eighteen actual journey families,
+then the first independent reader rejected three source inputs. The two fixed requirements files
+and frozen proto have exact CRLF-only checkout differences from their committed text blobs. The
+[first reader rejection](../../evidence/reference-path/v1/local-candidates/ef7884f42c8c-first-reader/failure-record.json)
+retains the unchanged raw construction bytes and Environment closure. The bounded correction permits
+newline-only Git-blob reconstruction for those three explicit inputs; all normalized blobs must match
+exactly. This does not replace raw-byte identity or erase the original reader failure, and the complete
+driver run alone does not grant qualification.
+
+The retained reader diagnostics also preserve an initially rejected sampling interpretation:
+empty RSS frames occurred while the Java parent remained live, not only after exit. A direct
+PowerShell reproduction returned valid resident stdout with exit code 1 when another requested
+PID no longer existed. The sampler now retains stdout/stderr/status and parses valid partial output;
+empty frames remain observation gaps and cannot be described as measured zero. The reader derives
+resident sums and requires real positive samples. Negative candidates that never invoke may have
+an empty M3 journal; every admitted qualification or product invocation still requires matching M3
+Runtime-start coordinates. Supplemental readback derives all eighteen original journey families,
+while preserving the first FAIL and granting no product qualification. Fresh candidate execution,
+public clean CI and the unchanged M6 resource acceptance remain required.
 
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,

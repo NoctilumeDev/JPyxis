@@ -28,7 +28,7 @@ function reportCoordinates(report,association){
 export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
   root=path.resolve(root);const failures=[],incomplete=[],results=[];
   const read=name=>JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));
-  const lines=name=>{const text=fs.readFileSync(path.join(root,name),'utf8');assert.ok(text.endsWith('\n'),`${name} complete final record`);return text.trimEnd().split(/\r?\n/).filter(Boolean).map(JSON.parse);};
+  const lines=name=>{const text=fs.readFileSync(path.join(root,name),'utf8');assert.ok(text===''||text.endsWith('\n'),`${name} complete final record`);return text.trimEnd().split(/\r?\n/).filter(Boolean).map(JSON.parse);};
   let manifest;try{manifest=read('manifest.json');}catch(e){return {verdict:'INCONCLUSIVE',cases:[],incomplete:[e.message],failures:[]};}
   for(const file of manifest.files??[]){
     const target=path.resolve(root,file.path);
@@ -47,7 +47,7 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
       assert.equal(gitBlobs.get(f.path),f.gitBlob,`input Git coordinate ${f.path}`);
       const bytes=fs.readFileSync(path.join(root,'inputs',f.path));assert.equal(sha(bytes),f.sha256);assert.equal(bytes.length,f.bytes);
       const blob=b=>crypto.createHash('sha1').update(Buffer.from(`blob ${b.length}\0`)).update(b).digest('hex');
-      if(blob(bytes)!==f.gitBlob){assert.match(f.path,/\.(?:java|py|xml|mjs|md)$/,'only declared text newline conversion permitted');assert.equal(blob(Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'))),f.gitBlob,'retained raw input does not match committed source');}
+      if(blob(bytes)!==f.gitBlob){assert.ok(/\.(?:java|py|xml|mjs|md)$/.test(f.path)||/^invocation\/python\/requirements-m[23]\.txt$/.test(f.path)||f.path==='spec/m2/proto/jpyxis_invocation_v1.proto','only declared text newline conversion permitted');assert.equal(blob(Buffer.from(bytes.toString('utf8').replace(/\r\n/g,'\n'))),f.gitBlob,'retained raw input does not match committed source');}
     }
     assert.equal(config.executionBuild.sourceRevision,source.revision);assert.equal(config.executionBuild.sourceTree,source.tree);
     assert.equal(config.executionBuild.inputInventoryDigest,sha(fs.readFileSync(path.join(root,'input-inventory.json'))));
@@ -59,7 +59,8 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
     assert.equal(entry.state,'CONTRACT_FROZEN_BOUNDED_RUNTIME_ENTRY');assert.equal(entry.source.acceptedFreezeMain,'bd8cd9eff99f70f642c98571ed2390650320f222');
     assert.equal(gitBlobs.get('docs/spec/productization-reference-path-contract-v1.md'),entry.source.specBlob);assert.equal(gitBlobs.get('docs/adr/0014-reference-path-realization-and-dispatch.md'),entry.source.adrBlob);
     const resources=read('resource-observations.json');assert.ok(resources.samples.length>0,'actual resource samples missing');
-    for(const sample of resources.samples){assert.ok(sample.knownRssBytes>0&&Number.isFinite(sample.availableMemoryBytes));assert.ok(sample.physicalMemoryBytes>=14*2**30&&sample.physicalMemoryBytes<=18*2**30,'actual 16 GiB host class');}
+    assert.ok(resources.samples.some(sample=>sample.knownRssBytes>0),'actual resident observation missing');
+    for(const sample of resources.samples){assert.ok(Number.isFinite(sample.availableMemoryBytes)&&sample.knownRssBytes>=0);assert.equal(sample.knownRssBytes,sample.resident.reduce((sum,p)=>sum+p.rssBytes,0),'derived resident sum');assert.ok(sample.resident.every(p=>p.rssBytes>0&&sample.ownedLiveProcessIds.includes(p.pid)));assert.ok(sample.physicalMemoryBytes>=14*2**30&&sample.physicalMemoryBytes<=18*2**30,'actual 16 GiB host class');}
     if(source.publicClean){assert.equal(source.workflowSha,source.revision);assert.equal(source.cleanEnvironment.kind,'github-hosted-fresh-vm');assert.equal(source.cleanEnvironment.githubHosted,true);assert.equal(source.cleanEnvironment.pipCacheDisabled,true);assert.equal(source.cleanEnvironment.mavenRepositoryIsolated,true);}
     same(fs.readdirSync(path.join(root,'cases')).sort(),[...cases].sort(),'complete declared case set');
     const allPids=new Set();
@@ -104,6 +105,7 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
             assert.ok(admission,'worker observation substituted the owner association');
             assert.equal(association.realization.launchNonce,s.launchNonce);assert.equal(association.realization.processId,s.handle.processId);
             same(association.operands,operands,'immutable operands');same(association.realization.runtimeBinding,binding,'actual provider binding');
+            assert.ok(m3.some(r=>r.event==='RUNTIME_STARTED'&&r.invocationId===association.m2.coordinates.invocationId&&r.attemptId===association.m2.coordinates.attemptId&&r.traceId===association.m2.coordinates.traceId),'actual qualification/product M3 Runtime start missing');
             if(association.purpose==='PRODUCT'){
               const q=qualifications.get(association.realization.deploymentId);assert.ok(q&&q.sequence<admission.sequence,'product dispatch before owner qualification');
               same(association.realization,q.details.realization,'qualified realization changed');assert.equal(association.pin.deploymentId,s.descriptor.deploymentId);

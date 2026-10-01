@@ -42,18 +42,20 @@ function ownedProcessIds(){
 }
 function alive(pid){try{process.kill(pid,0);return true;}catch{return false;}}
 function sample(javaPid){
-  const ids=[javaPid,...ownedProcessIds()].filter(p=>Number.isSafeInteger(p)&&p>0&&alive(p));let resident=[];
+  const ids=[javaPid,...ownedProcessIds()].filter(p=>Number.isSafeInteger(p)&&p>0&&alive(p));let resident=[],sampler=null;
   if(ids.length){
     if(process.platform==='win32'){
       const r=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',`Get-Process -Id @(${ids.join(',')}) -ErrorAction SilentlyContinue | Select-Object Id,WorkingSet64 | ConvertTo-Json -Compress`],{encoding:'utf8'});
-      if(r.status===0&&r.stdout.trim())try{resident=[JSON.parse(r.stdout)].flat().map(p=>({pid:p.Id,rssBytes:p.WorkingSet64}));}catch{}
+      sampler={exitCode:r.status,stdoutBase64:Buffer.from(r.stdout).toString('base64'),stderrBase64:Buffer.from(r.stderr).toString('base64')};
+      if(r.stdout.trim())try{resident=[JSON.parse(r.stdout)].flat().map(p=>({pid:p.Id,rssBytes:p.WorkingSet64}));}catch(error){sampler.parseFailure=error.message;}
     }else{
       const r=spawnSync('ps',['-o','pid=,rss=','-p',ids.join(',')],{encoding:'utf8'});
+      sampler={exitCode:r.status,stdoutBase64:Buffer.from(r.stdout).toString('base64'),stderrBase64:Buffer.from(r.stderr).toString('base64')};
       resident=r.stdout.trim().split('\n').filter(Boolean).map(line=>{const [pid,rss]=line.trim().split(/\s+/).map(Number);return {pid,rssBytes:rss*1024};});
     }
   }
   resources.push({observedAt:new Date().toISOString(),method:process.platform==='win32'?'Get-Process.WorkingSet64':'ps resident KiB',javaPid,ownedLiveProcessIds:ids,
-    resident,knownRssBytes:resident.reduce((sum,p)=>sum+p.rssBytes,0),physicalMemoryBytes:os.totalmem(),availableMemoryBytes:os.freemem()});
+    resident,sampler,residentCoverage:resident.length?'OBSERVED_RESIDENT_PROCESSES':'NO_RESIDENT_SAMPLE',knownRssBytes:resident.reduce((sum,p)=>sum+p.rssBytes,0),physicalMemoryBytes:os.totalmem(),availableMemoryBytes:os.freemem()});
   write('resource-observations.json',{samples:resources,scope:'sampled reference Java parent and host-owned worker/interpreter processes; sampling is not a capacity or performance promise'});
 }
 try{
