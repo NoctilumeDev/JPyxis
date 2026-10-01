@@ -1,0 +1,11 @@
+{
+  "revision": "43df2cc678d60bb8a8ddf7f23f1aa82bbcca898e",
+  "contentMain": "58082992dbe29d6302b2c427dcad9aebd75ace0a",
+  "specBlob": "3445779836822cf033fb2fd9007486141f98339d",
+  "adrBlob": "9a1b42474fce04dbe7678fc7c68c262be609a2e3",
+  "retainedQualificationReadbacksVerified": true,
+  "contractScope": "CONTENT_ONLY",
+  "runtimeGuardsImplemented": false,
+  "m4ProductionBlobsUnchanged": true,
+  "productizationQualified": false
+}

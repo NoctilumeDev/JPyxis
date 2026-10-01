@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "jpyxis.io/m4-contract-closure/v1alpha1",
+  "state": "CONTRACT_FROZEN_GUARD_IMPLEMENTATION_ENTRY_QUALIFIED",
+  "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/28",
+  "reviewedHead": "f8079202781c9b48cb00f1d36f22b22d83d558ee",
+  "executedPrMerge": "2d1488416657c8725eb71f7881b5f77479e4f29f",
+  "acceptedMain": "43df2cc678d60bb8a8ddf7f23f1aa82bbcca898e",
+  "acceptedTree": "71a4a20390929c47b7b6f8b8dba9b0a06df0efb2",
+  "mergedAt": "2026-10-01T13:58:43Z",
+  "prEvidence": {
+    "run": 36871960281,
+    "m5Artifact": 11168360684,
+    "m6Artifact": 11167641268,
+    "readback": "pr28-readback.json",
+    "contractReadback": "pr28-contract-readback.json",
+    "retentionReadback": "pr28-audit-retention-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36872744984,
+    "m5Artifact": 11167158512,
+    "m6Artifact": 11167772489,
+    "readback": "main28-readback.json",
+    "contractReadback": "main28-contract-readback.json",
+    "retentionReadback": "main28-audit-retention-readback.json"
+  },
+  "tag": {
+    "name": "m4-handle-contract-v2",
+    "object": "30d0ccdf709a1501dabe39d6e7786d30b27750a4",
+    "type": "annotated",
+    "peeled": "43df2cc678d60bb8a8ddf7f23f1aa82bbcca898e",
+    "remoteReadbackVerified": true
+  },
+  "rules": {
+    "branch": 22108847,
+    "tag": 22111364,
+    "enforcement": "active",
+    "bypassActors": []
+  },
+  "scope": "Qualified minimum M4 canonical handle conservation contract only; entry to separate implementation; no guard or product qualification",
+  "guardImplementationQualified": false,
+  "productizationQualified": false,
+  "oldFrozenTagsUnchanged": true
+}

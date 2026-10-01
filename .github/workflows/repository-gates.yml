@@ -87,6 +87,8 @@ jobs:
           path: |
             build/m4/conformance-summary.json
             build/m4/runs
+            build/m4/handle-validation
+            build/m4/handle-validation-mutations
           if-no-files-found: ignore
           retention-days: 14
       - name: Retain M5 resilience evidence

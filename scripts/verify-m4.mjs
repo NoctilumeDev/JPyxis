@@ -108,6 +108,7 @@ function main() {
     throw new Error(`offline M4 evidence verification failed: ${offline.failures.join("; ")}`);
   }
   console.log(`M4 lifecycle verification passed: ${results.length} scenarios`);
+  run(process.execPath, [path.join(root, "scripts", "verify-m4-handles.mjs")]);
 }
 
 function buildJava() {
