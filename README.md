@@ -335,7 +335,8 @@ The later [M5 coordinate and owner-effect contract v2](docs/spec/m5-coordinate-v
 records the two published public-model counterexamples and the minimum reopened identity boundary.
 Its [separate review](docs/reviews/m5-coordinate-validation-review-v2.md) qualifies contract authority;
 the [separate implementation review](docs/reviews/m5-coordinate-validation-implementation-review.md)
-binds the qualified v2 guards. Productization remains gated by a fresh audit of the real path.
+binds the qualified v2 guards. The [next audit review](docs/reviews/productization-reference-path-audit-review-v2.md)
+stops productization at a separate M4 retired-handle rollback counterexample.
 
 ## M6 reproducibility baseline
 

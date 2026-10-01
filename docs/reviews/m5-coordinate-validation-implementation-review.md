@@ -1,6 +1,6 @@
 # M5 Coordinate Validation Implementation Review
 
-Status: `BOUNDED M5 v2 GUARDS QUALIFIED · PRODUCTIZATION AUDIT A TO RERUN`
+Status: `BOUNDED M5 v2 GUARDS QUALIFIED · AUDIT A STOP AT NEW M4 COUNTEREXAMPLE`
 
 ## Entry authority
 
@@ -132,3 +132,8 @@ real cross-module operand continuity, Environment qualification or productizatio
 | Failed premise | No new out-of-bound model premise failed; the first transport failure and two original model counterexamples remain preserved. |
 | Final state | M5 v2 guards qualified within the declared public-model/durable witness boundary; productization remains unqualified. |
 | Next authority | Reconstruct and rerun audit A from the accepted main, then qualify that audit before contract B. |
+
+The [subsequent audit A v2](productization-reference-path-audit-review-v2.md) reran ten source-bound
+M5 checks successfully, then found a separate M4 retired-handle rollback counterexample on its
+first probe. That new frozen boundary has no disposition under the M5 contract. M5 qualification
+remains scoped as above; productization A/B/C-G are stopped pending the minimum M4 review.

@@ -1,0 +1,49 @@
+{
+  "verdict": "PASS",
+  "failures": [],
+  "incomplete": [],
+  "results": [
+    {
+      "id": "honest_plan_control",
+      "verdict": "PASS"
+    },
+    {
+      "id": "worker_instance_substitution",
+      "verdict": "PASS"
+    },
+    {
+      "id": "worker_epoch_substitution",
+      "verdict": "PASS"
+    },
+    {
+      "id": "idempotency_substitution",
+      "verdict": "PASS"
+    },
+    {
+      "id": "replacement_instance_failure",
+      "verdict": "PASS"
+    },
+    {
+      "id": "same_instance_failure_control",
+      "verdict": "PASS"
+    },
+    {
+      "id": "replacement_success_control",
+      "verdict": "PASS"
+    },
+    {
+      "id": "handle_worker",
+      "verdict": "PASS"
+    },
+    {
+      "id": "handle_instance",
+      "verdict": "PASS"
+    },
+    {
+      "id": "handle_epoch",
+      "verdict": "PASS"
+    }
+  ],
+  "sourceBase": "a5553d94136a46cb93ff31caa3e138a5b7ff8731",
+  "scope": "Ten fresh source-bound model checks only; no cross-module real execution or product qualification"
+}

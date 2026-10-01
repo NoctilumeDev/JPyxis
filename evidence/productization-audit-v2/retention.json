@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "jpyxis.io/audit-input-retention/v1alpha1",
+  "sourceBase": "a5553d94136a46cb93ff31caa3e138a5b7ff8731",
+  "m5Candidate": "8d03a86c8b8f6d4b4ac5d391e4455677015b8d38",
+  "m4Candidate": "38d3dab41838b5fe7049b9cafa094392c2c622a7",
+  "auditState": "STOP_MODEL_COUNTEREXAMPLE",
+  "firstReceiptsUnchanged": true,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "sha256:2fdf2907c9295e83ecc5a31c4da2ff4b3e781914e6fcae7fb77d5a9ed816476d",
+      "bytes": 18
+    },
+    {
+      "path": "first-m5-rerun/compile.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/compile.stdout.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/handle_epoch.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/handle_epoch.stdout.bin",
+      "sha256": "sha256:5e0a8d17981bd96cf29e99e7cdee044c5e98f0f49a793af7e714061d616c6227",
+      "bytes": 4868
+    },
+    {
+      "path": "first-m5-rerun/handle_instance.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/handle_instance.stdout.bin",
+      "sha256": "sha256:b5a9c1e77a57157c725a92d885e4df9dfca601618963a9b533c5b855ecfeba7f",
+      "bytes": 4827
+    },
+    {
+      "path": "first-m5-rerun/handle_worker.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/handle_worker.stdout.bin",
+      "sha256": "sha256:f42b6a1b76a4b1cbed95f0f7f1c5143e082c821cfa35b86d5255f22d7a95bd04",
+      "bytes": 4865
+    },
+    {
+      "path": "first-m5-rerun/honest_plan_control.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/honest_plan_control.stdout.bin",
+      "sha256": "sha256:85fd7e01697f8efa5de0abb96280e31d061358b4f871fa51ab31a82388a5102c",
+      "bytes": 4329
+    },
+    {
+      "path": "first-m5-rerun/idempotency_substitution.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/idempotency_substitution.stdout.bin",
+      "sha256": "sha256:a156553fb92a11446a0e20d4f7b10577f611256f34ca8dc085f13cd75bc9bcbc",
+      "bytes": 4261
+    },
+    {
+      "path": "first-m5-rerun/readback.json",
+      "sha256": "sha256:30534713a9f747330a357d1ec8c7a3e048057da26647ae17beb6532f681c3373",
+      "bytes": 1003
+    },
+    {
+      "path": "first-m5-rerun/receipt.json",
+      "sha256": "sha256:be72c528cf4748b161622e43ab49ef6470a4c04125c265294053bd1c14e2f3e3",
+      "bytes": 12080
+    },
+    {
+      "path": "first-m5-rerun/replacement_instance_failure.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/replacement_instance_failure.stdout.bin",
+      "sha256": "sha256:7b955f365c8ea17033d946d343b1a62ba9d012e090f621576c3a6342ef9cb329",
+      "bytes": 1950
+    },
+    {
+      "path": "first-m5-rerun/replacement_success_control.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/replacement_success_control.stdout.bin",
+      "sha256": "sha256:0928016daa660cff0a68b88dd807bdb35ed811eb88d0cf428643896d597bd734",
+      "bytes": 1314
+    },
+    {
+      "path": "first-m5-rerun/same_instance_failure_control.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/same_instance_failure_control.stdout.bin",
+      "sha256": "sha256:f101f631d9b9ecac1dcd7ead6808553e27f6910a6e671b097532d14340155d93",
+      "bytes": 2186
+    },
+    {
+      "path": "first-m5-rerun/worker_epoch_substitution.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/worker_epoch_substitution.stdout.bin",
+      "sha256": "sha256:d203e3fdd971c8c35a86794aa42943d3b5706ebbfc99a94d6d4e6e7385a7b4da",
+      "bytes": 4151
+    },
+    {
+      "path": "first-m5-rerun/worker_instance_substitution.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-m5-rerun/worker_instance_substitution.stdout.bin",
+      "sha256": "sha256:0dca0742205c0a30972851e67112d6fdb1eb42893756757b0266ab48603bdd54",
+      "bytes": 4107
+    },
+    {
+      "path": "first-retired-handle/compile.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-retired-handle/compile.stdout.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-retired-handle/fresh_handle_rollback_control.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-retired-handle/fresh_handle_rollback_control.stdout.bin",
+      "sha256": "sha256:848b709a9f39cf89bdef195a757010da9ff4dc6719a003a0f70a93f0f3e9a190",
+      "bytes": 7898
+    },
+    {
+      "path": "first-retired-handle/readback.json",
+      "sha256": "sha256:302bfad2d20e58819bda2a7506c7d118cc014ae5e51b4de5d54cdb59f3f0ac02",
+      "bytes": 757
+    },
+    {
+      "path": "first-retired-handle/receipt.json",
+      "sha256": "sha256:98845953495cc58fe224615b1a5735b56d1378cd01212f056a2f48eaea8a66d5",
+      "bytes": 7242
+    },
+    {
+      "path": "first-retired-handle/retired_handle_rollback.stderr.bin",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "first-retired-handle/retired_handle_rollback.stdout.bin",
+      "sha256": "sha256:41badd95a76f9e0917cf766d4f85e1d3daf2697012a1f47dd135e586479b4ea9",
+      "bytes": 7778
+    },
+    {
+      "path": "first-retired-handle/RetiredHandleProbe.java",
+      "sha256": "sha256:d13ed6857e1aa41938657da51f2304e85db27580d84563cfbf4464e01c6730d4",
+      "bytes": 5703
+    },
+    {
+      "path": "first-retired-handle/run-retired-handle.mjs",
+      "sha256": "sha256:28e79462c53d67c6a0c2297bb6eb85a08be55dc1ebc063b06aef93707ae3ffc4",
+      "bytes": 3490
+    },
+    {
+      "path": "first-retired-handle/verify-retired-handle.mjs",
+      "sha256": "sha256:47a713b7056889d56476b74641426cb388efdc74c4c5af06fdd9f6ee8d689460",
+      "bytes": 4173
+    }
+  ],
+  "scope": "Raw immutable model facts only; no M4 disposition, repair, product contract or qualified audit publication"
+}
