@@ -58,6 +58,12 @@ model manifest explicitly records `LOCAL_DIRTY_CANDIDATE`. They remain local dev
 not an immutable qualification claim. The later durable-export and mutation retention additions
 must be exercised by a clean committed candidate before publication.
 
+The first full M5 candidate `2a49066c07a29e4600e0c218b14247d49fb9bb4e` failed before compilation:
+the Windows wrapper rejected the quoted absolute evidence-directory argument (exit 255). Its
+commit, first log and partial output remain retained. This is parameter transport failure, not
+behavioral execution or a new model counterexample. A fixed module-relative Surefire directory
+removes that shell quoting dependency; a later candidate must rerun the entire gate.
+
 Required acceptance is serial local hygiene and M5/M6 gates, protected PR checks, independent
 downloaded PR artifact readback bound to the executed merge source, protected merge of the exact
 reviewed head, then fresh exact-main checks and independent artifact readback. Guard readback must

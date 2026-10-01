@@ -117,10 +117,11 @@ function main() {
 }
 
 function buildJava() {
-  const coordinateEvidence = `-Djpyxis.coordinate.evidenceRoot=${path.join(buildRoot, "coordinate-validation-journals")}`;
+  // Surefire uses the module basedir. A fixed relative path also avoids cmd.exe quoting of user paths.
+  const coordinateEvidence = "-Djpyxis.coordinate.evidenceRoot=../../build/m5/coordinate-validation-journals";
   if (process.platform === "win32") {
     run(process.env.ComSpec || "cmd.exe", [
-      "/d", "/s", "/c", `mvnw.cmd -q -pl resilience/java -am package "${coordinateEvidence}"`,
+      "/d", "/s", "/c", `mvnw.cmd -q -pl resilience/java -am package ${coordinateEvidence}`,
     ]);
   } else {
     run("sh", [path.join(root, "mvnw"), "-q", "-pl", "resilience/java", "-am", "package", coordinateEvidence]);
