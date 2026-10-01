@@ -394,6 +394,7 @@ coordinates, resource observations, limits, and claims that remain unproven.
 - [Research Evidence Traceability](docs/research/evidence-traceability.md)
 - [Single-node Baseline](docs/roadmap/single-node-baseline.md)
 - [Evolution Map](docs/roadmap/evolution-map.md)
+- [Productization Reference Path Audit — STOP at candidate audit](docs/roadmap/productization-reference-path-audit.md)
 
 ### Accepted M0 decisions
 
