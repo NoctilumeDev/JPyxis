@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "jpyxis.io/model-counterexample-retention/v1alpha1",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE",
+  "sourceBase": "11e13099a9b81cf019844c8e4d1d1786ed913c53",
+  "contractCandidate": "3960255e4324c0396ec58991c570526a18bced0d",
+  "firstReceiptSha256": "sha256:969d63ff66c181e5a902bf0dea35af34aa704b2286261ca4af2581d38ebc11b4",
+  "probeArchive": "InstanceFailureProbe.java",
+  "harnessArchive": "first-runner.mjs",
+  "originalProbePath": "build/coordinate-contract/InstanceFailureProbe.java",
+  "originalHarnessPath": "build/coordinate-contract/run-instance-probe.mjs",
+  "originalOutputDirectory": "build/coordinate-contract/first-instance-failure",
+  "rawByteConvention": "case.stdout.bin and case.stderr.bin; unchanged first captured bytes",
+  "scope": "Public model and immutable storage only; no real computation, process, durable replay, guard implementation or product qualification",
+  "contractPullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/19",
+  "contractRun": 36844437108,
+  "contractRunObservation": "both required jobs succeeded; artifacts not independently read back before new counterexample STOP",
+  "contractState": "DRAFT_UNMERGED_NOT_FROZEN",
+  "nextBoundary": "review Manager-to-Supervisor instance-scoped failure association before changing contract or runtime"
+}

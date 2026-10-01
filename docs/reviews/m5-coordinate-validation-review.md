@@ -1,6 +1,6 @@
 # M5 Coordinate Validation Review
 
-Status: `REVIEWED CONTRACT · PUBLICATION GATE PENDING · RUNTIME GUARDS NOT QUALIFIED`
+Status: `STOP_NEW_MODEL_COUNTEREXAMPLE · CONTRACT NOT FROZEN · RUNTIME GUARDS NOT QUALIFIED`
 
 ## Review scope and disposition
 
@@ -57,3 +57,15 @@ The directed matrix has not run against repaired code. No real M2/M4/M5 path, pr
 association, Environment construction, cleanup guarantee, Spring entry, or product verdict is
 established. The original audit STOP remains effective until the separate qualified repair and a
 fresh audit disposition.
+
+## Subsequent counterexample STOP
+
+The initial reviewed contract candidate is commit `3960255e4324c0396ec58991c570526a18bced0d`,
+published as [PR #19](https://github.com/NoctilumeDev/JPyxis/pull/19). Required run
+[36844437108](https://github.com/NoctilumeDev/JPyxis/actions/runs/36844437108) completed successfully.
+No independent artifact readback, merge, exact-main qualification, or contract tag followed.
+The [superseded-instance failure probe](m5-instance-failure-counterexample.md) then showed that a
+valid unmodified old plan's unknown result can make a healthy replacement instance ineligible.
+Admission comparison alone does not conserve identity through the next owner effect. PR #19 is
+now a draft. Its original head and this contract round remain preserved; the new proposed review
+boundary requires explicit disposition before this contract or its implementation can advance.
