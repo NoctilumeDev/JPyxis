@@ -8,6 +8,7 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.MoreExecutors;
 import io.grpc.ManagedChannel;
+import io.grpc.ClientInterceptor;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
@@ -42,7 +43,13 @@ public final class GrpcInvocationTransport implements InvocationTransport {
     private final ManagedChannel channel;
 
     public GrpcInvocationTransport(int port) {
-        channel = ManagedChannelBuilder.forAddress("127.0.0.1", port).usePlaintext().build();
+        this(port, new ClientInterceptor[0]);
+    }
+
+    /** Outer adapters may bind metadata without changing the frozen invocation carrier. */
+    public GrpcInvocationTransport(int port, ClientInterceptor... interceptors) {
+        channel = ManagedChannelBuilder.forAddress("127.0.0.1", port).usePlaintext()
+                .intercept(interceptors).build();
     }
 
     @Override
@@ -114,6 +121,11 @@ public final class GrpcInvocationTransport implements InvocationTransport {
                         .setScale(attempt.input().scale())
                         .setBias(attempt.input().bias()))
                 .build();
+    }
+
+    /** Decode a retained source report through the same frozen wire adapter, without dispatch. */
+    public WorkerExecutionReport decodeRetainedReport(byte[] bytes) throws com.google.protobuf.InvalidProtocolBufferException {
+        return fromWire(WorkerReport.parseFrom(bytes));
     }
 
     private WorkerExecutionReport fromWire(WorkerReport report) {

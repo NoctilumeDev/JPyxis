@@ -17,6 +17,7 @@
     <module>invocation/java</module>
     <module>lifecycle/java</module>
     <module>resilience/java</module>
+    <module>reference/java</module>
   </modules>
 
   <properties>

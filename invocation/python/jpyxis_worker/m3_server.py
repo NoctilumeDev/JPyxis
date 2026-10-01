@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib.util
+import json
 import platform
 from concurrent import futures
 from pathlib import Path
@@ -34,14 +35,20 @@ WORKER_VERSION = "m3-v1alpha1"
 
 
 class DefinitionArtifact:
-    def __init__(self, path: Path, identity: str) -> None:
+    def __init__(self, path: Path, identity: str, *, snapshot: bytes | None = None) -> None:
         self.path = path
         self.identity = identity
-        self.digest = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+        retained = path.read_bytes() if snapshot is None else bytes(snapshot)
+        self.digest = "sha256:" + hashlib.sha256(retained).hexdigest()
         self.plan: DefinitionPlan | None = None
         self.preparation_failure: str | None = None
         try:
-            module = _load_module(path)
+            if snapshot is None:
+                module = _load_module(path)
+            else:
+                module = ModuleType("jpyxis_retained_definition")
+                module.__file__ = str(path)
+                exec(compile(retained, str(path), "exec"), module.__dict__)
             if getattr(module, "DEFINITION_IDENTITY", None) != identity:
                 raise RuntimeError("definition identity does not match the selected artifact")
             describe = getattr(module, "describe", None)
@@ -73,9 +80,12 @@ class RuntimeInvocationWorker(wire_grpc.InvocationWorkerServicer):
         runtime_provider: str,
         recorder: ObservationRecorder,
         fault_mode: str,
+        *,
+        contract_snapshot: bytes | None = None,
+        definition_snapshot: bytes | None = None,
     ) -> None:
-        self.contract = parse_contract(contract_path)
-        self.definition = DefinitionArtifact(definition_path, definition_identity)
+        self.contract = parse_contract(contract_path if contract_snapshot is None else json.loads(contract_snapshot))
+        self.definition = DefinitionArtifact(definition_path, definition_identity, snapshot=definition_snapshot)
         self.provider = create_runtime_registry().resolve(runtime_provider)
         self.recorder = recorder
         self.fault_mode = fault_mode

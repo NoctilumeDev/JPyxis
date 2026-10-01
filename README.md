@@ -351,8 +351,11 @@ completed protected merge and exact-main qualification. The
 [minimum reference contract B](docs/spec/productization-reference-path-contract-v1.md) completed
 [separate content qualification](docs/reviews/productization-reference-contract-review-v1.md)
 through protected PR #32 and exact-main readback. Its
-[immutable freeze record](evidence/reference-path/v1/contract-manifest.json) requires its own
-protected publication closure before runtime work. Actual product-path qualification remains pending.
+[immutable freeze record](evidence/reference-path/v1/contract-manifest.json) closed through protected
+PR #33, exact main and independent readback. The
+[bounded runtime entry](evidence/reference-path/v1/runtime-entry/entry-manifest.json) now authorizes
+the [separate actual-path implementation candidate](docs/reviews/reference-path-implementation-review-v1.md).
+Actual product-path qualification remains pending its own actual-process/clean-VM/protected-main gates.
 
 ## M6 reproducibility baseline
 

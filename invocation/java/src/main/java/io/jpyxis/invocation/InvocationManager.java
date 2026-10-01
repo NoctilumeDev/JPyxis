@@ -60,10 +60,26 @@ public final class InvocationManager implements AutoCloseable {
             Path definitionArtifact,
             String definitionIdentity,
             HostObservationRecorder recorder) throws IOException {
+        this(transport, new ContractParser().parse(contractPath), definitionIdentity,
+                digest(definitionArtifact), recorder);
+    }
+
+    /** Composes the existing invocation owner with retained immutable operand bytes. */
+    public static InvocationManager fromSnapshots(
+            InvocationTransport transport, byte[] contractBytes, byte[] definitionBytes,
+            String definitionIdentity, HostObservationRecorder recorder) throws IOException {
+        return new InvocationManager(transport,
+                new ContractParser().parse(JsonSupport.MAPPER.readTree(contractBytes.clone())),
+                definitionIdentity, digest(definitionBytes.clone()), recorder);
+    }
+
+    private InvocationManager(
+            InvocationTransport transport, AlgorithmContract contract, String definitionIdentity,
+            String definitionDigest, HostObservationRecorder recorder) {
         this.transport = transport;
-        this.contract = new ContractParser().parse(contractPath);
+        this.contract = contract;
         this.definitionIdentity = definitionIdentity;
-        this.definitionDigest = digest(definitionArtifact);
+        this.definitionDigest = definitionDigest;
         this.recorder = recorder;
         this.scheduler = Executors.newSingleThreadScheduledExecutor(runnable -> {
             Thread thread = new Thread(runnable, "jpyxis-m2-terminal-races");
@@ -726,9 +742,13 @@ public final class InvocationManager implements AutoCloseable {
     }
 
     private static String digest(Path path) throws IOException {
+        return digest(Files.readAllBytes(path));
+    }
+
+    private static String digest(byte[] bytes) {
         try {
             return "sha256:" + HexFormat.of().formatHex(
-                    MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(path)));
+                    MessageDigest.getInstance("SHA-256").digest(bytes));
         } catch (NoSuchAlgorithmException exception) {
             throw new IllegalStateException("SHA-256 is unavailable", exception);
         }

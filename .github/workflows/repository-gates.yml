@@ -18,6 +18,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  verify_reference:
+    name: Verify reference actual path
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact reference candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Set up Java without dependency cache
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Set up Python without dependency cache
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Execute and independently read actual reference path
+        run: node scripts/verify-reference-path.mjs --public-clean
+      - name: Retain actual reference raw journey and mutations
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: reference-actual-${{ github.sha }}
+          path: |
+            build/reference-path
+            !build/reference-path/**/environment/**
+            !build/reference-path/**/maven-repository/**
+            !build/reference-path/**/maven-user-home/**
+            !build/reference-path/**/temporary/**
+          if-no-files-found: ignore
+          retention-days: 14
   verify:
     name: Verify M5 resilience repository
     runs-on: ubuntu-latest
