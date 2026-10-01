@@ -63,8 +63,22 @@ function verifyRow(row){
   assert.deepEqual(tuple(row.retainedPinBefore.runtimeHandle),tuple(replayed.handles.get("active")));
   assert.ok(row.activeSnapshotAfter.outstandingPins>=1);
   const c=row.candidate,id=row.case,candidate=snapshots.get("candidate");
-  assert.equal(c.loads,1);assert.equal(c.warms,c.warmArguments.length);assert.equal(c.unloads,c.unloadArguments.length);
-  for(const h of [...c.warmArguments,...c.unloadArguments])assert.deepEqual(tuple(h),tuple(c.returned));
+  const verifyCallbacks=(model,deployment,events,owned)=>{
+    assert.equal(model.loads,1);assert.equal(model.warms,model.warmArguments.length);assert.equal(model.unloads,model.unloadArguments.length);
+    for(const h of [...model.warmArguments,...model.unloadArguments]){
+      assert.deepEqual(tuple(h),tuple(model.returned));assert.deepEqual(tuple(h),tuple(owned.handles.get(deployment)));
+    }
+    if(model.returned!==null){
+      const load=events.find(e=>e.owner==="LIFECYCLE_CAPABILITY"&&e.event==="LOAD_SUCCEEDED"&&e.deploymentId===deployment);
+      if(id==="load_observation_record_failure"&&deployment==="candidate")assert.equal(load,undefined);
+      else{assert.ok(load);assert.deepEqual(tuple(load.details),tuple(model.returned));}
+    }
+  };
+  if(id==="separate_owner_lifetime")verifyCallbacks(c,"other-owner-deployment",row.otherOwnerEvents,replay(row.otherOwnerEvents));
+  else verifyCallbacks(c,id==="concurrent_duplicate_returns"?"candidate-a":"candidate",row.events,replayed);
+  if(row.secondCandidate)verifyCallbacks(row.secondCandidate,"candidate-b",row.events,replayed);
+  if(row.holder)verifyCallbacks(row.holder,"holder",row.events,replayed);
+  if(row.retry)verifyCallbacks(row.retry,"retry",row.events,replayed);
   const noCallbacks=()=>{assert.equal(c.warms,0);assert.equal(c.unloads,0);};
   const failedUnadopted=()=>{assert.equal(candidate.state,"FAILED");assert.equal(candidate.runtimeProviderIdentity,null);assert.equal(candidate.runtimeProviderVersion,null);
     assert.equal(candidate.outstandingPins,0);assert.equal(replayed.handles.has("candidate"),false);assert.equal(row.candidatePin,undefined);
