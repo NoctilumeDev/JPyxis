@@ -29,7 +29,7 @@ for (const source of [receipt.probeSource, receipt.harnessSource]) {
 }
 for (const run of receipt.runs) {
   check(run.case, () => {
-    const stdout = read(path.posix.join(directory, `${run.case}.stdout.json`));
+    const stdout = read(path.posix.join(directory, `${run.case}.stdout.bin`));
     const stderr = read(path.posix.join(directory, `${run.case}.stderr.txt`));
     assert.equal(digest(stdout), run.stdoutSha256, "Retained stdout bytes differ from the first observation");
     assert.equal(digest(stderr), run.stderrSha256, "Retained stderr bytes differ from the first observation");

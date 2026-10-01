@@ -132,6 +132,12 @@ product-model run. The [failure record](../../evidence/productization-audit/stor
 names each original and normalized digest. A local `.gitattributes` rule disables text normalization
 only for this retained audit subtree; the original CRLF stdout bytes are re-added from the unchanged
 first-run files. Neither the failed saving commit nor the first receipt is amended or recomputed.
+The raw-byte saving commit `d3c4860294aff9754c44bb5218ef00390feadecc` passed storage readback, but
+`git diff --check` treated the raw carriage returns in the text `.json` archives as whitespace
+failures. The final archive therefore stores the identical raw bytes as `*.stdout.bin` with binary
+diff treatment, while the parsed JSON projection remains in `receipt.json`. This changes the storage
+representation rather than the hash target, source hygiene threshold, or observed result. The first
+run's ignored `.stdout.json` files remain untouched.
 
 Read back a final immutable audit commit's stored bytes with:
 
