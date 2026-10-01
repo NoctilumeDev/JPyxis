@@ -9,7 +9,13 @@ for namespace, filename in [('local-observations', 'original-raw.zip'), ('public
     root = Path('evidence/reference-path/v1') / namespace
     for retention in sorted(root.glob('*/retention.json')):
         record = json.loads(retention.read_bytes())
-        container = retention.parent / filename
+        root_ledger = retention.parent / 'archive-retention.json'
+        if root_ledger.exists():
+            for item in json.loads(root_ledger.read_bytes())['files']:
+                assert not PurePosixPath(item['path']).is_absolute() and '..' not in PurePosixPath(item['path']).parts
+                original = (retention.parent / item['path']).read_bytes()
+                assert len(original) == item['bytes'] and 'sha256:' + hashlib.sha256(original).hexdigest() == item['sha256']
+        container = retention.parent / record.get('containerFile', filename)
         raw = container.read_bytes()
         assert len(raw) == record['containerBytes']
         assert 'sha256:' + hashlib.sha256(raw).hexdigest() == record['sha256']

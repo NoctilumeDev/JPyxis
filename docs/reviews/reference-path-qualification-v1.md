@@ -68,6 +68,7 @@ tag or previous freeze is widened.
 | Required receipt | Exercised pre-dispatch record IO. | `b46bfa9` failed before product wire admission. | An opaque M5 attempt ID was treated as a filesystem path. | Original FAILED retained; use the existing pin ID only for the locator. |
 | Independent reader | Ran all eighteen actual families. | `ef7884f` completed; first reader rejected source/observation handling. | Text checkout, partial sampler stdout and empty pre-invocation journals were incompletely modeled. | Original FAIL and rejected diagnostic premise retained; derive exact source blobs, real RSS samples and required Runtime-start facts. |
 | Public retention | Executed and downloaded first fresh-VM proof. | All jobs in run `36911817066` passed; download was INCONCLUSIVE. | Artifact upload was assumed to retain hidden ledger members. | Original incomplete container retained; fix hidden-file upload without fabricating missing bytes. |
+| Publication observation | Replayed publication exact main `e6cf856`. | All eighteen actual families completed and all processes stopped; actual reader failed in run `36917818036`. | Every `ps` RSS row was assumed positive; the successful original output contains a zero-page row. | Original 763-member main artifact and FAIL retained at `9bb07801c6f5e08a950e8c99d5edb19b88572ad0`; verify nonnegative RSS, record `ps` state, and requalify the minimal observation boundary. |
 | Accepted actual path | Ran revised public and exact-main proof. | Eighteen families/five mutations and all predecessor/resource gates independently pass. | CI green alone remains insufficient. | Qualified inputs at `b50495a`; next authority is this separate publication and exact-main reconciliation. |
 
 The [implementation review](reference-path-implementation-review-v1.md) links each original failure
@@ -75,6 +76,12 @@ and its archive commit. Five local rejected candidates, corrected reader diagnos
 incomplete public artifact, and the successful local Windows candidate remain separate facts.
 Content correctness, actual execution, qualification, effective publication and next-step authority
 are not interchangeable.
+
+The [first publication-main observer rejection](../../evidence/reference-path/v1/public-candidates/e6cf85615201-first-zero-rss/retention.json)
+preserves the exact successful `ps` output, CI metadata/logs and independent physical shutdown facts.
+RSS=0 supplies a page-count observation and cannot grant cessation. The corrected reader still requires
+positive real samples and exact sums; no-leak ownership/cessation and M6's original thresholds remain
+separate required predicates. Earlier qualified inputs and original failures are not rewritten.
 
 ## Façade decision after actual proof
 

@@ -49,9 +49,9 @@ function sample(javaPid){
       sampler={exitCode:r.status,stdoutBase64:Buffer.from(r.stdout).toString('base64'),stderrBase64:Buffer.from(r.stderr).toString('base64')};
       if(r.stdout.trim())try{resident=[JSON.parse(r.stdout)].flat().map(p=>({pid:p.Id,rssBytes:p.WorkingSet64}));}catch(error){sampler.parseFailure=error.message;}
     }else{
-      const r=spawnSync('ps',['-o','pid=,rss=','-p',ids.join(',')],{encoding:'utf8'});
+      const r=spawnSync('ps',['-o','pid=,rss=,stat=','-p',ids.join(',')],{encoding:'utf8'});
       sampler={exitCode:r.status,stdoutBase64:Buffer.from(r.stdout).toString('base64'),stderrBase64:Buffer.from(r.stderr).toString('base64')};
-      resident=r.stdout.trim().split('\n').filter(Boolean).map(line=>{const [pid,rss]=line.trim().split(/\s+/).map(Number);return {pid,rssBytes:rss*1024};});
+      resident=r.stdout.trim().split('\n').filter(Boolean).map(line=>{const [pid,rss,state]=line.trim().split(/\s+/);return {pid:Number(pid),rssBytes:Number(rss)*1024,psProcessState:state};});
     }
   }
   resources.push({observedAt:new Date().toISOString(),method:process.platform==='win32'?'Get-Process.WorkingSet64':'ps resident KiB',javaPid,ownedLiveProcessIds:ids,

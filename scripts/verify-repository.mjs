@@ -124,7 +124,7 @@ const markdownFiles = textFiles.filter((file) => path.extname(file).toLowerCase(
 // Raw machine receipts have byte retention authority, including original formatting.
 // Only hash-verified ledger members in this evidence namespace receive that treatment.
 const retainedRawFiles = new Set();
-for (const file of files.filter(file => /evidence[\\/]reference-path[\\/]v1[\\/]local-candidates[\\/][^\\/]+[\\/]retention\.json$/.test(file))) {
+for (const file of files.filter(file => /evidence[\\/]reference-path[\\/]v1[\\/](?:local-candidates[\\/][^\\/]+[\\/]retention|public-candidates[\\/][^\\/]+[\\/]archive-retention)\.json$/.test(file))) {
   const directory = path.dirname(file);
   if (fs.readFileSync(path.join(directory, ".gitattributes"), "utf8").trim() !== "* -text -diff") {
     fail(`${file}: immutable receipt attributes missing`); continue;

@@ -1,0 +1,28 @@
+Verify reference actual path	Execute and independently read actual reference path	﻿2026-10-01T19:55:27.6078095Z ##[group]Run node scripts/verify-reference-path.mjs --public-clean
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6078578Z ^[[36;1mnode scripts/verify-reference-path.mjs --public-clean^[[0m
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6339993Z shell: /usr/bin/bash -e {0}
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6340340Z env:
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6340624Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6341333Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6341643Z   MAVEN_ARGS: -ntp
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6341881Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6342218Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6342546Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6342851Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6343152Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6343449Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.6343770Z ##[endgroup]
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:27.9715166Z reference phase: preserved_first_failures
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:28.1726823Z reference phase: selected_interpreter
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:28.1814147Z reference phase: retained_observation_containers
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:28.5756329Z reference phase: retained_qualification_inputs
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:34.7925087Z reference phase: selected_interpreter_metadata
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:34.8740668Z reference phase: construct_environment
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:36.9875158Z reference phase: install_pinned_inputs
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:41.3048597Z reference phase: check_installation
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:41.5144582Z reference phase: installed_inventory
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:41.5850301Z reference phase: generate_frozen_carrier
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:55:41.6354876Z reference phase: build_reference
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:56:10.3792053Z reference phase: actual_journey
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:56:28.4707521Z {"root":"/home/runner/work/JPyxis/JPyxis/build/reference-path/e6cf85615201-1790884527970","verdict":"FAIL","failures":["The expression evaluated to a falsy value:\n\n  assert.ok(sample.resident.every(p=>p.rssBytes>0&&sample.ownedLiveProcessIds.includes(p.pid)))\n"]}
+Verify reference actual path	Execute and independently read actual reference path	2026-10-01T19:56:28.4783676Z ##[error]Process completed with exit code 1.
