@@ -334,7 +334,8 @@ corrections, and unproven claims are retained in the
 The later [M5 coordinate and owner-effect contract v2](docs/spec/m5-coordinate-validation-contract-v2.md)
 records the two published public-model counterexamples and the minimum reopened identity boundary.
 Its [separate review](docs/reviews/m5-coordinate-validation-review-v2.md) qualifies contract authority;
-guard implementation and productization remain pending.
+the [separate implementation review](docs/reviews/m5-coordinate-validation-implementation-review.md)
+binds the qualified v2 guards. Productization remains gated by a fresh audit of the real path.
 
 ## M6 reproducibility baseline
 
