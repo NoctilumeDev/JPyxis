@@ -1,6 +1,13 @@
 # Bounded Reference Path Implementation Review v1
 
-Status: `ACTUAL JOURNEY DIAGNOSTICS COMPLETE · QUALIFICATION PENDING`
+Status: `ACTUAL PATH INPUTS QUALIFIED · SEPARATE QUALIFICATION PUBLICATION`
+
+Protected PR #34, reviewed head `35fa5c342616b25026119717241ee7e0e55c8cb4`, and exact main
+`b50495a12fbb32bbd06a8cff9c92e333cd395606` pass the actual-process gate, both predecessor jobs
+and independently downloaded semantic readbacks. The [qualification record](reference-path-qualification-v1.md)
+binds eighteen actual families, five evidence mutations, stopped owned processes and unchanged M6
+acceptance. The first rejected candidates below remain original observations. Separate qualification
+publication and its exact-main reconciliation do not imply a new runtime scope.
 
 The first complete candidate was committed before verification at
 `455bb0f123bc97dedd458ef3940349ba248f0d5a`. Its first local build failed at the two reference

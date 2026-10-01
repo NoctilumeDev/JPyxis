@@ -1,0 +1,153 @@
+{
+  "label": "main34",
+  "executedSource": "b50495a12fbb32bbd06a8cff9c92e333cd395606",
+  "executedTree": "153ea4457aed53a8f23be1543dde1f165f311ff8",
+  "actual": {
+    "schemaVersion": "jpyxis.io/reference-independent-readback/v1alpha1",
+    "verdict": "PASS",
+    "cases": [
+      {
+        "id": "lifecycle_journey",
+        "productDispatches": 4,
+        "actualRuntimeStarts": 8,
+        "derived": "PASS"
+      },
+      {
+        "id": "qualification_contract_mismatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "qualification_definition_mismatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "qualification_runtime_mismatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "qualification_environment_mismatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "pin_worker_substitution",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "instance_changes_before_dispatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "deadline_before_dispatch",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "deadline_continuation",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "cancellation_continuation",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "late_after_replacement",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "worker_crash",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "representative_failure",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "early_activation",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "false_cleanup",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "required_record_failure",
+        "productDispatches": 0,
+        "actualRuntimeStarts": 1,
+        "derived": "PASS"
+      },
+      {
+        "id": "duplicate_admission",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      },
+      {
+        "id": "snapshot_locator_mutation",
+        "productDispatches": 1,
+        "actualRuntimeStarts": 2,
+        "derived": "PASS"
+      }
+    ],
+    "failures": [],
+    "incomplete": [],
+    "scope": "One trusted local CPU stateless typed reference path with actual M2/M3/M4/M5 continuity and owned-process observations; public clean and protected main qualification are separate retained gates",
+    "productizationQualified": false
+  },
+  "mutations": [
+    {
+      "id": "missing_worker_fact",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "rehashed_worker_substitution",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "rehashed_false_cleanup",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "self_declared_qualification",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "rehashed_binary_report",
+      "verdict": "FAIL"
+    }
+  ],
+  "publicClean": true,
+  "resourceObservations": {
+    "samples": 22,
+    "peakObservedRssBytes": 334815232,
+    "minimumObservedAvailableMemoryBytes": 15420542976
+  },
+  "rawRoot": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\coordinate-implementation\\main34-reference\\b50495a12fbb-1790882822528",
+  "productizationQualified": false
+}

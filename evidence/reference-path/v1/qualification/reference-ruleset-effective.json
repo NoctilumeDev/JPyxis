@@ -1,0 +1,72 @@
+{
+  "id": 22108847,
+  "name": "Protect main milestone branch",
+  "target": "branch",
+  "source_type": "Repository",
+  "source": "NoctilumeDev/JPyxis",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "refs/heads/main"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": true,
+        "required_status_checks": [
+          {
+            "context": "Verify M5 resilience repository"
+          },
+          {
+            "context": "Verify M6 single-node baseline"
+          },
+          {
+            "context": "Verify reference actual path"
+          }
+        ]
+      }
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ]
+      }
+    }
+  ],
+  "node_id": "RRS_lACqUmVwb3NpdG9yec5Qv-HxzgFRWq8",
+  "created_at": "2026-09-02T20:44:06.645+08:00",
+  "updated_at": "2026-10-02T03:18:47.649+08:00",
+  "bypass_actors": [],
+  "current_user_can_bypass": "never",
+  "_links": {
+    "self": {
+      "href": "https://api.github.com/repos/NoctilumeDev/JPyxis/rulesets/22108847"
+    },
+    "html": {
+      "href": "https://github.com/NoctilumeDev/JPyxis/rules/22108847"
+    }
+  }
+}

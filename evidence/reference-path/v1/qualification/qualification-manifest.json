@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "jpyxis.io/reference-path-qualification-inputs/v1alpha1",
+  "state": "BOUNDED_ACTUAL_PATH_INPUTS_QUALIFIED_PUBLICATION_PENDING",
+  "contract": {
+    "freezeMain": "bd8cd9eff99f70f642c98571ed2390650320f222",
+    "specBlob": "4dab857362aa4362bd3c46c03a3a9e7135b70193",
+    "adrBlob": "e0138b897829631e0cc04234bab4429dadab5e4d"
+  },
+  "implementation": {
+    "pullRequest": 34,
+    "reviewedHead": "35fa5c342616b25026119717241ee7e0e55c8cb4",
+    "acceptedMain": "b50495a12fbb32bbd06a8cff9c92e333cd395606"
+  },
+  "groups": [
+    {
+      "label": "pr34",
+      "reviewedHead": "35fa5c342616b25026119717241ee7e0e55c8cb4",
+      "executedSource": "aa8de5c161742ab68e33cde2832d0ee1442cc488",
+      "executedTree": "153ea4457aed53a8f23be1543dde1f165f311ff8",
+      "run": 36913264850,
+      "containers": {
+        "reference": {
+          "file": "pr34-reference.zip",
+          "ledger": "pr34-reference-members.json",
+          "sha256": "sha256:54bb7da6e006fb0dbafdc5277df81d3fc4743a2800fdd1da724a8862cf8270e0",
+          "members": 4549
+        },
+        "m4": {
+          "file": "pr34-m4.zip",
+          "ledger": "pr34-m4-members.json",
+          "sha256": "sha256:5f4c1ed702ee9b67aec6d9fbf1282fb79455f36ea0a90f5255d4772476440562",
+          "members": 414
+        },
+        "m4-clean": {
+          "file": "pr34-m4-clean.zip",
+          "ledger": "pr34-m4-clean-members.json",
+          "sha256": "sha256:5227dd440c1591c11fbc88a07576a0b70aae5c5a1a09a138ec46efdcf30672ea",
+          "members": 348
+        },
+        "m5": {
+          "file": "pr34-m5.zip",
+          "ledger": "pr34-m5-members.json",
+          "sha256": "sha256:3a1dea98286827bf180fa6b6ab29024367f6fa8a1234ac4ca5569f3217ccd2d0",
+          "members": 581
+        },
+        "m6": {
+          "file": "pr34-m6.zip",
+          "ledger": "pr34-m6-members.json",
+          "sha256": "sha256:6b295a8210fa53e4fae3a9df65ac42a755fc964979fa964c1ba18dc887f289f0",
+          "members": 6152
+        }
+      },
+      "sourceCommit": "pr34-source-commit.bin"
+    },
+    {
+      "label": "main34",
+      "reviewedHead": "b50495a12fbb32bbd06a8cff9c92e333cd395606",
+      "executedSource": "b50495a12fbb32bbd06a8cff9c92e333cd395606",
+      "executedTree": "153ea4457aed53a8f23be1543dde1f165f311ff8",
+      "run": 36914349062,
+      "containers": {
+        "reference": {
+          "file": "main34-reference.zip",
+          "ledger": "main34-reference-members.json",
+          "sha256": "sha256:d9eaa3212ac700e58b53b749a9d9281cbe08be33f2e1138724c72efdbfaf806e",
+          "members": 4549
+        },
+        "m4": {
+          "file": "main34-m4.zip",
+          "ledger": "main34-m4-members.json",
+          "sha256": "sha256:153f6e42be6576c196bbb59f0d2a405fe1447fbe713bb63278e90f150c089906",
+          "members": 414
+        },
+        "m4-clean": {
+          "file": "main34-m4-clean.zip",
+          "ledger": "main34-m4-clean-members.json",
+          "sha256": "sha256:ea21beab52e67574f776a22f157d8d3fdf76e726883d88460ff1cc9a663da9a5",
+          "members": 348
+        },
+        "m5": {
+          "file": "main34-m5.zip",
+          "ledger": "main34-m5-members.json",
+          "sha256": "sha256:b1ea6558f6007926443e0eab7279af14eaaf482456bc8f547af8013ebcdc277a",
+          "members": 581
+        },
+        "m6": {
+          "file": "main34-m6.zip",
+          "ledger": "main34-m6-members.json",
+          "sha256": "sha256:88769ea156982ae240ca18b84c2eefa3fd49b70f3c5cddc5f93b21b5045e72c1",
+          "members": 6152
+        }
+      },
+      "sourceCommit": "main34-source-commit.bin"
+    }
+  ],
+  "qualificationScope": "One trusted local CPU assembly; actual M2/M3/M4/M5 continuity, finite float32 affine execution, monotone UNKNOWN, fresh rollback and original owned-process cessation. No general API, restart/distribution/security/capacity or external authority claim.",
+  "nextAuthority": "Separate publication protected merge, exact-main gates and independent reconciliation; no next runtime scope is implied"
+}
