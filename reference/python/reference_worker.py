@@ -8,6 +8,7 @@ import importlib.metadata
 import json
 import os
 import platform
+import struct
 import sys
 import threading
 import time
@@ -135,8 +136,9 @@ class BoundWorker(RuntimeInvocationWorker):
                     raise ValueError("M2 digest " + key)
             original_input = association["m2"]["input"]
             if (original_input["values"]["shape"] != list(request.input.values.shape)
-                    or original_input["values"]["values"] != list(request.input.values.float_values)
-                    or original_input["scale"] != request.input.scale or original_input["bias"] != request.input.bias):
+                    or [struct.unpack("<f", struct.pack("<f", value))[0] for value in original_input["values"]["values"]] != list(request.input.values.float_values)
+                    or struct.unpack("<f", struct.pack("<f", original_input["scale"]))[0] != request.input.scale
+                    or struct.unpack("<f", struct.pack("<f", original_input["bias"]))[0] != request.input.bias):
                 raise ValueError("M2 typed input")
             if association["purpose"] == "PRODUCT":
                 pin, plan = association["pin"], association["plan"]

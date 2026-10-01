@@ -76,7 +76,7 @@ final class ReferenceControl implements AutoCloseable {
         final InvocationRequest request;
         final JsonNode input;
         JsonNode association;
-        boolean dispatchReserved,wireCalled,recordFailure,completionKnown;
+        boolean dispatchReserved,wireCalled,completionKnown;
         InvocationExecution m2;
         Prepared(Candidate candidate,InvocationPin pin,AttemptPlan plan,InvocationRequest request,JsonNode input){
             this.candidate=candidate;this.pin=pin;this.plan=plan;this.request=request;this.input=input.deepCopy();
@@ -223,12 +223,18 @@ final class ReferenceControl implements AutoCloseable {
                 if(p!=null){
                     ReferenceJson.require(r.qualified&&outstandingPins.get(p.pin.pinId())==p.pin&&p.pin.deploymentId().equals(r.deploymentId)&&p.pin.artifact().equals(r.artifact)&&p.pin.runtimeHandle()==r.runtimeHandle,"actual M4 pin realization");
                     ReferenceJson.require(p.plan.worker().equals(r.qualifiedWorker)&&p.plan.logicalInvocationId().equals(p.pin.invocationId())&&p.plan.idempotencyMode()==IdempotencyMode.NONE&&p.plan.deduplicationScope().isEmpty(),"retained M5 plan association");
-                    ReferenceJson.require(!p.dispatchReserved&&!p.recordFailure,"duplicate admission or required record unavailable");
+                    ReferenceJson.require(!p.dispatchReserved,"duplicate admission");
                 }
                 association=JsonSupport.MAPPER.createObjectNode();association.put("schemaVersion","jpyxis.io/reference-dispatch/v1alpha1");association.put("purpose",purpose);
                 association.set("realization",r.realization.deepCopy());association.set("operands",r.operands.deepCopy());association.put("qualificationId",r.qualificationId);
                 association.set("m2",ReferenceJson.tree(attempt));
                 if(p!=null){association.set("pin",ReferenceJson.tree(p.pin));association.set("plan",ReferenceJson.tree(p.plan));association.set("request",ReferenceJson.tree(p.request));}
+                if(p!=null)try{
+                    Files.write(requiredRecordPath(p),ReferenceJson.canonical(association),java.nio.file.StandardOpenOption.CREATE_NEW);
+                }catch(java.io.IOException failure){
+                    source.record("COMPOSITION_CONTROL","REQUIRED_DISPATCH_RECORD_FAILED",Map.of("plan",p.plan,"reason",failure.toString(),"wireCalled",false));
+                    throw new IllegalStateException("required dispatch association record unavailable",failure);
+                }
                 source.record("COMPOSITION_CONTROL",purpose+"_DISPATCH_ADMITTED",Map.of("association",association));
                 if(p!=null){p.association=association.deepCopy();p.dispatchReserved=true;}
                 var delegate=new GrpcInvocationTransport(r.launch.port,metadata(association));calls.add(delegate);
@@ -239,6 +245,7 @@ final class ReferenceControl implements AutoCloseable {
         }
         public void close(){probe.close();calls.forEach(GrpcInvocationTransport::close);}
     }
+    Path requiredRecordPath(Prepared p){return p.candidate.root.resolve("dispatch-"+p.plan.attemptId()+".json");}
     private static ClientInterceptor metadata(JsonNode association){
         String value=new String(ReferenceJson.canonical(association),java.nio.charset.StandardCharsets.UTF_8);
         String expected=ReferenceJson.digest(ReferenceJson.canonical(association));
@@ -274,7 +281,9 @@ final class ReferenceControl implements AutoCloseable {
         Path reportPath=p.candidate.launch.root.resolve("retained-report-"+p.association.path("m2").path("coordinates").path("attemptId").asText()+".json");
         OwnedPythonWorkers.awaitFile(reportPath,p.candidate.launch.process,Duration.ofSeconds(5));
         JsonNode retained=ReferenceJson.read(reportPath);
-        ReferenceJson.require(retained.path("details").path("association").equals(p.association),"complete late association");
+        byte[] retainedMetadata=Base64.getDecoder().decode(retained.path("details").path("associationBytesBase64").asText());
+        ReferenceJson.require(Arrays.equals(retainedMetadata,ReferenceJson.canonical(p.association)),"exact admitted metadata bytes");
+        ReferenceJson.require(JsonSupport.MAPPER.readTree(retainedMetadata).equals(retained.path("details").path("association")),"retained decoded association");
         ReferenceJson.require(retained.path("pid").asLong()==p.candidate.launch.process.pid(),"late report owned process");
         try(var decoder=new GrpcInvocationTransport(p.candidate.launch.port)){
             var report=decoder.decodeRetainedReport(Base64.getDecoder().decode(retained.path("details").path("wireReportBase64").asText()));

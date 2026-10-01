@@ -57,6 +57,7 @@ function sample(javaPid){
   write('resource-observations.json',{samples:resources,scope:'sampled reference Java parent and host-owned worker/interpreter processes; sampling is not a capacity or performance promise'});
 }
 try{
+  await command('preserved_first_failures','node',['experiments/reference-path/verify-local-candidates.mjs']);
   const entries=git('ls-tree','-r',source).split('\n').map(line=>{const [meta,name]=line.split('\t');return {name,blob:meta.split(' ')[2]};}).filter(e=>
     /^(?:reference\/|bindings\/(?:java\/src\/main\/|python\/)|invocation\/(?:java\/src\/main\/|python\/(?:jpyxis_worker\/|requirements))|lifecycle\/java\/src\/main\/|resilience\/java\/src\/main\/|spec\/(?:m1\/contracts\/|m2\/proto\/|m3\/definitions\/|reference\/)|scripts\/verify-reference|experiments\/reference-path\/|evidence\/reference-path\/v1\/runtime-entry\/|docs\/spec\/productization-reference-path-contract-v1\.md|docs\/adr\/0014-)/.test(e.name)||e.name==='pom.xml'||/^(?:bindings|invocation|lifecycle|resilience)\/java\/pom.xml$/.test(e.name));
   const inputs=entries.map(e=>{const bytes=fs.readFileSync(e.name);const target=path.join(runRoot,'inputs',e.name);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,bytes);return {path:e.name,gitBlob:e.blob,bytes:bytes.length,sha256:sha(bytes)};});
@@ -114,7 +115,7 @@ else{
     write('reader-first-failure.json',{sourceRevision:source,stage:'independent-actual-reader',result});console.error(JSON.stringify({root:runRoot,verdict:result.verdict,failures:result.failures}));process.exitCode=1;
   }else{
     const mutationResults=[];
-    for(const id of ['missing_worker_fact','rehashed_worker_substitution','rehashed_false_cleanup','self_declared_qualification']){
+    for(const id of ['missing_worker_fact','rehashed_worker_substitution','rehashed_false_cleanup','self_declared_qualification','rehashed_binary_report']){
       const mutant=path.join(runRoot,'mutations',id),original=read('manifest.json');fs.mkdirSync(mutant,{recursive:true});
       for(const file of original.files){const target=path.join(mutant,file.path);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(runRoot,file.path),target);}
       let target;
@@ -127,6 +128,11 @@ else{
         fs.writeFileSync(path.join(mutant,target),lines.map(r=>JSON.stringify(r)).join('\n')+'\n');
       }else if(id==='rehashed_false_cleanup'){
         target='independent-shutdown.json';const record=JSON.parse(fs.readFileSync(path.join(mutant,target),'utf8'));record.observations[0].alive=true;fs.writeFileSync(path.join(mutant,target),JSON.stringify(record)+'\n');
+      }else if(id==='rehashed_binary_report'){
+        target=original.files.find(f=>f.path.endsWith('launch-0/worker-source.jsonl')&&f.path.startsWith('cases/lifecycle_journey/')).path;
+        const lines=fs.readFileSync(path.join(mutant,target),'utf8').trimEnd().split(/\r?\n/).map(JSON.parse);
+        const report=lines.find(r=>r.event==='BOUND_REPORT_RETAINED'&&r.details.association.purpose==='PRODUCT'),bytes=Buffer.from(report.details.wireReportBase64,'base64');
+        bytes[bytes.length-1]^=1;report.details.wireReportBase64=bytes.toString('base64');fs.writeFileSync(path.join(mutant,target),lines.map(r=>JSON.stringify(r)).join('\n')+'\n');
       }else{
         target='cases/lifecycle_journey/control-source.jsonl';const lines=fs.readFileSync(path.join(mutant,target),'utf8').trimEnd().split(/\r?\n/).map(JSON.parse);
         lines.find(r=>r.event==='QUALIFICATION_DECIDED'&&r.details.positive).owner='EXECUTION';fs.writeFileSync(path.join(mutant,target),lines.map(r=>JSON.stringify(r)).join('\n')+'\n');

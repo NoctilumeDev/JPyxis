@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {verifyRetainedWireReport} from './verify-reference-wire.mjs';
 const sha=b=>'sha256:'+crypto.createHash('sha256').update(b).digest('hex');
 const same=(a,b,label)=>assert.deepEqual(a,b,label);
 const cases=['lifecycle_journey','qualification_contract_mismatch','qualification_definition_mismatch','qualification_runtime_mismatch','qualification_environment_mismatch',
@@ -14,7 +15,7 @@ function sort(v){if(Array.isArray(v))return v.map(sort);if(v&&typeof v==='object
 const canonical=v=>Buffer.from(JSON.stringify(sort(v)));
 function oracle(input,output){
   assert.equal(output.values.dtype,'float32');assert.equal(output.values.layout,'ROW_MAJOR');same(output.values.shape,input.values.shape,'typed output shape');assert.equal(output.rows,input.values.shape[0]);
-  same(output.values.values,input.values.values.map(v=>Math.fround(Math.fround(Math.fround(v)*Math.fround(input.scale))+Math.fround(input.bias))),'independent float32 affine oracle');
+  same(output.values.values.map(Math.fround),input.values.values.map(v=>Math.fround(Math.fround(Math.fround(v)*Math.fround(input.scale))+Math.fround(input.bias))),'independent float32 affine oracle');
 }
 function wireOutput(report){return {values:{dtype:report.output.values.dtype==='DTYPE_FLOAT32'?'float32':'UNSUPPORTED',layout:report.output.values.layout==='LAYOUT_ROW_MAJOR'?'ROW_MAJOR':'UNSUPPORTED',shape:report.output.values.shape.map(Number),values:report.output.values.float_values},rows:Number(report.output.rows)};}
 function reportCoordinates(report,association){
@@ -70,15 +71,19 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
       const qualifications=new Map();const sourceAssociations=[];let actualRuntimeStarts=0;
       for(const start of starts){
         assert.equal(start.owner,'HOST_LAUNCH');const s=start.details;assert.ok(s.birth);assert.equal(s.descriptor.launchNonce,s.launchNonce);assert.equal(s.descriptor.instanceId,s.handle.instanceId);
-        allPids.add(s.handle.processId);const index=path.basename(s.root),parent=path.basename(path.dirname(s.root));
+        allPids.add(s.handle.processId);const parts=s.root.replaceAll('\\','/').split('/'),index=parts.at(-1),parent=parts.at(-2);
         const launchBase=`${base}/${parent}/${index}`;
         const observed=read(`${launchBase}/worker-facts.json`),probe=read(`${launchBase}/independent-probe/worker-facts.json`),workers=lines(`${launchBase}/worker-source.jsonl`),m3=lines(`${launchBase}/m3-observations.jsonl`);
         assert.equal(observed.pid,s.handle.processId);assert.equal(observed.launchNonce,s.launchNonce);assert.notEqual(probe.pid,observed.pid);
+        const probeStart=ev('INDEPENDENT_INTERPRETER_STARTED').find(r=>r.details.root===s.root);assert.ok(probeStart?.details.birth);assert.equal(probe.pid,probeStart.details.pid,'independent probe actual host-owned launch');assert.equal(probe.launchNonce,s.launchNonce);
         const operands=expected.find(r=>r.details.deploymentId===s.descriptor.deploymentId).details.operands;
         assert.equal(sha(Buffer.from(s.descriptor.definitionBytes,'base64')),observed.actual.definitionDigest,'actually prepared byte snapshot');
         assert.equal(sha(canonical(operands)),s.descriptor.operandsDigest);
         let matching=true;
         for(const facts of [observed.actual,probe.actual]){
+          assert.equal(facts.executable,construction.workerExecutable);assert.equal(facts.pythonFullVersion,construction.interpreter.version);
+          same(facts.installedRuntimePackages,facts.environment.runtimePackages,'imported and installed package versions');
+          for(const origin of Object.values(facts.moduleOrigins))assert.ok(origin.replaceAll('\\','/').startsWith(construction.packageDirectory.replaceAll('\\','/')+'/'),'actual imported module outside private construction');
           matching=matching&&facts.contractIdentity===operands.contractIdentity&&facts.contractDigest===operands.contractDigest&&facts.definitionIdentity===operands.definitionIdentity&&facts.definitionDigest===operands.definitionDigest&&
             JSON.stringify(sort(facts.environment))===JSON.stringify(sort(operands.environment))&&JSON.stringify(sort(facts.runtimeBinding))===JSON.stringify(sort(binding))&&
             JSON.stringify(sort(facts.definitionPlan))===JSON.stringify(sort({schemaVersion:'jpyxis.io/affine-definition-plan/v1alpha1',operationIdentity:'jpyxis.operation/affine-batch@1'}));
@@ -107,8 +112,10 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
               for(const key of ['workerId','instanceId','controlEpoch','processId'])assert.equal(association.plan.worker[key],association.realization[key],`M5 worker ${key}`);
               const m2=association.m2;assert.equal(m2.contractDigest,operands.contractDigest);assert.equal(m2.definitionDigest,operands.definitionDigest);same(m2.runtimeBinding,binding);
               assert.ok(m3.some(r=>r.event==='RUNTIME_STARTED'&&r.invocationId===m2.coordinates.invocationId&&r.attemptId===m2.coordinates.attemptId&&r.traceId===m2.coordinates.traceId),'real M3 Runtime start missing');
+              same(read(`${base}/${parent}/dispatch-${association.plan.attemptId}.json`),association,'required immutable association receipt');
             }
             if(worker.event==='BOUND_REPORT_RETAINED'){
+              verifyRetainedWireReport(worker.details.wireReportBase64,worker.details.report);
               reportCoordinates(worker.details.report,association);
               const raw=Buffer.from(worker.details.associationBytesBase64,'base64');same(JSON.parse(raw),association,'retained outer metadata bytes');
               assert.ok(ev('WIRE_INVOKE_REQUESTED').some(r=>r.details.associationDigest===sha(raw)&&r.details.launchNonce===s.launchNonce),'transport metadata digest continuity');
@@ -123,11 +130,13 @@ export function verifyReferencePathEvidence(root,{expectedSourceRevision}={}){
       const product=ev('PRODUCT_DISPATCH_ADMITTED'),terminals=ev('LOGICAL_TERMINAL_OBSERVED'),late=ev('BOUND_LATE_OBSERVATION_RECORDED');
       const noWire=['pin_worker_substitution','instance_changes_before_dispatch','deadline_before_dispatch','required_record_failure'];
       if(noWire.includes(id)){assert.equal(product.length,0);assert.equal(terminals.at(-1).details.snapshot.state,'FAILED');assert.equal(terminals.at(-1).details.wireCalled,false);}
+      if(id==='required_record_failure'){assert.equal(ev('REQUIRED_DISPATCH_RECORD_FAILED').length,1);assert.equal(ev('REQUIRED_DISPATCH_RECORD_FAILED')[0].details.wireCalled,false);}
       if(['deadline_continuation','cancellation_continuation','late_after_replacement'].includes(id)){
         assert.equal(product.length,1);assert.equal(terminals.at(-1).details.snapshot.state,'OUTCOME_UNKNOWN');assert.equal(late.length,1);
         const continuation=ev('CONTINUATION_AFTER_CALLER_TERMINAL').at(-1);assert.equal(continuation.details.ownedProcess.alive,true);assert.equal(continuation.details.runtimeEntered.mode,'wait');
         assert.equal(late[0].details.snapshot.state,'OUTCOME_UNKNOWN');same(late[0].details.workerBefore,late[0].details.workerAfter,'late success poisoned replacement');
         assert.equal(late[0].details.lateSource.details.callerStillWaiting,false);assert.equal(late[0].details.lateSource.details.association.purpose,'PRODUCT');
+        assert.ok(sourceAssociations.some(r=>r.event==='BOUND_REPORT_RETAINED'&&JSON.stringify(r)===JSON.stringify(late[0].details.lateSource)),'late bridge substituted independently retained child source');
       }
       if(id==='worker_crash'){assert.equal(product.length,1);assert.equal(terminals.at(-1).details.snapshot.state,'OUTCOME_UNKNOWN');const crash=ev('CRASH_EXIT_OBSERVED').at(-1);assert.equal(crash.details.exitCode,43);assert.equal(crash.details.alive,false);assert.ok(!sourceAssociations.some(r=>r.event==='BOUND_REPORT_RETAINED'&&r.details.association.purpose==='PRODUCT'));}
       if(id==='false_cleanup'){

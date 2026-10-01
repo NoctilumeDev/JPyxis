@@ -96,7 +96,7 @@ public final class ReferenceJourneyMain {
         });
         run("false_cleanup",control->{var a=candidate(control,"v1",v1,"normal");control.demonstrateFalseCleanup(a);});
         run("required_record_failure",control->{
-            var a=candidate(control,"v1",v1,"normal");control.activate(a);var p=control.prepare(input);p.recordFailure=true;
+            var a=candidate(control,"v1",v1,"normal");control.activate(a);var p=control.prepare(input);Files.createDirectory(control.requiredRecordPath(p));
             check(control.invoke(p,NORMAL).state()==LogicalInvocationState.FAILED&&!p.wireCalled,"missing required join record must not send");control.release(p);
         });
         run("duplicate_admission",control->{
@@ -107,7 +107,10 @@ public final class ReferenceJourneyMain {
         });
         run("snapshot_locator_mutation",control->{
             var a=candidate(control,"v1",v1,"locator_mutation");check(a.qualified,"compiled retained bytes survive changed locator");control.activate(a);
-            var p=control.prepare(input);check(control.invoke(p,NORMAL).state()==LogicalInvocationState.SUCCEEDED,"retained snapshot invocation");control.release(p);
+            ObjectNode fractional=(ObjectNode)input.deepCopy();var values=io.jpyxis.contract.JsonSupport.MAPPER.createArrayNode();
+            for(int i=0;i<input.path("values").path("values").size();i++)values.add((i%2==0?1:-1)*(i+1)/10.0);
+            ((ObjectNode)fractional.path("values")).set("values",values);fractional.put("scale",0.3);fractional.put("bias",0.1);
+            var p=control.prepare(fractional);check(control.invoke(p,NORMAL).state()==LogicalInvocationState.SUCCEEDED,"retained snapshot fractional invocation");control.release(p);
         });
     }
     private static String identity(String version){return config.path("definitions").path(version).path("identity").asText();}

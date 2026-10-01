@@ -107,13 +107,19 @@ final class OwnedPythonWorkers implements WorkerControl {
     }
     synchronized boolean stopOwned(Launch launch,boolean falseSuccess) throws Exception {
         ReferenceJson.require(launches.contains(launch),"cleanup needs original host launch reference");
-        journal.record("EXECUTION_CAPABILITY","STOP_REQUEST_OBSERVED",Map.of("launchNonce",launch.nonce,"pid",launch.process.pid(),"requestSkipped",falseSuccess));
+        RuntimeException recordFailure=null;
+        try{journal.record("EXECUTION_CAPABILITY","STOP_REQUEST_OBSERVED",Map.of("launchNonce",launch.nonce,"pid",launch.process.pid(),"requestSkipped",falseSuccess));}
+        catch(RuntimeException failure){recordFailure=failure;}
         if(!falseSuccess&&launch.process.isAlive()){
             launch.process.destroy();if(!launch.process.waitFor(3,TimeUnit.SECONDS)){launch.process.destroyForcibly();launch.process.waitFor(3,TimeUnit.SECONDS);}
         }
         boolean alive=launch.process.isAlive();
-        journal.record("EXECUTION_CAPABILITY","RELEASE_REPORTED",Map.of("launchNonce",launch.nonce,"pid",launch.process.pid(),"reportedStopped",falseSuccess||!alive));
-        journal.record("HOST_PROCESS_OBSERVER","POST_STOP_PROCESS_OBSERVED",observation(launch));return !alive;
+        try{
+            journal.record("EXECUTION_CAPABILITY","RELEASE_REPORTED",Map.of("launchNonce",launch.nonce,"pid",launch.process.pid(),"reportedStopped",falseSuccess||!alive));
+            journal.record("HOST_PROCESS_OBSERVER","POST_STOP_PROCESS_OBSERVED",observation(launch));
+        }catch(RuntimeException failure){if(recordFailure==null)recordFailure=failure;else recordFailure.addSuppressed(failure);}
+        if(recordFailure!=null)throw recordFailure;
+        return !alive;
     }
     static void awaitFile(Path file,Process process,Duration timeout) throws Exception {
         long until=System.nanoTime()+timeout.toNanos();
@@ -127,7 +133,9 @@ final class OwnedPythonWorkers implements WorkerControl {
         return launches.stream().map(this::observation).toList();
     }
     @Override public synchronized void close(){
-        for(Launch launch:launches)try{stopOwned(launch,false);}catch(Exception e){throw new IllegalStateException(e);}
+        IllegalStateException failure=null;
+        for(Launch launch:launches)try{stopOwned(launch,false);}catch(Exception e){if(failure==null)failure=new IllegalStateException(e);else failure.addSuppressed(e);}
         for(Process process:probeProcesses)if(process.isAlive()){process.destroyForcibly();try{process.waitFor(3,TimeUnit.SECONDS);}catch(InterruptedException e){Thread.currentThread().interrupt();}}
+        if(failure!=null)throw failure;
     }
 }

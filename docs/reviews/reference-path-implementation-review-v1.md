@@ -27,6 +27,22 @@ probe and worker. It checks actual imported module versions/origins and the sele
 interpreter. Direct Process ownership and worker PID/birth association remain required; no descendant
 adoption from a self-reported PID, new semantic coordinate or lifecycle state is introduced.
 
+Candidate `2363a9436898002193e3190dbd25b7b4d50f2ff4` reached actual deadline continuation and
+retained a late NumPy result, then rejected the internal association comparison. The
+[third first-failure record](../../evidence/reference-path/v1/local-candidates/2363a9436898-first-late/failure-record.json)
+retains 516 original files at `0bc47030e3123d873d3cbc52958e4db0781d5f5f`. Independently parsed
+associations and the recorded metadata digest match; Jackson's in-memory Long/Float and reparsed
+Int/Double node classes differ. The repair compares exact admitted metadata bytes, then the parsed
+retained representation, while retaining full M2 coordinates, typed output and M5 plan validation.
+UNKNOWN was not upgraded by the failed bridge. Native launch ownership and physical cleanup were retained.
+
+The revised candidate exercises fractional float32 inputs, rejects an actual required-receipt filesystem
+write failure before wire admission, and independently decodes the retained frozen protobuf report.
+The reader joins the independent probe to its host-owned launch and checks private package origins.
+A fifth hash-repaired binary-report mutation must fail despite a matching JSON projection. Cleanup
+continues across owned processes if observation recording fails; unavailable observations still cannot
+grant successful lifecycle release or product qualification.
+
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,
 exact-main gates and independent readbacks. Specification blob `4dab857362aa4362bd3c46c03a3a9e7135b70193`
