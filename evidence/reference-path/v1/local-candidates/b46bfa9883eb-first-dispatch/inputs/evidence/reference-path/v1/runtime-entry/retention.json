@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "jpyxis.io/reference-runtime-entry-retention/v1alpha1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 19,
+      "sha256": "sha256:75214165f4a5f89f8ada3b08f71f2638f8ff090d3d034aa1d169f22f88cc2c06"
+    },
+    {
+      "path": "entry-manifest.json",
+      "bytes": 1083,
+      "sha256": "sha256:8a462211e4d79c6e4263302bc337cdae3e2dcbfba8cb49a3eea3e3221bf953be"
+    },
+    {
+      "path": "main33-ci.json",
+      "bytes": 1496,
+      "sha256": "sha256:41b61de520a4e6dcc0f099aa9e2636a00aeda9f14e960bd791378a9d58506b7a"
+    },
+    {
+      "path": "main33-contract-freeze-readback.json",
+      "bytes": 537,
+      "sha256": "sha256:4e4ca754db627848cb9d6264c3233abd6b2d5b2529622c414fb005e10b762435"
+    },
+    {
+      "path": "main33-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:fb2791218ae856d84286843ebb3aff0e2fea06603c457106875411a939919b79"
+    },
+    {
+      "path": "main33-m4-readback.json",
+      "bytes": 6300,
+      "sha256": "sha256:baca5a5d6563c878e0c940093ec62e42566c2fdf37ff54a00586d2de944fb26c"
+    },
+    {
+      "path": "main33-readback.json",
+      "bytes": 5178,
+      "sha256": "sha256:4284664b083c1870e5677f33dac3975cb46907d4832e40bc7a676851fd4a7a9e"
+    },
+    {
+      "path": "pr33-ci.json",
+      "bytes": 1502,
+      "sha256": "sha256:240839c7620ecd613aa7658b7aa98b4210c4a73c8f57b65e2d8f0e7def0ec820"
+    },
+    {
+      "path": "pr33-contract-freeze-readback.json",
+      "bytes": 537,
+      "sha256": "sha256:5eff213ee620680d56649fb822cb39e31851b4a17f0dd90cfc46128565333c36"
+    },
+    {
+      "path": "pr33-m4-qualification-readback.json",
+      "bytes": 6681,
+      "sha256": "sha256:ee7bb76b972d1bada6eeba5c03b57570c954b5b77246753b266cdb3a36ca1ea9"
+    },
+    {
+      "path": "pr33-m4-readback.json",
+      "bytes": 6298,
+      "sha256": "sha256:7bedd17ade7e8fe61b2b00abcca246db44abdf8561dbfc9a4815570242d7088d"
+    },
+    {
+      "path": "pr33-merge.json",
+      "bytes": 230,
+      "sha256": "sha256:f7d8708269ef12beb79b1968ce08ab99a327b07336619e44f42046103894b614"
+    },
+    {
+      "path": "pr33-readback.json",
+      "bytes": 5176,
+      "sha256": "sha256:18eca0b21d76bab3bab897c090e9b1e374fc77b76741774e5524873b015ad248"
+    }
+  ]
+}

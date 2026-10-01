@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.IllegalStateException: typed success
+	at io.jpyxis.reference.ReferenceJson.require(ReferenceJson.java:39)
+	at io.jpyxis.reference.ReferenceJourneyMain.check(ReferenceJourneyMain.java:120)
+	at io.jpyxis.reference.ReferenceJourneyMain.lambda$main$0(ReferenceJourneyMain.java:31)
+	at io.jpyxis.reference.ReferenceJourneyMain.run(ReferenceJourneyMain.java:125)
+	at io.jpyxis.reference.ReferenceJourneyMain.main(ReferenceJourneyMain.java:29)
