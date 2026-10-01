@@ -1,0 +1,6 @@
+{
+  "phase": "actual_journey",
+  "message": "actual_journey failed; original logs retained at C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\2363a9436898-1790879096191\n\n1 !== 0\n",
+  "sourceRevision": "2363a9436898002193e3190dbd25b7b4d50f2ff4",
+  "classification": "unclassified actual candidate failure; no qualification granted"
+}

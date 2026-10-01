@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "jpyxis.io/reference-runtime-entry/v1alpha1",
+  "state": "CONTRACT_FROZEN_BOUNDED_RUNTIME_ENTRY",
+  "productizationQualified": false,
+  "source": {
+    "contentMain": "4d52ba71a65ceae236c4dbed318c2028ee5f0c9a",
+    "specBlob": "4dab857362aa4362bd3c46c03a3a9e7135b70193",
+    "adrBlob": "e0138b897829631e0cc04234bab4429dadab5e4d",
+    "freezePullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/33",
+    "reviewedFreezeHead": "2bd9941e145f194f9369fe9fc79222417c3552ec",
+    "executedFreezePrMerge": "c2688829ca1ee9e0fc5427c8d7105ff341bb5265",
+    "acceptedFreezeMain": "bd8cd9eff99f70f642c98571ed2390650320f222",
+    "mergedAt": "2026-10-01T17:04:23Z"
+  },
+  "prRun": 36895702066,
+  "mainRun": 36896679518,
+  "requiredChecks": [
+    "Verify M5 resilience repository",
+    "Verify M6 single-node baseline"
+  ],
+  "independentPrAndMainReadback": "PASS",
+  "originalArchivesAndNormativeBlobsUnchanged": true,
+  "nextAuthority": "Implement only the frozen actual-path matrix in a separate branch; implementation and real product qualification remain pending"
+}

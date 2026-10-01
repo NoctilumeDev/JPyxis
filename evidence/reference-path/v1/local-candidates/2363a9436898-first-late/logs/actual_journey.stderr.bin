@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.IllegalStateException: complete late association
+	at io.jpyxis.reference.ReferenceJson.require(ReferenceJson.java:39)
+	at io.jpyxis.reference.ReferenceControl.recordLate(ReferenceControl.java:277)
+	at io.jpyxis.reference.ReferenceJourneyMain.lambda$main$7(ReferenceJourneyMain.java:80)
+	at io.jpyxis.reference.ReferenceJourneyMain.run(ReferenceJourneyMain.java:122)
+	at io.jpyxis.reference.ReferenceJourneyMain.main(ReferenceJourneyMain.java:66)

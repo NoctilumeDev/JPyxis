@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "jpyxis.io/reference-local-candidate/v1alpha1",
+  "candidate": "2363a9436898002193e3190dbd25b7b4d50f2ff4",
+  "classification": "INTERNAL_JSON_NUMERIC_NODE_REPRESENTATION_MISMATCH",
+  "explanation": "Deadline continuation produced a real bound late NumPy result. Parsed owner/worker associations and exact transport metadata digest match, but Java numeric JsonNode classes differ across valueToTree/readTree. The bridge rejected before the M5 late boundary; UNKNOWN stayed terminal and owned processes stopped. Repair the representation comparison without dropping full byte/coordinate/output checks.",
+  "qualificationGranted": false,
+  "originalManifest": "manifest.json",
+  "originalLogs": "logs"
+}
