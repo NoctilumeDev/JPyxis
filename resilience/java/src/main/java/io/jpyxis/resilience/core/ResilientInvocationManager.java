@@ -36,6 +36,11 @@ public final class ResilientInvocationManager {
         this.journal = Objects.requireNonNull(journal, "journal");
         this.supervisor = Objects.requireNonNull(supervisor, "supervisor");
         this.controlEpoch = requireText(controlEpoch, "controlEpoch");
+        if (!this.controlEpoch.equals(supervisor.controlEpoch())) {
+            throw new ResilienceException(
+                    ResilienceException.Code.CONTROL_EPOCH_MISMATCH,
+                    "invocation manager and supervisor must share the current Control epoch");
+        }
     }
 
     public static ResilientInvocationManager recover(
@@ -44,6 +49,8 @@ public final class ResilientInvocationManager {
             String controlEpoch,
             ResilienceContext context) {
         ResilientInvocationManager manager = new ResilientInvocationManager(journal, supervisor, controlEpoch);
+        List<ResilienceEvent> retained = journal.events();
+        manager.replay(retained);
         manager.record(
                 EventOwner.RECOVERY_COORDINATOR,
                 "RECOVERY_STARTED",
@@ -51,8 +58,7 @@ public final class ResilientInvocationManager {
                 "",
                 "",
                 "",
-                Map.of("priorEventCount", Integer.toString(journal.events().size())));
-        manager.replay(journal.events());
+                Map.of("priorEventCount", Integer.toString(retained.size())));
         for (InvocationEntry entry : new ArrayList<>(manager.invocations.values())) {
             if (entry.state == LogicalInvocationState.ATTEMPTING) {
                 AttemptEntry attempt = entry.attempts.get(entry.attempts.size() - 1);
@@ -116,6 +122,11 @@ public final class ResilientInvocationManager {
                     "attempt budget already exhausted: " + logicalInvocationId);
         }
         WorkerSnapshot worker = supervisor.selectEligible();
+        if (!worker.eligible() || !controlEpoch.equals(worker.controlEpoch())) {
+            throw new ResilienceException(
+                    ResilienceException.Code.CONTROL_EPOCH_MISMATCH,
+                    "new attempt requires an eligible worker in the current Control epoch");
+        }
         int number = entry.attempts.size() + 1;
         String attemptId = logicalInvocationId + "/attempt-" + number;
         AttemptEntry attempt = new AttemptEntry(attemptId, number, worker);
@@ -131,6 +142,7 @@ public final class ResilientInvocationManager {
         recordManager(entry, "ATTEMPT_DISPATCH_INTENT", context, attemptId, worker.workerId(), Map.of(
                 "attemptNumber", Integer.toString(number),
                 "workerInstanceId", worker.instanceId(),
+                "workerEpoch", worker.controlEpoch(),
                 "idempotencyMode", entry.request.idempotencyMode().name(),
                 "deduplicationScope", entry.request.deduplicationScope()));
         attempt.dispatchIntent = true;
@@ -148,10 +160,18 @@ public final class ResilientInvocationManager {
             AttemptPlan plan,
             AttemptObservation observation,
             ResilienceContext context) {
-        Objects.requireNonNull(plan, "plan");
         Objects.requireNonNull(observation, "observation");
+        if (plan == null) {
+            record(EventOwner.RESILIENT_INVOCATION_MANAGER, "ATTEMPT_INPUT_REJECTED", context,
+                    "", "", "", Map.of("code", "ATTEMPT_COORDINATE_MISMATCH", "rejectedFields", "plan"));
+            throw coordinateMismatch();
+        }
         InvocationEntry entry = requireInvocation(plan.logicalInvocationId());
         AttemptEntry attempt = requireAttempt(entry, plan.attemptId());
+        List<String> mismatches = planMismatches(entry, attempt, plan);
+        if (!mismatches.isEmpty()) {
+            rejectPlan(entry, attempt, plan, mismatches, context);
+        }
         if (entry.state.terminal()) {
             record(
                     EventOwner.ATTEMPT_CAPABILITY,
@@ -160,18 +180,15 @@ public final class ResilientInvocationManager {
                     entry.request.logicalInvocationId(),
                     attempt.attemptId,
                     attempt.worker.workerId(),
-                    observationDetails(entry, observation));
+                    observedPlanDetails(entry, attempt, observation, "FULL_PLAN_VALIDATED"));
             recordManager(entry, "LATE_ATTEMPT_IGNORED", context, attempt.attemptId, attempt.worker.workerId(), Map.of(
                     "terminalState", entry.state.name(),
                     "observation", observation.kind().name()));
             return snapshot(entry);
         }
         if (entry.state != LogicalInvocationState.ATTEMPTING
-                || !samePlan(entry, attempt, plan)
                 || attempt.observation != null) {
-            throw new ResilienceException(
-                    ResilienceException.Code.ATTEMPT_COORDINATE_MISMATCH,
-                    "attempt observation does not match the current pinned attempt");
+            rejectPlan(entry, attempt, plan, List.of("currentAttemptState"), context);
         }
         record(
                 EventOwner.ATTEMPT_CAPABILITY,
@@ -180,11 +197,11 @@ public final class ResilientInvocationManager {
                 entry.request.logicalInvocationId(),
                 attempt.attemptId,
                 attempt.worker.workerId(),
-                observationDetails(entry, observation));
+                observedPlanDetails(entry, attempt, observation, "FULL_PLAN_VALIDATED"));
         attempt.observation = observation;
         if (observation.kind() == AttemptObservationKind.UNKNOWN_REMOTE_OUTCOME) {
-            supervisor.observeFailure(
-                    attempt.worker.workerId(),
+            supervisor.observeInstanceFailure(
+                    attempt.worker,
                     "INVOCATION",
                     observation.code(),
                     context);
@@ -210,7 +227,7 @@ public final class ResilientInvocationManager {
                 logicalInvocationId,
                 attemptId,
                 attempt.worker.workerId(),
-                observationDetails(entry, observation));
+                observedPlanDetails(entry, attempt, observation, "ASSOCIATION_ONLY"));
         recordManager(entry, "LATE_ATTEMPT_IGNORED", context, attemptId, attempt.worker.workerId(), Map.of(
                 "terminalState", entry.state.name(),
                 "observation", observation.kind().name()));
@@ -332,9 +349,16 @@ public final class ResilientInvocationManager {
 
     private void replay(List<ResilienceEvent> events) {
         for (ResilienceEvent event : events) {
-            if (event.owner() == EventOwner.RESILIENT_INVOCATION_MANAGER) replayManagerEvent(event);
-            if (event.owner() == EventOwner.ATTEMPT_CAPABILITY
-                    && event.event().equals("ATTEMPT_OBSERVED")) replayObservation(event);
+            try {
+                if (event.owner() == EventOwner.RESILIENT_INVOCATION_MANAGER) replayManagerEvent(event);
+                if ((event.owner() == EventOwner.ATTEMPT_CAPABILITY && event.event().equals("ATTEMPT_OBSERVED"))
+                        || (event.owner() == EventOwner.RECOVERY_COORDINATOR
+                        && (event.event().equals("ATTEMPT_RECOVERED_UNKNOWN")
+                        || event.event().equals("ATTEMPT_RECOVERED_NOT_DISPATCHED")))) replayObservation(event);
+            } catch (RuntimeException failure) {
+                throw new ResilienceException(ResilienceException.Code.DURABLE_JOURNAL_INVALID,
+                        "replay coordinates invalid at event " + event.sequence(), failure);
+            }
         }
     }
 
@@ -352,6 +376,14 @@ public final class ResilientInvocationManager {
             }
             case "INVOCATION_ATTEMPTING" -> {
                 InvocationEntry entry = requireInvocation(event.logicalInvocationId());
+                requireReplay(event.workerId() != null && !event.workerId().isBlank()
+                        && event.attemptId() != null && !event.attemptId().isBlank()
+                        && Integer.parseInt(details.get("attemptNumber")) == entry.attempts.size() + 1
+                        && entry.attempts.size() < entry.request.maximumAttempts()
+                        && entry.attempts.stream().noneMatch(attempt -> attempt.attemptId.equals(event.attemptId()))
+                        && details.get("workerInstanceId") != null && !details.get("workerInstanceId").isBlank()
+                        && event.controlEpoch().equals(details.get("workerEpoch"))
+                        && entry.request.traceId().equals(details.get("logicalTraceId")));
                 WorkerSnapshot worker = new WorkerSnapshot(
                         event.workerId(),
                         io.jpyxis.resilience.api.WorkerState.INELIGIBLE,
@@ -366,7 +398,17 @@ public final class ResilientInvocationManager {
             }
             case "ATTEMPT_DISPATCH_INTENT" -> {
                 InvocationEntry entry = requireInvocation(event.logicalInvocationId());
-                requireAttempt(entry, event.attemptId()).dispatchIntent = true;
+                AttemptEntry attempt = requireAttempt(entry, event.attemptId());
+                requireReplay(attempt.worker.workerId().equals(event.workerId())
+                        && attempt.worker.controlEpoch().equals(event.controlEpoch())
+                        && attempt.worker.instanceId().equals(details.get("workerInstanceId"))
+                        && attempt.attemptNumber == Integer.parseInt(details.get("attemptNumber"))
+                        && entry.request.traceId().equals(details.get("logicalTraceId"))
+                        && entry.request.idempotencyMode().name().equals(details.get("idempotencyMode"))
+                        && entry.request.deduplicationScope().equals(details.get("deduplicationScope"))
+                        && (!details.containsKey("workerEpoch")
+                        || attempt.worker.controlEpoch().equals(details.get("workerEpoch"))));
+                attempt.dispatchIntent = true;
             }
             case "INVOCATION_RETRY_PENDING" ->
                     requireInvocation(event.logicalInvocationId()).state = LogicalInvocationState.RETRY_PENDING;
@@ -384,6 +426,15 @@ public final class ResilientInvocationManager {
         InvocationEntry entry = requireInvocation(event.logicalInvocationId());
         AttemptEntry attempt = requireAttempt(entry, event.attemptId());
         Map<String, String> details = event.details();
+        requireReplay(attempt.worker.workerId().equals(event.workerId())
+                && entry.request.traceId().equals(details.get("logicalTraceId")));
+        if (details.containsKey("admissionProfile")) {
+            requireReplay(attempt.worker.instanceId().equals(details.get("workerInstanceId"))
+                    && attempt.worker.controlEpoch().equals(details.get("workerEpoch"))
+                    && attempt.attemptNumber == Integer.parseInt(details.get("attemptNumber"))
+                    && entry.request.idempotencyMode().name().equals(details.get("idempotencyMode"))
+                    && entry.request.deduplicationScope().equals(details.get("deduplicationScope")));
+        }
         attempt.observation = new AttemptObservation(
                 AttemptObservationKind.valueOf(details.get("kind")),
                 details.getOrDefault("code", ""),
@@ -391,11 +442,63 @@ public final class ResilientInvocationManager {
                 Boolean.parseBoolean(details.getOrDefault("executionMayContinue", "false")));
     }
 
-    private boolean samePlan(InvocationEntry entry, AttemptEntry attempt, AttemptPlan plan) {
-        return entry.request.traceId().equals(plan.traceId())
-                && attempt.attemptNumber == plan.attemptNumber()
-                && attempt.worker.workerId().equals(plan.worker().workerId())
-                && attempt.worker.instanceId().equals(plan.worker().instanceId());
+    private List<String> planMismatches(InvocationEntry entry, AttemptEntry attempt, AttemptPlan plan) {
+        List<String> fields = new ArrayList<>();
+        if (!entry.request.traceId().equals(plan.traceId())) fields.add("traceId");
+        if (attempt.attemptNumber != plan.attemptNumber()) fields.add("attemptNumber");
+        if (plan.worker() == null) {
+            fields.add("worker");
+        } else {
+            if (!attempt.worker.workerId().equals(plan.worker().workerId())) fields.add("workerId");
+            if (!attempt.worker.instanceId().equals(plan.worker().instanceId())) fields.add("instanceId");
+            if (!attempt.worker.controlEpoch().equals(plan.worker().controlEpoch())) fields.add("workerEpoch");
+        }
+        if (entry.request.idempotencyMode() != plan.idempotencyMode()) fields.add("idempotencyMode");
+        if (!entry.request.deduplicationScope().equals(plan.deduplicationScope())) fields.add("deduplicationScope");
+        return fields;
+    }
+
+    private void rejectPlan(InvocationEntry entry, AttemptEntry attempt, AttemptPlan plan,
+                            List<String> fields, ResilienceContext context) {
+        Map<String, String> details = new LinkedHashMap<>();
+        details.put("code", "ATTEMPT_COORDINATE_MISMATCH");
+        details.put("rejectedFields", String.join(",", fields));
+        details.put("retainedInstanceId", attempt.worker.instanceId());
+        details.put("retainedWorkerEpoch", attempt.worker.controlEpoch());
+        details.put("retainedIdempotencyMode", entry.request.idempotencyMode().name());
+        details.put("retainedDeduplicationScope", entry.request.deduplicationScope());
+        details.put("retainedAttemptNumber", Integer.toString(attempt.attemptNumber));
+        details.put("submittedAttemptNumber", Integer.toString(plan.attemptNumber()));
+        details.put("submittedTraceId", String.valueOf(plan.traceId()));
+        details.put("submittedWorkerId", plan.worker() == null ? "<missing>" : String.valueOf(plan.worker().workerId()));
+        details.put("submittedInstanceId", plan.worker() == null ? "<missing>" : String.valueOf(plan.worker().instanceId()));
+        details.put("submittedWorkerEpoch", plan.worker() == null ? "<missing>" : String.valueOf(plan.worker().controlEpoch()));
+        details.put("submittedIdempotencyMode", String.valueOf(plan.idempotencyMode()));
+        details.put("submittedDeduplicationScope", String.valueOf(plan.deduplicationScope()));
+        recordManager(entry, "ATTEMPT_INPUT_REJECTED", context, attempt.attemptId, attempt.worker.workerId(), details);
+        throw coordinateMismatch();
+    }
+
+    private ResilienceException coordinateMismatch() {
+        return new ResilienceException(ResilienceException.Code.ATTEMPT_COORDINATE_MISMATCH,
+                "attempt observation does not match its retained coordinates and policy copies");
+    }
+
+    private static void requireReplay(boolean valid) {
+        if (!valid) throw new IllegalArgumentException("retained coordinate or policy copy mismatch");
+    }
+
+    private static Map<String, String> observedPlanDetails(InvocationEntry entry, AttemptEntry attempt,
+                                                          AttemptObservation observation, String provenance) {
+        Map<String, String> details = new LinkedHashMap<>(observationDetails(entry, observation));
+        details.put("admissionProfile", "M5_COORDINATE_V2");
+        details.put("provenance", provenance);
+        details.put("workerInstanceId", attempt.worker.instanceId());
+        details.put("workerEpoch", attempt.worker.controlEpoch());
+        details.put("attemptNumber", Integer.toString(attempt.attemptNumber));
+        details.put("idempotencyMode", entry.request.idempotencyMode().name());
+        details.put("deduplicationScope", entry.request.deduplicationScope());
+        return details;
     }
 
     private InvocationEntry requireInvocation(String logicalInvocationId) {

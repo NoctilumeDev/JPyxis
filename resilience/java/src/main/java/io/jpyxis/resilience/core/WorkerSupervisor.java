@@ -97,23 +97,33 @@ public final class WorkerSupervisor implements AutoCloseable {
             }
             WorkerState previous = entry.state;
             instanceId = workerId + "@" + controlEpoch + "-" + (++instanceSequence);
+            recordSupervisor(entry, "WORKER_STARTING", context, Map.of(
+                    "previousState", previous.name(),
+                    "newState", WorkerState.STARTING.name(),
+                    "previousLifecycleState", previous.name(),
+                    "instanceId", instanceId,
+                    "workerEpoch", controlEpoch,
+                    "processId", "0"));
             entry.instanceId = instanceId;
             entry.epoch = controlEpoch;
             entry.processId = 0L;
-            transition(entry, WorkerState.STARTING, "WORKER_STARTING", context, Map.of(
-                    "previousLifecycleState", previous.name()));
+            entry.handle = null;
+            entry.state = WorkerState.STARTING;
         }
 
         WorkerHandle handle;
         try {
             handle = control.start(workerId, instanceId, controlEpoch);
-            recordCapability(entry, "WORKER_START_OBSERVED", context, Map.of(
-                    "instanceId", handle.instanceId(),
-                    "processId", Long.toString(handle.processId())));
+            recordCapability(entry, "WORKER_START_OBSERVED", context,
+                    returnedCoordinates(workerId, instanceId, handle));
         } catch (WorkerControlException | RuntimeException failure) {
             recordCapability(entry, "WORKER_START_FAILED", context, Map.of(
                     "code", capabilityCode(failure)));
             synchronized (this) {
+                if (!currentInstance(entry, instanceId, controlEpoch)) {
+                    recordSuperseded(entry, instanceId, controlEpoch, "START_FAILURE", capabilityCode(failure), context);
+                    return snapshot(entry);
+                }
                 requireState(entry, WorkerState.STARTING);
                 transition(entry, WorkerState.FAILED, "WORKER_FAILED", context, Map.of(
                         "code", capabilityCode(failure)));
@@ -122,12 +132,24 @@ public final class WorkerSupervisor implements AutoCloseable {
         }
 
         synchronized (this) {
+            if (!currentInstance(entry, instanceId, controlEpoch)) {
+                recordSuperseded(entry, instanceId, controlEpoch, "START_RETURN", "WORKER_START_OBSERVED", context);
+                return snapshot(entry);
+            }
             requireState(entry, WorkerState.STARTING);
-            entry.handle = handle;
-            entry.processId = handle.processId();
+            if (!matchesHandle(entry, handle)) {
+                Map<String, String> details = new LinkedHashMap<>(returnedCoordinates(workerId, instanceId, handle));
+                details.put("code", "WORKER_COORDINATE_MISMATCH");
+                recordSupervisor(entry, "WORKER_HANDLE_REJECTED", context, details);
+                transition(entry, WorkerState.FAILED, "WORKER_FAILED", context,
+                        Map.of("code", "WORKER_COORDINATE_MISMATCH"));
+                return snapshot(entry);
+            }
             recordSupervisor(entry, "WORKER_HANDLE_PINNED", context, Map.of(
                     "instanceId", handle.instanceId(),
                     "processId", Long.toString(handle.processId())));
+            entry.handle = handle;
+            entry.processId = handle.processId();
             return snapshot(entry);
         }
     }
@@ -141,6 +163,7 @@ public final class WorkerSupervisor implements AutoCloseable {
                 throw invalidTransition(entry, "probe");
             }
             handle = requireHandle(entry);
+            requireQualifiedHandle(entry, handle);
         }
 
         boolean healthy;
@@ -157,7 +180,8 @@ public final class WorkerSupervisor implements AutoCloseable {
         }
 
         synchronized (this) {
-            if (entry.handle == null || !entry.handle.instanceId().equals(handle.instanceId())) {
+            if (entry.handle != handle || !matchesHandle(entry, handle)
+                    || (entry.state != WorkerState.STARTING && entry.state != WorkerState.INELIGIBLE)) {
                 throw new ResilienceException(
                         ResilienceException.Code.INVALID_WORKER_TRANSITION,
                         "worker instance changed during probe: " + workerId);
@@ -189,6 +213,7 @@ public final class WorkerSupervisor implements AutoCloseable {
             }
         }
         recordCapability(entry, "WORKER_FAILURE_OBSERVED", context, Map.of(
+                "scope", "LOGICAL_WORKER_ACTION",
                 "stage", requireText(stage, "stage"),
                 "code", requireText(code, "code"),
                 "processAlive", Boolean.toString(alive)));
@@ -197,6 +222,64 @@ public final class WorkerSupervisor implements AutoCloseable {
                 return snapshot(entry);
             }
             transition(entry, WorkerState.INELIGIBLE, "WORKER_INELIGIBLE", context, Map.of(
+                    "scope", "LOGICAL_WORKER_ACTION",
+                    "stage", stage,
+                    "code", code));
+            return snapshot(entry);
+        }
+    }
+
+    public WorkerSnapshot observeInstanceFailure(
+            WorkerSnapshot originating,
+            String stage,
+            String code,
+            ResilienceContext context) {
+        if (originating == null || originating.workerId() == null || originating.workerId().isBlank()
+                || originating.instanceId() == null || originating.instanceId().isBlank()
+                || originating.controlEpoch() == null || originating.controlEpoch().isBlank()) {
+            throw new ResilienceException(ResilienceException.Code.WORKER_COORDINATE_MISMATCH,
+                    "instance-scoped failure requires an originating worker tuple");
+        }
+        requireText(stage, "stage");
+        requireText(code, "code");
+        WorkerEntry entry;
+        WorkerHandle handle;
+        synchronized (this) {
+            entry = requireWorker(originating.workerId());
+            if (!currentInstance(entry, originating.instanceId(), originating.controlEpoch())) {
+                recordSuperseded(entry, originating.instanceId(), originating.controlEpoch(), stage, code, context);
+                return snapshot(entry);
+            }
+            handle = entry.handle;
+        }
+        boolean alive = false;
+        if (handle != null) {
+            try {
+                alive = control.isHealthy(handle);
+            } catch (WorkerControlException | RuntimeException ignored) {
+                alive = false;
+            }
+        }
+        recordCapability(entry, "WORKER_FAILURE_OBSERVED", context, Map.of(
+                "scope", "INSTANCE_SCOPED",
+                "originatingInstanceId", originating.instanceId(),
+                "originatingEpoch", originating.controlEpoch(),
+                "stage", stage,
+                "code", code,
+                "processAlive", Boolean.toString(alive)));
+        synchronized (this) {
+            if (!currentInstance(entry, originating.instanceId(), originating.controlEpoch())
+                    || entry.handle != handle) {
+                recordSuperseded(entry, originating.instanceId(), originating.controlEpoch(), stage, code, context);
+                return snapshot(entry);
+            }
+            if (entry.state == WorkerState.STOPPED || entry.state == WorkerState.STOPPING) {
+                return snapshot(entry);
+            }
+            transition(entry, WorkerState.INELIGIBLE, "WORKER_INELIGIBLE", context, Map.of(
+                    "scope", "INSTANCE_SCOPED",
+                    "originatingInstanceId", originating.instanceId(),
+                    "originatingEpoch", originating.controlEpoch(),
                     "stage", stage,
                     "code", code));
             return snapshot(entry);
@@ -357,6 +440,48 @@ public final class WorkerSupervisor implements AutoCloseable {
                     "worker has no live handle: " + entry.workerId);
         }
         return entry.handle;
+    }
+
+    private static boolean currentInstance(WorkerEntry entry, String instanceId, String epoch) {
+        return entry.instanceId.equals(instanceId) && entry.epoch.equals(epoch);
+    }
+
+    private static boolean matchesHandle(WorkerEntry entry, WorkerHandle handle) {
+        return handle != null && entry.workerId.equals(handle.workerId())
+                && currentInstance(entry, handle.instanceId(), handle.controlEpoch());
+    }
+
+    private void requireQualifiedHandle(WorkerEntry entry, WorkerHandle handle) {
+        if (!matchesHandle(entry, handle)) {
+            throw new ResilienceException(ResilienceException.Code.WORKER_COORDINATE_MISMATCH,
+                    "worker handle does not match the current requested instance");
+        }
+    }
+
+    private Map<String, String> returnedCoordinates(String workerId, String instanceId, WorkerHandle handle) {
+        return Map.of(
+                "requestedWorkerId", workerId,
+                "requestedInstanceId", instanceId,
+                "requestedEpoch", controlEpoch,
+                "returnedWorkerId", handle == null ? "<missing>" : handle.workerId(),
+                "returnedInstanceId", handle == null ? "<missing>" : handle.instanceId(),
+                "returnedEpoch", handle == null ? "<missing>" : handle.controlEpoch(),
+                "processId", handle == null ? "0" : Long.toString(handle.processId()));
+    }
+
+    private void recordSuperseded(WorkerEntry entry, String originatingInstanceId,
+                                  String originatingEpoch, String stage, String code, ResilienceContext context) {
+        recordSupervisor(entry, "WORKER_INSTANCE_OBSERVATION_IGNORED", context, Map.of(
+                "reason", "SUPERSEDED_WORKER_INSTANCE",
+                "code", code,
+                "scope", "INSTANCE_SCOPED",
+                "stage", stage,
+                "originatingWorkerId", entry.workerId,
+                "originatingInstanceId", originatingInstanceId,
+                "originatingEpoch", originatingEpoch,
+                "currentWorkerId", entry.workerId,
+                "currentInstanceId", entry.instanceId,
+                "currentEpoch", entry.epoch));
     }
 
     private void requireState(WorkerEntry entry, WorkerState expected) {

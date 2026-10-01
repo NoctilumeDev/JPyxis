@@ -112,16 +112,19 @@ function main() {
   if (offline.verdict !== "PASS") {
     throw new Error(`offline M5 evidence verification failed: ${offline.failures.join("; ")}`);
   }
+  run("node", [path.join(root, "scripts", "verify-m5-coordinates.mjs")]);
   console.log(`M5 resilience verification passed: ${results.length} scenarios`);
 }
 
 function buildJava() {
+  // Surefire uses the module basedir. A fixed relative path also avoids cmd.exe quoting of user paths.
+  const coordinateEvidence = "-Djpyxis.coordinate.evidenceRoot=../../build/m5/coordinate-validation-journals";
   if (process.platform === "win32") {
     run(process.env.ComSpec || "cmd.exe", [
-      "/d", "/s", "/c", "mvnw.cmd -q -pl resilience/java -am package",
+      "/d", "/s", "/c", `mvnw.cmd -q -pl resilience/java -am package ${coordinateEvidence}`,
     ]);
   } else {
-    run("sh", [path.join(root, "mvnw"), "-q", "-pl", "resilience/java", "-am", "package"]);
+    run("sh", [path.join(root, "mvnw"), "-q", "-pl", "resilience/java", "-am", "package", coordinateEvidence]);
   }
 }
 

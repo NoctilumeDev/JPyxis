@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "jpyxis.io/implementation-first-failure/v1alpha1",
+  "source": "2a49066c07a29e4600e0c218b14247d49fb9bb4e",
+  "command": "node scripts/verify-m5.mjs",
+  "exitCode": 1,
+  "childExitCode": 255,
+  "stage": "buildJava before compilation",
+  "classification": "WINDOWS_ARGUMENT_TRANSPORT_FAILURE",
+  "modelCounterexample": false,
+  "rawLog": "first-m5.log.bin",
+  "rawLogSha256": "sha256:6c4c86bae538d2f523175be8056d5d30530933440f56b178bdebaf9e9895f029",
+  "behaviorCasesExecuted": 0,
+  "partialOutput": "Empty build/m5/runs directory retained locally under build/coordinate-implementation/failed-m5-2a49066",
+  "disposition": "Preserved original commit and bytes; later candidate uses fixed module-relative Surefire argument and reruns full gate",
+  "scope": "First integration failure only; no failed model observation or guard qualification"
+}
