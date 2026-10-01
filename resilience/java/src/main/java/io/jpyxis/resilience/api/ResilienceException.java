@@ -6,6 +6,8 @@ public final class ResilienceException extends RuntimeException {
         WORKER_NOT_FOUND,
         INVALID_WORKER_TRANSITION,
         NO_ELIGIBLE_WORKER,
+        WORKER_COORDINATE_MISMATCH,
+        CONTROL_EPOCH_MISMATCH,
         INVOCATION_ALREADY_EXISTS,
         INVOCATION_NOT_FOUND,
         INVALID_INVOCATION_TRANSITION,

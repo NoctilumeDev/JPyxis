@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "jpyxis.io/contract-closure/v1alpha1",
+  "contractVersion": 2,
+  "evidenceState": "CONTRACT_FROZEN_ONLY",
+  "guardImplementationQualified": false,
+  "productizationQualified": false,
+  "tag": {
+    "name": "m5-coordinate-contract-v2",
+    "object": "283df71ca3cf7d439d038557532c9e1d6e2772f2",
+    "target": "2ac2715b994f519fbad4afb73b1f80ea0852dd55",
+    "type": "annotated",
+    "protected": true
+  },
+  "source": {
+    "base": "882131f09911e6735e0de93aa9ee287fc4c82ebe",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/22",
+    "reviewedHead": "5010b90e9ff3d7d6878b95c53cc123cd4cfccdb6",
+    "executedPrMerge": "3e5e66bf01e5b92b89a059844769af2cfb544dd6",
+    "acceptedMain": "2ac2715b994f519fbad4afb73b1f80ea0852dd55",
+    "acceptedTree": "5b33bda2a7a918ab1ba6067988d46043eb85417e",
+    "mergedAt": "2026-10-01T10:48:56Z"
+  },
+  "prEvidence": {
+    "run": 36850712322,
+    "m5Artifact": 11155416737,
+    "m6Artifact": 11155272797,
+    "readback": "pr22-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36851473146,
+    "m5Artifact": 11155434360,
+    "m6Artifact": 11156047220,
+    "readback": "main22-readback.json"
+  },
+  "entryAuthority": "Separate M5 v2 admission and instance-scoped owner-effect guard implementation; qualify independently before rerunning productization audit A",
+  "limits": "No repaired runtime, real M2/M4/M5 composition, Environment, process cleanup, productization or resource grant is established by the contract closure",
+  "oldFrozenTagsUnchanged": true,
+  "originalModelReceiptsUnchanged": true
+}

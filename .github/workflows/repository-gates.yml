@@ -97,6 +97,9 @@ jobs:
           path: |
             build/m5/conformance-summary.json
             build/m5/runs
+            build/m5/coordinate-validation
+            build/m5/coordinate-validation-mutations
+            build/m5/coordinate-validation-journals
           if-no-files-found: ignore
           retention-days: 14
 
