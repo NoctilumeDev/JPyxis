@@ -1,0 +1,16 @@
+{
+  "binding" : { },
+  "deployments" : [ ],
+  "processes" : [ {
+    "pid" : 33816,
+    "birth" : "2026-10-01T18:05:42.552Z",
+    "alive" : false,
+    "launchNonce" : "f5cfc790-4311-4cfe-b678-e65decbae43f",
+    "handle" : {
+      "workerId" : "worker-8f32e97c-bcd7-4a86-bb77-5bb38e801935",
+      "instanceId" : "worker-8f32e97c-bcd7-4a86-bb77-5bb38e801935@9e9f5a7b-70a6-4cd9-8654-356eef63b3e2-1",
+      "controlEpoch" : "9e9f5a7b-70a6-4cd9-8654-356eef63b3e2",
+      "processId" : 33816
+    }
+  } ]
+}

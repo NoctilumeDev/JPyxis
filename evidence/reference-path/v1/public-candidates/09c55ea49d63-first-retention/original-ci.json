@@ -1,0 +1,54 @@
+{
+  "label": "pr34-first",
+  "run": 36911817066,
+  "reviewedHead": "09c55ea49d63a39d4f1102507274f00e5213a970",
+  "executedSha": "1580e04811b36a804252ceeea40673c402db5aaf",
+  "event": "pull_request",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Verify M6 single-node baseline",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify reference actual path",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify M5 resilience repository",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": {
+    "m4": {
+      "id": 11187102299,
+      "name": "m4-lifecycle-1580e04811b36a804252ceeea40673c402db5aaf",
+      "sha": "1580e04811b36a804252ceeea40673c402db5aaf",
+      "digest": "sha256:e74e856ecd5c5206c19c1fa331ff75cc91228f72e7bd46216ebcc746c0d24e5e"
+    },
+    "m4-clean": {
+      "id": 11186344119,
+      "name": "m4-handle-clean-1580e04811b36a804252ceeea40673c402db5aaf",
+      "sha": "1580e04811b36a804252ceeea40673c402db5aaf",
+      "digest": "sha256:a44f9b2c20ba326c57a82cc2f298df28ed320879eab6e158a222a739b2a43829"
+    },
+    "m5": {
+      "id": 11187646400,
+      "name": "m5-resilience-1580e04811b36a804252ceeea40673c402db5aaf",
+      "sha": "1580e04811b36a804252ceeea40673c402db5aaf",
+      "digest": "sha256:ec7f9f9d1218394588272fbe225fe75f7cfd65c6782ae8a748aeb87b12391a55"
+    },
+    "m6": {
+      "id": 11186179237,
+      "name": "m6-reproduction-1580e04811b36a804252ceeea40673c402db5aaf",
+      "sha": "1580e04811b36a804252ceeea40673c402db5aaf",
+      "digest": "sha256:4df6e05ba0489ce65a6cc1d90cb74945ceb75b25cf93d46692c64c29dde3d6b0"
+    },
+    "reference": {
+      "id": 11186811983,
+      "name": "reference-actual-1580e04811b36a804252ceeea40673c402db5aaf",
+      "sha": "1580e04811b36a804252ceeea40673c402db5aaf",
+      "digest": "sha256:ab4b2ac2803bba6432b161183b5554d8ea5f6dacb5ee29f58e2472801445ce5a"
+    }
+  }
+}

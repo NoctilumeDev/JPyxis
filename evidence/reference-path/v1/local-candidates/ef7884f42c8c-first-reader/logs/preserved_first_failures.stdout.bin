@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS",
+  "results": [
+    {
+      "name": "2363a9436898-first-late",
+      "candidate": "2363a9436898002193e3190dbd25b7b4d50f2ff4",
+      "files": 516,
+      "classification": "INTERNAL_JSON_NUMERIC_NODE_REPRESENTATION_MISMATCH"
+    },
+    {
+      "name": "455bb0f123bc-first-build",
+      "candidate": "455bb0f123bc97dedd458ef3940349ba248f0d5a",
+      "files": 176,
+      "classification": "COMPOSITION_API_SIGNATURE_MISMATCH"
+    },
+    {
+      "name": "b46bfa9883eb-first-dispatch",
+      "candidate": "b46bfa9883ebc377dfbe0e7f6f97cb54aa261e5e",
+      "files": 209,
+      "classification": "COMPOSITION_COORDINATE_USED_AS_FILE_PATH"
+    },
+    {
+      "name": "fc43f60dfea5-first-launch",
+      "candidate": "fc43f60dfea5b835c9ece6650b43df226a5b8071",
+      "files": 199,
+      "classification": "WINDOWS_VENV_LAUNCH_SHAPE_MISMATCH"
+    }
+  ]
+}

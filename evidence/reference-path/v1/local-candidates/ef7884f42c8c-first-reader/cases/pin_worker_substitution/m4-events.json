@@ -1,0 +1,343 @@
+[ {
+  "sequence" : 1,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_REGISTERED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : null,
+  "newState" : "REGISTERED",
+  "details" : { }
+}, {
+  "sequence" : 2,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_VALIDATION_STARTED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : "REGISTERED",
+  "newState" : "VALIDATING",
+  "details" : { }
+}, {
+  "sequence" : 3,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_VALIDATED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : "VALIDATING",
+  "newState" : "VALIDATED",
+  "details" : {
+    "validationEvidence" : "bound-independent-definition-and-contract"
+  }
+}, {
+  "sequence" : 4,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_REQUESTED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : "REQUESTED",
+  "details" : { }
+}, {
+  "sequence" : 5,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_LOADING",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "REQUESTED",
+  "newState" : "LOADING",
+  "details" : { }
+}, {
+  "sequence" : 6,
+  "owner" : "LIFECYCLE_CAPABILITY",
+  "event" : "LOAD_SUCCEEDED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "providerVersion" : "v1",
+    "opaqueHandle" : "af9118e7-4846-4f42-97b7-40f3651c39c0",
+    "providerIdentity" : "jpyxis.reference.python-launch"
+  }
+}, {
+  "sequence" : 7,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "RUNTIME_HANDLE_ADMITTED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "providerVersion" : "v1",
+    "opaqueHandle" : "af9118e7-4846-4f42-97b7-40f3651c39c0",
+    "providerIdentity" : "jpyxis.reference.python-launch"
+  }
+}, {
+  "sequence" : 8,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_WARMING",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "LOADING",
+  "newState" : "WARMING",
+  "details" : { }
+}, {
+  "sequence" : 9,
+  "owner" : "LIFECYCLE_CAPABILITY",
+  "event" : "WARMUP_SUCCEEDED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "providerIdentity" : "jpyxis.reference.python-launch",
+    "providerVersion" : "v1"
+  }
+}, {
+  "sequence" : 10,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_STANDBY",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "WARMING",
+  "newState" : "STANDBY",
+  "details" : { }
+}, {
+  "sequence" : 11,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_ACTIVE",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "STANDBY",
+  "newState" : "ACTIVE",
+  "details" : {
+    "replacedDeploymentId" : ""
+  }
+}, {
+  "sequence" : 12,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "ACTIVE_BINDING_CHANGED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "previousDeploymentId" : "",
+    "activeDeploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b"
+  }
+}, {
+  "sequence" : 13,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "INVOCATION_PINNED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "pinId" : "6d2665af-aef8-45ef-b873-7f3f42c52dc2",
+    "runtimeProviderVersion" : "v1",
+    "invocationId" : "c2f9549b-3417-46d4-ab84-e384a8ceecfa"
+  }
+}, {
+  "sequence" : 14,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_REGISTERED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@2.0.0",
+  "artifactDigest" : "sha256:722426789e41a4e4aa44f04d2f09fc29795ea7f2efd8e9cb4ee49edc4936992d",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : null,
+  "newState" : "REGISTERED",
+  "details" : { }
+}, {
+  "sequence" : 15,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_VALIDATION_STARTED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@2.0.0",
+  "artifactDigest" : "sha256:722426789e41a4e4aa44f04d2f09fc29795ea7f2efd8e9cb4ee49edc4936992d",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : "REGISTERED",
+  "newState" : "VALIDATING",
+  "details" : { }
+}, {
+  "sequence" : 16,
+  "owner" : "ARTIFACT_REGISTRY",
+  "event" : "ARTIFACT_VALIDATED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@2.0.0",
+  "artifactDigest" : "sha256:722426789e41a4e4aa44f04d2f09fc29795ea7f2efd8e9cb4ee49edc4936992d",
+  "deploymentId" : null,
+  "slot" : null,
+  "previousState" : "VALIDATING",
+  "newState" : "VALIDATED",
+  "details" : {
+    "validationEvidence" : "bound-independent-definition-and-contract"
+  }
+}, {
+  "sequence" : 17,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "INVOCATION_PIN_RELEASED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "invocationId" : "c2f9549b-3417-46d4-ab84-e384a8ceecfa",
+    "pinId" : "6d2665af-aef8-45ef-b873-7f3f42c52dc2",
+    "outcome" : "OBLIGATION_COMPLETED"
+  }
+}, {
+  "sequence" : 18,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_DRAINING",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "ACTIVE",
+  "newState" : "DRAINING",
+  "details" : {
+    "replacementDeploymentId" : ""
+  }
+}, {
+  "sequence" : 19,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DRAIN_OBLIGATIONS_CLEARED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : { }
+}, {
+  "sequence" : 20,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_UNLOADING",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "DRAINING",
+  "newState" : "UNLOADING",
+  "details" : { }
+}, {
+  "sequence" : 21,
+  "owner" : "LIFECYCLE_CAPABILITY",
+  "event" : "UNLOAD_SUCCEEDED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : null,
+  "newState" : null,
+  "details" : {
+    "providerIdentity" : "jpyxis.reference.python-launch",
+    "providerVersion" : "v1"
+  }
+}, {
+  "sequence" : 22,
+  "owner" : "DEPLOYMENT_MANAGER",
+  "event" : "DEPLOYMENT_RETIRED",
+  "actor" : "reference-control",
+  "cause" : "bounded reference journey",
+  "traceId" : "91d12895-1336-4f8f-9fb8-5e38811cb0d8",
+  "artifactIdentity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+  "artifactDigest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b",
+  "deploymentId" : "846c8850-6fff-4f44-97e9-3b9f4550336b",
+  "slot" : "affine-reference",
+  "previousState" : "UNLOADING",
+  "newState" : "RETIRED",
+  "details" : { }
+} ]

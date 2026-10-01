@@ -1,0 +1,6 @@
+{
+  "phase": "build_reference",
+  "message": "build_reference failed; original logs retained at C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\455bb0f123bc-1790877274204\n\n1 !== 0\n",
+  "sourceRevision": "455bb0f123bc97dedd458ef3940349ba248f0d5a",
+  "classification": "unclassified actual candidate failure; no qualification granted"
+}

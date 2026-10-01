@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "jpyxis.io/reference-local-candidate/v1alpha1",
+  "candidate": "b46bfa9883ebc377dfbe0e7f6f97cb54aa261e5e",
+  "classification": "COMPOSITION_COORDINATE_USED_AS_FILE_PATH",
+  "explanation": "The required receipt adapter interpreted the opaque M5 attempt ID slash as a directory. Actual qualification succeeded, product dispatch was rejected before wire, FAILED stayed authoritative and all owned processes stopped. The secondary unchanged-source repository replay rejects raw immutable receipt formatting; retain those bytes and distinguish byte receipts from authored source without weakening secret or predecessor semantic gates.",
+  "qualificationGranted": false,
+  "originalManifest": "manifest.json",
+  "originalLogs": "logs"
+}

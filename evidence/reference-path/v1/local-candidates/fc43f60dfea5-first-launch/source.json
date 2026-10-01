@@ -1,0 +1,16 @@
+{
+  "revision": "fc43f60dfea5b835c9ece6650b43df226a5b8071",
+  "tree": "ba5423aebf4299d5544dce833a7df2882e69fc66",
+  "dirty": false,
+  "publicClean": false,
+  "workflowSha": null,
+  "cleanEnvironment": {
+    "kind": "local-candidate"
+  },
+  "host": {
+    "platform": "win32",
+    "architecture": "x64",
+    "physicalMemoryBytes": 16944848896,
+    "logicalCpuCount": 24
+  }
+}

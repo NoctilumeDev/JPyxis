@@ -1,0 +1,19 @@
+{
+  "classification": "POST_EXIT_SAMPLE_HAS_NO_RESIDENT_PROCESS",
+  "sourceRevision": "ef7884f42c8c45720ed12ef219cb46c35c39124a",
+  "readerBlob": "54e3a889c2bbcd4cb940a3b133945cedf07e2a1d",
+  "originalResult": {
+    "schemaVersion": "jpyxis.io/reference-independent-readback/v1alpha1",
+    "verdict": "FAIL",
+    "cases": [],
+    "failures": [
+      "The expression evaluated to a falsy value:\n\n  assert.ok(sample.knownRssBytes>0&&Number.isFinite(sample.availableMemoryBytes))\n"
+    ],
+    "incomplete": [],
+    "scope": "One trusted local CPU stateless typed reference path with actual M2/M3/M4/M5 continuity and owned-process observations; public clean and protected main qualification are separate retained gates",
+    "productizationQualified": false
+  },
+  "exitCode": 1,
+  "qualificationGranted": false,
+  "disposition": "Preserve all raw samples. Derive resident sums, allow explicit empty resident observations after exit, and require real positive RSS samples; unchanged M6 acceptance remains independently required."
+}

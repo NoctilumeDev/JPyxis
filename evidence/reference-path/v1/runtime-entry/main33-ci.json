@@ -1,0 +1,44 @@
+{
+  "label": "main33",
+  "run": 36896679518,
+  "reviewedHead": "bd8cd9eff99f70f642c98571ed2390650320f222",
+  "executedSha": "bd8cd9eff99f70f642c98571ed2390650320f222",
+  "event": "push",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Verify M6 single-node baseline",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify M5 resilience repository",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": {
+    "m4": {
+      "id": 11180056273,
+      "name": "m4-lifecycle-bd8cd9eff99f70f642c98571ed2390650320f222",
+      "sha": "bd8cd9eff99f70f642c98571ed2390650320f222",
+      "digest": "sha256:4ffbe9e6071df80aee467555742ae00d857a5d9c4e1a5330dfeb4fb6d6269aa4"
+    },
+    "m4-clean": {
+      "id": 11178924106,
+      "name": "m4-handle-clean-bd8cd9eff99f70f642c98571ed2390650320f222",
+      "sha": "bd8cd9eff99f70f642c98571ed2390650320f222",
+      "digest": "sha256:2408102834a2316e534e8cdd87101f96d6a48c900c103068449869508aa26ba8"
+    },
+    "m5": {
+      "id": 11180405823,
+      "name": "m5-resilience-bd8cd9eff99f70f642c98571ed2390650320f222",
+      "sha": "bd8cd9eff99f70f642c98571ed2390650320f222",
+      "digest": "sha256:1d05231b5844da0eb43b37dd8c366bebc7293ec695744f3e9dbcaab82eaaabfd"
+    },
+    "m6": {
+      "id": 11179664501,
+      "name": "m6-reproduction-bd8cd9eff99f70f642c98571ed2390650320f222",
+      "sha": "bd8cd9eff99f70f642c98571ed2390650320f222",
+      "digest": "sha256:87b73bf0867f51308f5c78429154c192fab09f34840962eb97d38e7a369ae507"
+    }
+  }
+}

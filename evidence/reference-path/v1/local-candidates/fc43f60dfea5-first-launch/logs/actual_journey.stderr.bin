@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.IllegalStateException: exact unchanged realization is not qualified
+	at io.jpyxis.reference.ReferenceControl.requireQualified(ReferenceControl.java:159)
+	at io.jpyxis.reference.ReferenceControl.activate(ReferenceControl.java:147)
+	at io.jpyxis.reference.ReferenceJourneyMain.lambda$main$0(ReferenceJourneyMain.java:30)
+	at io.jpyxis.reference.ReferenceJourneyMain.run(ReferenceJourneyMain.java:122)
+	at io.jpyxis.reference.ReferenceJourneyMain.main(ReferenceJourneyMain.java:29)

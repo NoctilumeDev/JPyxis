@@ -1,0 +1,232 @@
+{
+  "label": "main33",
+  "executedSource": "bd8cd9eff99f70f642c98571ed2390650320f222",
+  "executedTree": "239dfe35d382039373e5970b52b3cacad3e821b0",
+  "m5": {
+    "verdict": "PASS",
+    "failures": []
+  },
+  "m6": {
+    "verdict": "PASS",
+    "failures": [],
+    "incomplete": []
+  },
+  "guard": {
+    "verdict": "PASS",
+    "failures": [],
+    "incomplete": [],
+    "results": [
+      {
+        "id": "honest",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_worker",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_instance",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_epoch",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_trace",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_number",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_mode",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_scope",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "plan_null_worker",
+        "verdict": "PASS"
+      },
+      {
+        "id": "handle_worker",
+        "verdict": "PASS"
+      },
+      {
+        "id": "handle_instance",
+        "verdict": "PASS"
+      },
+      {
+        "id": "handle_epoch",
+        "verdict": "PASS"
+      },
+      {
+        "id": "handle_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "terminal_foreign_epoch",
+        "verdict": "PASS"
+      },
+      {
+        "id": "late_liveness",
+        "verdict": "PASS"
+      },
+      {
+        "id": "late_association",
+        "verdict": "PASS"
+      },
+      {
+        "id": "same_instance_unknown",
+        "verdict": "PASS"
+      },
+      {
+        "id": "old_success",
+        "verdict": "PASS"
+      },
+      {
+        "id": "old_before",
+        "verdict": "PASS"
+      },
+      {
+        "id": "old_after",
+        "verdict": "PASS"
+      },
+      {
+        "id": "old_unknown",
+        "verdict": "PASS"
+      },
+      {
+        "id": "worker_wide_action",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replacement_race",
+        "verdict": "PASS"
+      },
+      {
+        "id": "epoch_mismatch",
+        "verdict": "PASS"
+      },
+      {
+        "id": "recovery_none",
+        "verdict": "PASS"
+      },
+      {
+        "id": "recovery_deduplicated",
+        "verdict": "PASS"
+      },
+      {
+        "id": "deduplicated_retry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "budget_unknown",
+        "verdict": "PASS"
+      },
+      {
+        "id": "none_before",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replay_bad_workerEpoch",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replay_bad_workerInstanceId",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replay_bad_idempotencyMode",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replay_bad_deduplicationScope",
+        "verdict": "PASS"
+      },
+      {
+        "id": "replay_bad_attemptNumber",
+        "verdict": "PASS"
+      }
+    ],
+    "mutationResults": [
+      {
+        "id": "missing_case_stdout",
+        "verdict": "INCONCLUSIVE"
+      },
+      {
+        "id": "poisoned_replacement",
+        "verdict": "FAIL"
+      },
+      {
+        "id": "self_declared_plan_success",
+        "verdict": "FAIL"
+      }
+    ],
+    "scope": "M5 v2 public-model guards; supplemental durable replay fixtures; no real computation or process qualification"
+  },
+  "mutations": [
+    {
+      "id": "missing_phase",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "reordered_phase",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "dirty_source",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "changed_predecessor",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "missing_resource_observation",
+      "verdict": "INCONCLUSIVE"
+    },
+    {
+      "id": "live_runtime_claim",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "failed_16gib_predicate",
+      "verdict": "FAIL"
+    },
+    {
+      "id": "summary_owns_success",
+      "verdict": "FAIL"
+    }
+  ],
+  "durableReplayFixtureCount": 5,
+  "m5SummarySha256": "sha256:ee3e82cba98b44f0344a3c4316aab367ccc7183b0e0084fb9094f9c290fdf8e9",
+  "coordinateManifestSha256": "sha256:737ca421de40c417dd50fc697fbeac7fc4a0157f09cb284b10ed1da3e9b130c1",
+  "m6SummarySha256": "sha256:a054775a5563f74b5e18579655a66cd234c70a0c92f7e2df7b0518417b160c84",
+  "sourceSha256": "sha256:ad1949ccc4fd61331e7a64d490b5293a44c12e4caf342b1096b6bb5002a6d8ba",
+  "resourceDecision": "ACCEPT",
+  "shutdown": {
+    "schemaVersion": "jpyxis.io/m6-runtime-shutdown/v1alpha1",
+    "observedAt": "2026-10-01T17:08:10.967Z",
+    "recordedProcessIds": [
+      8851,
+      8957
+    ],
+    "liveRecordedProcesses": [],
+    "allRuntimeProcessesStopped": true,
+    "authority": "host process identity observation after resource probe"
+  },
+  "retainedArchives": {
+    "evidence/productization-audit": "a4a86fd1ea0d9cddbb8efc30bac2d06868aa618e",
+    "experiments/productization-audit": "a8dd55cff09841ff9f5e05863391d723dc58b6e4"
+  },
+  "scope": "Independent bounded M5 v2 guard readback and unchanged predecessor gates; no real productization claim"
+}

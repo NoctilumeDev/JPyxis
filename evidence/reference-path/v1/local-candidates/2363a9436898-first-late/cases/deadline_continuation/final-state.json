@@ -1,0 +1,27 @@
+{
+  "binding" : { },
+  "deployments" : [ {
+    "deploymentId" : "4cff9064-0a0f-4944-b9e6-8063f42c7428",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  } ],
+  "processes" : [ {
+    "handle" : {
+      "workerId" : "worker-4cff9064-0a0f-4944-b9e6-8063f42c7428",
+      "instanceId" : "worker-4cff9064-0a0f-4944-b9e6-8063f42c7428@d8342193-9020-4db4-a94a-1bc09ca709c2-1",
+      "controlEpoch" : "d8342193-9020-4db4-a94a-1bc09ca709c2",
+      "processId" : 26724
+    },
+    "pid" : 26724,
+    "birth" : "2026-10-01T18:28:43.001Z",
+    "alive" : false,
+    "launchNonce" : "c04d2f33-2441-402c-9d26-85584fdd6a5c"
+  } ]
+}

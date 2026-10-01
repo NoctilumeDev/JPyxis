@@ -1,0 +1,19 @@
+{
+  "owner": "NODE_HOST_PROCESS_OBSERVER",
+  "observedAt": "2026-10-01T18:51:51.143Z",
+  "method": "OS process existence after Java journey exit",
+  "recordedProcessIds": [
+    21664,
+    31004
+  ],
+  "observations": [
+    {
+      "pid": 21664,
+      "alive": false
+    },
+    {
+      "pid": 31004,
+      "alive": false
+    }
+  ]
+}

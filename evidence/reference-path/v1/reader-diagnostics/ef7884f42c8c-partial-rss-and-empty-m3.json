@@ -1,0 +1,33 @@
+{
+  "sourceRevision": "ef7884f42c8c45720ed12ef219cb46c35c39124a",
+  "readerBlob": "25c1fd66b4859367d1632baea1df15ae099266b0",
+  "originalResult": {
+    "schemaVersion": "jpyxis.io/reference-independent-readback/v1alpha1",
+    "verdict": "FAIL",
+    "cases": [
+      {
+        "id": "lifecycle_journey",
+        "productDispatches": 4,
+        "actualRuntimeStarts": 8,
+        "derived": "PASS"
+      }
+    ],
+    "failures": [
+      "cases/qualification_contract_mismatch/candidate-1/launch-0/m3-observations.jsonl complete final record"
+    ],
+    "incomplete": [],
+    "scope": "One trusted local CPU stateless typed reference path with actual M2/M3/M4/M5 continuity and owned-process observations; public clean and protected main qualification are separate retained gates",
+    "productizationQualified": false
+  },
+  "exitCode": 1,
+  "qualificationGranted": false,
+  "correctionTo": "ef7884f42c8c-rss-first.json",
+  "correctedClassification": "PARTIAL_GETPROCESS_OUTPUT_DISCARDED_AND_EXPECTED_EMPTY_PREINVOCATION_JOURNAL",
+  "firstDiagnosticPremiseRejected": "The empty RSS frames occurred while the Java parent was still live; they are not post-exit facts. The sampler discarded valid partial stdout on nonzero status and the original frames remain gaps, not measured zero.",
+  "directSamplerReproduction": {
+    "exitCode": 1,
+    "stdoutBase64": "eyJJZCI6Mjc0OTIsIldvcmtpbmdTZXQ2NCI6MzUxODA1NDR9DQo=",
+    "stderrBase64": ""
+  },
+  "disposition": "Retain diagnostic correction and raw gaps. Parse and retain valid partial sampler stdout; require positive RSS observations and derive sums. Empty M3 journals are valid only when no invocation requires a corresponding Runtime start; all actual dispatches still require M3 source witnesses."
+}

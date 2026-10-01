@@ -1,0 +1,282 @@
+{
+  "label": "pr33",
+  "executedSource": "c2688829ca1ee9e0fc5427c8d7105ff341bb5265",
+  "executedTree": "239dfe35d382039373e5970b52b3cacad3e821b0",
+  "legacy": {
+    "verdict": "PASS",
+    "failures": []
+  },
+  "guard": {
+    "verdict": "PASS",
+    "failures": [],
+    "incomplete": [],
+    "results": [
+      {
+        "id": "fresh_rollback",
+        "verdict": "PASS"
+      },
+      {
+        "id": "retired_same_object",
+        "verdict": "PASS"
+      },
+      {
+        "id": "retired_cloned_tuple",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_loaded",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_warming",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_standby",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_active",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_draining",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_unloading",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_alias_cleanup",
+        "verdict": "PASS"
+      },
+      {
+        "id": "warm_failed_release_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "warm_failed_cleanup_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "unload_failed_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "concurrent_duplicate_returns",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_provider",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_version",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_opaque",
+        "verdict": "PASS"
+      },
+      {
+        "id": "null_return",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_provider_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_provider_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_version_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_version_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_opaque_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_opaque_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "separate_owner_lifetime",
+        "verdict": "PASS"
+      },
+      {
+        "id": "admission_record_failure",
+        "verdict": "PASS"
+      },
+      {
+        "id": "load_observation_record_failure",
+        "verdict": "PASS"
+      },
+      {
+        "id": "cross_artifact_alias",
+        "verdict": "PASS"
+      }
+    ],
+    "mutationResults": [
+      {
+        "id": "missing_case_stdout",
+        "verdict": "INCONCLUSIVE"
+      },
+      {
+        "id": "rehashed_foreign_cleanup",
+        "verdict": "FAIL"
+      },
+      {
+        "id": "self_declared_alias_adoption",
+        "verdict": "FAIL"
+      }
+    ],
+    "scope": "M4 canonical handle admission/release public model, one in-memory owner; no real process or product qualification"
+  },
+  "cleanGuard": {
+    "verdict": "PASS",
+    "failures": [],
+    "incomplete": [],
+    "results": [
+      {
+        "id": "fresh_rollback",
+        "verdict": "PASS"
+      },
+      {
+        "id": "retired_same_object",
+        "verdict": "PASS"
+      },
+      {
+        "id": "retired_cloned_tuple",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_loaded",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_warming",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_standby",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_active",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_draining",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_unloading",
+        "verdict": "PASS"
+      },
+      {
+        "id": "live_alias_cleanup",
+        "verdict": "PASS"
+      },
+      {
+        "id": "warm_failed_release_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "warm_failed_cleanup_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "unload_failed_reentry",
+        "verdict": "PASS"
+      },
+      {
+        "id": "concurrent_duplicate_returns",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_provider",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_version",
+        "verdict": "PASS"
+      },
+      {
+        "id": "different_opaque",
+        "verdict": "PASS"
+      },
+      {
+        "id": "null_return",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_provider_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_provider_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_version_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_version_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_opaque_null",
+        "verdict": "PASS"
+      },
+      {
+        "id": "malformed_opaque_blank",
+        "verdict": "PASS"
+      },
+      {
+        "id": "separate_owner_lifetime",
+        "verdict": "PASS"
+      },
+      {
+        "id": "admission_record_failure",
+        "verdict": "PASS"
+      },
+      {
+        "id": "load_observation_record_failure",
+        "verdict": "PASS"
+      },
+      {
+        "id": "cross_artifact_alias",
+        "verdict": "PASS"
+      }
+    ],
+    "mutationResults": [
+      {
+        "id": "missing_case_stdout",
+        "verdict": "INCONCLUSIVE"
+      },
+      {
+        "id": "rehashed_foreign_cleanup",
+        "verdict": "FAIL"
+      },
+      {
+        "id": "self_declared_alias_adoption",
+        "verdict": "FAIL"
+      }
+    ],
+    "scope": "M4 canonical handle admission/release public model, one in-memory owner; no real process or product qualification"
+  },
+  "guardManifestSha256": "sha256:e4c91c29cfcdc3bb17b7d091274702499c313edbae5c01b93cc6ef9c812a0bf6",
+  "cleanGuardManifestSha256": "sha256:dd345a71d47dd16692eaa1352190f6e4fbac5b47f4cf731e4daedc29df0a792b",
+  "legacySummarySha256": "sha256:206b7478d8cb94988b855482f9310d79fff5d31d04663a95f2664462324b575e",
+  "originalArchivesAndNormativeBlobsUnchanged": true,
+  "scope": "Independent public and clean-VM M4 canonical handle model guards, unchanged eleven-scenario predecessor; no actual process freshness or product-path claim"
+}

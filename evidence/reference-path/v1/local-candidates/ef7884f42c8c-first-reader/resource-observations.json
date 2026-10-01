@@ -1,0 +1,792 @@
+{
+  "samples": [
+    {
+      "observedAt": "2026-10-01T18:58:07.767Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        13120
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 13120,
+          "rssBytes": 34963456
+        }
+      ],
+      "knownRssBytes": 44929024,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5619568640
+    },
+    {
+      "observedAt": "2026-10-01T18:58:08.766Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        13120
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5698277376
+    },
+    {
+      "observedAt": "2026-10-01T18:58:09.760Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        29616
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 29616,
+          "rssBytes": 53334016
+        }
+      ],
+      "knownRssBytes": 63299584,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5631844352
+    },
+    {
+      "observedAt": "2026-10-01T18:58:10.814Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        29616,
+        17984
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5585989632
+    },
+    {
+      "observedAt": "2026-10-01T18:58:11.771Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        26644,
+        17640
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 17640,
+          "rssBytes": 48873472
+        },
+        {
+          "pid": 26644,
+          "rssBytes": 53006336
+        }
+      ],
+      "knownRssBytes": 111845376,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5598064640
+    },
+    {
+      "observedAt": "2026-10-01T18:58:12.797Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        26644,
+        35996
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 26644,
+          "rssBytes": 53006336
+        },
+        {
+          "pid": 35996,
+          "rssBytes": 53329920
+        }
+      ],
+      "knownRssBytes": 116301824,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5577674752
+    },
+    {
+      "observedAt": "2026-10-01T18:58:13.816Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        26644,
+        35996,
+        29212
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 26644,
+          "rssBytes": 53006336
+        },
+        {
+          "pid": 29212,
+          "rssBytes": 49438720
+        },
+        {
+          "pid": 35996,
+          "rssBytes": 53329920
+        }
+      ],
+      "knownRssBytes": 165740544,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5495656448
+    },
+    {
+      "observedAt": "2026-10-01T18:58:14.806Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        10028
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5564129280
+    },
+    {
+      "observedAt": "2026-10-01T18:58:15.773Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        28036,
+        35732
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 28036,
+          "rssBytes": 53346304
+        },
+        {
+          "pid": 35732,
+          "rssBytes": 44957696
+        }
+      ],
+      "knownRssBytes": 108269568,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5512286208
+    },
+    {
+      "observedAt": "2026-10-01T18:58:16.768Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        28036,
+        20308
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5590192128
+    },
+    {
+      "observedAt": "2026-10-01T18:58:17.816Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        35864
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 35864,
+          "rssBytes": 51945472
+        }
+      ],
+      "knownRssBytes": 61911040,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5558759424
+    },
+    {
+      "observedAt": "2026-10-01T18:58:18.821Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        35864,
+        34040
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5573214208
+    },
+    {
+      "observedAt": "2026-10-01T18:58:19.834Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        22148
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5646344192
+    },
+    {
+      "observedAt": "2026-10-01T18:58:20.831Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        30944
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 30944,
+          "rssBytes": 53563392
+        }
+      ],
+      "knownRssBytes": 63528960,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5593501696
+    },
+    {
+      "observedAt": "2026-10-01T18:58:21.830Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        30944,
+        34648
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5672566784
+    },
+    {
+      "observedAt": "2026-10-01T18:58:22.899Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        }
+      ],
+      "knownRssBytes": 9965568,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5635371008
+    },
+    {
+      "observedAt": "2026-10-01T18:58:23.853Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        20856,
+        24796
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5600808960
+    },
+    {
+      "observedAt": "2026-10-01T18:58:24.885Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        17064
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 17064,
+          "rssBytes": 42496000
+        }
+      ],
+      "knownRssBytes": 52461568,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5589164032
+    },
+    {
+      "observedAt": "2026-10-01T18:58:25.882Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        35148
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 35148,
+          "rssBytes": 53604352
+        }
+      ],
+      "knownRssBytes": 63569920,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5578178560
+    },
+    {
+      "observedAt": "2026-10-01T18:58:26.947Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        35148,
+        34480
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 34480,
+          "rssBytes": 49561600
+        },
+        {
+          "pid": 35148,
+          "rssBytes": 53604352
+        }
+      ],
+      "knownRssBytes": 113131520,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5559234560
+    },
+    {
+      "observedAt": "2026-10-01T18:58:27.918Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        26812
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5585121280
+    },
+    {
+      "observedAt": "2026-10-01T18:58:28.961Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        36504,
+        35772
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 35772,
+          "rssBytes": 41578496
+        },
+        {
+          "pid": 36504,
+          "rssBytes": 53084160
+        }
+      ],
+      "knownRssBytes": 104628224,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5510033408
+    },
+    {
+      "observedAt": "2026-10-01T18:58:29.916Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        36504,
+        36728
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5606678528
+    },
+    {
+      "observedAt": "2026-10-01T18:58:30.955Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        2784
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 2784,
+          "rssBytes": 42115072
+        }
+      ],
+      "knownRssBytes": 52080640,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5568393216
+    },
+    {
+      "observedAt": "2026-10-01T18:58:31.949Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        10992
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5606293504
+    },
+    {
+      "observedAt": "2026-10-01T18:58:32.920Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        3832
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 3832,
+          "rssBytes": 53018624
+        }
+      ],
+      "knownRssBytes": 62984192,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5606420480
+    },
+    {
+      "observedAt": "2026-10-01T18:58:34.001Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        17832
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5606535168
+    },
+    {
+      "observedAt": "2026-10-01T18:58:34.953Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        7668
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5566091264
+    },
+    {
+      "observedAt": "2026-10-01T18:58:35.973Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        33268
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9965568
+        },
+        {
+          "pid": 33268,
+          "rssBytes": 53026816
+        }
+      ],
+      "knownRssBytes": 62992384,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5575352320
+    },
+    {
+      "observedAt": "2026-10-01T18:58:37.010Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        33268,
+        2932
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        },
+        {
+          "pid": 2932,
+          "rssBytes": 49496064
+        },
+        {
+          "pid": 33268,
+          "rssBytes": 53035008
+        }
+      ],
+      "knownRssBytes": 112480256,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5595676672
+    },
+    {
+      "observedAt": "2026-10-01T18:58:38.004Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        33268,
+        34168
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5615693824
+    },
+    {
+      "observedAt": "2026-10-01T18:58:38.999Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        32136
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        },
+        {
+          "pid": 32136,
+          "rssBytes": 49516544
+        }
+      ],
+      "knownRssBytes": 59465728,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5459095552
+    },
+    {
+      "observedAt": "2026-10-01T18:58:40.001Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        9456
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5475811328
+    },
+    {
+      "observedAt": "2026-10-01T18:58:40.970Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        34480,
+        22900
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        },
+        {
+          "pid": 22900,
+          "rssBytes": 53202944
+        },
+        {
+          "pid": 34480,
+          "rssBytes": 43712512
+        }
+      ],
+      "knownRssBytes": 106864640,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5439426560
+    },
+    {
+      "observedAt": "2026-10-01T18:58:42.248Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        22900,
+        26632
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5195026432
+    },
+    {
+      "observedAt": "2026-10-01T18:58:43.163Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        35280
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5054832640
+    },
+    {
+      "observedAt": "2026-10-01T18:58:44.036Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        }
+      ],
+      "knownRssBytes": 9949184,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5096808448
+    },
+    {
+      "observedAt": "2026-10-01T18:58:45.005Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        11164
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5145075712
+    },
+    {
+      "observedAt": "2026-10-01T18:58:46.044Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        14604
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        },
+        {
+          "pid": 14604,
+          "rssBytes": 49135616
+        }
+      ],
+      "knownRssBytes": 59084800,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5151895552
+    },
+    {
+      "observedAt": "2026-10-01T18:58:47.041Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        29528
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5157486592
+    },
+    {
+      "observedAt": "2026-10-01T18:58:48.062Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        22496
+      ],
+      "resident": [
+        {
+          "pid": 22324,
+          "rssBytes": 9949184
+        },
+        {
+          "pid": 22496,
+          "rssBytes": 49020928
+        }
+      ],
+      "knownRssBytes": 58970112,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5159931904
+    },
+    {
+      "observedAt": "2026-10-01T18:58:49.031Z",
+      "method": "Get-Process.WorkingSet64",
+      "javaPid": 22324,
+      "ownedLiveProcessIds": [
+        22324,
+        32968
+      ],
+      "resident": [],
+      "knownRssBytes": 0,
+      "physicalMemoryBytes": 16944848896,
+      "availableMemoryBytes": 5167054848
+    }
+  ],
+  "scope": "sampled reference Java parent and host-owned worker/interpreter processes; sampling is not a capacity or performance promise"
+}

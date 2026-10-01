@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "jpyxis.io/reference-first-failure/v1alpha1",
+  "candidate": "455bb0f123bc97dedd458ef3940349ba248f0d5a",
+  "stage": "reference-java-compilation",
+  "classification": "COMPOSITION_API_SIGNATURE_MISMATCH",
+  "productWorkerStarted": false,
+  "qualificationGranted": false,
+  "observations": [
+    "DeploymentManager.pinInvocation requires an explicit pin ID plus slot/logical invocation/context",
+    "ResilientInvocationManager.recordLateObservation has ID arguments; recordObservation accepts and validates the full retained plan before its terminal late boundary"
+  ],
+  "disposition": "Correct only the two composition call sites; preserve existing public APIs, frozen contracts and owner semantics",
+  "originalLogs": "logs/build_reference.stdout.bin",
+  "originalManifest": "manifest.json"
+}

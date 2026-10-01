@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "jpyxis.io/reference-late-association-inspection/v1alpha1",
+  "candidate": "2363a9436898002193e3190dbd25b7b4d50f2ff4",
+  "ownerAndWorkerParsedAssociation": "EXACT_SEMANTIC_MATCH",
+  "originalMetadataBytesMatchRecordedOwnerDigest": true,
+  "metadataSha256": "sha256:abc0c0a9201b72e4502e8bcdaf3aef2f616b3838c51cf287123bfb005c93f722",
+  "workerReportRetained": true,
+  "callerStillWaiting": false,
+  "classification": "INTERNAL_JSON_NUMERIC_NODE_REPRESENTATION_MISMATCH",
+  "sourcePremise": "valueToTree retains Java long/float numeric node types; readTree reconstructs int/double nodes. Object-node equals can reject equal numeric values after JSON transport.",
+  "disposition": "Compare the exact retained metadata bytes to the original admission bytes, then parse and compare the retained JSON representation; keep full report-coordinate and typed-output validation"
+}

@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "jpyxis.io/reference-construction/v1alpha1",
+  "sourceRevision": "ef7884f42c8c45720ed12ef219cb46c35c39124a",
+  "sourceTree": "d9d8cb1c2dce9a5390f4cd8bab1ea135913dc674",
+  "selectedInterpreter": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "interpreter": {
+    "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "nativeExecutable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "version": "3.12.14"
+  },
+  "installExecutable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts\\python.exe",
+  "workerExecutable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "workerExecutableSha256": "sha256:dd5f8d19f6755d6491ee7c4bef2fe35ddd521334cc3ca3ed8fc93ebcadf135d0",
+  "launchFlags": [
+    "-S"
+  ],
+  "packageDirectory": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Lib\\site-packages",
+  "requirementsClosure": {
+    "invocation/python/requirements-m2.txt": "sha256:9cc62ac4eea340bd8ecd81d6439d61fbcf936b04db11ec9bc8bc8820df2f6b90",
+    "invocation/python/requirements-m3.txt": "sha256:2550f4831470fc7f21af3ecd7c59086dcc6d5e669ab6d6f2bedc408463881c6b"
+  },
+  "commands": [
+    {
+      "id": "preserved_first_failures",
+      "executable": "node",
+      "args": [
+        "experiments/reference-path/verify-local-candidates.mjs"
+      ],
+      "startedAt": "2026-10-01T18:54:46.757Z",
+      "endedAt": "2026-10-01T18:54:47.843Z",
+      "durationMs": 1086,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "selected_interpreter",
+      "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "args": [
+        "--version"
+      ],
+      "startedAt": "2026-10-01T18:54:48.094Z",
+      "endedAt": "2026-10-01T18:54:48.116Z",
+      "durationMs": 22,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "selected_interpreter_metadata",
+      "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "args": [
+        "-S",
+        "-c",
+        "import sys,json; print(json.dumps({\"executable\":sys.executable,\"nativeExecutable\":sys._base_executable,\"version\":\".\".join(map(str,sys.version_info[:3]))}))"
+      ],
+      "startedAt": "2026-10-01T18:54:48.118Z",
+      "endedAt": "2026-10-01T18:54:48.181Z",
+      "durationMs": 63,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "construct_environment",
+      "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "args": [
+        "-m",
+        "venv",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment"
+      ],
+      "startedAt": "2026-10-01T18:54:48.191Z",
+      "endedAt": "2026-10-01T18:54:57.805Z",
+      "durationMs": 9614,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "install_pinned_inputs",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "--no-cache-dir",
+        "--disable-pip-version-check",
+        "-r",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\invocation\\python\\requirements-m3.txt"
+      ],
+      "startedAt": "2026-10-01T18:54:57.807Z",
+      "endedAt": "2026-10-01T18:55:20.717Z",
+      "durationMs": 22910,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "check_installation",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "startedAt": "2026-10-01T18:55:20.718Z",
+      "endedAt": "2026-10-01T18:55:21.340Z",
+      "durationMs": 622,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "installed_inventory",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts\\python.exe",
+      "args": [
+        "-c",
+        "import importlib.metadata,json; print(json.dumps({d.metadata[\"Name\"]:d.version for d in importlib.metadata.distributions()},sort_keys=True))"
+      ],
+      "startedAt": "2026-10-01T18:55:21.341Z",
+      "endedAt": "2026-10-01T18:55:21.522Z",
+      "durationMs": 181,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "generate_frozen_carrier",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "grpc_tools.protoc",
+        "-I",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\spec\\m2\\proto",
+        "--python_out=C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\generated",
+        "--grpc_python_out=C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\generated",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\spec\\m2\\proto\\jpyxis_invocation_v1.proto"
+      ],
+      "startedAt": "2026-10-01T18:55:21.523Z",
+      "endedAt": "2026-10-01T18:55:22.151Z",
+      "durationMs": 628,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "build_reference",
+      "executable": "C:\\WINDOWS\\system32\\cmd.exe",
+      "args": [
+        "/d",
+        "/s",
+        "/c",
+        "mvnw.cmd -q -pl reference/java -am package"
+      ],
+      "startedAt": "2026-10-01T18:55:22.152Z",
+      "endedAt": "2026-10-01T18:58:06.164Z",
+      "durationMs": 164012,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    }
+  ],
+  "installedInventory": {
+    "grpcio": "1.83.1",
+    "grpcio-tools": "1.83.1",
+    "numpy": "2.2.6",
+    "pip": "25.0.1",
+    "protobuf": "7.35.1",
+    "setuptools": "80.9.0",
+    "typing_extensions": "4.16.0"
+  },
+  "launchEnvironment": {
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONHASHSEED": "0",
+    "PYTHONPATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Lib\\site-packages;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\bindings\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\invocation\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\generated;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\reference\\python",
+    "PATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\environment\\Scripts;C:\\WINDOWS\\System32",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\temporary",
+    "TMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\build\\reference-path\\ef7884f42c8c-1790880886755\\temporary"
+  },
+  "javaArtifact": {
+    "path": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-reference-audit\\reference\\java\\target\\jpyxis-reference-java.jar",
+    "sha256": "sha256:476a285f4898de978a9c7be5caaf83bae120ee406cc69cd3f2aca8be4a9a3d6b"
+  },
+  "inputInventoryDigest": "sha256:357e23e1ec3c098dc13dd98d2ca6e698ca9f81f3ffe74422cb9c3526a8f5d6b9"
+}

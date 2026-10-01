@@ -1,0 +1,24 @@
+Collecting grpcio==1.83.1 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 1))
+  Downloading grpcio-1.83.1-cp312-cp312-win_amd64.whl.metadata (3.8 kB)
+Collecting grpcio-tools==1.83.1 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 2))
+  Downloading grpcio_tools-1.83.1-cp312-cp312-win_amd64.whl.metadata (5.5 kB)
+Collecting numpy==2.2.6 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 3))
+  Downloading numpy-2.2.6-cp312-cp312-win_amd64.whl.metadata (60 kB)
+Collecting protobuf==7.35.1 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 4))
+  Downloading protobuf-7.35.1-cp310-abi3-win_amd64.whl.metadata (595 bytes)
+Collecting setuptools==80.9.0 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 5))
+  Downloading setuptools-80.9.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting typing-extensions==4.16.0 (from -r C:\Users\lenovo\Desktop\GitHubProjects\JPyxis-reference-audit\invocation\python\requirements-m2.txt (line 6))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Downloading grpcio-1.83.1-cp312-cp312-win_amd64.whl (5.2 MB)
+   ---------------------------------------- 5.2/5.2 MB 4.5 MB/s eta 0:00:00
+Downloading grpcio_tools-1.83.1-cp312-cp312-win_amd64.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 11.9 MB/s eta 0:00:00
+Downloading numpy-2.2.6-cp312-cp312-win_amd64.whl (12.6 MB)
+   ---------------------------------------- 12.6/12.6 MB 9.9 MB/s eta 0:00:00
+Downloading protobuf-7.35.1-cp310-abi3-win_amd64.whl (439 kB)
+Downloading setuptools-80.9.0-py3-none-any.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 3.8 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Installing collected packages: typing-extensions, setuptools, protobuf, numpy, grpcio, grpcio-tools
+Successfully installed grpcio-1.83.1 grpcio-tools-1.83.1 numpy-2.2.6 protobuf-7.35.1 setuptools-80.9.0 typing-extensions-4.16.0

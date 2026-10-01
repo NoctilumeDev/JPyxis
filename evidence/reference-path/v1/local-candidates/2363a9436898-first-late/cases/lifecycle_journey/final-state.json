@@ -1,0 +1,93 @@
+{
+  "binding" : { },
+  "deployments" : [ {
+    "deploymentId" : "04dbd54a-c289-4b75-a44e-51cc8cf888bd",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  }, {
+    "deploymentId" : "78a528a7-727c-409e-9834-592ff0ea3ce2",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:example/affine-batch-plan@2.0.0",
+      "digest" : "sha256:722426789e41a4e4aa44f04d2f09fc29795ea7f2efd8e9cb4ee49edc4936992d"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  }, {
+    "deploymentId" : "a33ecbc4-b614-4165-8441-8823658c3eb4",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    "state" : "FAILED",
+    "runtimeProviderIdentity" : null,
+    "runtimeProviderVersion" : null,
+    "outstandingPins" : 0
+  }, {
+    "deploymentId" : "c15be799-c752-487d-8c6e-34e75ba0542e",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:example/affine-batch-plan@1.0.0",
+      "digest" : "sha256:0b3eb8dff3b6cebf6945b100545b37cddb8e62c90664330c08ad3031321ed26b"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  } ],
+  "processes" : [ {
+    "handle" : {
+      "workerId" : "worker-c15be799-c752-487d-8c6e-34e75ba0542e",
+      "instanceId" : "worker-c15be799-c752-487d-8c6e-34e75ba0542e@41463590-697a-44b1-9c21-6d5bf6a94309-1",
+      "controlEpoch" : "41463590-697a-44b1-9c21-6d5bf6a94309",
+      "processId" : 32124
+    },
+    "pid" : 32124,
+    "birth" : "2026-10-01T18:28:20.480Z",
+    "alive" : false,
+    "launchNonce" : "6c8a981b-650c-49b7-ac11-49ec235138aa"
+  }, {
+    "handle" : {
+      "workerId" : "worker-78a528a7-727c-409e-9834-592ff0ea3ce2",
+      "instanceId" : "worker-78a528a7-727c-409e-9834-592ff0ea3ce2@41463590-697a-44b1-9c21-6d5bf6a94309-1",
+      "controlEpoch" : "41463590-697a-44b1-9c21-6d5bf6a94309",
+      "processId" : 24188
+    },
+    "pid" : 24188,
+    "birth" : "2026-10-01T18:28:22.305Z",
+    "alive" : false,
+    "launchNonce" : "d29dd2fa-2ed6-4ef1-b7d5-c08b1445c1b7"
+  }, {
+    "handle" : {
+      "workerId" : "worker-04dbd54a-c289-4b75-a44e-51cc8cf888bd",
+      "instanceId" : "worker-04dbd54a-c289-4b75-a44e-51cc8cf888bd@41463590-697a-44b1-9c21-6d5bf6a94309-1",
+      "controlEpoch" : "41463590-697a-44b1-9c21-6d5bf6a94309",
+      "processId" : 35376
+    },
+    "pid" : 35376,
+    "birth" : "2026-10-01T18:28:23.620Z",
+    "alive" : false,
+    "launchNonce" : "a8925ee0-97cf-48b7-9bdf-82a4528d28d9"
+  }, {
+    "handle" : {
+      "workerId" : "worker-a33ecbc4-b614-4165-8441-8823658c3eb4",
+      "instanceId" : "worker-a33ecbc4-b614-4165-8441-8823658c3eb4@41463590-697a-44b1-9c21-6d5bf6a94309-1",
+      "controlEpoch" : "41463590-697a-44b1-9c21-6d5bf6a94309",
+      "processId" : 25508
+    },
+    "pid" : 25508,
+    "birth" : "2026-10-01T18:28:24.915Z",
+    "alive" : false,
+    "launchNonce" : "9fcccf2f-938e-44a1-b35e-2f78d76f6eab"
+  } ]
+}

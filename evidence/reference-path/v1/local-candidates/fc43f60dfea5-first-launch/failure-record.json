@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "jpyxis.io/reference-local-candidate/v1alpha1",
+  "candidate": "fc43f60dfea5b835c9ece6650b43df226a5b8071",
+  "classification": "WINDOWS_VENV_LAUNCH_SHAPE_MISMATCH",
+  "explanation": "The Windows venv redirector root PID differed from its actual CPython child. Host/worker association rejected before representative invocation or M4 admission. Later numeric PID reuse was observed and did not supply cleanup authority. Select the native CPython executable explicitly and its fresh private package path; keep existing semantic coordinates and native Process ownership.",
+  "qualificationGranted": false,
+  "originalManifest": "manifest.json",
+  "originalLogs": "logs"
+}

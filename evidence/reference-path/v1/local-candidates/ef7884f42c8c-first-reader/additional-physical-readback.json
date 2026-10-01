@@ -1,0 +1,27 @@
+{
+  "classification": "RETAINED_TEXT_CHECKOUT_NEWLINE_ALLOWLIST_INCOMPLETE",
+  "candidate": "ef7884f42c8c45720ed12ef219cb46c35c39124a",
+  "changed": [
+    {
+      "path": "invocation/python/requirements-m2.txt",
+      "committedGitBlob": "08b49d09bbd2430ae4090702187d20e3d7b531ee",
+      "onlyCRLF": true
+    },
+    {
+      "path": "invocation/python/requirements-m3.txt",
+      "committedGitBlob": "1edabb6c7565c4f752489e27eb0bc7d9b1fb6d7e",
+      "onlyCRLF": true
+    },
+    {
+      "path": "spec/m2/proto/jpyxis_invocation_v1.proto",
+      "committedGitBlob": "9d67a06f92a37a513177ae3316229587d71939e7",
+      "onlyCRLF": true
+    }
+  ],
+  "actualJourneyExit": {
+    "code": 0,
+    "signal": null
+  },
+  "allRecordedProcessesStopped": true,
+  "disposition": "Retain raw construction inputs and their Environment closure. Extend only committed requirements/proto text checkout verification; normalized Git blob must match exactly. First reader rejection remains unchanged; runtime success does not grant qualification."
+}

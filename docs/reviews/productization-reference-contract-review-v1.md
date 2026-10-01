@@ -1,6 +1,6 @@
 # Productization Reference Contract Review v1
 
-Status: `CONTRACT CONTENT QUALIFIED · SEPARATE FREEZE PUBLICATION AND RUNTIME GATES PENDING`
+Status: `CONTRACT FROZEN · ACTUAL PATH IMPLEMENTATION AND QUALIFICATION PENDING`
 
 ## Qualified entry
 
@@ -69,6 +69,22 @@ bytes; effective freeze authority requires this later publication's protected me
 gates and independent readback. This publication changes no runtime or normative content and creates
 no milestone or tag. The initial content candidate and its green predecessor run remain preserved;
 only the revised complete candidate supplies accepted content authority.
+
+## Qualified freeze and bounded runtime entry
+
+Protected [PR #33](https://github.com/NoctilumeDev/JPyxis/pull/33) reviewed head
+`2bd9941e145f194f9369fe9fc79222417c3552ec`, executed merge
+`c2688829ca1ee9e0fc5427c8d7105ff341bb5265`, and accepted main
+`bd8cd9eff99f70f642c98571ed2390650320f222` closed the separate freeze publication. PR run
+`36895702066` and main run `36896679518` passed the unchanged required jobs. Downloaded artifacts,
+retained qualification inputs and the separate frozen-content reader independently passed; resources
+were ACCEPT and every recorded predecessor Runtime process stopped. The exact normative blobs above
+remain unchanged. The [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json)
+retains this later qualified authority and both readbacks. Historical candidate headers and records
+describe their original publication stage; they do not override this qualified entry.
+
+The next branch may implement only the declared actual path and matrix. It has no implementation,
+physical execution or product qualification result from this contract closure.
 
 ## Qualification and conserved scope
 

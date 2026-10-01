@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "jpyxis.io/reference-local-candidate/v1alpha1",
+  "candidate": "ef7884f42c8c45720ed12ef219cb46c35c39124a",
+  "classification": "RETAINED_TEXT_CHECKOUT_NEWLINE_ALLOWLIST_INCOMPLETE",
+  "explanation": "All eighteen actual case families completed and all recorded owned processes stopped, but the independent reader rejected three committed text inputs with only CRLF checkout differences. Preserve the first reader rejection and original raw inputs; compare normalized Git blobs only for the two fixed requirements files and frozen proto. No execution or product qualification follows from the driver labels alone.",
+  "qualificationGranted": false,
+  "originalManifest": "manifest.json",
+  "originalLogs": "logs"
+}
