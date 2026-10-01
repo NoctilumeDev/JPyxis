@@ -1,6 +1,6 @@
 # M4 Handle Validation Implementation Review
 
-Status: `CANDIDATE GUARDS · IMMUTABLE DIRECTED EXECUTION AND PUBLIC QUALIFICATION PENDING`
+Status: `LOCAL DIRECTED/PREDECESSOR CHECKS VERIFIED · PUBLIC GUARD QUALIFICATION PENDING`
 
 ## Qualified contract entry
 
@@ -37,6 +37,26 @@ separate matrix; M6 keeps thirteen phases, the existing clean profile and resour
 The workflow retains new raw M4 evidence without altering thresholds, dependencies or M5 guards.
 Missing stdout must be INCONCLUSIVE; hash-repaired foreign cleanup and self-declared alias
 adoption must be FAIL. This review describes planned witnesses until immutable execution completes.
+
+## Retained local execution
+
+The first committed candidate `6d4bd737bae53cf16525a83dbca2aced9227dd0c` compiled fresh exact
+source and passed all 28 directed cases and three guard mutations. Its full M4 run kept all eleven
+legacy scenarios and expected mutations, and its full M5 run kept all sixteen scenarios, 35
+coordinate cases, five durable fixtures and three coordinate mutations. Both processes exited
+zero with empty stderr; separate raw M5/coordinate readback passed.
+
+Candidate `8dbec86c4065f4c7066c231e10f14d6067a6a65c` strengthened only the independent reader to
+check every observed Runtime's callback arguments against its admitted owner. The first raw
+evidence remained unchanged and passed this additional readback. Fresh immutable execution at
+the newer candidate again passed 28 cases and three mutations. Runtime code and predecessor
+inputs were unchanged between those candidates; no broader local suite was repeated.
+
+The [local checks](../../evidence/m4-handle-validation/v2/local-checks.json),
+[retention ledger](../../evidence/m4-handle-validation/v2/local-retention.json) and separate
+candidate archives retain the first manifests, raw stdout/stderr, mutation inputs and full local
+M4/M5 logs. No first failure occurred. These are local checks, not public-clean M6 or exact-main
+guard qualification. No real process freshness or product-path result is inferred.
 
 ## Qualification limit
 

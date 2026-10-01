@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "jpyxis.io/m4-local-guard-checks/v1alpha1",
+  "state": "LOCAL_DIRECTED_AND_RELEVANT_PREDECESSORS_VERIFIED",
+  "firstCandidate": "6d4bd737bae53cf16525a83dbca2aced9227dd0c",
+  "readerStrengthenedCandidate": "8dbec86c4065f4c7066c231e10f14d6067a6a65c",
+  "firstManifestSha256": "sha256:274f85a95dd6abf2af5af9f2c99fe9bd1d4953020c6e0eff5570c76ada733d64",
+  "latestManifestSha256": "sha256:90b0078b8f488e6311d4675f6251195c2161365fa2abbb96e79f35448fec73aa",
+  "directedCases": 28,
+  "guardMutations": 3,
+  "legacyM4Scenarios": 11,
+  "legacyM5Scenarios": 16,
+  "m5CoordinateCases": 35,
+  "m5DurableFixtures": 5,
+  "m5CoordinateMutations": 3,
+  "publicQualification": false,
+  "scope": "Local exact-source public M4 model and unchanged relevant M4/M5 predecessor checks; no public-clean M6 or real product qualification",
+  "firstFailureObserved": false
+}
