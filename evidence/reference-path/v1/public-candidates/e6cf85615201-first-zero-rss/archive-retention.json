@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "jpyxis.io/reference-public-raw-retention/v1alpha1",
+  "originalArchiveCommit": "9bb07801c6f5e08a950e8c99d5edb19b88572ad0",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 14,
+      "sha256": "sha256:85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320"
+    },
+    {
+      "path": "artifacts.json",
+      "bytes": 5802,
+      "sha256": "sha256:1a72b69ac24f0b42dd2c1cdb73a90b4f83f8249ed9ae34d97d799f4c71fb3b00"
+    },
+    {
+      "path": "failed-log.stderr.bin",
+      "bytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "failed-log.stdout.bin",
+      "bytes": 4628,
+      "sha256": "sha256:2d1b78da1ead56c0bd84ef3d9067c71895e46cce498aa572faf7b12082e2847d"
+    },
+    {
+      "path": "jobs.json",
+      "bytes": 9548,
+      "sha256": "sha256:37d17cffaa533c05592307b7cba0881f20247322d2fdd9dbb0e7da44886609ab"
+    },
+    {
+      "path": "original-failed-main-bundle.zip",
+      "bytes": 987918,
+      "sha256": "sha256:78dbda38b69303c8b72ec998175f403878ee2a034571f5d1de4961ac865cacf9"
+    },
+    {
+      "path": "retention.json",
+      "bytes": 174254,
+      "sha256": "sha256:b99a6555e3bdb778963178f2447e3b84e85bfa73796353fa3c4bd41c0a4577d5"
+    },
+    {
+      "path": "run.json",
+      "bytes": 12472,
+      "sha256": "sha256:9d16ed1efe0af0e93598e43de0126a5caa611559eec60c6bbd155d753315b0fb"
+    }
+  ]
+}
