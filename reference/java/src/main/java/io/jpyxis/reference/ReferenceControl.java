@@ -110,6 +110,9 @@ final class ReferenceControl implements AutoCloseable {
                 r.qualifiedWorker=r.supervisor.snapshot(r.workerId);
                 ReferenceJson.require(r.qualifiedWorker.eligible(),"candidate health unavailable");
                 for(JsonNode facts:List.of(r.launch.independentProbe.path("actual"),r.launch.facts.path("actual"))){
+                    ReferenceJson.require(facts.path("executable").asText().equals(config.path("pythonExecutable").asText())&&facts.path("pythonFullVersion").asText().equals(config.path("interpreterVersion").asText()),"selected construction interpreter");
+                    ReferenceJson.require(facts.path("installedRuntimePackages").equals(environment.value().path("runtimePackages")),"selected installation inventory");
+                    for(JsonNode origin:facts.path("moduleOrigins"))ReferenceJson.require(Path.of(origin.asText()).toAbsolutePath().normalize().startsWith(Path.of(config.path("packageDirectory").asText()).toAbsolutePath().normalize()),"actual runtime module outside private construction");
                     ReferenceJson.require(facts.path("contractIdentity").asText().equals(r.contract.identity())&&facts.path("contractDigest").asText().equals(r.contract.digest()),"exact computation contract");
                     ReferenceJson.require(facts.path("definitionIdentity").asText().equals(r.identity)&&facts.path("definitionDigest").asText().equals(r.artifact.digest()),"exact definition bytes");
                     ReferenceJson.require(facts.path("definitionPlan").equals(ReferenceJson.tree(Map.of("schemaVersion","jpyxis.io/affine-definition-plan/v1alpha1","operationIdentity","jpyxis.operation/affine-batch@1"))),"definition plan");

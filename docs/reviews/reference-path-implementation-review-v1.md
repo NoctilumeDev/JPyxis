@@ -12,6 +12,21 @@ The minimal repair supplies a fresh pin ID and routes the already bound late obs
 `recordObservation(plan, ...)`, whose existing terminal path validates the full plan before recording
 and ignoring the late observation. No module API or frozen semantic boundary changes.
 
+The repaired candidate `fc43f60dfea5b835c9ece6650b43df226a5b8071` compiled, then rejected its first
+launch before representative invocation or M4 admission. Windows venv `python.exe` was a redirector:
+its Process PID differed from the actual CPython child's PID. The
+[second retained failure](../../evidence/reference-path/v1/local-candidates/fc43f60dfea5-first-launch/failure-record.json)
+and 199 original files were archived at `f1188532dcdc4cd675269cee0518b0117c8d184c` before repair.
+A later direct OS read found that the worker's numeric PID had already been reused by a conhost
+process; it was not a cleanup target. The original root-only shutdown record remains unchanged and
+does not supply actual-worker identity authority.
+
+The bounded repair selects the native CPython executable explicitly, passes `-S` and the freshly
+installed private package directory, and uses that exact executable/environment for both independent
+probe and worker. It checks actual imported module versions/origins and the selected construction
+interpreter. Direct Process ownership and worker PID/birth association remain required; no descendant
+adoption from a self-reported PID, new semantic coordinate or lifecycle state is introduced.
+
 The separately frozen contract enters from protected main `bd8cd9eff99f70f642c98571ed2390650320f222`.
 Its [runtime entry](../../evidence/reference-path/v1/runtime-entry/entry-manifest.json) binds PR #33,
 exact-main gates and independent readbacks. Specification blob `4dab857362aa4362bd3c46c03a3a9e7135b70193`

@@ -48,6 +48,8 @@ class SourceFacts:
 
 
 def actual_facts(worker, descriptor):
+    import numpy as np
+    from google import protobuf
     binding = worker.provider.binding
     closure = {name: digest(base64.b64decode(content)) for name, content in descriptor["requirementsBytes"].items()}
     environment = {"schemaVersion": "jpyxis.io/reference-environment/v1alpha1",
@@ -55,10 +57,13 @@ def actual_facts(worker, descriptor):
         "pythonMajorMinor": f"{sys.version_info.major}.{sys.version_info.minor}",
         "platform": sys.platform, "architecture": platform.machine(),
         "requirementsClosureDigest": digest(canonical(closure)),
-        "runtimePackages": {name: importlib.metadata.version(name) for name in ("numpy", "grpcio", "protobuf")}}
+        "runtimePackages": {"numpy": np.__version__, "grpcio": grpc.__version__, "protobuf": protobuf.__version__}}
     plan = worker.definition.plan
     return {"environment": environment, "pythonFullVersion": platform.python_version(),
-        "executable": sys.executable, "contractIdentity": worker.contract.identity,
+        "executable": sys.executable,
+        "moduleOrigins": {"numpy": np.__file__, "grpcio": grpc.__file__, "protobuf": protobuf.__file__},
+        "installedRuntimePackages": {name: importlib.metadata.version(name) for name in ("numpy", "grpcio", "protobuf")},
+        "contractIdentity": worker.contract.identity,
         "contractDigest": worker.contract.digest, "definitionIdentity": worker.definition.identity,
         "definitionDigest": worker.definition.digest,
         "definitionPlan": None if plan is None else {"schemaVersion": plan.schema_version, "operationIdentity": plan.operation_identity},

@@ -68,6 +68,8 @@ final class OwnedPythonWorkers implements WorkerControl {
             if(!probe.waitFor(10,TimeUnit.SECONDS)){probe.destroyForcibly();probe.waitFor(5,TimeUnit.SECONDS);throw new IllegalStateException("independent interpreter timeout");}
             journal.record("HOST_LAUNCH","INDEPENDENT_INTERPRETER_EXITED",Map.of("pid",probe.pid(),"exitCode",probe.exitValue(),"alive",probe.isAlive()));
             ReferenceJson.require(probe.exitValue()==0,"independent interpreter failed");
+            JsonNode probeFacts=ReferenceJson.read(launchRoot.resolve("independent-probe/worker-facts.json"));
+            ReferenceJson.require(probeFacts.path("pid").asLong()==probe.pid(),"independent native interpreter launch association");
             Process process=builder(launchRoot,false).redirectOutput(launchRoot.resolve("worker.stdout.bin").toFile())
                     .redirectError(launchRoot.resolve("worker.stderr.bin").toFile()).start();
             WorkerHandle handle=new WorkerHandle(workerId,instanceId,controlEpoch,process.pid());
@@ -76,13 +78,14 @@ final class OwnedPythonWorkers implements WorkerControl {
             awaitFile(launchRoot.resolve("transport-address.json"),process,Duration.ofSeconds(10));
             launch.port=ReferenceJson.read(launchRoot.resolve("transport-address.json")).path("port").asInt();
             launch.facts=ReferenceJson.read(launchRoot.resolve("worker-facts.json"));
-            launch.independentProbe=ReferenceJson.read(launchRoot.resolve("independent-probe/worker-facts.json"));
+            launch.independentProbe=probeFacts;
             ReferenceJson.require(launch.facts.path("pid").asLong()==process.pid()&&launch.facts.path("launchNonce").asText().equals(nonce),"host/worker birth association");
             journal.record("HOST_LAUNCH","ACTUAL_WORKER_OBSERVED",observation(launch));return handle;
-        } catch(Exception failure){throw new WorkerControlException("REFERENCE_LAUNCH_FAILED",failure.toString(),failure);}
+        } catch(Exception failure){journal.record("EXECUTION_CAPABILITY","ACTUAL_LAUNCH_FAILURE_OBSERVED",Map.of("failureType",failure.getClass().getName(),"reason",failure.toString()));throw new WorkerControlException("REFERENCE_LAUNCH_FAILED",failure.toString(),failure);}
     }
     private ProcessBuilder builder(Path launchRoot,boolean probe){
         var args=new ArrayList<String>();args.add(config.path("pythonExecutable").asText());
+        config.path("pythonFlags").forEach(flag->args.add(flag.asText()));
         args.add(config.path("workerScript").asText());args.add(launchRoot.resolve("descriptor.json").toString());if(probe)args.add("--probe");
         var builder=new ProcessBuilder(args);builder.environment().clear();
         config.path("launchEnvironment").fields().forEachRemaining(e->builder.environment().put(e.getKey(),e.getValue().asText()));

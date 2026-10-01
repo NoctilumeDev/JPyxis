@@ -67,6 +67,9 @@ try{
   assert.ok(!publicClean||process.env.GITHUB_ACTIONS==='true','local process cannot grant public clean qualification');
   await command('selected_interpreter',basePython,['--version']);
   assert.match(fs.readFileSync(path.join(runRoot,'logs/selected_interpreter.stdout.bin'),'utf8')+fs.readFileSync(path.join(runRoot,'logs/selected_interpreter.stderr.bin'),'utf8'),/Python 3\.12\./);
+  await command('selected_interpreter_metadata',basePython,['-S','-c','import sys,json; print(json.dumps({"executable":sys.executable,"nativeExecutable":sys._base_executable,"version":".".join(map(str,sys.version_info[:3]))}))']);
+  const interpreter=JSON.parse(fs.readFileSync(path.join(runRoot,'logs/selected_interpreter_metadata.stdout.bin'),'utf8'));
+  const workerExecutable=path.resolve(interpreter.nativeExecutable);
   await command('construct_environment',basePython,['-m','venv',venv]);
   await command('install_pinned_inputs',python,['-m','pip','install','--no-cache-dir','--disable-pip-version-check','-r',path.join(project,'invocation/python/requirements-m3.txt')]);
   await command('check_installation',python,['-m','pip','check']);
@@ -78,20 +81,21 @@ try{
   const closure=Object.fromEntries(Object.entries(requirements).map(([name,bytes])=>[name,sha(bytes)]));
   const environment={schemaVersion:'jpyxis.io/reference-environment/v1alpha1',pythonImplementation:'CPython',pythonMajorMinor:'3.12',
     platform:process.platform,architecture:process.platform==='win32'?'AMD64':'x86_64',requirementsClosureDigest:sha(canonical(closure)),runtimePackages:{numpy:'2.2.6',grpcio:'1.83.1',protobuf:'7.35.1'}};
+  const packageDirectory=path.join(venv,process.platform==='win32'?'Lib/site-packages':'lib/python3.12/site-packages');
   const launchEnvironment={PYTHONNOUSERSITE:'1',PYTHONDONTWRITEBYTECODE:'1',PYTHONUNBUFFERED:'1',PYTHONHASHSEED:'0',
-    PYTHONPATH:[path.join(project,'bindings/python'),path.join(project,'invocation/python'),generated,path.join(project,'reference/python')].join(path.delimiter),
+    PYTHONPATH:[packageDirectory,path.join(project,'bindings/python'),path.join(project,'invocation/python'),generated,path.join(project,'reference/python')].join(path.delimiter),
     PATH:process.platform==='win32'?[path.dirname(python),path.join(process.env.SystemRoot||'C:\\Windows','System32')].join(path.delimiter):'/usr/bin:/bin'};
   if(process.platform==='win32')Object.assign(launchEnvironment,{SystemRoot:process.env.SystemRoot||'C:\\Windows',TEMP:path.join(runRoot,'temporary'),TMP:path.join(runRoot,'temporary')});
   fs.mkdirSync(path.join(runRoot,'temporary'));
   const jar=path.join(project,'reference/java/target/jpyxis-reference-java.jar');
   const receipt={schemaVersion:'jpyxis.io/reference-construction/v1alpha1',sourceRevision:source,sourceTree:tree,
-    selectedInterpreter:basePython,workerExecutable:python,requirementsClosure:closure,commands:[...commands],
+    selectedInterpreter:basePython,interpreter,installExecutable:python,workerExecutable,workerExecutableSha256:sha(fs.readFileSync(workerExecutable)),launchFlags:['-S'],packageDirectory,requirementsClosure:closure,commands:[...commands],
     installedInventory:JSON.parse(fs.readFileSync(path.join(runRoot,'logs/installed_inventory.stdout.bin'),'utf8')),
     launchEnvironment,javaArtifact:{path:jar,sha256:sha(fs.readFileSync(jar))},inputInventoryDigest:sha(fs.readFileSync(path.join(runRoot,'input-inventory.json')))};
   write('construction-receipt.json',receipt);
   const definitions={v1:{identity:'jpyxis:definition:example/affine-batch-plan@1.0.0',bytes:fs.readFileSync('spec/m3/definitions/example_affine_plan_v1.py').toString('base64')},
     v2:{identity:'jpyxis:definition:example/affine-batch-plan@2.0.0',bytes:fs.readFileSync('spec/reference/definitions/example_affine_plan_v2.py').toString('base64')}};
-  write('journey-config.json',{evidenceRoot:runRoot,pythonExecutable:python,workerScript:path.join(project,'reference/python/reference_worker.py'),launchEnvironment,environment,definitions,
+  write('journey-config.json',{evidenceRoot:runRoot,pythonExecutable:workerExecutable,pythonFlags:['-S'],packageDirectory,interpreterVersion:interpreter.version,workerScript:path.join(project,'reference/python/reference_worker.py'),launchEnvironment,environment,definitions,
     requirementsBytes:Object.fromEntries(Object.entries(requirements).map(([name,bytes])=>[name,bytes.toString('base64')])),
     contractBytes:fs.readFileSync('spec/m1/contracts/example.affine-batch.v1.json').toString('base64'),representativeInput:JSON.parse(fs.readFileSync('spec/m2/cases/success_exact.json','utf8')),
     executionBuild:{sourceRevision:source,sourceTree:tree,inputInventoryDigest:receipt.inputInventoryDigest,constructionReceiptDigest:sha(fs.readFileSync(path.join(runRoot,'construction-receipt.json')))}});
