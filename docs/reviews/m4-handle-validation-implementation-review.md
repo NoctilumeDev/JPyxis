@@ -35,6 +35,9 @@ cross-artifact alias. The latter prevents artifact identity from substituting fo
 The original M4 eleven-scenario matrix remains unchanged. Its runner additionally executes this
 separate matrix; M6 keeps thirteen phases, the existing clean profile and resource predicates.
 The workflow retains new raw M4 evidence without altering thresholds, dependencies or M5 guards.
+The clean M6 VM uploads a separate `m4-handle-clean` artifact because its original frozen bundle
+copy contains only predecessor summaries/runs. This preserves new raw guard readback from that
+fresh VM without changing the old M6 bundle, phase matrix or predicates.
 Missing stdout must be INCONCLUSIVE; hash-repaired foreign cleanup and self-declared alias
 adoption must be FAIL. This review describes planned witnesses until immutable execution completes.
 
