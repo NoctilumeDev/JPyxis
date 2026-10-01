@@ -60,8 +60,9 @@ general physical cleanup guarantee is established by rejecting the return.
 
 Only the deployment that admitted a tuple may pass it to warm or to its retained Runtime's unload
 callback. Normal unload and failed-warmup cleanup both retain that owner identity. A duplicate
-rejected at load never reaches those release paths. Rollback creates a new realization using a
-fresh, never-admitted tuple; a same-artifact rollback with a spent tuple fails before cutover.
+rejected at load never reaches those release paths. Rollback requests a new deployment and requires
+a never-admitted tuple before cutover. A same-artifact rollback with a spent tuple fails before
+cutover; actual process freshness is outside this contract's public-model qualification.
 
 Successful unload remains a capability report. It permits the existing Control retirement decision
 but does not prove a real process exited or permit tuple reuse. A failed normal unload preserves
