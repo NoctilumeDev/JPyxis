@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "jpyxis.io/audit-source-facts/v1alpha1",
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "sourceTree": "71392dbf9b4f58a801a0973ca2c4fe36e5d9ecd6",
+  "files": [
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/InvocationManager.java",
+      "gitBlob": "f49a016d74f62df424b96f98d3ead65e8977f5f5",
+      "sha256": "sha256:5d4353af2cd6e429085b5d0f7f64300736bb79585acdcfea71fc042593d3fae8"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/InvocationTransport.java",
+      "gitBlob": "241fd426edafed3bb054fd32b0dd2f55d46d4cfc",
+      "sha256": "sha256:05a288a350bbb1d351f90388098a98ed72fcca61d46538481ca1108f83a1031e"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/InvocationAttempt.java",
+      "gitBlob": "3cdebcfd5e4b179a4bc3d40a2b57446eea796fa1",
+      "sha256": "sha256:1d2c5f26e836b57e946db4fe036d10affe65898755ce4f5fd3f88ed0fca1d045"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/WorkerExecutionReport.java",
+      "gitBlob": "d31efb6b09fb8f3f751c33cc8790888d019f2d79",
+      "sha256": "sha256:a6c53c26d41a223ca8b3df1dd8148df914a6976f7fe075c836ec4a6a6e761729"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/WorkerCoordinates.java",
+      "gitBlob": "a4dac6b87eb9c677bd15ea2abc870ca6a53f80fb",
+      "sha256": "sha256:d97a2d102e43dfd1edbbbd3e6d257404aa519071068f317132e304c6a60312da"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/RuntimeBinding.java",
+      "gitBlob": "52fe054212036dbc5f634a6c50e15c078626fcf3",
+      "sha256": "sha256:9a99f4e3893257461bf052dfe9493a0ebdf6a1eaf290a19cfc62bac78b25d5d9"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/transport/RuntimeCapabilityReport.java",
+      "gitBlob": "abdef914dc2e81d00fc195bc5ef41e3853d78473",
+      "sha256": "sha256:48ca5c0dd83ae7e71698cfc3863b72accfee7213936aaebc2ffde99e706b0734"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/host/InvocationCoordinates.java",
+      "gitBlob": "9fc1c796d83b46eacdad45caf8eba2355cae1b66",
+      "sha256": "sha256:83f57076d53f482e5c13d7a3eb8feb73e7e67bcaf2bc05cff037b6d9ee64558b"
+    },
+    {
+      "path": "invocation/java/src/main/java/io/jpyxis/invocation/TerminalState.java",
+      "gitBlob": "efcc2ac12c536c3224efef392d685777eee9d42c",
+      "sha256": "sha256:ee6780b0d2266bc50abf06a6d45daa9ac60ea1078bb5aa0f15e596a822f0e51c"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/InvocationPin.java",
+      "gitBlob": "9906bbd7ad9e3b8be5fc0e54c2b0b250d6c7d1ae",
+      "sha256": "sha256:43ea35306c247204fc28b4f1d1529de0976c0fedf9c776d4532586e6faeaa883"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/ArtifactPayload.java",
+      "gitBlob": "8858c251d6fed12e87f4ba08c1137c39ca679435",
+      "sha256": "sha256:a8b52c8d7acf9ef40fa41e61ad4e73f31c51902bad4693042d6670ad8e3fdc7a"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/api/RuntimeHandle.java",
+      "gitBlob": "ee3e8eb0b7248d7b12eba48469710a4d8784c556",
+      "sha256": "sha256:094324a5f2d71423a7c26843eb31b2fd3e06017c0f84952ba23d393d3da86506"
+    },
+    {
+      "path": "lifecycle/java/src/main/java/io/jpyxis/lifecycle/core/DeploymentManager.java",
+      "gitBlob": "9ca3bb313dbd9c1e8396e6dd118c73d154b127d9",
+      "sha256": "sha256:6aebf75cb5c0bfaf6a68c6b0fd26f810fd2a427afdaad22f2d3ec188c668bba5"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptPlan.java",
+      "gitBlob": "f07bd422f6ee29d047ce767977f465aee454e553",
+      "sha256": "sha256:b38ea43071ae0a203bc346353e40dddccbb252012ce65cf5b9f6d114dcc11782"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerHandle.java",
+      "gitBlob": "2b658a82b6c26b85a1650be56b14b46a98f5b77e",
+      "sha256": "sha256:0ab195e5ac8f870491af47c42cbd45ba1c102ff420737b21a9689796318da7bd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/LogicalInvocationState.java",
+      "gitBlob": "9da8291cbcc1ba99589cc97ebe7515fba2a2bbd2",
+      "sha256": "sha256:0fb48e3d21a6fbc6ba5ba01eeba6beed0dd21b4ab6f0cc6d7621a2e30b33efda"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+      "gitBlob": "e8ad3a0eb72e9c6c2eacf4532f5af8230bd3a83d",
+      "sha256": "sha256:4ee882be4e8585564759a5b4b8f21a6d137749342bcf034a2fb3dfc8f904ffd0"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+      "gitBlob": "541d8de6d20e007bdac10ad06b7e63bc433c5a03",
+      "sha256": "sha256:68b9268f3d809b1d8ed22170f5816aeb4ce2c4fc7742fc16d1e429d6c5a667f2"
+    },
+    {
+      "path": "invocation/python/jpyxis_worker/m3_server.py",
+      "gitBlob": "b97de94f2c306e46c63bdf14d18fcfa11ca848b8",
+      "sha256": "sha256:675cab97e1e92908367ff282db9f47a04787e078168ed16022835196ee017557"
+    },
+    {
+      "path": "invocation/python/jpyxis_worker/runtime_spi.py",
+      "gitBlob": "326f107b1894086791253a9ea56703f8ae4c1762",
+      "sha256": "sha256:94ecb7b9d903d0cbf34d1062f8c6a4387341065de235328934afbce5602be532"
+    },
+    {
+      "path": "invocation/python/jpyxis_worker/runtimes/numpy_runtime.py",
+      "gitBlob": "89eeb232d38b1e73c7a6226ebf3657b203fc87dc",
+      "sha256": "sha256:2c6978cc01f1f435226f4cc6c036a4fcdced11e23660e0b54295fc73ea86fb30"
+    },
+    {
+      "path": "invocation/python/jpyxis_worker/runtimes/reference_runtime.py",
+      "gitBlob": "22beb2f0b9f3895b625f9581e61aba06fa9b5900",
+      "sha256": "sha256:6e53fcc8af551cd2c618628592cd403d88ff54abbff4ec357e7bf9ae0b3f7abc"
+    },
+    {
+      "path": "docs/spec/m2-invocation-profile.md",
+      "gitBlob": "8eeed3c1d3f31130f4e2bc54939d1ec0b5b929e4",
+      "sha256": "sha256:a805e1f816eeb39a67302fbeddb8cd5bb7a058fa7f93e18387f129e41a2c84fc"
+    },
+    {
+      "path": "docs/spec/m3-runtime-profile.md",
+      "gitBlob": "2ca4bc7a4991eea9622dcf3069baeab1965b3a74",
+      "sha256": "sha256:a05dd95e32ba70e4190e62e2f6918ed0c4456e705438134a890fa5ecf4288440"
+    },
+    {
+      "path": "docs/spec/m4-lifecycle-profile.md",
+      "gitBlob": "dda9938b8e8a1b6316145b75de2e85d3bfde5498",
+      "sha256": "sha256:d4abdcfcd08bc95e088100ccd33f27020ad344e675de83d4f6e762f8140cdbe7"
+    },
+    {
+      "path": "docs/spec/m5-resilience-profile.md",
+      "gitBlob": "e2e994098ea0f9e9b21fa6e4d6a4e96d1871b0e3",
+      "sha256": "sha256:7b28815896d4b4f5c68eff21485490e8654e40ee424a8e644dd327f3fd45fd37"
+    },
+    {
+      "path": "docs/spec/m4-handle-ownership-contract-v2.md",
+      "gitBlob": "3445779836822cf033fb2fd9007486141f98339d",
+      "sha256": "sha256:40a474d90322b04fd655ac2c7cfac4b9dc1f18cba61a49a36e0c7976d0cf2e55"
+    },
+    {
+      "path": "docs/spec/m5-coordinate-validation-contract-v2.md",
+      "gitBlob": "f5f937c49be7919460d09e95cb82311ac2b00003",
+      "sha256": "sha256:4905b62337a66877d9f653838b19b7c0860facf89a7511fa53b8f7e946b920ec"
+    }
+  ],
+  "scope": "Inspected public carrier, invocation, runtime and normative boundaries; no executed composition claim"
+}

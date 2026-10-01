@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "jpyxis.io/productization-audit-v3-entry/v1alpha1",
+  "state": "QUALIFIED_M4_M5_GUARDS_AUDIT_A_RERUN_ENTRY",
+  "productizationQualified": false,
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "sourceTree": "71392dbf9b4f58a801a0973ca2c4fe36e5d9ecd6",
+  "qualificationPublication": {
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/30",
+    "head": "46b692fdd86f65bfd4f241fbda103805e8ea4fc7",
+    "executedPrMerge": "d2bc70d17e052acbb911637fc84f0de2257494ee",
+    "acceptedMain": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+    "mergedAt": "2026-10-01T15:46:47Z"
+  },
+  "prEvidence": {
+    "run": 36885778517,
+    "m4Artifact": 11174817046,
+    "cleanM4Artifact": 11173499217,
+    "m5Artifact": 11174477154,
+    "m6Artifact": 11173684105
+  },
+  "mainEvidence": {
+    "run": 36886929290,
+    "m4Artifact": 11174133549,
+    "cleanM4Artifact": 11174828985,
+    "m5Artifact": 11174139281,
+    "m6Artifact": 11174428614
+  },
+  "independentReadback": "PASS",
+  "retainedM4InputFiles": 473,
+  "legacyM4Scenarios": 11,
+  "m4DirectedCasesEachVm": 28,
+  "m4MutationsEachVm": 3,
+  "m5CoordinateCases": 35,
+  "m5DurableFixtures": 5,
+  "m5Mutations": 3,
+  "m6Phases": 13,
+  "m6Mutations": 8,
+  "resources": "ACCEPT",
+  "recordedProcessesStopped": true,
+  "guardImplementationRecord": "../m4-handle-validation/v2/implementation-manifest.json",
+  "currentSystemMap": {
+    "repository": "NoctilumeDev/NoctilumeDev",
+    "commit": "d9e94a30f914cd147015ea3f1e8e91b933c4b7b0",
+    "path": "docs/repository-system-map.md",
+    "blob": "0dd3fc2678de83c88bfbf234559bdf6a484fff46",
+    "priorCommit": "cb67c33d4ba44c1b216c1f1cb7f6e45ef45fe329",
+    "sameContent": true
+  },
+  "scope": "Entry to fresh bounded public model Audit A and exact-source composition review only; contract B and real runtime path remain gated"
+}
