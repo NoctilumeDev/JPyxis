@@ -338,6 +338,8 @@ the [separate implementation review](docs/reviews/m5-coordinate-validation-imple
 binds the qualified v2 guards. The [subsequent audit STOP](docs/reviews/productization-reference-path-audit-review-v2.md)
 retains a first M4 retired-handle rollback counterexample. Productization remains gated by its
 separate M4 disposition and a fresh audit of the real path.
+The [minimum M4 pre-contract review](docs/reviews/m4-handle-ownership-precontract-review.md) audits
+retired, live, released and concurrently returned canonical handle identities within one owner.
 
 ## M6 reproducibility baseline
 

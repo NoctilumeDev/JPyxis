@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "jpyxis.io/m4-precontract-audit-entry/v1alpha1",
+  "acceptedMain": "fa1991da1c08de1242a805a749a5acffb1c88d05",
+  "acceptedTree": "5b5b3d1ed05977b4c58580c5fd3b3f87b9297dc9",
+  "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/25",
+  "reviewedHead": "48bee2e60d0a236928e8ba363b2a080ef0726bea",
+  "prExecutedSource": "a1781ebf0f1047f844c46a7737130b9a5cef6a75",
+  "prRun": 36866368474,
+  "prArtifacts": {
+    "m5": 11163987095,
+    "m6": 11163543960
+  },
+  "mainRun": 36867044498,
+  "mainArtifacts": {
+    "m5": 11164052895,
+    "m6": 11163633267
+  },
+  "probeCandidate": "e4af4c4d5bbbf0ea202b67404b0ce564cb3e5c6d",
+  "scope": "Bounded M4 pre-contract audit only; no runtime repair or contract freeze"
+}
