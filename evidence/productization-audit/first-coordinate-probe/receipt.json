@@ -1,0 +1,867 @@
+{
+  "schemaVersion": "jpyxis.io/productization-audit-probe/v1alpha1",
+  "scope": "Audit-only M5 public model coordinate gates; in-memory journal; synthetic execution observation; no durability or real worker claim",
+  "sourceBase": "9632a4f45c2190da6440e455667090fdd88e4a69",
+  "sourceTree": "815c1af197cd1e430f49b64de4784605b1f720f0",
+  "checkoutHead": "9632a4f45c2190da6440e455667090fdd88e4a69",
+  "dirtyState": "?? experiments/",
+  "sourceEquality": "Each compiled predecessor file matches the exact base Git blob before compilation",
+  "sources": [
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservation.java",
+      "gitBlob": "ee3ef4dcb6160d4b90384bb9af9140c65548c7be",
+      "sha256": "sha256:5557b2d105f9631d545dc6e1aacb9336aeb388bc6a78f0c05dcfe9af9ee2d6ca"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservationKind.java",
+      "gitBlob": "0673a1f4e58de9c52e9fcb2a7334dc187414e586",
+      "sha256": "sha256:8b20213449b348a8311bfcadb766d080fd15f3087cc441676c2eab64b69c37cc"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptPlan.java",
+      "gitBlob": "f07bd422f6ee29d047ce767977f465aee454e553",
+      "sha256": "sha256:b38ea43071ae0a203bc346353e40dddccbb252012ce65cf5b9f6d114dcc11782"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptSnapshot.java",
+      "gitBlob": "6298db3c4ecec9d5949855fc418141709edb52a6",
+      "sha256": "sha256:230cf8917570c4474495f0e50935d1c35e3af616b39c907c7277da6e041afbc7"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/DesiredBinding.java",
+      "gitBlob": "bd20e6c484c63198b034724cf126c0a32a8c2b2e",
+      "sha256": "sha256:2647d9097cb994dc208baef7bb959ef304023bc89f083e75450baf38d54316be"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/IdempotencyMode.java",
+      "gitBlob": "bbeb8b822e0abba748080c86399a8305aa819202",
+      "sha256": "sha256:c3cdc1e5c0e96c658324959ac378c3db385524dd063714170643a59426bd0a35"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationRequest.java",
+      "gitBlob": "084ef573967a643b720cc00dd73875a4ad75071a",
+      "sha256": "sha256:6012a69629d3ba2085d3e4c9949122bdbff3d58f1bda297dfb229343e02bc996"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationSnapshot.java",
+      "gitBlob": "fe67c0ad647dd67651abc7861356882aa8842673",
+      "sha256": "sha256:fb5318bd6bd999f02f78e45ff7608fd2ce127762a4192b86f09102af9bf4a332"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/LogicalInvocationState.java",
+      "gitBlob": "9da8291cbcc1ba99589cc97ebe7515fba2a2bbd2",
+      "sha256": "sha256:0fb48e3d21a6fbc6ba5ba01eeba6beed0dd21b4ab6f0cc6d7621a2e30b33efda"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceContext.java",
+      "gitBlob": "7f9191281f86e0e8f501d35aa1534bef66a98c5f",
+      "sha256": "sha256:023ad401d1ca5e2f72cc194c7928d237d682e6289dcbfd6caf78d37f19b2cece"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceException.java",
+      "gitBlob": "88375bba1bf52c178fc3050e8f04a7a46503e19e",
+      "sha256": "sha256:fdf2de80bb821649ed53200edbeb02f0981ef8b28845cd54fef90014198a8a82"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerHandle.java",
+      "gitBlob": "2b658a82b6c26b85a1650be56b14b46a98f5b77e",
+      "sha256": "sha256:0ab195e5ac8f870491af47c42cbd45ba1c102ff420737b21a9689796318da7bd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerSnapshot.java",
+      "gitBlob": "5a38f4a2be0d948f2dcb471037f66a68a473576e",
+      "sha256": "sha256:c5c76e2b663ec9ccd2f420e5d2be7be3d49ac6bade262da1f59e572a87cd045f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerState.java",
+      "gitBlob": "4b89794c8b23b221ddfa50e488e643f81eaecbde",
+      "sha256": "sha256:cfe5b8c05befa7d0f653a2ba61d0e1d964cb99bd92332fc1aaa98bb1ec87de4f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+      "gitBlob": "f2d8cb1e099a07b4fe1a59c74f017e3b80393250",
+      "sha256": "sha256:c620e4fb718f168f7a85a31a8717124486387f1f3284dfe43c4912306e81aedd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+      "gitBlob": "96b45f703c514153496ad65708666220a0335eb6",
+      "sha256": "sha256:7dc78e81d0a39c77863f02018aff30b13acbe57e69d997316c38d1612f494115"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/EventOwner.java",
+      "gitBlob": "e376bf32ec160246d6a4b1f769ab8109746647f4",
+      "sha256": "sha256:dc93bc1015e6aac6e108280b71c68e0579477b21e78b17d9334659004f31b1b4"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceJournal.java",
+      "gitBlob": "bc9d3063fd5af54717256c19bdc01e91f9573f9e",
+      "sha256": "sha256:3e5165c82a149aeac9f65ff40f1488e678cd061506a269dc4d527fce9cc03434"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEvent.java",
+      "gitBlob": "6f9421f0bec0e06d9c4076780d724691cecacceb",
+      "sha256": "sha256:0e6cbeab5ae84b4378fb88c3863886df308d51f413b388ed4779d8c1a801e035"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEventDraft.java",
+      "gitBlob": "8e0c61392dc2b83f8c14460871854a11f17cf74b",
+      "sha256": "sha256:8328e42cbb0958271b76e9310d16aabe216b9d569c7917dc2be26b73b1fa878f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControl.java",
+      "gitBlob": "898e3b1b4d10f734adf76571680932276809559e",
+      "sha256": "sha256:ce2c1667c4761bf6fd505a243fc49c4754f80c4f5c5dd81bb93da594fd5b3082"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControlException.java",
+      "gitBlob": "5bf109fa9f2170fa0d3c171fd27a08e81e30c4af",
+      "sha256": "sha256:07c96d43d37d78d0c007f2ce73421f3f7c4c2558e730deb846d582c0d079593c"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/AttemptExecutor.java",
+      "gitBlob": "a0d071d445b890ab76157a096da7c51dd1af1825",
+      "sha256": "sha256:a2c72e30204ac631341b6becb739b512374e71340d091ed2d13e794b4f039bc9"
+    }
+  ],
+  "probeSource": {
+    "path": "experiments/productization-audit/CoordinateGateProbe.java",
+    "sha256": "sha256:df6f218bf003ec9cdde1193afda8fec12cbced79fbc864d466bdb1e25bc103fb"
+  },
+  "harnessSource": {
+    "path": "experiments/productization-audit/run-coordinate-gate-probe.mjs",
+    "sha256": "sha256:15a998a007e83bc78a8a216bd665c010a857ce319900429dc2880cddf78cd5d6"
+  },
+  "environment": {
+    "os": "Windows_NT",
+    "release": "10.0.26200",
+    "architecture": "x64",
+    "node": "v24.14.0"
+  },
+  "startedAt": "2026-10-01T08:52:19.375Z",
+  "javac": "javac 17.0.12",
+  "java": "java version \"17.0.12\" 2024-07-16 LTS\r\nJava(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)\r\nJava HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)",
+  "compileExit": 0,
+  "runs": [
+    {
+      "case": "honest_plan_control",
+      "exitCode": 0,
+      "stdoutSha256": "sha256:33efa2179f3e713b972ec8681fe810bfa02113d08e23f527b2e2170b55dfae22",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "honest_plan_control",
+        "expected": "SUCCEEDED",
+        "unexpectedAcceptance": false,
+        "scope": "M5 public model coordinate gate only; synthetic observation; no real execution",
+        "retainedEpoch": "control-epoch-original",
+        "submittedEpoch": "control-epoch-original",
+        "retainedInstanceId": "worker-original@control-epoch-original-1",
+        "submittedInstanceId": "worker-original@control-epoch-original-1",
+        "retainedIdempotencyMode": "NONE",
+        "submittedIdempotencyMode": "NONE",
+        "retainedDeduplicationScope": "",
+        "submittedDeduplicationScope": "",
+        "observedState": "SUCCEEDED",
+        "authoritativeIdempotencyMode": "NONE",
+        "journal": [
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_REGISTERED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "workerEpoch": "control-epoch-original",
+              "instanceId": "",
+              "newState": "REGISTERED",
+              "processId": "0",
+              "previousState": ""
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_STARTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "previousLifecycleState": "REGISTERED",
+              "workerEpoch": "control-epoch-original",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "newState": "STARTING",
+              "previousState": "REGISTERED",
+              "processId": "0"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_START_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_HANDLE_PINNED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_PROBE_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "healthy": "true"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_ELIGIBLE",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "workerEpoch": "control-epoch-original",
+              "reason": "SUPERVISOR_PROBE_ACCEPTED",
+              "newState": "ELIGIBLE",
+              "previousState": "STARTING",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ACCEPTED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "",
+            "details": {
+              "maximumAttempts": "1",
+              "deduplicationScope": "",
+              "idempotencyMode": "NONE",
+              "newState": "ACCEPTED",
+              "previousState": "",
+              "logicalTraceId": "logical-trace"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ATTEMPTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "attemptNumber": "1",
+              "workerEpoch": "control-epoch-original",
+              "newState": "ATTEMPTING",
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "previousState": "ACCEPTED",
+              "logicalTraceId": "logical-trace"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "ATTEMPT_DISPATCH_INTENT",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "deduplicationScope": "",
+              "logicalTraceId": "logical-trace",
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "idempotencyMode": "NONE",
+              "attemptNumber": "1"
+            }
+          },
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "logicalTraceId": "logical-trace",
+              "code": "OK",
+              "kind": "SUCCEEDED",
+              "executionMayContinue": "false"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_SUCCEEDED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "newState": "SUCCEEDED",
+              "code": "OK",
+              "previousState": "ATTEMPTING",
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "recovered": "false"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "worker_instance_substitution",
+      "exitCode": 0,
+      "stdoutSha256": "sha256:b8c37440484c2cbb33d98d9a2d79cf1f82cc919f65551d66b57ca3bd67d81ea0",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "worker_instance_substitution",
+        "expected": "ATTEMPT_COORDINATE_MISMATCH",
+        "unexpectedAcceptance": false,
+        "scope": "M5 public model coordinate gate only; synthetic observation; no real execution",
+        "retainedEpoch": "control-epoch-original",
+        "submittedEpoch": "control-epoch-original",
+        "retainedInstanceId": "worker-original@control-epoch-original-1",
+        "submittedInstanceId": "instance-substituted",
+        "retainedIdempotencyMode": "NONE",
+        "submittedIdempotencyMode": "NONE",
+        "retainedDeduplicationScope": "",
+        "submittedDeduplicationScope": "",
+        "observedException": "ATTEMPT_COORDINATE_MISMATCH",
+        "journal": [
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_REGISTERED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "previousState": "",
+              "processId": "0",
+              "newState": "REGISTERED",
+              "instanceId": "",
+              "workerEpoch": "control-epoch-original"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_STARTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "previousState": "REGISTERED",
+              "newState": "STARTING",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "workerEpoch": "control-epoch-original",
+              "previousLifecycleState": "REGISTERED"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_START_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_HANDLE_PINNED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_PROBE_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "healthy": "true",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_ELIGIBLE",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "previousState": "STARTING",
+              "newState": "ELIGIBLE",
+              "reason": "SUPERVISOR_PROBE_ACCEPTED",
+              "workerEpoch": "control-epoch-original"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ACCEPTED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "previousState": "",
+              "newState": "ACCEPTED",
+              "idempotencyMode": "NONE",
+              "deduplicationScope": "",
+              "maximumAttempts": "1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ATTEMPTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "previousState": "ACCEPTED",
+              "newState": "ATTEMPTING",
+              "workerEpoch": "control-epoch-original",
+              "attemptNumber": "1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "ATTEMPT_DISPATCH_INTENT",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "attemptNumber": "1",
+              "idempotencyMode": "NONE",
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "logicalTraceId": "logical-trace",
+              "deduplicationScope": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "worker_epoch_substitution",
+      "exitCode": 2,
+      "stdoutSha256": "sha256:a142cd4c01e796a396cd4c5bca5271b55b44103b81ec8b56330410543228ed4c",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "worker_epoch_substitution",
+        "expected": "ATTEMPT_COORDINATE_MISMATCH",
+        "unexpectedAcceptance": true,
+        "scope": "M5 public model coordinate gate only; synthetic observation; no real execution",
+        "retainedEpoch": "control-epoch-original",
+        "submittedEpoch": "control-epoch-substituted",
+        "retainedInstanceId": "worker-original@control-epoch-original-1",
+        "submittedInstanceId": "worker-original@control-epoch-original-1",
+        "retainedIdempotencyMode": "NONE",
+        "submittedIdempotencyMode": "NONE",
+        "retainedDeduplicationScope": "",
+        "submittedDeduplicationScope": "",
+        "observedState": "SUCCEEDED",
+        "authoritativeIdempotencyMode": "NONE",
+        "journal": [
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_REGISTERED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "newState": "REGISTERED",
+              "instanceId": "",
+              "workerEpoch": "control-epoch-original",
+              "previousState": "",
+              "processId": "0"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_STARTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "previousState": "REGISTERED",
+              "newState": "STARTING",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "workerEpoch": "control-epoch-original",
+              "previousLifecycleState": "REGISTERED"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_START_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_HANDLE_PINNED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_PROBE_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "healthy": "true",
+              "instanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_ELIGIBLE",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "1",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "previousState": "STARTING",
+              "newState": "ELIGIBLE",
+              "reason": "SUPERVISOR_PROBE_ACCEPTED",
+              "workerEpoch": "control-epoch-original"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ACCEPTED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "previousState": "",
+              "newState": "ACCEPTED",
+              "idempotencyMode": "NONE",
+              "deduplicationScope": "",
+              "maximumAttempts": "1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ATTEMPTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "previousState": "ACCEPTED",
+              "newState": "ATTEMPTING",
+              "workerEpoch": "control-epoch-original",
+              "attemptNumber": "1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "ATTEMPT_DISPATCH_INTENT",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "deduplicationScope": "",
+              "attemptNumber": "1",
+              "idempotencyMode": "NONE",
+              "workerInstanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "executionMayContinue": "false",
+              "kind": "SUCCEEDED",
+              "code": "OK"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_SUCCEEDED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "code": "OK",
+              "previousState": "ATTEMPTING",
+              "newState": "SUCCEEDED",
+              "recovered": "false",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "idempotency_substitution",
+      "exitCode": 2,
+      "stdoutSha256": "sha256:789b7c7bffc274b58a811737443c9a5b78c61e136a7b1bc261831607ff998b50",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "idempotency_substitution",
+        "expected": "ATTEMPT_COORDINATE_MISMATCH",
+        "unexpectedAcceptance": true,
+        "scope": "M5 public model coordinate gate only; synthetic observation; no real execution",
+        "retainedEpoch": "control-epoch-original",
+        "submittedEpoch": "control-epoch-original",
+        "retainedInstanceId": "worker-original@control-epoch-original-1",
+        "submittedInstanceId": "worker-original@control-epoch-original-1",
+        "retainedIdempotencyMode": "NONE",
+        "submittedIdempotencyMode": "DEDUPLICATED_BY_LOGICAL_INVOCATION",
+        "retainedDeduplicationScope": "",
+        "submittedDeduplicationScope": "scope-substituted",
+        "observedState": "SUCCEEDED",
+        "authoritativeIdempotencyMode": "NONE",
+        "journal": [
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_REGISTERED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "previousState": "",
+              "workerEpoch": "control-epoch-original",
+              "instanceId": "",
+              "newState": "REGISTERED"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_STARTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "previousLifecycleState": "REGISTERED",
+              "workerEpoch": "control-epoch-original",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "newState": "STARTING",
+              "previousState": "REGISTERED"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_START_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_HANDLE_PINNED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_PROBE_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "healthy": "true"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_ELIGIBLE",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "worker-original@control-epoch-original-1",
+              "processId": "1",
+              "workerEpoch": "control-epoch-original",
+              "reason": "SUPERVISOR_PROBE_ACCEPTED",
+              "newState": "ELIGIBLE",
+              "previousState": "STARTING"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ACCEPTED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "",
+            "details": {
+              "logicalTraceId": "logical-trace",
+              "maximumAttempts": "1",
+              "deduplicationScope": "",
+              "idempotencyMode": "NONE",
+              "newState": "ACCEPTED",
+              "previousState": ""
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_ATTEMPTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "previousState": "ACCEPTED",
+              "logicalTraceId": "logical-trace",
+              "attemptNumber": "1",
+              "workerEpoch": "control-epoch-original",
+              "newState": "ATTEMPTING",
+              "workerInstanceId": "worker-original@control-epoch-original-1"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "ATTEMPT_DISPATCH_INTENT",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "workerInstanceId": "worker-original@control-epoch-original-1",
+              "idempotencyMode": "NONE",
+              "attemptNumber": "1",
+              "deduplicationScope": "",
+              "logicalTraceId": "logical-trace"
+            }
+          },
+          {
+            "owner": "ATTEMPT_CAPABILITY",
+            "event": "ATTEMPT_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "code": "OK",
+              "kind": "SUCCEEDED",
+              "executionMayContinue": "false",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "logicalTraceId": "logical-trace"
+            }
+          },
+          {
+            "owner": "RESILIENT_INVOCATION_MANAGER",
+            "event": "INVOCATION_TERMINAL_SUCCEEDED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "newState": "SUCCEEDED",
+              "logicalTraceId": "logical-trace",
+              "resultDigest": "sha256:abababababababababababababababababababababababababababababababab",
+              "recovered": "false",
+              "code": "OK",
+              "previousState": "ATTEMPTING"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "worker_handle_substitution",
+      "exitCode": 2,
+      "stdoutSha256": "sha256:21dbbb68dffad0283c53f2144c95df273677b229285138f2b89f259ae176330a",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed": {
+        "case": "worker_handle_substitution",
+        "expected": "REJECT_BEFORE_ELIGIBLE",
+        "unexpectedAcceptance": true,
+        "scope": "M5 public model coordinate gate only; synthetic observation; no real execution",
+        "requestedWorkerId": "worker-original",
+        "expectedInstanceId": "worker-original@control-epoch-original-1",
+        "expectedEpoch": "control-epoch-original",
+        "returnedWorkerId": "worker-substituted",
+        "returnedInstanceId": "instance-substituted",
+        "returnedEpoch": "epoch-substituted",
+        "publishedWorkerId": "worker-original",
+        "publishedInstanceId": "worker-original@control-epoch-original-1",
+        "publishedEpoch": "control-epoch-original",
+        "observedState": "ELIGIBLE",
+        "journal": [
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_REGISTERED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "newState": "REGISTERED",
+              "instanceId": "",
+              "workerEpoch": "control-epoch-original",
+              "previousState": ""
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_STARTING",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "0",
+              "previousState": "REGISTERED",
+              "newState": "STARTING",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "workerEpoch": "control-epoch-original",
+              "previousLifecycleState": "REGISTERED"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_START_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "instance-substituted",
+              "processId": "2"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_HANDLE_PINNED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "instance-substituted",
+              "processId": "2"
+            }
+          },
+          {
+            "owner": "WORKER_CAPABILITY",
+            "event": "WORKER_PROBE_OBSERVED",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "instanceId": "instance-substituted",
+              "healthy": "true"
+            }
+          },
+          {
+            "owner": "WORKER_SUPERVISOR",
+            "event": "WORKER_ELIGIBLE",
+            "controlEpoch": "control-epoch-original",
+            "workerId": "worker-original",
+            "details": {
+              "processId": "2",
+              "instanceId": "worker-original@control-epoch-original-1",
+              "previousState": "STARTING",
+              "newState": "ELIGIBLE",
+              "reason": "SUPERVISOR_PROBE_ACCEPTED",
+              "workerEpoch": "control-epoch-original"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "completedAt": "2026-10-01T08:52:22.481Z",
+  "auditDecision": "STOP_MODEL_COUNTEREXAMPLE"
+}
