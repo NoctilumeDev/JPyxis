@@ -8,7 +8,7 @@ JPyxis is a staged research framework for governing heterogeneous compute worklo
 
 ## Status
 
-**`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE`**
+**`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE · BOUNDED ACTUAL REFERENCE PATH PROVEN`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -354,8 +354,14 @@ through protected PR #32 and exact-main readback. Its
 [immutable freeze record](evidence/reference-path/v1/contract-manifest.json) closed through protected
 PR #33, exact main and independent readback. The
 [bounded runtime entry](evidence/reference-path/v1/runtime-entry/entry-manifest.json) now authorizes
-the [separate actual-path implementation candidate](docs/reviews/reference-path-implementation-review-v1.md).
-Actual product-path qualification remains pending its own actual-process/clean-VM/protected-main gates.
+the [separate actual-path implementation](docs/reviews/reference-path-implementation-review-v1.md).
+Protected PR #34 and exact main `b50495a12fbb32bbd06a8cff9c92e333cd395606` completed the actual
+process journey, fresh-VM gates and independently downloaded readbacks. The
+[bounded qualification record](docs/reviews/reference-path-qualification-v1.md) retains eighteen
+actual case families, five evidence mutations, physical no-leak observations and all unchanged
+predecessor/resource gates. Its separate publication remains subject to protected merge and exact-main
+reconciliation. This is one trusted local CPU typed affine path; it does not widen the M0-M6 freezes
+or establish a general product API, production security, distribution or capacity authority.
 
 ## M6 reproducibility baseline
 

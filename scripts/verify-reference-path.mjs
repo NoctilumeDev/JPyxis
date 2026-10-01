@@ -70,6 +70,7 @@ try{
   assert.ok(!publicClean||process.env.GITHUB_ACTIONS==='true','local process cannot grant public clean qualification');
   await command('selected_interpreter',basePython,['--version']);
   await command('retained_observation_containers',basePython,['experiments/reference-path/verify-retained-containers.py']);
+  if(fs.existsSync('evidence/reference-path/v1/qualification/qualification-manifest.json'))await command('retained_qualification_inputs','node',['experiments/reference-path/verify-retained-qualification.mjs']);
   assert.match(fs.readFileSync(path.join(runRoot,'logs/selected_interpreter.stdout.bin'),'utf8')+fs.readFileSync(path.join(runRoot,'logs/selected_interpreter.stderr.bin'),'utf8'),/Python 3\.12\./);
   await command('selected_interpreter_metadata',basePython,['-S','-c','import sys,json; print(json.dumps({"executable":sys.executable,"nativeExecutable":sys._base_executable,"version":".".join(map(str,sys.version_info[:3]))}))']);
   const interpreter=JSON.parse(fs.readFileSync(path.join(runRoot,'logs/selected_interpreter_metadata.stdout.bin'),'utf8'));

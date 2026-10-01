@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "jpyxis.io/reference-qualification-retention/v1alpha1",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 14,
+      "sha256": "sha256:85e48d232edc7b02f6cecf8fbbf905f3b126c467b594d8dd16c4f8fa283a8320"
+    },
+    {
+      "path": "main34-ci.json",
+      "bytes": 1858,
+      "sha256": "sha256:d93e4a650f86bbf7385c8913536a66b2911433dc86fede88608db8d5723f2af2"
+    },
+    {
+      "path": "main34-m4-clean-members.json",
+      "bytes": 77734,
+      "sha256": "sha256:77848a26c9d5f946ad08921cccd5b434181e7f1798d4bd2ddb7c3d112fef58db"
+    },
+    {
+      "path": "main34-m4-clean.zip",
+      "bytes": 407607,
+      "sha256": "sha256:ea21beab52e67574f776a22f157d8d3fdf76e726883d88460ff1cc9a663da9a5"
+    },
+    {
+      "path": "main34-m4-members.json",
+      "bytes": 90063,
+      "sha256": "sha256:83e2d08acd0074f88699f1125dbe35718a828d9188296fab40cfb971371f510c"
+    },
+    {
+      "path": "main34-m4-readback.json",
+      "bytes": 6300,
+      "sha256": "sha256:eb5f0faf2a686c35dd2deffe5b72b7cdd7e082d5e60f338c38ff320fec6a6867"
+    },
+    {
+      "path": "main34-m4.zip",
+      "bytes": 458269,
+      "sha256": "sha256:153f6e42be6576c196bbb59f0d2a405fe1447fbe713bb63278e90f150c089906"
+    },
+    {
+      "path": "main34-m5-members.json",
+      "bytes": 124916,
+      "sha256": "sha256:e42cf30114e70c1a158471621847b444813fa3ffaabd2cf5b1fd25e8a6d09e50"
+    },
+    {
+      "path": "main34-m5.zip",
+      "bytes": 691234,
+      "sha256": "sha256:b1ea6558f6007926443e0eab7279af14eaaf482456bc8f547af8013ebcdc277a"
+    },
+    {
+      "path": "main34-m6-members.json",
+      "bytes": 1388473,
+      "sha256": "sha256:c4885b28afe7f353cc43f92a233d0764314ba5f7888e2971187dbf1f298248ba"
+    },
+    {
+      "path": "main34-m6.zip",
+      "bytes": 5262456,
+      "sha256": "sha256:88769ea156982ae240ca18b84c2eefa3fd49b70f3c5cddc5f93b21b5045e72c1"
+    },
+    {
+      "path": "main34-readback.json",
+      "bytes": 5178,
+      "sha256": "sha256:ae3714366a64d822e3f5b127fbddd855302585a34fee2a579ef703d5e54fcf0a"
+    },
+    {
+      "path": "main34-reference-members.json",
+      "bytes": 1224135,
+      "sha256": "sha256:110e679125a96cd1e01cdacfd84c39eec0a125fb03ede68dd35095cbac1d21ab"
+    },
+    {
+      "path": "main34-reference-readback.json",
+      "bytes": 4064,
+      "sha256": "sha256:700617ff19f4976d38746c2ce72fd237c84eed955f9be1ce46dc271d63b0d45b"
+    },
+    {
+      "path": "main34-reference.zip",
+      "bytes": 6406828,
+      "sha256": "sha256:d9eaa3212ac700e58b53b749a9d9281cbe08be33f2e1138724c72efdbfaf806e"
+    },
+    {
+      "path": "main34-source-commit.bin",
+      "bytes": 1208,
+      "sha256": "sha256:bf384444a68d8ca8ce2b4529a983ea7cc9904fe3d7016cd8f684e1dd41a80739"
+    },
+    {
+      "path": "pr34-ci.json",
+      "bytes": 1864,
+      "sha256": "sha256:7d0e96dd74f61f2550f61c2c97c590fc2696537138a9a33fcc78092a149bc3f3"
+    },
+    {
+      "path": "pr34-m4-clean-members.json",
+      "bytes": 77734,
+      "sha256": "sha256:d9946e864990a7eb55c5166ac06f7552ce0e91b5063a26680a7fcbb9f75e8c95"
+    },
+    {
+      "path": "pr34-m4-clean.zip",
+      "bytes": 407781,
+      "sha256": "sha256:5227dd440c1591c11fbc88a07576a0b70aae5c5a1a09a138ec46efdcf30672ea"
+    },
+    {
+      "path": "pr34-m4-members.json",
+      "bytes": 90063,
+      "sha256": "sha256:03583eff7c58c52d717ea186968d4aa9127537513467a12817150ed19d5ff11a"
+    },
+    {
+      "path": "pr34-m4-readback.json",
+      "bytes": 6298,
+      "sha256": "sha256:975ef1ac1e42f611c57d48e3545a67192b673430d948ed4cfe2f490525ab84b5"
+    },
+    {
+      "path": "pr34-m4.zip",
+      "bytes": 458315,
+      "sha256": "sha256:5f4c1ed702ee9b67aec6d9fbf1282fb79455f36ea0a90f5255d4772476440562"
+    },
+    {
+      "path": "pr34-m5-members.json",
+      "bytes": 124916,
+      "sha256": "sha256:69aaca92799c42647873e112a07b37acb123a3acb880acf16cc0251a1873c249"
+    },
+    {
+      "path": "pr34-m5.zip",
+      "bytes": 691840,
+      "sha256": "sha256:3a1dea98286827bf180fa6b6ab29024367f6fa8a1234ac4ca5569f3217ccd2d0"
+    },
+    {
+      "path": "pr34-m6-members.json",
+      "bytes": 1388473,
+      "sha256": "sha256:9f84787fd180f65f03d99f88906cbe6f728e44be6b80fdc672a79fa972651579"
+    },
+    {
+      "path": "pr34-m6.zip",
+      "bytes": 5261590,
+      "sha256": "sha256:6b295a8210fa53e4fae3a9df65ac42a755fc964979fa964c1ba18dc887f289f0"
+    },
+    {
+      "path": "pr34-protected-merge.json",
+      "bytes": 297,
+      "sha256": "sha256:97a0428f7656c6565e25e8c4a5a971c46294131ad91280e9ff9f16bfb8ea4832"
+    },
+    {
+      "path": "pr34-readback.json",
+      "bytes": 5176,
+      "sha256": "sha256:ebc688e3e006c2412dd3bd632b69d32d0125f688066d5e83ff6178d170aba1f1"
+    },
+    {
+      "path": "pr34-reference-members.json",
+      "bytes": 1224135,
+      "sha256": "sha256:f9622fe652e9c7df5be646edb8faba335594c86eb3ed7800db9188d7036dc8dc"
+    },
+    {
+      "path": "pr34-reference-readback.json",
+      "bytes": 4060,
+      "sha256": "sha256:a3a5463b5109ab766c9c1ddd83efc915e15215cb3f77d0c436d7d515e7a5a2ff"
+    },
+    {
+      "path": "pr34-reference.zip",
+      "bytes": 6406463,
+      "sha256": "sha256:54bb7da6e006fb0dbafdc5277df81d3fc4743a2800fdd1da724a8862cf8270e0"
+    },
+    {
+      "path": "pr34-source-commit.bin",
+      "bytes": 1173,
+      "sha256": "sha256:33967cedac8ef182c9273001f924c07a0f5dd78d7399e80c837052426ed51c15"
+    },
+    {
+      "path": "qualification-manifest.json",
+      "bytes": 3991,
+      "sha256": "sha256:53c8b0d5fd2ee8f2ff3e3aafb6df4ea0b6ced548ef241b348bd0a418563ec846"
+    },
+    {
+      "path": "reference-ruleset-before.json",
+      "bytes": 1720,
+      "sha256": "sha256:4f1d8df8af2708173f1abf8cd1a0c27991c23e7c0ec336b53a37687f18191af7"
+    },
+    {
+      "path": "reference-ruleset-effective.json",
+      "bytes": 1799,
+      "sha256": "sha256:4cf7b39ff105a87c2d4376a594ad683bf3063851a66c6ffdf22c342b22ac710e"
+    },
+    {
+      "path": "reference-ruleset-update.json",
+      "bytes": 1314,
+      "sha256": "sha256:c7ab75983963b57660708392301fdba67314f3ec9446f63eb7340c62a5a19b28"
+    }
+  ]
+}
