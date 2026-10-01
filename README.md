@@ -359,8 +359,11 @@ Protected PR #34 and exact main `b50495a12fbb32bbd06a8cff9c92e333cd395606` compl
 process journey, fresh-VM gates and independently downloaded readbacks. The
 [bounded qualification record](docs/reviews/reference-path-qualification-v1.md) retains eighteen
 actual case families, five evidence mutations, physical no-leak observations and all unchanged
-predecessor/resource gates. Its separate publication remains subject to protected merge and exact-main
-reconciliation. This is one trusted local CPU typed affine path; it does not widen the M0-M6 freezes
+predecessor/resource gates. Its [qualification closure](docs/reviews/reference-path-qualification-closure-v1.md)
+binds protected publication PR #35, the retained first publication-main observer failure, protected
+observer repair PR #36, and successful exact-main reconciliation at
+`fee87f3baf13c4207c78c0785e02576f7e318963`. Qualification and publication closure are complete for
+this one trusted local CPU stateless typed affine path; it does not widen the M0-M6 freezes
 or establish a general product API, production security, distribution or capacity authority.
 
 ## M6 reproducibility baseline
