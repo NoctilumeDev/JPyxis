@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "jpyxis.io/m6-environment/v1alpha1",
+  "observedAt": "2026-10-01T16:14:09.971Z",
+  "os": "linux 6.17.0-1022-azure",
+  "architecture": "x64",
+  "cpuModel": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "logicalCpuCount": 4,
+  "physicalMemoryBytes": 16765374464,
+  "java": "openjdk version \"17.0.20.1\" 2026-08-18\nOpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)\nOpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (build 17.0.20.1+1, mixed mode, sharing)",
+  "python": "Python 3.12.14",
+  "node": "v22.23.3",
+  "mavenWrapper": "Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)",
+  "containerRequired": false,
+  "topology": "one orchestrator process; bounded Java/Python child processes; no external service",
+  "measurementMethod": "Linux /proc plus os/proc/meminfo"
+}

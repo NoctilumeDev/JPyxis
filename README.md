@@ -346,7 +346,11 @@ The [separate guard implementation](docs/reviews/m4-handle-validation-implementa
 completed its [exact-main qualification](evidence/m4-handle-validation/v2/implementation-manifest.json).
 Its separate qualification publication closed through protected PR #30 and exact-main readback.
 The [fresh Audit A v3](docs/reviews/productization-reference-path-audit-review-v3.md) rechecked
-known guard failures and the remaining public composition seam; its own publication is pending.
+known guard failures and the remaining public composition seam. Its separate PR #31 publication
+completed protected merge and exact-main qualification. The
+[minimum reference contract B](docs/spec/productization-reference-path-contract-v1.md) is a
+[separate content candidate](docs/reviews/productization-reference-contract-review-v1.md); runtime
+and real-path qualification remain gated by its own content and freeze closure.
 
 ## M6 reproducibility baseline
 
