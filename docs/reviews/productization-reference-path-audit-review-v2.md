@@ -70,6 +70,11 @@ original raw stdout/stderr, probe source and runner/reader are retained. Indepen
 verifies raw hashes, exact source bindings, the normal control, original retirement, matching
 artifact/digest, actual pin tuple and Control-owned commit event. Its derived disposition is
 `STOP_MODEL_COUNTEREXAMPLE`. The emitter's exit code or a stored label is not the sole evidence.
+The [publication reader](../../experiments/productization-audit-v2/verify-retained-m4-audit.mjs)
+additionally binds every retained Git byte and current source blob and checks the actual
+`LIFECYCLE_CAPABILITY` owner has no state transition. The original first reader remains unchanged;
+its differently spelled capability-owner condition did not perform that additional owner check.
+The canonical pin equality and Control rollback commit still independently establish the failure.
 The immutable first M4 receipt SHA-256 is
 `98845953495cc58fe224615b1a5735b56d1378cd01212f056a2f48eaea8a66d5`.
 
