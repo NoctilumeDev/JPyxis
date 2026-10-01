@@ -1,0 +1,294 @@
+{
+  "owner": "NODE_HOST_PROCESS_OBSERVER",
+  "observedAt": "2026-10-01T18:58:49.495Z",
+  "method": "OS process existence after Java journey exit",
+  "recordedProcessIds": [
+    17832,
+    7668,
+    7776,
+    2784,
+    10992,
+    3832,
+    29528,
+    33120,
+    35280,
+    8072,
+    24308,
+    11164,
+    26812,
+    36504,
+    35772,
+    36728,
+    12284,
+    33268,
+    2932,
+    34168,
+    13120,
+    29616,
+    17984,
+    26644,
+    17640,
+    35996,
+    36544,
+    29212,
+    17064,
+    35148,
+    3616,
+    34480,
+    10028,
+    28036,
+    35732,
+    20308,
+    27868,
+    35864,
+    34040,
+    14532,
+    24468,
+    20856,
+    24796,
+    35628,
+    22148,
+    30944,
+    22724,
+    34648,
+    9456,
+    22900,
+    26632,
+    35372,
+    14604,
+    22496,
+    32968,
+    10700,
+    32136
+  ],
+  "observations": [
+    {
+      "pid": 17832,
+      "alive": false
+    },
+    {
+      "pid": 7668,
+      "alive": false
+    },
+    {
+      "pid": 7776,
+      "alive": false
+    },
+    {
+      "pid": 2784,
+      "alive": false
+    },
+    {
+      "pid": 10992,
+      "alive": false
+    },
+    {
+      "pid": 3832,
+      "alive": false
+    },
+    {
+      "pid": 29528,
+      "alive": false
+    },
+    {
+      "pid": 33120,
+      "alive": false
+    },
+    {
+      "pid": 35280,
+      "alive": false
+    },
+    {
+      "pid": 8072,
+      "alive": false
+    },
+    {
+      "pid": 24308,
+      "alive": false
+    },
+    {
+      "pid": 11164,
+      "alive": false
+    },
+    {
+      "pid": 26812,
+      "alive": false
+    },
+    {
+      "pid": 36504,
+      "alive": false
+    },
+    {
+      "pid": 35772,
+      "alive": false
+    },
+    {
+      "pid": 36728,
+      "alive": false
+    },
+    {
+      "pid": 12284,
+      "alive": false
+    },
+    {
+      "pid": 33268,
+      "alive": false
+    },
+    {
+      "pid": 2932,
+      "alive": false
+    },
+    {
+      "pid": 34168,
+      "alive": false
+    },
+    {
+      "pid": 13120,
+      "alive": false
+    },
+    {
+      "pid": 29616,
+      "alive": false
+    },
+    {
+      "pid": 17984,
+      "alive": false
+    },
+    {
+      "pid": 26644,
+      "alive": false
+    },
+    {
+      "pid": 17640,
+      "alive": false
+    },
+    {
+      "pid": 35996,
+      "alive": false
+    },
+    {
+      "pid": 36544,
+      "alive": false
+    },
+    {
+      "pid": 29212,
+      "alive": false
+    },
+    {
+      "pid": 17064,
+      "alive": false
+    },
+    {
+      "pid": 35148,
+      "alive": false
+    },
+    {
+      "pid": 3616,
+      "alive": false
+    },
+    {
+      "pid": 34480,
+      "alive": false
+    },
+    {
+      "pid": 10028,
+      "alive": false
+    },
+    {
+      "pid": 28036,
+      "alive": false
+    },
+    {
+      "pid": 35732,
+      "alive": false
+    },
+    {
+      "pid": 20308,
+      "alive": false
+    },
+    {
+      "pid": 27868,
+      "alive": false
+    },
+    {
+      "pid": 35864,
+      "alive": false
+    },
+    {
+      "pid": 34040,
+      "alive": false
+    },
+    {
+      "pid": 14532,
+      "alive": false
+    },
+    {
+      "pid": 24468,
+      "alive": false
+    },
+    {
+      "pid": 20856,
+      "alive": false
+    },
+    {
+      "pid": 24796,
+      "alive": false
+    },
+    {
+      "pid": 35628,
+      "alive": false
+    },
+    {
+      "pid": 22148,
+      "alive": false
+    },
+    {
+      "pid": 30944,
+      "alive": false
+    },
+    {
+      "pid": 22724,
+      "alive": false
+    },
+    {
+      "pid": 34648,
+      "alive": false
+    },
+    {
+      "pid": 9456,
+      "alive": false
+    },
+    {
+      "pid": 22900,
+      "alive": false
+    },
+    {
+      "pid": 26632,
+      "alive": false
+    },
+    {
+      "pid": 35372,
+      "alive": false
+    },
+    {
+      "pid": 14604,
+      "alive": false
+    },
+    {
+      "pid": 22496,
+      "alive": false
+    },
+    {
+      "pid": 32968,
+      "alive": false
+    },
+    {
+      "pid": 10700,
+      "alive": false
+    },
+    {
+      "pid": 32136,
+      "alive": false
+    }
+  ]
+}

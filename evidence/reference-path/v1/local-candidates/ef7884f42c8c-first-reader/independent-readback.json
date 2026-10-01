@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "jpyxis.io/reference-independent-readback/v1alpha1",
+  "verdict": "FAIL",
+  "cases": [],
+  "failures": [
+    "only declared text newline conversion permitted"
+  ],
+  "incomplete": [],
+  "scope": "One trusted local CPU stateless typed reference path with actual M2/M3/M4/M5 continuity and owned-process observations; public clean and protected main qualification are separate retained gates",
+  "productizationQualified": false
+}
