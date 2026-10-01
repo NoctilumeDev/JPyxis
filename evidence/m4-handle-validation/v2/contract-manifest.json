@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "jpyxis.io/m4-contract-qualification/v1alpha1",
+  "contractVersion": 2,
+  "evidenceState": "CONTRACT_CONTENT_QUALIFIED",
+  "freezeCoordinate": "m4-handle-contract-v2",
+  "freezeEntryCondition": "This retained closure must complete protected merge, exact-main gates/readback and a protected annotated tag before guard implementation",
+  "guardImplementationQualified": false,
+  "productizationQualified": false,
+  "source": {
+    "base": "db866d2a997188c50bd3cf5c14852fc5a7d9cbe0",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/27",
+    "reviewedHead": "749a727801e6c83a4869a33b17cdeeb51e550e54",
+    "executedPrMerge": "aedbef2f1eaa0318db7ec760bfadd54a348b0631",
+    "acceptedMain": "58082992dbe29d6302b2c427dcad9aebd75ace0a",
+    "acceptedTree": "175b3088375b29ee643374550e6a5234670339d5",
+    "mergedAt": "2026-10-01T13:45:01Z",
+    "specBlobAtAcceptedMain": "3445779836822cf033fb2fd9007486141f98339d",
+    "adrBlobAtAcceptedMain": "9a1b42474fce04dbe7678fc7c68c262be609a2e3"
+  },
+  "prEvidence": {
+    "run": 36870167209,
+    "m5Artifact": 11166423387,
+    "m6Artifact": 11167121876,
+    "readback": "pr27-readback.json",
+    "retentionReadback": "pr27-audit-retention-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36870999553,
+    "m5Artifact": 11166194699,
+    "m6Artifact": 11166614327,
+    "readback": "main27-readback.json",
+    "retentionReadback": "main27-audit-retention-readback.json"
+  },
+  "qualificationScope": "Minimum reviewed M4 canonical identity/atomic owner admission/release conservation contract; no runtime guard or real product qualification",
+  "firstFailuresPreserved": true,
+  "oldFrozenTagsUnchanged": true,
+  "requiredChecks": [
+    "Verify M5 resilience repository",
+    "Verify M6 single-node baseline"
+  ]
+}

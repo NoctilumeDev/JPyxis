@@ -340,8 +340,9 @@ retains a first M4 retired-handle rollback counterexample. Productization remain
 separate M4 disposition and a fresh audit of the real path.
 The [minimum M4 pre-contract review](docs/reviews/m4-handle-ownership-precontract-review.md) audits
 retired, live, released and concurrently returned canonical handle identities within one owner.
-Its [separate M4 v2 contract](docs/spec/m4-handle-ownership-contract-v2.md) requires a qualified
-closure and protected contract tag before guard implementation; it establishes no product path.
+Its [separate M4 v2 contract](docs/spec/m4-handle-ownership-contract-v2.md) has
+[qualified content](docs/reviews/m4-handle-ownership-review-v2.md) and requires a qualified closure
+and protected contract tag before guard implementation; it establishes no product path.
 
 ## M6 reproducibility baseline
 

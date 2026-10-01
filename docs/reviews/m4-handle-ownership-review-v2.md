@@ -1,6 +1,6 @@
 # M4 Runtime Handle Ownership Review v2
 
-Status: `REVIEWED CONTRACT CONTENT · FREEZE RECORD GATE PENDING · GUARDS UNQUALIFIED`
+Status: `CONTRACT CONTENT QUALIFIED · SEPARATE CLOSURE/TAG GATE APPLIES · GUARDS UNQUALIFIED`
 
 ## Evidence and minimum reopen
 
@@ -64,3 +64,36 @@ Audit A rerun; contract B and real path C-G remain gated by that rerun.
 | Failed premise | Fresh deployment/load/warm or reported release implies fresh identity. The original failures remain retained. |
 | Final state | Reviewed content; publication, closure and contract tag gates pending. Guards and productization unqualified. |
 | Next authority | Qualify content and its retained closure/tag, then implement this matrix in a separate branch/PR. |
+
+## Accepted content and separate freeze record
+
+The preceding candidate round is historical. [PR #27](https://github.com/NoctilumeDev/JPyxis/pull/27)
+published reviewed head `749a727801e6c83a4869a33b17cdeeb51e550e54` from accepted audit main
+`db866d2a997188c50bd3cf5c14852fc5a7d9cbe0`. Required PR run `36870167209` executed
+`aedbef2f1eaa0318db7ec760bfadd54a348b0631`. Protected merge produced main
+`58082992dbe29d6302b2c427dcad9aebd75ace0a`, tree `175b3088375b29ee643374550e6a5234670339d5`,
+at `2026-10-01T13:45:01Z`. Its own required run `36870999553` passed. Separately downloaded
+PR/main artifacts passed independent M5/M6/coordinate readback, all required mutation outcomes,
+accepted resources and stopped recorded Runtime processes. Independent Git-byte/model readback
+also verified both first M4 receipts and all 25 pre-contract observations.
+
+The [contract manifest](../../evidence/m4-handle-validation/v2/contract-manifest.json) and
+separate PR/main readbacks bind those facts and original content blobs. Core, API, reference
+fixtures, thresholds, dependencies and frozen predecessors were unchanged. This accepts contract
+content only; no guard was executed or qualified by these predecessor runs.
+
+This separate retained closure must itself pass protected PR gates, downloaded independent
+readback, protected merge, exact-main gates and independent main readback. Only then is the
+protected annotated `m4-handle-contract-v2` tag created at its accepted main. The tag and closure
+evidence grant entry to a separate runtime implementation; a document label or PR #27's green
+checks alone do not. The normative contract and ADR content remain byte-identical in this closure.
+
+| Required record | Contract closure round |
+| --- | --- |
+| Did | Retained qualified content source/PR/main/run/artifact coordinates and independent predecessor/first-receipt readbacks. |
+| Why | Make contract authority concrete in project evidence before runtime work. |
+| Original plan | Close a separate publication and protected contract tag after content qualification. |
+| Actual | Content is qualified; this documentation closure and its prospective tag remain final entry gates. |
+| Failed premise | No new model premise failed; original retired and owner-audit observations stay unchanged. |
+| Final state | Qualified content; closure publication/tag pending; guards and product path unqualified. |
+| Next authority | Qualify this closure, create and verify the protected annotated tag, then implement the reviewed matrix in a separate branch/PR. |
