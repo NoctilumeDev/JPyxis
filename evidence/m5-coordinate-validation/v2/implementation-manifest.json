@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "jpyxis.io/m5-guard-qualification/v1alpha1",
+  "contractVersion": 2,
+  "evidenceState": "QUALIFIED_BOUNDED_M5_V2_GUARDS",
+  "productizationQualified": false,
+  "contractClosure": "closure-manifest.json",
+  "contractTag": "m5-coordinate-contract-v2",
+  "source": {
+    "base": "2ac2715b994f519fbad4afb73b1f80ea0852dd55",
+    "pullRequest": "https://github.com/NoctilumeDev/JPyxis/pull/23",
+    "reviewedHead": "477e006d29c8a080c4fb3dce70dd77fff9bfd12e",
+    "executedPrMerge": "ebb87f190824cbb6c1eefcdccfa8bbee64c0c663",
+    "acceptedMain": "a5553d94136a46cb93ff31caa3e138a5b7ff8731",
+    "acceptedTree": "ab2571aa44bc31b1fa43db61dec12e93aabe468e",
+    "mergedAt": "2026-10-01T11:58:46Z"
+  },
+  "prEvidence": {
+    "run": 36858061468,
+    "m5Artifact": 11160810269,
+    "m6Artifact": 11160396268,
+    "readback": "pr23-readback.json"
+  },
+  "mainEvidence": {
+    "run": 36858761491,
+    "m5Artifact": 11160337468,
+    "m6Artifact": 11161125200,
+    "readback": "main23-readback.json",
+    "retainedGuardInputs": "retained-main/coordinate-validation",
+    "coordinateManifestSha256": "sha256:44265b5a42c0842e39f358af214df7fc09fd68df6e6c9e6e3a7be5851a01e54b"
+  },
+  "directedModelCases": 35,
+  "durableReplayFixtures": 5,
+  "guardEvidenceMutations": 3,
+  "newJavaTestInvocations": 31,
+  "preservedJavaTestInvocations": 15,
+  "m6Phases": 13,
+  "m6Mutations": 8,
+  "prAndMainIndependentReadback": "PASS",
+  "prAndMainResourceDecision": "ACCEPT",
+  "prAndMainRecordedProcessesStopped": true,
+  "firstFailure": "first-implementation/receipt.json",
+  "unchangedOriginalArchiveTrees": {
+    "evidence/productization-audit": "a4a86fd1ea0d9cddbb8efc30bac2d06868aa618e",
+    "experiments/productization-audit": "a8dd55cff09841ff9f5e05863391d723dc58b6e4"
+  },
+  "scope": "M5 admission, qualified handles and atomic instance-scoped owner effects with replay/late continuity; source-bound public model and directed durable witnesses only",
+  "limits": "No real M2/M4/M5 product path, Environment construction, general process cleanup, distributed execution, resource grant or production claim",
+  "nextAuthority": "Rerun productization audit A from accepted main; contract B remains gated by that audit"
+}

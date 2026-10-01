@@ -1,6 +1,6 @@
 # M5 Coordinate Validation Implementation Review
 
-Status: `IMPLEMENTATION CANDIDATE · QUALIFICATION PENDING · PRODUCTIZATION AUDIT A STOP`
+Status: `BOUNDED M5 v2 GUARDS QUALIFIED · PRODUCTIZATION AUDIT A TO RERUN`
 
 ## Entry authority
 
@@ -96,3 +96,39 @@ the old checker and raw first receipts are not rewritten to follow repaired sour
 | Failed premise | Both original model failures remain archived; no new out-of-bound model counterexample has been observed in this implementation round. |
 | Final state | Guard implementation candidate. Contract frozen; guard behavior and productization unqualified. |
 | Next authority | Complete this implementation's acceptance loop, then rerun audit A from qualified main; no direct real-path or facade promotion. |
+
+## Protected implementation acceptance
+
+The candidate round above is historical. [PR #23](https://github.com/NoctilumeDev/JPyxis/pull/23)
+reviewed head `477e006d29c8a080c4fb3dce70dd77fff9bfd12e` from the frozen closure base.
+Required PR run `36858061468` executed merge `ebb87f190824cbb6c1eefcdccfa8bbee64c0c663`;
+its parents are the exact base and reviewed head. Both checks passed. Downloaded M5/M6 artifacts
+independently passed the existing predecessor readers and supplemental reader, all 35 public-model
+cases, five durable replay fixtures, three guard mutations and eight M6 mutations. Resources were
+accepted and every recorded Runtime process had stopped.
+
+Protected merge generated main `a5553d94136a46cb93ff31caa3e138a5b7ff8731` at
+`2026-10-01T11:58:46Z`, tree `ab2571aa44bc31b1fa43db61dec12e93aabe468e`. Its own required run
+`36858761491` and separately downloaded artifacts passed the same independent readback matrix,
+resource decision and shutdown checks. The [implementation manifest](../../evidence/m5-coordinate-validation/v2/implementation-manifest.json)
+and separate [PR](../../evidence/m5-coordinate-validation/v2/pr23-readback.json)/
+[main](../../evidence/m5-coordinate-validation/v2/main23-readback.json) records bind those facts.
+The main guard raw inputs and mutations are retained under the manifest's repository path,
+preserving their original bytes, manifest and relative paths; compiled classes are derivable and
+are not the retained authority. The reader does not use a stored verification verdict as truth.
+
+Both old audit archive/experiment trees still equal their frozen closure trees. Old M0-M6 tags,
+manifests and bounded meanings remain unchanged. The public role map remains
+`cb67c33d4ba44c1b216c1f1cb7f6e45ef45fe329`; the original dirty checkout remains unchanged.
+This accepts the v2 guard boundary only. It grants the next audit A rerun, without accepting
+real cross-module operand continuity, Environment qualification or productization.
+
+| Required record | Implementation acceptance round |
+| --- | --- |
+| Did | Closed protected PR and exact-main checks, independently reread both raw artifact sets and negative matrices, and retained the original failures and main guard inputs. |
+| Why | Establish bounded guard behavior before using it as the next audit's source input. |
+| Original plan | Qualify v2 guards independently, then rerun audit A. |
+| Actual | Both public execution loops and independent readbacks closed at exact source coordinates; the local Windows M6 result stays INCONCLUSIVE. |
+| Failed premise | No new out-of-bound model premise failed; the first transport failure and two original model counterexamples remain preserved. |
+| Final state | M5 v2 guards qualified within the declared public-model/durable witness boundary; productization remains unqualified. |
+| Next authority | Reconstruct and rerun audit A from the accepted main, then qualify that audit before contract B. |
