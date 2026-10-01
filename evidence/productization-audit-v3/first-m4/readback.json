@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "auditDecision": "NO_COUNTEREXAMPLE_OBSERVED",
+  "failures": [],
+  "incomplete": [],
+  "results": [
+    {
+      "id": "fresh_handle_rollback_control",
+      "verdict": "PASS"
+    },
+    {
+      "id": "retired_handle_rollback",
+      "verdict": "PASS"
+    },
+    {
+      "id": "retired_cloned_tuple_rollback",
+      "verdict": "PASS"
+    }
+  ],
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "scope": "Three public M4 model rollback checks only; no real process, freshness or product-path proof"
+}

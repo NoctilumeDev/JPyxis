@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "jpyxis.io/productization-audit-v3-probe/v1alpha1",
+  "sourceBase": "a88d5988e8c9f4f56ccdafb167b5e9cc3a905dd7",
+  "sourceTree": "71392dbf9b4f58a801a0973ca2c4fe36e5d9ecd6",
+  "candidateHead": "f451c0813bdfbdeb4483a4a7d51e323d6a76973f",
+  "startedAt": "2026-10-01T15:55:02.940Z",
+  "compileExit": 0,
+  "compileStdoutSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "compileStderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sources": [
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservation.java",
+      "gitBlob": "ee3ef4dcb6160d4b90384bb9af9140c65548c7be",
+      "sha256": "sha256:5557b2d105f9631d545dc6e1aacb9336aeb388bc6a78f0c05dcfe9af9ee2d6ca"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptObservationKind.java",
+      "gitBlob": "0673a1f4e58de9c52e9fcb2a7334dc187414e586",
+      "sha256": "sha256:8b20213449b348a8311bfcadb766d080fd15f3087cc441676c2eab64b69c37cc"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptPlan.java",
+      "gitBlob": "f07bd422f6ee29d047ce767977f465aee454e553",
+      "sha256": "sha256:b38ea43071ae0a203bc346353e40dddccbb252012ce65cf5b9f6d114dcc11782"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/AttemptSnapshot.java",
+      "gitBlob": "6298db3c4ecec9d5949855fc418141709edb52a6",
+      "sha256": "sha256:230cf8917570c4474495f0e50935d1c35e3af616b39c907c7277da6e041afbc7"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/DesiredBinding.java",
+      "gitBlob": "bd20e6c484c63198b034724cf126c0a32a8c2b2e",
+      "sha256": "sha256:2647d9097cb994dc208baef7bb959ef304023bc89f083e75450baf38d54316be"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/IdempotencyMode.java",
+      "gitBlob": "bbeb8b822e0abba748080c86399a8305aa819202",
+      "sha256": "sha256:c3cdc1e5c0e96c658324959ac378c3db385524dd063714170643a59426bd0a35"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationRequest.java",
+      "gitBlob": "084ef573967a643b720cc00dd73875a4ad75071a",
+      "sha256": "sha256:6012a69629d3ba2085d3e4c9949122bdbff3d58f1bda297dfb229343e02bc996"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/InvocationSnapshot.java",
+      "gitBlob": "fe67c0ad647dd67651abc7861356882aa8842673",
+      "sha256": "sha256:fb5318bd6bd999f02f78e45ff7608fd2ce127762a4192b86f09102af9bf4a332"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/LogicalInvocationState.java",
+      "gitBlob": "9da8291cbcc1ba99589cc97ebe7515fba2a2bbd2",
+      "sha256": "sha256:0fb48e3d21a6fbc6ba5ba01eeba6beed0dd21b4ab6f0cc6d7621a2e30b33efda"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceContext.java",
+      "gitBlob": "7f9191281f86e0e8f501d35aa1534bef66a98c5f",
+      "sha256": "sha256:023ad401d1ca5e2f72cc194c7928d237d682e6289dcbfd6caf78d37f19b2cece"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/ResilienceException.java",
+      "gitBlob": "c2143cb5278c76303776ce3eb5a31cdae78770e9",
+      "sha256": "sha256:6d8918280e1261e712ca8570230da50f0d2adb1e871b29fce1aa6c3774c121a7"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerHandle.java",
+      "gitBlob": "2b658a82b6c26b85a1650be56b14b46a98f5b77e",
+      "sha256": "sha256:0ab195e5ac8f870491af47c42cbd45ba1c102ff420737b21a9689796318da7bd"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerSnapshot.java",
+      "gitBlob": "5a38f4a2be0d948f2dcb471037f66a68a473576e",
+      "sha256": "sha256:c5c76e2b663ec9ccd2f420e5d2be7be3d49ac6bade262da1f59e572a87cd045f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/api/WorkerState.java",
+      "gitBlob": "4b89794c8b23b221ddfa50e488e643f81eaecbde",
+      "sha256": "sha256:cfe5b8c05befa7d0f653a2ba61d0e1d964cb99bd92332fc1aaa98bb1ec87de4f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/WorkerSupervisor.java",
+      "gitBlob": "541d8de6d20e007bdac10ad06b7e63bc433c5a03",
+      "sha256": "sha256:68b9268f3d809b1d8ed22170f5816aeb4ce2c4fc7742fc16d1e429d6c5a667f2"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/core/ResilientInvocationManager.java",
+      "gitBlob": "e8ad3a0eb72e9c6c2eacf4532f5af8230bd3a83d",
+      "sha256": "sha256:4ee882be4e8585564759a5b4b8f21a6d137749342bcf034a2fb3dfc8f904ffd0"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/EventOwner.java",
+      "gitBlob": "e376bf32ec160246d6a4b1f769ab8109746647f4",
+      "sha256": "sha256:dc93bc1015e6aac6e108280b71c68e0579477b21e78b17d9334659004f31b1b4"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceJournal.java",
+      "gitBlob": "bc9d3063fd5af54717256c19bdc01e91f9573f9e",
+      "sha256": "sha256:3e5165c82a149aeac9f65ff40f1488e678cd061506a269dc4d527fce9cc03434"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEvent.java",
+      "gitBlob": "6f9421f0bec0e06d9c4076780d724691cecacceb",
+      "sha256": "sha256:0e6cbeab5ae84b4378fb88c3863886df308d51f413b388ed4779d8c1a801e035"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/evidence/ResilienceEventDraft.java",
+      "gitBlob": "8e0c61392dc2b83f8c14460871854a11f17cf74b",
+      "sha256": "sha256:8328e42cbb0958271b76e9310d16aabe216b9d569c7917dc2be26b73b1fa878f"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControl.java",
+      "gitBlob": "898e3b1b4d10f734adf76571680932276809559e",
+      "sha256": "sha256:ce2c1667c4761bf6fd505a243fc49c4754f80c4f5c5dd81bb93da594fd5b3082"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/WorkerControlException.java",
+      "gitBlob": "5bf109fa9f2170fa0d3c171fd27a08e81e30c4af",
+      "sha256": "sha256:07c96d43d37d78d0c007f2ce73421f3f7c4c2558e730deb846d582c0d079593c"
+    },
+    {
+      "path": "resilience/java/src/main/java/io/jpyxis/resilience/port/AttemptExecutor.java",
+      "gitBlob": "a0d071d445b890ab76157a096da7c51dd1af1825",
+      "sha256": "sha256:a2c72e30204ac631341b6becb739b512374e71340d091ed2d13e794b4f039bc9"
+    },
+    {
+      "path": "experiments/productization-audit/CoordinateGateProbe.java",
+      "gitBlob": "41851b5813890bb750f59347221bd5dd18b383f8",
+      "sha256": "sha256:df6f218bf003ec9cdde1193afda8fec12cbced79fbc864d466bdb1e25bc103fb"
+    },
+    {
+      "path": "evidence/productization-audit/first-instance-failure/InstanceFailureProbe.java",
+      "gitBlob": "6c84e2f843688d69442802ac4e526e9ca8700ab2",
+      "sha256": "sha256:855af7bd812945eba7b1143a2a2910023c9819b4a6237fa09d8d763918b2af87"
+    },
+    {
+      "path": "experiments/m5-coordinate-validation/CoordinateValidationMain.java",
+      "gitBlob": "99ecc64cad92f08c25859a81a173fe3c6872f49f",
+      "sha256": "sha256:055198c15993a6720088461d50d9639d55382f9a3d073353ac9a99582401b1e9"
+    }
+  ],
+  "harness": [
+    {
+      "path": "experiments/productization-audit-v3/run.mjs",
+      "gitBlob": "df0f733a9f48dce174321da18be6905114e8ffab",
+      "sha256": "sha256:2bf33bb2234cb133934b176a271fff9577f98535b16f554af725ae6aeb1b05f7"
+    },
+    {
+      "path": "experiments/productization-audit-v3/verify.mjs",
+      "gitBlob": "683b73d86cf901f66e47b35f1201bc0de3989b8f",
+      "sha256": "sha256:41a1b96da55eb6128fd8eb81d277f00ccd5af06ef86941d137ae1cf1000778b1"
+    }
+  ],
+  "java": "java version \"17.0.12\" 2024-07-16 LTS\r\nJava(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)\r\nJava HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)",
+  "runs": [
+    {
+      "id": "honest_plan_control",
+      "main": "CoordinateGateProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "honest_plan_control.stdout.bin",
+      "stderr": "honest_plan_control.stderr.bin",
+      "stdoutSha256": "sha256:05281081b502439f3044b757dcd64a283cf1ea0d2a540f67a1c918e4dcc490ab",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "worker_instance_substitution",
+      "main": "CoordinateGateProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "worker_instance_substitution.stdout.bin",
+      "stderr": "worker_instance_substitution.stderr.bin",
+      "stdoutSha256": "sha256:bd586322b43662befec649747d148dba0af6b3cc1a9c23ad525230e29d0b300e",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "worker_epoch_substitution",
+      "main": "CoordinateGateProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "worker_epoch_substitution.stdout.bin",
+      "stderr": "worker_epoch_substitution.stderr.bin",
+      "stdoutSha256": "sha256:e2fafeb798fadcb3dfb6201eef2a3f3e88e02111cdbcd8884d1d965403f265d7",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "idempotency_substitution",
+      "main": "CoordinateGateProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "idempotency_substitution.stdout.bin",
+      "stderr": "idempotency_substitution.stderr.bin",
+      "stdoutSha256": "sha256:15932466555ecd63d4c811f14d124d12ea7e99cb0f8ce52e7ecac5345d585f6a",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "replacement_instance_failure",
+      "main": "InstanceFailureProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "replacement_instance_failure.stdout.bin",
+      "stderr": "replacement_instance_failure.stderr.bin",
+      "stdoutSha256": "sha256:5fbf19c0e0f3cd3e5b846b0defa3e63846c605e9c92ce6e83c817af7ef3f06bb",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "same_instance_failure_control",
+      "main": "InstanceFailureProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "same_instance_failure_control.stdout.bin",
+      "stderr": "same_instance_failure_control.stderr.bin",
+      "stdoutSha256": "sha256:ef3457f2285c8e8670b0501ed8d832984728a0fce14a4cc9972cf0c8e5e9f8e8",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "replacement_success_control",
+      "main": "InstanceFailureProbe",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "replacement_success_control.stdout.bin",
+      "stderr": "replacement_success_control.stderr.bin",
+      "stdoutSha256": "sha256:7a73a00f23ce5d15be8d6ed3e07e58a37a45e564cf1a4993e0b7b84c79fe6664",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "handle_worker",
+      "main": "CoordinateValidationMain",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "handle_worker.stdout.bin",
+      "stderr": "handle_worker.stderr.bin",
+      "stdoutSha256": "sha256:01fcbda88ab1a6b067aa1382e181fca420919a361a1b5dea45ca0b3000cfce04",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "handle_instance",
+      "main": "CoordinateValidationMain",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "handle_instance.stdout.bin",
+      "stderr": "handle_instance.stderr.bin",
+      "stdoutSha256": "sha256:25f8188aaf1c77b8ebabfaf12c5816b251e2e1e34ab69d50505c98e0fee10271",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "handle_epoch",
+      "main": "CoordinateValidationMain",
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "stdout": "handle_epoch.stdout.bin",
+      "stderr": "handle_epoch.stderr.bin",
+      "stdoutSha256": "sha256:f4f3f3db99d81ef257969309ce5ad1146fa1eb40a34543c01c785a9f75d2c615",
+      "stderrSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "Audit A model rerun only; original plan/replacement fixtures plus guarded start observations; no real worker, durable recovery or composition claim",
+  "sourcesUnchangedAtEnd": true,
+  "completedAt": "2026-10-01T15:55:05.534Z"
+}

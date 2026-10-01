@@ -344,7 +344,9 @@ Its [separate M4 v2 contract](docs/spec/m4-handle-ownership-contract-v2.md) comp
 [qualified closure and protected tag](evidence/m4-handle-validation/v2/closure-manifest.json).
 The [separate guard implementation](docs/reviews/m4-handle-validation-implementation-review.md)
 completed its [exact-main qualification](evidence/m4-handle-validation/v2/implementation-manifest.json).
-Its bounded guards permit a fresh Audit A after the separate qualification publication closes.
+Its separate qualification publication closed through protected PR #30 and exact-main readback.
+The [fresh Audit A v3](docs/reviews/productization-reference-path-audit-review-v3.md) rechecked
+known guard failures and the remaining public composition seam; its own publication is pending.
 
 ## M6 reproducibility baseline
 

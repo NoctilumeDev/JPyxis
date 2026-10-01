@@ -1,0 +1,280 @@
+{
+  "revision": "d2bc70d17e052acbb911637fc84f0de2257494ee",
+  "retainedFiles": 473,
+  "retainedGitBytes": "VERIFIED",
+  "qualifiedImplementationSource": "a5fc73b8d0b2f7724338873d14377af8a26e3021",
+  "inputs": [
+    {
+      "name": "public-main",
+      "verdict": "PASS",
+      "failures": [],
+      "incomplete": [],
+      "results": [
+        {
+          "id": "fresh_rollback",
+          "verdict": "PASS"
+        },
+        {
+          "id": "retired_same_object",
+          "verdict": "PASS"
+        },
+        {
+          "id": "retired_cloned_tuple",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_loaded",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_warming",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_standby",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_active",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_draining",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_unloading",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_alias_cleanup",
+          "verdict": "PASS"
+        },
+        {
+          "id": "warm_failed_release_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "warm_failed_cleanup_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "unload_failed_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "concurrent_duplicate_returns",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_provider",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_version",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_opaque",
+          "verdict": "PASS"
+        },
+        {
+          "id": "null_return",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_provider_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_provider_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_version_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_version_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_opaque_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_opaque_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "separate_owner_lifetime",
+          "verdict": "PASS"
+        },
+        {
+          "id": "admission_record_failure",
+          "verdict": "PASS"
+        },
+        {
+          "id": "load_observation_record_failure",
+          "verdict": "PASS"
+        },
+        {
+          "id": "cross_artifact_alias",
+          "verdict": "PASS"
+        }
+      ],
+      "mutationResults": [
+        {
+          "id": "missing_case_stdout",
+          "verdict": "INCONCLUSIVE"
+        },
+        {
+          "id": "rehashed_foreign_cleanup",
+          "verdict": "FAIL"
+        },
+        {
+          "id": "self_declared_alias_adoption",
+          "verdict": "FAIL"
+        }
+      ],
+      "scope": "M4 canonical handle admission/release public model, one in-memory owner; no real process or product qualification"
+    },
+    {
+      "name": "clean-main",
+      "verdict": "PASS",
+      "failures": [],
+      "incomplete": [],
+      "results": [
+        {
+          "id": "fresh_rollback",
+          "verdict": "PASS"
+        },
+        {
+          "id": "retired_same_object",
+          "verdict": "PASS"
+        },
+        {
+          "id": "retired_cloned_tuple",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_loaded",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_warming",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_standby",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_active",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_draining",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_unloading",
+          "verdict": "PASS"
+        },
+        {
+          "id": "live_alias_cleanup",
+          "verdict": "PASS"
+        },
+        {
+          "id": "warm_failed_release_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "warm_failed_cleanup_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "unload_failed_reentry",
+          "verdict": "PASS"
+        },
+        {
+          "id": "concurrent_duplicate_returns",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_provider",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_version",
+          "verdict": "PASS"
+        },
+        {
+          "id": "different_opaque",
+          "verdict": "PASS"
+        },
+        {
+          "id": "null_return",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_provider_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_provider_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_version_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_version_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_opaque_null",
+          "verdict": "PASS"
+        },
+        {
+          "id": "malformed_opaque_blank",
+          "verdict": "PASS"
+        },
+        {
+          "id": "separate_owner_lifetime",
+          "verdict": "PASS"
+        },
+        {
+          "id": "admission_record_failure",
+          "verdict": "PASS"
+        },
+        {
+          "id": "load_observation_record_failure",
+          "verdict": "PASS"
+        },
+        {
+          "id": "cross_artifact_alias",
+          "verdict": "PASS"
+        }
+      ],
+      "mutationResults": [
+        {
+          "id": "missing_case_stdout",
+          "verdict": "INCONCLUSIVE"
+        },
+        {
+          "id": "rehashed_foreign_cleanup",
+          "verdict": "FAIL"
+        },
+        {
+          "id": "self_declared_alias_adoption",
+          "verdict": "FAIL"
+        }
+      ],
+      "scope": "M4 canonical handle admission/release public model, one in-memory owner; no real process or product qualification"
+    }
+  ],
+  "scope": "M4 canonical handle admission and release within one in-memory DeploymentManager lifetime; public model and fresh clean-VM directed witnesses",
+  "limits": "No cross-Manager or durable ownership, actual process freshness or cleanup, Environment construction, provider binding oracle, resource grant or real product path"
+}
