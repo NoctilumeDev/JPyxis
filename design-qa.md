@@ -122,3 +122,4 @@ and six mutation expectations. Four exported receipt copies failed the repositor
 newline rule. Their original bytes are now retained under .bin names (same blobs and ZIP
 members), so their formatting remains unchanged; the verifier itself is unchanged.
 Visual acceptance remains pending and no merge is authorized.
+`nWhite-layout first counterexample: 60-empty-white.png split the WITHHELD word. The word is kept on one line with sizes matched to the available width. Complete connectors use the unmodified path coordinates from the official Lucide arrow-right.svg source. The incoming heading keeps programmatic focus for navigation without an action-style outline.
