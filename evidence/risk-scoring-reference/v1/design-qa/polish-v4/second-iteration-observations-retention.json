@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "783d45ef715c717576d8ebfdc4dc1d7e9d381b86",
+  "archive": "second-iteration-observations.zip",
+  "bytes": 21775386,
+  "sha256": "25c3ccddf5bc52a3df1a441f3bdb3dd898c84e335749721aa76674bfb492365f",
+  "members": 280,
+  "observations": "Five actual UI requests across v1, held old pin and v2 cutover, REJECT, dispatched worker crash, fresh rollback. Original receipt exported byte-identically; six original worker/probe processes stopped. Not visual acceptance.",
+  "findings": [
+    "Held receipt bottom 918.96875px",
+    "UNKNOWN receipt bottom 910.21875px",
+    "Latest fresh realization history partly hidden below older cards"
+  ],
+  "captureLimits": "10/11/12 have nonzero scroll offsets and are not accepted top-of-page evidence; 13 onward actual scrollY=0."
+}

@@ -63,3 +63,16 @@ preserving measured font floors. New actual screenshots are still required.
 
 01-empty-install is a rejected default-viewport capture; 02-empty-1440 is a rejected resize
 transient. Both are retained. 03-empty-1440-stable is the inspected stable empty screen.
+
+## Second iteration counterexamples
+
+783d45ef715c717576d8ebfdc4dc1d7e9d381b86 ran five actual GUI requests.
+13-v2-standby shows REVIEW and the sole primary Activate action at scrollY=0; its receipt
+summary bottom is 853.385px. Held cutover and UNKNOWN still push the summary bottom to
+918.969px and 910.219px. Latest fresh realization details are partly hidden below older
+cards. These are unmet requirements, preserved in 14/16/17 screenshots and raw ZIP.
+The next presentation candidate embeds the readable status notice inside Request, orders
+actual version cards newest first, and bounds history/recent scrollers. No host state or
+selection data changes. 10/11/12 retain scroll offsets and do not prove the first screen.
+The source-bound functional scenario and mutations returned their expected results; all
+six original UI worker/probe processes stopped, and export equals the original receipt.
