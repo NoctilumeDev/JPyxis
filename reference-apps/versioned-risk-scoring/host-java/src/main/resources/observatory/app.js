@@ -56,7 +56,7 @@ function render(){
     facts($('execution-facts'),[['Request',selected.id],['Pinned version',version(selected.version)],['Worker',short(realization.workerId)],['Runtime',realization.runtimeBinding?.runtimeIdentity],['Attempt',short(binding.plan?.attemptId)],['Completed',selected.completedAt?new Date(selected.completedAt).toLocaleTimeString():'Awaiting completion']]);
     text('authority',unknown?'AUTHORITY HELD':pending?'CONTROL AUTHORIZED · REQUEST PIN HELD':terminal==='SUCCEEDED'?'CONTROL BINDING ESTABLISHED':'NO BUSINESS DECISION AUTHORITY');
     facts($('binding-facts'),[['Definition',definition.definitionIdentity],['Artifact digest',short(definition.definitionDigest)],['Environment',short(definition.environmentDigest)],['Qualification',short(binding.qualificationId)],['Request pin',short(binding.pin?.pinId)],['Current route',version(state.activeVersion)]]);
-    text('features',`Exposure ${selected.features.normalizedExposure.toFixed(2)} / Activity ${selected.features.activity.toFixed(2)}\nVelocity ${selected.features.velocity.toFixed(2)} / Concentration ${selected.features.concentration.toFixed(2)}\nSynthetic case: ${selected.features.sample}`);
+    text('features',`Exposure ${selected.features.normalizedExposure.toFixed(2)} · Activity ${selected.features.activity.toFixed(2)}\nVelocity ${selected.features.velocity.toFixed(2)} · Case ${selected.features.sample}\nConcentration ${selected.features.concentration.toFixed(2)}`);
     text('decision',selected.decision);text('decision-note',unknown?'WITHHELD · uncertainty is never a business verdict.':selected.decision==='WITHHELD'?'Only validated successful execution may enter Java policy.':`Evaluated by Java policy · ${selected.id}`);
     $('receipt-layers').replaceChildren();
     for(const [name,rows] of [
@@ -74,36 +74,73 @@ function render(){
   $('timeline').replaceChildren();
   if(!state.deployments.length)$('timeline').textContent='No versions yet.';
   for(const d of [...state.deployments].reverse()){
-    const button=document.createElement('button'),name=document.createElement('span'),status=document.createElement('span');
+    const button=document.createElement('button'),name=document.createElement('span');
     const current=navigationTarget()==='#lifecycle'&&deploymentSelected()?.deploymentId===d.deploymentId;
     button.className=`context-link ${current?'selected':''}`;button.dataset.focusKey=`version:${d.deploymentId}`;button.setAttribute('aria-label',`Inspect ${version(d.version)} realization ${short(d.realization?.launchNonce)}`);button.setAttribute('aria-pressed',String(current));
     button.onclick=()=>{selectedDeploymentId=d.deploymentId;navigate('#lifecycle');};
-    name.textContent=version(d.version)+(d.purpose==='FRESH_ROLLBACK'?' · fresh':'');status.className='context-caption';status.textContent=`${d.state} · ${d.alive?'live':'stopped'}`;
-    button.append(name,status);$('timeline').append(button);
+    name.textContent=version(d.version)+(d.purpose==='FRESH_ROLLBACK'?' · fresh':'');
+    button.append(name);$('timeline').append(button);
   }
   $('ceremony-events').replaceChildren();
   for(const event of state.ceremonies){const li=document.createElement('li');li.textContent=`${event.phase.replaceAll('_',' ')}${event.version?' · risk-'+event.version:''} · ${new Date(event.observedAt).toLocaleTimeString()}`;$('ceremony-events').append(li);}
   $('request-rows').replaceChildren();
   if(!state.requests.length)$('request-rows').textContent='No invocations yet.';
   for(const r of [...state.requests].reverse()){
-    const button=document.createElement('button'),name=document.createElement('span'),caption=document.createElement('span');
+    const button=document.createElement('button'),name=document.createElement('span');
     const current=['#overview','#workspace','#receipt'].includes(navigationTarget())&&r.id===selected?.id;
     button.className=`context-link ${current?'selected':''}`;button.dataset.focusKey=`request:${r.id}`;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.setAttribute('aria-pressed',String(current));
-    button.onclick=()=>{selectedId=r.id;navigate('#workspace');};name.textContent=r.id;caption.className='context-caption';caption.textContent=version(r.version);
-    button.append(name,caption);$('request-rows').append(button);
+    button.onclick=()=>{selectedId=r.id;navigate('#workspace');};name.textContent=r.id;
+    button.append(name);$('request-rows').append(button);
   }
   text('shutdown-note',state.allOwnedWorkersStopped?'All owned workers observed stopped. Sealed receipt available.':'Shutdown is a separate physical observation.');
-  notice(lastError||state.operationError||(unknown?'OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD':selected?.mode==='hold'&&selected.executionState==='IN_FLIGHT'?'Actual M3 witness barrier: release within 15 seconds. Waiting is not a claim that NumPy is computing.':''));
+  notice(lastError||state.operationError||(unknown?'OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD':selected?.mode==='hold'&&selected.executionState==='IN_FLIGHT'?'Hold barrier · release within 15s. Computation has not started.':''));
   renderCentralLists();reflectNavigation();
   if(focusedKey){const restored=[...document.querySelectorAll('[data-focus-key]')].find(el=>el.dataset.focusKey===focusedKey);if(restored&&!restored.disabled)restored.focus({preventScroll:true});}
 }
 $('invoke').onclick=()=>act('invoke',{sample:$('sample').value,mode:$('mode').value});
 $('close').onclick=()=>act('close');$('export').onclick=()=>{window.location.href='/api/receipt';};
+const selectors=[];
+function enhanceSelect(select){
+  const wrapper=document.createElement('div'),button=document.createElement('button'),label=document.createElement('span'),list=document.createElement('ul');
+  wrapper.className='select-control';button.type='button';button.id=`${select.id}-control`;button.className='select-trigger';button.setAttribute('role','combobox');button.setAttribute('aria-label',select.getAttribute('aria-label'));button.setAttribute('aria-haspopup','listbox');button.setAttribute('aria-controls',`${select.id}-options`);button.setAttribute('aria-expanded','false');
+  list.id=`${select.id}-options`;list.className='select-options';list.setAttribute('role','listbox');list.setAttribute('aria-label',select.getAttribute('aria-label'));list.hidden=true;
+  const chevron=document.querySelector('[data-lucide="chevron-down"]').cloneNode(true);button.append(label,chevron);
+  let active=select.selectedIndex,typed='',typedAt=0;
+  const options=[...select.options].map((option,index)=>{
+    const item=document.createElement('li');item.id=`${select.id}-option-${index}`;item.setAttribute('role','option');item.textContent=option.textContent;item.addEventListener('pointerdown',event=>event.preventDefault());item.addEventListener('click',()=>{active=index;close(true);button.focus({preventScroll:true});});list.append(item);return item;
+  });
+  function sync(){const option=select.options[select.selectedIndex];label.textContent=option.textContent.replace(' witness','').replace(' · diagnostic','');button.title=option.textContent;options.forEach((item,index)=>item.setAttribute('aria-selected',String(index===select.selectedIndex)));}
+  function highlight(index){active=Math.max(0,Math.min(options.length-1,index));options.forEach((item,i)=>{item.classList.toggle('active',i===active);item.setAttribute('aria-selected',String(i===active));});button.setAttribute('aria-activedescendant',options[active].id);options[active].scrollIntoView({block:'nearest'});}
+  function close(commit=false){if(list.hidden)return;if(commit){select.selectedIndex=active;select.dispatchEvent(new Event('change',{bubbles:true}));}list.hidden=true;button.setAttribute('aria-expanded','false');button.removeAttribute('aria-activedescendant');sync();}
+  function open(){selectors.forEach(item=>item.close(true));list.hidden=false;button.setAttribute('aria-expanded','true');highlight(select.selectedIndex);}
+  button.addEventListener('click',()=>list.hidden?open():close());
+  button.addEventListener('keydown',event=>{
+    const key=event.key;
+    if(key==='Escape'){if(!list.hidden){event.preventDefault();close();}return;}
+    if(key==='Tab'){close(true);return;}
+    if(['ArrowDown','ArrowUp','Home','End','PageDown','PageUp','Enter',' '].includes(key)){
+      event.preventDefault();const wasClosed=list.hidden;
+      if(wasClosed)open();
+      if(key==='Home'||key==='PageUp')highlight(0);
+      else if(key==='End'||key==='PageDown')highlight(options.length-1);
+      else if(key==='ArrowDown'&&!wasClosed)highlight(active+1);
+      else if(key==='ArrowUp'){if(event.altKey&&!wasClosed)close(true);else highlight(wasClosed?0:active-1);}
+      else if((key==='Enter'||key===' ')&&!wasClosed)close(true);
+    }else if(key.length===1&&!event.ctrlKey&&!event.metaKey&&!event.altKey){
+      event.preventDefault();const now=Date.now();typed=now-typedAt>800?key.toLowerCase():typed+key.toLowerCase();typedAt=now;
+      if(list.hidden)open();const repeated=[...typed].every(letter=>letter===typed[0]),query=repeated?typed[0]:typed;
+      const order=options.map((_,i)=>(active+1+i)%options.length),match=order.find(i=>options[i].textContent.toLowerCase().startsWith(query));if(match!==undefined)highlight(match);
+    }
+  });
+  button.addEventListener('blur',()=>close(true));document.addEventListener('pointerdown',event=>{if(!wrapper.contains(event.target))close(true);});select.addEventListener('change',sync);
+  wrapper.append(button,list);select.after(wrapper);select.hidden=true;sync();selectors.push({close});
+}
+['sample','mode'].forEach(id=>enhanceSelect($(id)));
 async function initialize(){try{const response=await fetch('/api/session');token=(await response.json()).token;await refresh();setInterval(()=>refresh().catch(error=>notice(error.message)),650);}catch(error){notice(error.message);}}
 initialize();
 function navigationTarget(){const target=window.location.hash;return ['#overview','#workspace','#lifecycle','#records','#receipt'].includes(target)?target:'#overview';}
 function deploymentSelected(){return state?.deployments.find(d=>d.deploymentId===selectedDeploymentId)||state?.deployments.find(d=>d.deploymentId===state.activeDeploymentId)||state?.deployments.at(-1)||null;}
-function navigate(target){history.replaceState(null,'',target);if(state)render();else reflectNavigation();window.scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
+function navigate(target){selectors.forEach(item=>item.close(true));history.replaceState(null,'',target);if(state)render();else reflectNavigation();window.scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
 function reflectNavigation(){
   const target=navigationTarget(),overview=target==='#overview'||target==='#workspace';
   document.querySelectorAll('.rail nav a').forEach(link=>{const current=link.getAttribute('href')===target;link.classList.toggle('selected',current);if(current)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});

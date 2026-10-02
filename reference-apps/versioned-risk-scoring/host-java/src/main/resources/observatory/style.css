@@ -188,4 +188,17 @@ footer{padding:10px 0;border-top:1px solid var(--brass);font-size:12px;line-heig
 .instrument-rail .context-link{display:block;border:0;border-right:4px solid transparent;border-radius:0;width:100%;padding:12px 10px 12px 14px;text-align:right;background:transparent;box-shadow:none;color:#d5dcdf;font:400 13px/1.5 var(--sans);min-height:48px}
 .instrument-rail .context-link:hover:not(:disabled){background:#243d50;color:#f8fbff}
 .instrument-rail .context-link.selected{background:#2d475a;border-right-color:var(--brass-light);color:#f8fbff}
-.context-caption{display:block;font:12px/1.5 var(--sans);color:#c9d2db;margin-top:2px}
+.instrument-rail .context-link>span{display:block;white-space:nowrap}
+.instrument-rail nav{padding:0 14px}
+.instrument-rail nav:has(.context-link){padding:0}
+.select-control{position:relative;min-width:0}
+.request-bar .select-trigger{position:relative;padding:7px 26px;border:1px solid #b6c0c9;background:var(--white);color:var(--ink);font-weight:400;box-shadow:none;text-align:center}
+.select-trigger>span{display:block;line-height:1.5}
+.select-trigger>svg{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--muted)}
+.select-trigger[aria-expanded=true]>svg{transform:translateY(-50%) rotate(180deg)}
+.select-options{position:absolute;inset:calc(100% + 3px) 0 auto;z-index:5;list-style:none;margin:0;padding:3px;background:var(--white);border:1px solid #b6c0c9;box-shadow:0 3px 8px #14263520;font:12px/1.5 var(--sans);text-align:center;max-height:220px;overflow-y:auto}
+.select-options>li{padding:9px 12px;min-height:36px;cursor:pointer;border:1px solid transparent;white-space:normal;overflow-wrap:normal}
+.select-options>li:hover,.select-options>li.active{background:#edf3f7;border-color:#b6c0c9;color:var(--navy)}
+.select-options>li[aria-selected=true]{font-weight:600;color:var(--navy)}
+.request-caption{margin-bottom:6px}.next-label{padding-top:4px}.request-bar{gap:6px;padding:6px 0 8px}
+.features{padding-top:8px}.request-card .boundary{padding-top:5px;margin-top:6px}
