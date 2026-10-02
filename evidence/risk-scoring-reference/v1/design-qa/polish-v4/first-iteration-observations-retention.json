@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "9d8b482415a114b28b17cdaef734476b667c8222",
+  "archive": "first-iteration-observations.zip",
+  "bytes": 21678123,
+  "sha256": "2565c9727d314a6af0d41a4cecbd32481e46f8dc29089ca106018d66ed5ffe65",
+  "members": 228,
+  "observations": "One actual UI v1 REVIEW request; receipt exported byte-identically and two original worker/probe processes physically stopped. Not a visual acceptance.",
+  "finding": "Receipt summary bottom 906.21875 CSS pixels exceeds 900px first viewport.",
+  "rejectedCaptureFiles": [
+    "01-empty-install.png (default 1280x720 viewport)",
+    "02-empty-1440.png (resize transient; cropped screenshot mismatches reported geometry)"
+  ],
+  "stableEmpty": "03-empty-1440-stable.png"
+}

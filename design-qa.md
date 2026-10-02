@@ -49,3 +49,17 @@ intentional adaptation or unmet; do not downgrade an unmet requirement to option
 
 Stop at the candidate PR, precise commit and actual screenshots. User visual signature and
 independent product acceptance are outstanding. Do not merge this candidate.
+
+## First iteration counterexample
+
+Candidate 9d8b482415a114b28b17cdaef734476b667c8222 was actually constructed and
+ran the unchanged seven-request/three-worker scenario and mutation reader. Its UI R001
+returned 0.73 / REVIEW / SUCCEEDED, but 05-v1-review.metrics.json puts the receipt summary
+bottom at 906.21875px. This fails the stated first-screen requirement. The first UI receipt
+is byte-identical to receipt.json; its original worker/probe were physically stopped.
+Raw source/construction/owner/receipt bytes remain in first-iteration-observations.zip.
+The layout is revised through padding, definition-list gaps and header rhythm while
+preserving measured font floors. New actual screenshots are still required.
+
+01-empty-install is a rejected default-viewport capture; 02-empty-1440 is a rejected resize
+transient. Both are retained. 03-empty-1440-stable is the inspected stable empty screen.
