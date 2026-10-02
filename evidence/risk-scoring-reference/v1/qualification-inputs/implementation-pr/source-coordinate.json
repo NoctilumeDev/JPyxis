@@ -1,0 +1,24 @@
+{
+  "executedSource": "0d6977581b35449b687d66d14a285f2eb625ef24",
+  "sourceTree": "a3943995739c67f7ed901a25d64e4f35b5447686",
+  "canonicalEquivalentMain": "151785c281e8e18f8e023c301009f0f1c53e32f2",
+  "container": "source-coordinate.zip",
+  "containerBytes": 1854,
+  "sha256": "sha256:64b4a83d275d9df9ba144f415aafc25236ac593c58823258377bb18cc2ea60eb",
+  "members": [
+    {
+      "path": "commit.bin",
+      "gitType": "commit",
+      "gitObject": "0d6977581b35449b687d66d14a285f2eb625ef24",
+      "bytes": 1173,
+      "sha256": "sha256:649cc930a9c101905f9be5cf89bef13b3bfbf91cc6edd64e8bde024ff9739206"
+    },
+    {
+      "path": "tree.bin",
+      "gitType": "tree",
+      "gitObject": "a3943995739c67f7ed901a25d64e4f35b5447686",
+      "bytes": 920,
+      "sha256": "sha256:b0e73123794751f8c60a933a1c0b891edd1e111074650724111499f6458a350d"
+    }
+  ]
+}

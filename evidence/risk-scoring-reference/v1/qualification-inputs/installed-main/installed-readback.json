@@ -1,0 +1,23 @@
+{
+  "schema": "jpyxis-risk-installed-ui-readback-v1",
+  "expectedSource": "151785c281e8e18f8e023c301009f0f1c53e32f2",
+  "originalReaderGitBlob": "bbb9768466ee44326cf612d8f107f700b471fafc",
+  "adaptations": [
+    "UI-downloaded receipt instead of scenario export",
+    "Exact five real UI requests instead of the seven-request public scenario",
+    "Owner-event cutover and actual crash/fresh nonce instead of HTTP-scenario snapshot files"
+  ],
+  "unchangedChecks": "Original source/inventory/jar/construction, independent interpreter qualification, owned worker/probe identities, binary protobuf reports, pure float32 computation/signals, Java policy, required owner chronology and six after-exit process observations.",
+  "result": {
+    "verdict": "PASS",
+    "failures": [],
+    "missing": [],
+    "requests": 5,
+    "actualWorkers": 3,
+    "scope": "five-request installed GUI observation; not the seven-request public scenario gate",
+    "productizationQualified": false
+  },
+  "publicScenarioStillRequired": true,
+  "localMavenReuse": true,
+  "publicClean": false
+}
