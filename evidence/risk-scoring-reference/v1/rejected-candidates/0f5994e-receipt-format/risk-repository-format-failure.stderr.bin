@@ -1,0 +1,6 @@
+Repository verification failed with 5 issue(s):
+- evidence/risk-scoring-reference/v1/design-qa/final/console.json: missing final newline
+- evidence/risk-scoring-reference/v1/design-qa/final/sealed-receipt.json: missing final newline
+- evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback/final-state.json: missing final newline
+- evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback/receipt.json: missing final newline
+- evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback/risk-host-entry.json: missing final newline
