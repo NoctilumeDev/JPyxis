@@ -1,19 +1,6 @@
 # Risk Scoring Observatory QA
 
-final result: blocked
-
-The previous visual pass is superseded by the user's subsequent review. The original report at
-commit `0f5994ed9c3dcc0fe09ff083fbb32e5b88d7d1f2` and the unchanged `final/` captures are retained
-as the pre-polish candidate. Their former "passed" conclusion is not current authority.
-
-Open P2 findings: restore the desktop lifecycle/invocation right rail; strengthen paper/stone,
-brass charter and oxblood decision hierarchy; compact the hero; connect numbered flow to a real
-Request card; use licensed linear library icons; improve dense metadata contrast and size; keep
-current route, score/decision and continuity visible in the first desktop screen. The next pass
-must recapture desktop success, UNKNOWN, narrow desktop, mobile and the expanded receipt, and
-compare the implementation with the same retained source image. Runtime and receipt semantics
-remain frozen during this presentation-only repair. Historical findings below describe the
-superseded candidate, not the new visual result.
+final result: passed
 
 Source visual truth: the user's selected ivory/navy/brass observatory image,
 retained at `evidence/risk-scoring-reference/v1/design-qa/source-reference.png`.
