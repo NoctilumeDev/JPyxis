@@ -122,3 +122,25 @@ footer{padding:10px 0;border-top:1px solid var(--brass);font-size:12px;line-heig
 #decision.withheld{font-size:26px}
 @media(min-width:1280px) and (max-width:1360px){#decision.withheld{font-size:23px}}
 @media(max-width:760px){#decision.withheld{font-size:37px}}
+
+.instrument-rail{background:var(--navy-deep);color:#eef2f6;border-left:2px solid var(--brass);box-shadow:inset 6px 0 12px #07121b30;scrollbar-color:#718896 var(--navy-deep)}
+.instrument-rail section,.instrument-rail .section-heading{background:transparent}
+.instrument-rail .context-heading,.instrument-rail .section-heading{border-bottom-color:#486071}
+.instrument-rail .context-heading p,.instrument-rail .label,.instrument-rail .records-key,.instrument-rail .empty-row td{color:#c9d2db}
+.instrument-rail .timeline{color:#c9d2db;scrollbar-color:#718896 var(--navy-deep)}
+.instrument-rail .deployment{border-color:#486071;background:transparent}
+.instrument-rail .deployment.active{border-left-color:var(--brass-light);background:#2d475a}
+.instrument-rail .deployment.selected{outline-color:var(--brass-light)}
+.instrument-rail .deployment .version,.instrument-rail .deployment .fresh,.instrument-rail .version-link{color:#eef2f6}
+.instrument-rail .deployment p,.instrument-rail .deployment .journey{color:#c9d2db}
+.instrument-rail .deployment .state{border-color:#718896;background:#253e52;color:#eef2f6}
+.instrument-rail .deployment.active .state{border-color:var(--brass-light);background:#2d475a;color:#f8fbff}
+.instrument-rail .version-link:hover:not(:disabled){background:#243d50;color:#f8fbff}
+.instrument-rail #ceremony{background:#1c3347;border-color:#486071;color:#eef2f6}
+.instrument-rail th{color:#c9d2db;border-bottom-color:#486071}
+.instrument-rail td,.instrument-rail tbody tr{color:#d5dcdf;border-bottom-color:#486071}
+.instrument-rail td:nth-child(2){color:#c9d2db}
+.instrument-rail td:nth-child(4){color:#efc6cf}
+.instrument-rail td button{color:#eef2f6}
+.instrument-rail td button:hover:not(:disabled){background:#243d50}
+.instrument-rail tr.current{background:#2d475a;box-shadow:inset 3px 0 0 var(--brass-light)}
