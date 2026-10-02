@@ -19,7 +19,7 @@ async function act(action,extra={}){
     await refresh();
   }catch(error){lastError=error.message;notice(lastError);}finally{busy=false;render();}
 }
-function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.dataset.focusKey=`${action}:${extra?.version||''}`;button.className=primary?'primary':'';button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
+function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.dataset.focusKey=`${action}:${extra?.version||''}`;button.className=primary?'primary':action==='rollback'?'recovery':'';button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
 function requestSelected(){return state?.requests.find(r=>r.id===selectedId)||state?.requests.at(-1)||null;}
 function render(){
   if(!state)return;
@@ -34,6 +34,7 @@ function render(){
     if(!d.installed)addAction(`Install & warm ${d.version}`,'install',{version:d.version},d.version==='v1'&&!state.activeVersion,!idle);
   }
   const standby=state.deployments.filter(d=>d.state==='STANDBY'&&d.qualified&&d.alive);
+  $('invoke').classList.toggle('primary',standby.length===0&&state.activeEligible&&!unknown);
   for(const d of standby)addAction(`Activate risk-${d.version}`,'activate',{version:d.version},true,!idle);
   if(state.canRollback)addAction(`Fresh rollback to ${state.rollbackVersion}`,'rollback',{},false,!idle);
   if(!idle&&!state.closed){const span=document.createElement('span');span.textContent=state.closing?'Closing owned processes…':state.operation;span.className='label';actions.append(span);}
@@ -75,6 +76,7 @@ function render(){
   $('ceremony-events').replaceChildren();
   for(const event of state.ceremonies){const li=document.createElement('li');li.textContent=`${event.phase.replaceAll('_',' ')}${event.version?' · risk-'+event.version:''} · ${new Date(event.observedAt).toLocaleTimeString()}`;$('ceremony-events').append(li);}
   $('request-rows').replaceChildren();
+  if(!state.requests.length){const tr=document.createElement('tr'),td=document.createElement('td');tr.className='empty-row';td.colSpan=5;td.textContent='No requests. Activate a qualified worker, then invoke explicitly.';tr.append(td);$('request-rows').append(tr);}
   for(const r of [...state.requests].reverse()){const tr=document.createElement('tr');tr.className=r.id===selected?.id?'current':'';const cell=document.createElement('td'),button=document.createElement('button');button.textContent=r.id;button.dataset.focusKey=`request:${r.id}`;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.onclick=()=>{selectedId=r.id;render();};cell.append(button);tr.append(cell);for(const value of [version(r.version),r.score==null?'—':Number(r.score).toFixed(2),r.decision,r.executionState]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('request-rows').append(tr);}
   text('shutdown-note',state.allOwnedWorkersStopped?'All owned workers observed stopped. Sealed receipt available.':'Shutdown is a separate physical observation.');
   notice(lastError||state.operationError||(unknown?'OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD':selected?.mode==='hold'&&selected.executionState==='IN_FLIGHT'?'Actual M3 witness barrier: release within 15 seconds. Waiting is not a claim that NumPy is computing.':''));
@@ -84,3 +86,5 @@ $('invoke').onclick=()=>act('invoke',{sample:$('sample').value,mode:$('mode').va
 $('close').onclick=()=>act('close');$('export').onclick=()=>{window.location.href='/api/receipt';};
 async function initialize(){try{const response=await fetch('/api/session');token=(await response.json()).token;await refresh();setInterval(()=>refresh().catch(error=>notice(error.message)),650);}catch(error){notice(error.message);}}
 initialize();
+function reflectNavigation(){const target=window.location.hash||'#overview';document.querySelectorAll('.rail nav a').forEach(link=>{const current=link.getAttribute('href')===target;link.classList.toggle('selected',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}
+window.addEventListener('hashchange',reflectNavigation);reflectNavigation();

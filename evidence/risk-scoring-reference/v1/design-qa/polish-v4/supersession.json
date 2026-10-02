@@ -1,0 +1,13 @@
+{
+  "base": "109646c7c5266a164018ac2f9534afe850b94c7c",
+  "previousReportBlob": "cd870a8a23d2d59882cda4c31cf25eb13e2ff062",
+  "previousReportSha256": "e6ebed4244ab37b616c58f2c6cc35180f50658e06f2716153ae5b92ba54860cc",
+  "status": "PENDING_USER_VISUAL_SIGN_OFF",
+  "reason": "User rejected implementer self-assessment as the visual exit; prior candidate and evidence retained unchanged.",
+  "mergeAuthorized": false,
+  "requiredAcceptance": [
+    "Explicit user visual sign-off",
+    "Independent product acceptance P0/P1 cleared, P2 adjudicated by user",
+    "Regression gates"
+  ]
+}
