@@ -1,0 +1,27 @@
+{
+  "sourceRevision": "16e769f3dfc8aae30aa2f1bd61a6a839e7e94a4e",
+  "sourceTree": "23506fb40bcc9b63bb4c5629aaeeda3428fd691f",
+  "installedArtifactSha256": "sha256:8ee428f0f19b831053427c8e190d84e003a95c1fff7d6684aa2d23d586c69556",
+  "status": "SUPERSEDED",
+  "findings": [
+    "P2: multiple desktop deployment cards shrink side by side instead of stacking",
+    "P3: inline motto needs a separating space"
+  ],
+  "repairScope": "Presentation only; no runtime or authority changes",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1120,
+      "height": 800
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "requests": 5,
+  "allOwnedWorkersStopped": true
+}
