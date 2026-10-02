@@ -14,6 +14,7 @@ public final class RiskHostServer implements AutoCloseable {
     final HttpServer server;
     final String token=UUID.randomUUID().toString();
     private final ExecutorService http=Executors.newFixedThreadPool(4);
+    private final CountDownLatch stopped=new CountDownLatch(1);
     RiskHostServer(JsonNode config,Path root,int port) throws Exception {
         slot=new RiskScoringSlot(config,root);
         server=HttpServer.create(new InetSocketAddress(InetAddress.getByName("127.0.0.1"),port),0);
@@ -54,6 +55,10 @@ public final class RiskHostServer implements AutoCloseable {
                     case "release" -> {slot.release(input.path("requestId").asText());result=slot.state();}
                     case "rollback" -> {slot.rollback();result=slot.state();}
                     case "close" -> {slot.close();result=slot.state();}
+                    case "stop" -> {
+                        if(!slot.state().path("closed").asBoolean())throw new IllegalStateException("Close owned workers before stopping the HTTP host");
+                        json(exchange,200,Map.of("stopping",true));exchange.close();close();return;
+                    }
                     default -> throw new IllegalArgumentException("unsupported explicit host action");
                 }
                 json(exchange,200,result);
@@ -77,7 +82,7 @@ public final class RiskHostServer implements AutoCloseable {
     }
     @Override public void close() {
         try{slot.close();}catch(Exception error){slot.emergencyContainment();}
-        server.stop(0);http.shutdownNow();
+        server.stop(0);http.shutdownNow();stopped.countDown();
     }
     public static void main(String[] args) throws Exception {
         if(args.length<1||args.length>2)throw new IllegalArgumentException("retained config and optional loopback port required");
@@ -85,6 +90,6 @@ public final class RiskHostServer implements AutoCloseable {
         var app=new RiskHostServer(config,root,args.length==2?Integer.parseInt(args[1]):8765);
         Runtime.getRuntime().addShutdownHook(new Thread(app::close));
         System.out.println("Risk scoring reference host: "+app.url());System.out.println("Owned receipts: "+root);
-        new CountDownLatch(1).await();
+        app.stopped.await();
     }
 }

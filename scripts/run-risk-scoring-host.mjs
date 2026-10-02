@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {spawn,execFileSync} from 'node:child_process';
 import {verifyRiskHostEvidence} from './verify-risk-host-evidence.mjs';
+import {verifyRiskHostMutations} from './verify-risk-host-mutations.mjs';
 const project=process.cwd(),git=(...args)=>execFileSync('git',args,{encoding:'utf8'}).trim();
 const revision=git('rev-parse','HEAD'),tree=git('rev-parse','HEAD^{tree}');
 assert.equal(git('status','--porcelain'),'','Commit the complete candidate before running the source-bound host');
@@ -21,13 +22,31 @@ fs.mkdirSync(generated);fs.mkdirSync(path.join(root,'temporary'));
 assert.ok(!publicClean||!process.env.JPYXIS_LOCAL_MAVEN_REPO,'Public proof requires a fresh private Maven repository');
 const mavenRepository=process.env.JPYXIS_LOCAL_MAVEN_REPO||path.join(root,'maven-repository');
 const env={...process.env,PIP_NO_CACHE_DIR:'1',PIP_DISABLE_PIP_VERSION_CHECK:'1',PYTHONDONTWRITEBYTECODE:'1',MAVEN_USER_HOME:path.join(root,'maven-user-home'),MAVEN_OPTS:[process.env.MAVEN_OPTS,`-Dmaven.repo.local=${mavenRepository}`].filter(Boolean).join(' ')};
-let javaChild,failed;
+let failed;
+async function stopLiveHost(){
+  try{
+    const {url}=JSON.parse(fs.readFileSync(path.join(root,'server.json')));
+    const {token}=await (await fetch(url+'/api/session')).json();
+    const action=async body=>{const reply=await fetch(url+'/api/action',{method:'POST',headers:{'Content-Type':'application/json','X-Reference-Token':token},body:JSON.stringify(body)});assert.ok(reply.ok,`Shutdown operation ${body.action} rejected`);return reply.json();};
+    const deadline=Date.now()+30000;
+    for(;;){
+      const state=await (await fetch(url+'/api/state')).json();
+      if(state.closed)break;
+      for(const request of state.requests.filter(r=>r.canRelease))await action({action:'release',requestId:request.id});
+      if(state.canClose){await action({action:'close'});break;}
+      assert.ok(Date.now()<deadline,'Finish the pending operation and close owned workers in the UI');
+      await new Promise(resolve=>setTimeout(resolve,100));
+    }
+    write('live-shutdown.json',{owner:'BOOTSTRAP_HTTP_SHUTDOWN',physicalState:await (await fetch(url+'/api/state')).json()});
+    await action({action:'stop'});
+  }catch(error){console.error(`Host remains owned; automatic shutdown could not finish: ${error.message}. Use the UI to close, then stop the host.`);}
+}
 async function run(id,executable,args,live=false){
   console.log(`Risk host: ${id}`);
   const stdout=fs.openSync(path.join(root,'logs',`${id}.stdout.bin`),'w'),stderr=fs.openSync(path.join(root,'logs',`${id}.stderr.bin`),'w');
   const start=Date.now(),child=spawn(executable,args,{cwd:project,env,stdio:['ignore',stdout,stderr]});
-  if(live){javaChild=child;const timer=setInterval(()=>{const file=path.join(root,'server.json');if(fs.existsSync(file)){clearInterval(timer);console.log(`Open ${JSON.parse(fs.readFileSync(file)).url}`);console.log('Close owned workers and export the sealed receipt before stopping the host.');}},200);
-    child.on('exit',()=>clearInterval(timer));process.once('SIGINT',()=>child.kill('SIGINT'));process.once('SIGTERM',()=>child.kill('SIGTERM'));
+  if(live){const timer=setInterval(()=>{const file=path.join(root,'server.json');if(fs.existsSync(file)){clearInterval(timer);console.log(`Open ${JSON.parse(fs.readFileSync(file)).url}`);console.log('Close owned workers and export the sealed receipt before stopping the host.');}},200);
+    child.on('exit',()=>clearInterval(timer));process.once('SIGINT',stopLiveHost);process.once('SIGTERM',stopLiveHost);
   }
   const exit=await new Promise((resolve,reject)=>{child.on('error',reject);child.on('exit',(code,signal)=>resolve({code,signal}));}).finally(()=>{fs.closeSync(stdout);fs.closeSync(stderr);});
   commands.push({id,executable,args,startedAt:new Date(start).toISOString(),durationMs:Date.now()-start,exit});write('commands.json',commands);
@@ -35,8 +54,8 @@ async function run(id,executable,args,live=false){
 }
 const walk=dir=>fs.existsSync(dir)?fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]):[];
 try{
-  write('source.json',{revision,tree,dirty:false,publicClean,localMavenReuse:!!process.env.JPYXIS_LOCAL_MAVEN_REPO,scope:'private risk reference host',hostPlatform:process.platform});
-  const inputFiles=git('ls-tree','-r','--name-only',revision).split('\n').filter(name=>/^(reference-apps\/versioned-risk-scoring\/|reference\/|bindings\/(java\/src\/main|python\/)|invocation\/(java\/src\/main|python\/)|lifecycle\/java\/src\/main|resilience\/java\/src\/main|spec\/(m1\/contracts|m2\/(proto|cases))|scripts\/(run-risk-scoring-host|verify-risk-host|verify-reference-wire))/.test(name)||name==='pom.xml'||/\/java\/pom.xml$/.test(name));
+  write('source.json',{revision,tree,dirty:false,publicClean,localMavenReuse:!!process.env.JPYXIS_LOCAL_MAVEN_REPO,scope:'private risk reference host',hostPlatform:process.platform,ci:publicClean?{provider:'github-actions',runId:process.env.GITHUB_RUN_ID,runAttempt:process.env.GITHUB_RUN_ATTEMPT,sourceRevision:process.env.GITHUB_SHA,runnerImage:process.env.ImageOS,runnerImageVersion:process.env.ImageVersion,pipCache:false,mavenCache:false}:null});
+  const inputFiles=git('ls-tree','-r','--name-only',revision).split('\n').filter(name=>/^(reference-apps\/versioned-risk-scoring\/|reference\/|bindings\/(java\/src\/main|python\/)|invocation\/(java\/src\/main|python\/)|lifecycle\/java\/src\/main|resilience\/java\/src\/main|spec\/(m1\/contracts|m2\/(proto|cases))|scripts\/(run-risk-scoring-host|verify-risk-host|verify-reference-wire))/.test(name)||name==='pom.xml'||name==='.github/workflows/repository-gates.yml'||/\/java\/pom.xml$/.test(name));
   const inventory=[];
   for(const name of inputFiles){const raw=fs.readFileSync(name),dest=path.join(root,'inputs',name);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,raw);inventory.push({path:name,gitBlob:git('rev-parse',`${revision}:${name}`),bytes:raw.length,sha256:sha(raw)});}
   write('input-inventory.json',{revision,tree,files:inventory});
@@ -57,6 +76,7 @@ try{
   const launchEnvironment={PYTHONNOUSERSITE:'1',PYTHONDONTWRITEBYTECODE:'1',PYTHONUNBUFFERED:'1',PYTHONHASHSEED:'0',PYTHONPATH:[packageDirectory,path.join(project,'bindings/python'),path.join(project,'invocation/python'),generated,path.join(project,'reference/python')].join(path.delimiter),PATH:process.platform==='win32'?[path.dirname(python),path.join(process.env.SystemRoot||'C:\\Windows','System32')].join(path.delimiter):'/usr/bin:/bin'};
   if(process.platform==='win32')Object.assign(launchEnvironment,{SystemRoot:process.env.SystemRoot||'C:\\Windows',TEMP:path.join(root,'temporary'),TMP:path.join(root,'temporary')});
   const jar=path.join(project,module,'target/jpyxis-risk-scoring-host.jar');
+  fs.mkdirSync(path.join(root,'artifacts'));fs.copyFileSync(jar,path.join(root,'artifacts/host.jar'));
   const construction={revision,tree,interpreter,workerExecutable:interpreter.executable,workerExecutableSha256:sha(fs.readFileSync(interpreter.executable)),requirementsClosure:closure,installedInventory:JSON.parse(fs.readFileSync(path.join(root,'logs/installed_inventory.stdout.bin'))),launchEnvironment,javaArtifactSha256:sha(fs.readFileSync(jar)),inputInventoryDigest:sha(fs.readFileSync(path.join(root,'input-inventory.json'))),commands:[...commands]};
   write('construction.json',construction);
   const definitions=Object.fromEntries(['v1','v2'].map((v,i)=>[v,{identity:`jpyxis:definition:reference/risk-affine@${i+1}.0.0`,bytes:fs.readFileSync(`reference-apps/versioned-risk-scoring/algorithms/risk-${v}.py`).toString('base64')}]));
@@ -73,4 +93,4 @@ finally{
   fs.writeFileSync(path.join(project,'build/risk/latest.json'),JSON.stringify({root,revision})+'\n');
 }
 if(failed){console.error(failed.message);process.exitCode=1;}
-else if(scenario){const result=verifyRiskHostEvidence(root,{expectedSourceRevision:revision});write('independent-readback.json',result);console.log(JSON.stringify({root,...result}));if(result.verdict!=='PASS')process.exitCode=1;}
+else if(scenario){const result=verifyRiskHostEvidence(root,{expectedSourceRevision:revision,requirePublicClean:publicClean});write('independent-readback.json',result);console.log(JSON.stringify({root,...result}));if(result.verdict!=='PASS')process.exitCode=1;else{const mutations=verifyRiskHostMutations(root,{expectedSourceRevision:revision,requirePublicClean:publicClean});write('mutation-readback.json',mutations);if(mutations.verdict!=='PASS')process.exitCode=1;}}

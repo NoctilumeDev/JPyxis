@@ -8,7 +8,7 @@ function facts(target,rows){target.replaceChildren();for(const [label,value] of 
 function notice(value){$('message').hidden=!value;$('message').textContent=value||'';}
 async function refresh(){
   const response=await fetch('/api/state');if(!response.ok)throw new Error('Host state unavailable');
-  state=await response.json();render();
+  const next=await response.json();if(JSON.stringify(next)!==JSON.stringify(state)){state=next;render();}
 }
 async function act(action,extra={}){
   if(busy)return;busy=true;lastError='';render();
@@ -19,10 +19,11 @@ async function act(action,extra={}){
     await refresh();
   }catch(error){lastError=error.message;notice(lastError);}finally{busy=false;render();}
 }
-function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.className=primary?'primary':'';button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
+function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.dataset.focusKey=`${action}:${extra?.version||''}`;button.className=primary?'primary':'';button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
 function requestSelected(){return state?.requests.find(r=>r.id===selectedId)||state?.requests.at(-1)||null;}
 function render(){
   if(!state)return;
+  const focusedKey=document.activeElement?.dataset.focusKey;
   const idle=state.operation==='IDLE'&&!state.closed&&!state.closing;
   const selected=requestSelected(),unknown=selected?.executionState==='OUTCOME_UNKNOWN';
   text('control-status',state.controlStatus);text('route',`${version(state.activeVersion)}${state.activeVersion&&!state.activeEligible?' · UNAVAILABLE':''}`);
@@ -30,7 +31,7 @@ function render(){
   text('source-label',`SOURCE ${short(state.source?.sourceRevision)} · LOOPBACK SESSION`);
   const actions=$('lifecycle-actions');actions.replaceChildren();
   for(const d of state.definitions){
-    if(!d.installed)addAction(`Install & warm ${d.version}`,'install',{version:d.version},!state.activeVersion,!idle);
+    if(!d.installed)addAction(`Install & warm ${d.version}`,'install',{version:d.version},d.version==='v1'&&!state.activeVersion,!idle);
   }
   const standby=state.deployments.filter(d=>d.state==='STANDBY'&&d.qualified&&d.alive);
   for(const d of standby)addAction(`Activate risk-${d.version}`,'activate',{version:d.version},true,!idle);
@@ -74,9 +75,10 @@ function render(){
   $('ceremony-events').replaceChildren();
   for(const event of state.ceremonies){const li=document.createElement('li');li.textContent=`${event.phase.replaceAll('_',' ')}${event.version?' · risk-'+event.version:''} · ${new Date(event.observedAt).toLocaleTimeString()}`;$('ceremony-events').append(li);}
   $('request-rows').replaceChildren();
-  for(const r of [...state.requests].reverse()){const tr=document.createElement('tr');tr.className=r.id===selected?.id?'current':'';const cell=document.createElement('td'),button=document.createElement('button');button.textContent=r.id;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.onclick=()=>{selectedId=r.id;render();};cell.append(button);tr.append(cell);for(const value of [version(r.version),r.score==null?'—':Number(r.score).toFixed(2),r.decision,r.executionState]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('request-rows').append(tr);}
+  for(const r of [...state.requests].reverse()){const tr=document.createElement('tr');tr.className=r.id===selected?.id?'current':'';const cell=document.createElement('td'),button=document.createElement('button');button.textContent=r.id;button.dataset.focusKey=`request:${r.id}`;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.onclick=()=>{selectedId=r.id;render();};cell.append(button);tr.append(cell);for(const value of [version(r.version),r.score==null?'—':Number(r.score).toFixed(2),r.decision,r.executionState]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('request-rows').append(tr);}
   text('shutdown-note',state.allOwnedWorkersStopped?'All owned workers observed stopped. Sealed receipt available.':'Shutdown is a separate physical observation.');
   notice(lastError||state.operationError||(unknown?'OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD':selected?.mode==='hold'&&selected.executionState==='IN_FLIGHT'?'Actual M3 witness barrier: release within 15 seconds. Waiting is not a claim that NumPy is computing.':''));
+  if(focusedKey){const restored=[...document.querySelectorAll('[data-focus-key]')].find(el=>el.dataset.focusKey===focusedKey);if(restored&&!restored.disabled)restored.focus({preventScroll:true});}
 }
 $('invoke').onclick=()=>act('invoke',{sample:$('sample').value,mode:$('mode').value});
 $('close').onclick=()=>act('close');$('export').onclick=()=>{window.location.href='/api/receipt';};

@@ -204,7 +204,9 @@ final class RiskScoringSlot implements AutoCloseable {
                 float score=(float)values.get(0).asDouble();
                 ReferenceJson.require(Float.isFinite(score)&&score>=0&&score<=1,"bounded RiskScore");
                 terminal.put("score",score);terminal.put("signal",(float)values.get(1).asDouble());
-                terminal.set("signals",values.deepCopy());
+                var signals=JsonSupport.MAPPER.createArrayNode();
+                for(int index=1;index<values.size();index++)signals.add(values.get(index));
+                terminal.set("signals",signals);
                 terminal.put("decision",score<0.55f?"ALLOW":score<0.80f?"REVIEW":"REJECT");
             } else {terminal.putNull("score");terminal.put("decision","WITHHELD");}
             if(request.mode.equals("crash")&&p.wireCalled&&p.candidate.launch.process.waitFor(5,TimeUnit.SECONDS)) {
