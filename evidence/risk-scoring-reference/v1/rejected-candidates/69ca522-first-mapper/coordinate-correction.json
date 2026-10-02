@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "jpyxis.io/risk-host-retention-coordinate-correction/v1alpha1",
+  "originalRetainerCommit": "99e4281c05f311b4439eb5d532a8b4a2fcaab3bd",
+  "originalLedgerGitBlob": "d84032047e2b3e39cb37795fb52ddf1e806d3c1f",
+  "originalWrongSource": "69ca5225c66ebfda8044f5de4be8f244092094b5",
+  "sourceRevision": "69ca5225af42d25b636c81848dfaefc0e2e9b8a3",
+  "sourceTree": "5595dbe654f9f5ebdced6ee1e691bd49dd7a6542",
+  "containerSHA256": "sha256:1b1547ca8e8b60e4fed32b39b927241dd093a19ae792499dce6c3b707b674db3",
+  "classification": "Initial metadata transcribed the complete SHA incorrectly. Derive the corrected coordinate from original container source.json, manifest.json and config executionBuild; preserve initial ledger and container bytes."
+}
