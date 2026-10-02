@@ -202,3 +202,8 @@ footer{padding:10px 0;border-top:1px solid var(--brass);font-size:12px;line-heig
 .select-options>li[aria-selected=true]{font-weight:600;color:var(--navy)}
 .request-caption{margin-bottom:6px}.next-label{padding-top:4px}.request-bar{gap:6px;padding:6px 0 8px}
 .features{padding-top:8px}.request-card .boundary{padding-top:5px;margin-top:6px}
+@media(min-width:1280px){
+ .title-row{padding:8px 0}.wing-head{min-height:85px;padding:8px 11px 7px}
+ .request-caption{margin-bottom:4px}.request-bar{gap:4px}.request-bar .label{margin-bottom:2px}
+ .features{padding-top:6px}.receipt-section{margin-top:8px}
+}
