@@ -1,0 +1,31 @@
+{
+  "heads": [
+    100.69792175292967,
+    85,
+    85,
+    85
+  ],
+  "items": [
+    {
+      "center": 119.66667175292967,
+      "height": 18,
+      "text": "Versions"
+    },
+    {
+      "center": 167.6666717529297,
+      "height": 19.5,
+      "text": "risk-v1"
+    },
+    {
+      "center": 215.6666717529297,
+      "height": 18,
+      "text": "Invocations"
+    },
+    {
+      "center": 263.6666717529297,
+      "height": 19.5,
+      "text": "R001"
+    }
+  ],
+  "source": "SOURCE 2b860e82b8d2b036 · LOOPBACK SESSION"
+}

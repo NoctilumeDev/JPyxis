@@ -2,8 +2,8 @@
   "beforeRevision": "df07798d808be9df5d34446e1f68f9a8c0278953",
   "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css",
   "beforeBytes": 29149,
-  "afterWorkingBytes": 17573,
-  "afterWorkingSha256": "22f8279052dccc8a35924b8b86a73a11d96e6e264b6ed3f54f8ac8d366166ef1",
+  "afterWorkingBytes": 17570,
+  "afterWorkingSha256": "ec12caeacdfc5e6b66044f49a9b881b40ac06b7b463fdf981385e56e32d339ba",
   "beforeRepeatedSelectorsInSameContext": [
     {
       "context": "base",
