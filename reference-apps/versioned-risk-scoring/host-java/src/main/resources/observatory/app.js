@@ -26,6 +26,7 @@ function render(){
   const focusedKey=document.activeElement?.dataset.focusKey;
   const idle=state.operation==='IDLE'&&!state.closed&&!state.closing;
   const selected=requestSelected(),unknown=selected?.executionState==='OUTCOME_UNKNOWN';
+  $('decision').classList.toggle('withheld',!selected||selected.decision==='WITHHELD');
   text('control-status',state.controlStatus);text('route',`${version(state.activeVersion)}${state.activeVersion&&!state.activeEligible?' · UNAVAILABLE':''}`);
   text('workers',`${state.eligibleWorkers} / ${state.observedLiveWorkers} live`);
   text('source-label',`SOURCE ${short(state.source?.sourceRevision)} · LOOPBACK SESSION`);
