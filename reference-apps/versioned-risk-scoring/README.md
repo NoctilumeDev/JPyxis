@@ -94,3 +94,10 @@ Its 228-member original archive and independently stopped processes remain under
 metadata transcribed that complete source SHA incorrectly; its separate coordinate correction
 derives the exact SHA/tree from original contained source facts without rewriting the initial ledger.
 The mapper repair expands only application features, not the frozen contract.
+
+The subsequent `8ff5df5` candidate completed all seven actual HTTP requests and physically stopped
+its three workers, but the expanded independent reader incorrectly demanded Java DTO dtype/layout
+fields in M2's normalized input projection. Its original jar, observations and failed readback are
+retained under `evidence/risk-scoring-reference/v1/rejected-candidates/8ff5df5-first-reader` before
+the reader correction. The corrected check joins Java DTO metadata and the frozen Runtime
+requirement with M2's normalized shape/values. No carrier or Core contract was changed.
