@@ -1,6 +1,11 @@
 # Versioned Risk Scoring Reference Host
 
-Status: `REFERENCE HOST CANDIDATE · ACTUAL QUALIFICATION REQUIRED`
+Status: `BOUNDED SYNTHETIC REFERENCE HOST QUALIFIED`
+
+The [qualification record](../../docs/reviews/risk-scoring-reference-host-qualification-v1.md)
+binds protected PR #38 and independently verified exact main
+`151785c281e8e18f8e023c301009f0f1c53e32f2`, including a fresh installed-product observation.
+Public qualification covers this retained private synthetic reference host, not production readiness.
 
 This private application is a second host integration over the already qualified bounded affine
 reference composition. It is not a public SDK or a new Core profile. Java prepares synthetic

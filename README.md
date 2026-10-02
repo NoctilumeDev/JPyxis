@@ -367,10 +367,12 @@ this one trusted local CPU stateless typed affine path; it does not widen the M0
 or establish a general product API, production security, distribution or capacity authority.
 
 The [Versioned Risk Scoring Reference Host](reference-apps/versioned-risk-scoring/README.md) is a
-separate private host candidate over that qualified path. It exposes explicit installation,
+separate bounded private host over that qualified path. It exposes explicit installation,
 activation, pinned cutover, actual worker crash/UNKNOWN, fresh rollback, Java policy and sealed
-receipts through a local observatory. Its independent fresh-VM and exact-main qualification is
-required before the host candidate can be described as qualified. It does not widen Core contracts.
+receipts through a local observatory. Its [bounded qualification record](docs/reviews/risk-scoring-reference-host-qualification-v1.md)
+binds protected PR #38, four fresh-VM gates, independently downloaded readbacks and a fresh installed
+observation at exact main `151785c281e8e18f8e023c301009f0f1c53e32f2`. This qualifies the synthetic
+reference host within that retained scope; it does not widen Core contracts or establish production readiness.
 
 ## M6 reproducibility baseline
 
