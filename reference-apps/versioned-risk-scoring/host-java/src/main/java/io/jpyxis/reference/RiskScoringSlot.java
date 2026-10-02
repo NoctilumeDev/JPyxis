@@ -257,6 +257,10 @@ final class RiskScoringSlot implements AutoCloseable {
             view.put("qualified",c.qualified);view.put("alive",c.launch!=null&&c.launch.process.isAlive());view.put("purpose",i.purpose());view.set("realization",ReferenceJson.tree(c.realization));
             if(c.admitted){var snapshot=control.deployments.snapshot(c.deploymentId);view.put("state",snapshot.state().name());view.put("outstandingPins",snapshot.outstandingPins());}
             else {view.put("state",c.qualified?"QUALIFIED":"REJECTED");view.put("outstandingPins",0);}return view;
+        }).map(view->{
+            var history=control.lifecycleJournal.events().stream().filter(e->view.path("deploymentId").asText().equals(e.deploymentId())&&e.newState()!=null)
+                    .map(e->Map.of("sequence",e.sequence(),"event",e.event(),"state",e.newState())).toList();
+            view.set("history",ReferenceJson.tree(history));return view;
         }).toList()));
         state.set("requests",ReferenceJson.tree(requests.values().stream().sorted(Comparator.comparing(r->r.id)).map(Request::view).toList()));
         state.set("ceremonies",ReferenceJson.tree(ceremonies));state.put("canRollback",!closed&&!closing&&operation.equals("IDLE")&&activeItem!=null&&latest.size()==2);
