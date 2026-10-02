@@ -1,0 +1,63 @@
+{
+  "reviewRevision": "011bb66aba9ef89af4aa37dc379cd4e826d95b39",
+  "branch": "docs/observatory-publication-sync",
+  "reviewScope": "Read-only source, model, build, docs, workflow and local static HTTP",
+  "verifier": {
+    "command": "node scripts/verify-observatory-demo.mjs",
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  "independentModelChecks": {
+    "file": "independent-checks.json",
+    "groups": 7,
+    "result": "PASS"
+  },
+  "servedAssetReadback": {
+    "file": "http-readback.json",
+    "files": 7,
+    "allHttp200": true,
+    "allByteEqualToGeneratedBuild": true
+  },
+  "sourcePresentationDrift": {
+    "hostAssetsUnchangedSinceMergedMain": true,
+    "generatedStyleEqualAfterLfNormalization": true,
+    "publicationHashesVerified": true
+  },
+  "deploymentGuard": {
+    "deployOnlyMain": true,
+    "pullRequestsVerifyWithoutDeploying": true
+  },
+  "confirmedFindings": {
+    "P0": [],
+    "P1": [],
+    "P2": []
+  },
+  "optionalObservations": [
+    {
+      "priority": "P3",
+      "file": "scripts/build-observatory-demo.mjs",
+      "topic": "Reset does not collapse existing receipt/ceremony details",
+      "evidenceKind": "Static control-flow inference, not independently browser reproduced",
+      "minimalSuggestion": "Collapse existing details only if Reset should restore exact initial Overview"
+    }
+  ],
+  "browser": {
+    "independentlyAvailable": false,
+    "reason": "CUA IAB unavailable; inventory returned no browsers/apps",
+    "attemptedIndependentTab": true,
+    "parentTabOperated": false,
+    "liveInteractionClaim": false,
+    "viewportOverflowClaim": false,
+    "httpsDeploymentClaim": false
+  },
+  "sourceChangedByReviewer": false,
+  "personalHomepageChanged": false,
+  "helperFailure": {
+    "file": "first-helper-failure.txt",
+    "classification": "Reviewer-helper wrong expectation for v1 HIGH; corrected after deriving score 0.802",
+    "retainedOriginalHelper": "independent-check.first-helper.mjs"
+  },
+  "verdict": "PASS for model/build boundary; no confirmed P0/P1/P2; independent live browser and final HTTPS acceptance not established",
+  "sealedReview": true,
+  "laterParentRepairIndependentlyVerified": false
+}

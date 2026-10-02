@@ -66,7 +66,7 @@ js = replaceOnce(js, "$('export').onclick=()=>{window.location.href='/api/receip
 const initializeStart = js.indexOf('async function initialize(){');
 const initializeEnd = js.indexOf('function navigationTarget(){');
 assert.ok(initializeStart >= 0 && initializeEnd > initializeStart);
-js = js.slice(0, initializeStart) + `$('demo-reset').onclick=()=>{demo.reset();selectedId='';selectedDeploymentId='';lastError='';for(const id of ['sample','mode']){$(id).selectedIndex=0;$(id).dispatchEvent(new Event('change',{bubbles:true}));}navigate('#overview');refresh();};
+js = js.slice(0, initializeStart) + `$('demo-reset').onclick=()=>{demo.reset();selectedId='';selectedDeploymentId='';lastError='';for(const id of ['sample','mode']){$(id).selectedIndex=0;$(id).dispatchEvent(new Event('change',{bubbles:true}));}for(const id of ['receipt-details','ceremony'])$(id).open=false;navigate('#overview');refresh();};
 await refresh();
 ` + js.slice(initializeEnd);
 js = js.replaceAll('OWNED WORKERS STOPPED', 'DEMO SESSION CLOSED')

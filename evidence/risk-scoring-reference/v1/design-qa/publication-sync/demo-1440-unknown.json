@@ -1,0 +1,38 @@
+{
+  "decision": "WITHHELD",
+  "dpr": 1.0000000298023224,
+  "height": 900,
+  "overflow": 0,
+  "railWidths": [
+    200,
+    200
+  ],
+  "rows": [
+    {
+      "height": 48,
+      "text": "risk-v2"
+    },
+    {
+      "height": 48,
+      "text": "risk-v1"
+    },
+    {
+      "height": 48,
+      "text": "R003"
+    },
+    {
+      "height": 48,
+      "text": "R002"
+    },
+    {
+      "height": 48,
+      "text": "R001"
+    }
+  ],
+  "score": "OUTCOME_UNKNOWN",
+  "scrollY": 0,
+  "source": "DEMO SOURCE 09ac1d4caea32ff1 · BROWSER SIMULATION",
+  "terminal": "OUTCOME_UNKNOWN",
+  "title": "JPYXIS CONTROL OBSERVATORY",
+  "width": 1440
+}

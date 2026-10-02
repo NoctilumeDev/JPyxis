@@ -1,0 +1,51 @@
+{
+  "scope": "Exact original reviewer bytes in ZIP; public text projections normalize LF and final newline only",
+  "archiveSha256": "bb92e81ce160a0181c5b6c9bdfa0033319259be20a5ef0ff0c242c60a0801454",
+  "members": [
+    {
+      "path": "first-helper-failure.txt",
+      "bytes": 283,
+      "sha256": "627f4ba10e6075f020f97d8efcfda46125f089918dc5e58a0bba59b0e55d5ea8"
+    },
+    {
+      "path": "http-readback.json",
+      "bytes": 1523,
+      "sha256": "01108d79044412b75ccf405e25e342594da16fcd4fbb3be8d4c37440bb25b2e1"
+    },
+    {
+      "path": "http-readback.mjs",
+      "bytes": 1093,
+      "sha256": "c4c87f9204882f21b860aebb0c8cf79d970d34e0c541a5b152f1002283959250"
+    },
+    {
+      "path": "independent-check.first-helper.mjs",
+      "bytes": 6415,
+      "sha256": "2cdaca21909aed183c6876fad12bd09555f740e8c3eed0f76dafb146b91620dc"
+    },
+    {
+      "path": "independent-check.mjs",
+      "bytes": 6415,
+      "sha256": "c930768183c02372eccab32abbbbbbfbe78f3c46810ca77fd3c22dbe335c5c92"
+    },
+    {
+      "path": "independent-checks.json",
+      "bytes": 1979,
+      "sha256": "3f043ca08e2e45ff30d0fe8c68a93e1afd4b9513102c7d2ef6c01c1374ec7914"
+    },
+    {
+      "path": "report.md",
+      "bytes": 7514,
+      "sha256": "7546d014c37c65d4210bccf3a9088fa4546971cb2c535cd9830db1c39b81e9d3"
+    },
+    {
+      "path": "reviewed-build-script.mjs.bin",
+      "bytes": 7827,
+      "sha256": "5d929e89aedb62aca794afba488151541a56355b2ffe7031648e8a170288f94b"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 2162,
+      "sha256": "d6dfce17488de8789a66e6f7e2343accd9224e3c0462729c75bf88520dc5973c"
+    }
+  ]
+}
