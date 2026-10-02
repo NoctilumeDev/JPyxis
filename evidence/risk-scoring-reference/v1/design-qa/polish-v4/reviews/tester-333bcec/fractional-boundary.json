@@ -1,0 +1,77 @@
+{
+  "client": 752,
+  "dpr": 1.0000000298023224,
+  "inner": 767,
+  "media": [
+    {
+      "max": false,
+      "min": true,
+      "w": 767
+    },
+    {
+      "max": false,
+      "min": true,
+      "w": 767.00001
+    },
+    {
+      "max": false,
+      "min": true,
+      "w": 767.00003
+    },
+    {
+      "max": false,
+      "min": true,
+      "w": 767.01
+    },
+    {
+      "max": true,
+      "min": false,
+      "w": 767.5
+    },
+    {
+      "max": true,
+      "min": false,
+      "w": 767.99
+    },
+    {
+      "max": true,
+      "min": false,
+      "w": 768
+    }
+  ],
+  "mutationControls": [
+    {
+      "disabled": false,
+      "id": "",
+      "text": "Fresh rollback to v1",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "invoke",
+      "text": "Invoke explicitly",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "release",
+      "text": "Release held request",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "close",
+      "text": "Close owned workers",
+      "visible": true
+    }
+  ],
+  "notice": {
+    "display": "none",
+    "text": "JPyxis Control Observatory is designed for desktop inspection."
+  },
+  "rail": {
+    "position": "fixed",
+    "width": "160px"
+  },
+  "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION"
+}

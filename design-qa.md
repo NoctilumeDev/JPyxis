@@ -1,6 +1,11 @@
 # Risk Scoring Observatory: polish-v4 review candidate
 
-Final result: candidate regression verification PASS; visual acceptance PENDING.
+Prior rendered candidate: regression verification PASS; visual acceptance PENDING.
+Sequential independent tester and product-manager reviews of `333bcec65ef1e636100a0abe4fae9c6b0fd56d4b`
+confirmed two P2 narrow-width defects. Their original reports and evidence are retained under
+`polish-v4/reviews/`. The existing media rules now use a continuous 1024px read-only boundary;
+source-bound post-repair observations and independent P2 closure are pending. The measurements
+below describe the earlier rendered source, not the unverified repair.
 Independent Product Acceptance Agent review is still required. User final visual sign-off
 is still required. No merge is authorized. CI, screenshots and implementer measurements
 do not grant either form of acceptance.
@@ -9,8 +14,8 @@ do not grant either form of acceptance.
 
 Base main: `109646c7c5266a164018ac2f9534afe850b94c7c`.
 Rendered source: `8aa073c5f06c718511cced38d7c59376db05bed1`.
-The later review commit adds evidence and this report only. The three asset Git blobs
-below bind the rendered implementation to that review commit:
+The `333bcec` review commit adds evidence and this report only. The three asset Git blobs
+below bind the earlier rendered implementation to that reviewed commit:
 
 | Asset under reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory | Git blob |
 | --- | --- |

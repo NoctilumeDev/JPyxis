@@ -180,20 +180,20 @@ footer { padding:10px 0; border-top:1px solid var(--brass); font-size:12px; line
   .features #features { font-size:13px; }
   .decision-sheet strong { font-size:39px; }
 }
-@media (min-width:1280px) and (max-width:1360px) {
+@media (1280px <= width <= 1360px) {
   h1 { font-size:28px; }
   .wing h2 { font-size:19px; }
   .wing-body { padding:10px 9px; }
   .flow li { padding:9px 5px; gap:5px; }
   #decision.withheld { font-size:23px; }
 }
-@media (max-width:1279px) {
+@media (width < 1280px) {
   .rail { width:160px; }
   .shell { margin-left:160px; margin-right:0; }
   .instrument-rail { position:relative; inset:auto; width:auto; margin:0 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:0 16px; }
   .context-heading { grid-column:1/-1; }
 }
-@media (min-width:768px) and (max-width:1120px) {
+@media (1024px <= width <= 1120px) {
   .rail { width:124px; }
   .shell { margin-left:124px; }
   .rail-wordmark { font-size:22px; }
@@ -204,8 +204,8 @@ footer { padding:10px 0; border-top:1px solid var(--brass); font-size:12px; line
   .wing h2 { font-size:20px; }
   .wing-body { padding:10px; }
 }
-/* Narrow screens expose a safe read-only view, without a mobile control flow. */
-@media (max-width:767px) {
+/* Below the four-stage reading width, expose the existing read-only view. */
+@media (width < 1024px) {
   .desktop-notice { display:block; margin:0 0 12px; padding:8px; border-bottom:1px solid var(--line); font-size:12px; color:var(--muted); }
   .rail { position:relative; width:100%; border-right:0; border-bottom:1px solid var(--brass); }
   .rail-brand,.rail-foot { display:none; }

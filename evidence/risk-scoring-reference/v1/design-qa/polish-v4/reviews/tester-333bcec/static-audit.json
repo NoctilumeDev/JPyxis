@@ -1,0 +1,32 @@
+{
+  "reviewHead": "333bcec65ef1e636100a0abe4fae9c6b0fd56d4b",
+  "renderedSource": "8aa073c5f06c718511cced38d7c59376db05bed1",
+  "assets": {
+    "app.js": {
+      "blob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+      "renderedBlob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+      "sha256": "cfdf1db8097e99e6a3f2b0273dd45227e8cc64456a0dd3834e4b43076d26541a"
+    },
+    "index.html": {
+      "blob": "59cfddc4ba9d38f23fe39317b89ec82bb877654d",
+      "renderedBlob": "59cfddc4ba9d38f23fe39317b89ec82bb877654d",
+      "sha256": "e858c91394d88eea1ca39098e7f12f6c7d5b10fb49a4f54d753fb0d47a481875"
+    },
+    "style.css": {
+      "blob": "7df63ea35ece5f1c4326058f0dfe22a887a9a079",
+      "renderedBlob": "7df63ea35ece5f1c4326058f0dfe22a887a9a079",
+      "sha256": "7e772785f9374f7ccdc0bc7342489f0014afca6bd82e63f8b419ab3257ad6055"
+    }
+  },
+  "sourceChanges": [
+    "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/app.js",
+    "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/index.html",
+    "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css"
+  ],
+  "cssBytes": 17571,
+  "cssRuleBlocks": 212,
+  "duplicateCompleteSelectorBlocksSameContext": [],
+  "duplicatePropertiesInOneBlock": [],
+  "importantCount": 1,
+  "importantRule": "[hidden] display:none contract"
+}

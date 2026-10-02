@@ -1,0 +1,192 @@
+{
+  "active": {
+    "id": "view-title",
+    "role": null,
+    "text": "VERSION CONTINUITY"
+  },
+  "authority": "AUTHORITY HELD",
+  "caption": "R004 · PINNED risk-v2",
+  "columns": [
+    {
+      "bottom": 0,
+      "left": 0,
+      "top": 0,
+      "w": 0
+    },
+    {
+      "bottom": 0,
+      "left": 0,
+      "top": 0,
+      "w": 0
+    },
+    {
+      "bottom": 0,
+      "left": 0,
+      "top": 0,
+      "w": 0
+    },
+    {
+      "bottom": 0,
+      "left": 0,
+      "top": 0,
+      "w": 0
+    }
+  ],
+  "combo": [
+    {
+      "active": null,
+      "expanded": "false",
+      "id": "sample-control",
+      "text": "High exposure"
+    },
+    {
+      "active": null,
+      "expanded": "false",
+      "id": "mode-control",
+      "text": "Crash after dispatch"
+    }
+  ],
+  "controls": [
+    {
+      "disabled": false,
+      "id": "",
+      "text": "Fresh rollback to v2",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "sample",
+      "text": "Standard exposureLow exposureHigh exposure",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "sample-control",
+      "text": "High exposure",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "mode",
+      "text": "Normal computationHold for cutover · 15s witnessCrash after dispatch · diagnostic",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "mode-control",
+      "text": "Crash after dispatch",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "invoke",
+      "text": "Invoke explicitly",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "release",
+      "text": "Release held request",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R004",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R003",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R002",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R001",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "close",
+      "text": "Close owned workers",
+      "visible": false
+    },
+    {
+      "disabled": true,
+      "id": "export",
+      "text": "Export sealed receipt",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "risk-v1 · fresh",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "risk-v2",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "risk-v1",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R004",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R003",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R002",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "R001",
+      "visible": true
+    }
+  ],
+  "decision": "WITHHELD",
+  "overflow": 0,
+  "receipt": 0,
+  "route": "risk-v1",
+  "score": "OUTCOME_UNKNOWN",
+  "scroll": {
+    "x": 0,
+    "y": 0
+  },
+  "selection": {
+    "mode": "crash",
+    "sample": "HIGH"
+  },
+  "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+  "terminal": "OUTCOME_UNKNOWN",
+  "title": "VERSION CONTINUITY",
+  "viewport": {
+    "dpr": 1.0000000298023224,
+    "h": 900,
+    "w": 1440
+  }
+}
