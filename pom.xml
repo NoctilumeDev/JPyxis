@@ -18,6 +18,7 @@
     <module>lifecycle/java</module>
     <module>resilience/java</module>
     <module>reference/java</module>
+    <module>reference-apps/versioned-risk-scoring/host-java</module>
   </modules>
 
   <properties>
