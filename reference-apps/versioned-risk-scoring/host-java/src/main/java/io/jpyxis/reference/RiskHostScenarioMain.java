@@ -21,6 +21,9 @@ public final class RiskHostScenarioMain {
         return io.jpyxis.contract.JsonSupport.MAPPER.readTree(response.body());
     }
     private JsonNode action(String action,Object... fields) throws Exception {
+        return submit(200,action,fields);
+    }
+    private JsonNode submit(int expectedStatus,String action,Object... fields) throws Exception {
         Map<String,Object> body=new LinkedHashMap<>();body.put("action",action);
         for(int i=0;i<fields.length;i+=2)body.put(fields[i].toString(),fields[i+1]);
         var response=client.send(HttpRequest.newBuilder(URI.create(app.url()+"/api/action")).header("X-Reference-Token",app.token)
@@ -28,7 +31,7 @@ public final class RiskHostScenarioMain {
         JsonNode result=io.jpyxis.contract.JsonSupport.MAPPER.readTree(response.body());
         steps.add(ReferenceJson.tree(Map.of("operation",body,"httpStatus",response.statusCode(),"response",result)));
         ReferenceJson.write(root.resolve("http-scenario.json"),steps);
-        ReferenceJson.require(response.statusCode()==200,"HTTP action rejected: "+result);return result;
+        ReferenceJson.require(response.statusCode()==expectedStatus,"Unexpected HTTP action status: "+result);return result;
     }
     private JsonNode waitState(Predicate<JsonNode> predicate) throws Exception {
         long until=System.nanoTime()+Duration.ofSeconds(12).toNanos();
@@ -57,7 +60,11 @@ public final class RiskHostScenarioMain {
         }
         String a=action("invoke","sample","STANDARD","mode","hold").path("id").asText();
         waitState(s->{for(JsonNode r:s.path("requests"))if(r.path("id").asText().equals(a))return r.path("runtimeEntered").asBoolean();return false;});
-        action("install","version","v2");idle();action("activate","version","v2");
+        action("install","version","v2");idle();
+        JsonNode standby=get("/api/state");ReferenceJson.write(root.resolve("standby-state.json"),standby);
+        ReferenceJson.require(!standby.path("canRollback").asBoolean()&&standby.path("rollbackVersion").asText().isEmpty(),"standby is not a previously active rollback target");
+        submit(409,"rollback");ReferenceJson.require(get("/api/state").path("deployments").size()==2,"rejected rollback implicitly constructed a worker");
+        action("activate","version","v2");
         JsonNode afterCutover=get("/api/state");ReferenceJson.write(root.resolve("cutover-state.json"),afterCutover);
         String b=action("invoke","sample","STANDARD").path("id").asText();
         JsonNode second=request(b);ReferenceJson.require(second.path("version").asText().equals("v2")&&second.path("decision").asText().equals("REJECT"),"B must use v2");

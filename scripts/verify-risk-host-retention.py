@@ -43,4 +43,17 @@ for name,introduced in cases:
             receipt=json.loads(archive.read('receipt.json'));assert len(receipt['requests'])==7 and receipt['allOwnedWorkersStopped']
             stopped=json.loads(archive.read('independent-shutdown.json'));assert len(stopped['observations'])==6 and all(not p['alive'] for p in stopped['observations'])
     results.append({'candidate':revision,'originalRetainer':introduced,'members':len(ledger['members']),'containerSha256':sha(raw),'verdict':'PASS'})
+folder=base/'a6b11dd-premature-rollback';ledger=json.loads((folder/'raw-retention.json').read_bytes());raw=(folder/'raw-observations.zip').read_bytes()
+assert len(raw)==ledger['containerBytes'] and sha(raw)==ledger['sha256']
+with zipfile.ZipFile(folder/'raw-observations.zip') as archive:
+    assert sorted(archive.namelist())==sorted(m['path'] for m in ledger['members'])
+    for member in ledger['members']:
+        content=archive.read(member['path']);assert len(content)==member['bytes'] and sha(content)==member['sha256']
+    witness=json.loads(archive.read('witness.json'))
+    for member in witness['files']:
+        content=archive.read(member['path']);assert len(content)==member['bytes'] and sha(content)==member['sha256']
+    tree=subprocess.check_output(['git','rev-parse',witness['sourceRevision']+'^{tree}'],text=True).strip();assert tree==witness['sourceTree']
+    assert json.loads(archive.read('risk-host-entry.json'))['executionBuild']['sourceRevision']==witness['sourceRevision']
+    assert json.loads(archive.read('receipt.json'))['allOwnedWorkersStopped']
+results.append({'candidate':witness['sourceRevision'],'classification':'UI premature rollback eligibility projection; no invalid action fired','containerSha256':sha(raw),'verdict':'PASS'})
 print(json.dumps({'verdict':'PASS','originalRejectedCandidates':results},indent=2))

@@ -124,7 +124,8 @@ export function verifyRiskHostEvidence(directory,{expectedSourceRevision,require
     const rollback=read('rollback-state.json');assert.equal(rollback.activeVersion,'v1');assert.equal(rollback.deployments[2].purpose,'FRESH_ROLLBACK');
     assert.notEqual(rollback.deployments[0].realization.launchNonce,rollback.deployments[2].realization.launchNonce);assert.notEqual(rollback.deployments[0].realization.runtimeHandle.opaqueHandle,rollback.deployments[2].realization.runtimeHandle.opaqueHandle);
     assert.equal(rolled.version,'v1');assert.equal(rolled.decision,'REVIEW');
-    const http=read('http-scenario.json');assert.ok(http.every(step=>step.httpStatus===200));
+    const standby=read('standby-state.json');assert.equal(standby.activeVersion,'v1');assert.equal(standby.canRollback,false);assert.equal(standby.rollbackVersion,'');assert.equal(standby.deployments.length,2);assert.equal(standby.deployments[1].state,'STANDBY');assert.equal(cutover.rollbackVersion,'v1');
+    const http=read('http-scenario.json'),rejected=http.filter(step=>step.httpStatus!==200);assert.equal(rejected.length,1);assert.equal(rejected[0].operation.action,'rollback');assert.equal(rejected[0].httpStatus,409);assert.match(rejected[0].response.error,/no prior active artifact/);
     assert.equal(http[0].operation.action,'invoke');assert.equal(http[0].response.executionState,'FAILED_BEFORE_EXECUTION');
     for(const step of http.filter(s=>s.operation.action==='install'))assert.notEqual(step.response.activeVersion,step.operation.version,'install never activates its candidate');
     assert.equal(receipt.allOwnedWorkersStopped,true);assert.ok(receipt.physicalShutdown.processes.every(p=>p.alive===false));

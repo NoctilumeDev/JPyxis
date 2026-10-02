@@ -28,6 +28,11 @@ Initial findings:
   primary, with v2 secondary; an eligible STANDBY activation remains primary.
 
 These fixes are implemented but require a rebuilt rendered comparison and keyboard readback.
+The `a6b11dd` revised pass confirms the line breaks, unique initial primary action and keyed
+keyboard focus preservation. Its combined full/focused captures are in the `revised` subfolder.
+A further P1 was found in that real pass: v2 STANDBY offered rollback before a prior active version
+existed. Its first rendered counterexample and raw owner facts were retained before repair.
+The private host repair and actual HTTP rejection check require one final rebuilt QA pass.
 The final pass must cover fonts/typography, spacing/layout rhythm, colors/tokens, image quality,
 copy/content, focused dense regions, responsive states and receipt/export. There are no raster
 decorations or invented crown/flag/landmark icons: the reference brand is plain typography and the

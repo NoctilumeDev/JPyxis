@@ -45,6 +45,7 @@ final class RiskScoringSlot implements AutoCloseable {
     private volatile boolean closed,closing;
     private int sequence;
     private JsonNode sealed;
+    private volatile Installed priorActive;
 
     RiskScoringSlot(JsonNode config,Path root) throws Exception {
         this.config=config.deepCopy();this.root=root;
@@ -93,9 +94,12 @@ final class RiskScoringSlot implements AutoCloseable {
     synchronized void activate(String version) {
         ready();Installed item=Objects.requireNonNull(latest.get(version),"version is not installed");
         synchronized(control.lock) {
+            String previousId=control.deployments.activeBindings().get(ReferenceControl.SLOT);
+            Installed previous=installed.stream().filter(i->i.candidate().deploymentId.equals(previousId)).findFirst().orElse(null);
             control.requireQualified(item.candidate());
             if(control.deployments.snapshot(item.candidate().deploymentId).state()!=DeploymentState.STANDBY)throw new IllegalStateException("activation requires STANDBY");
             control.deployments.activate(item.candidate().deploymentId,context);
+            priorActive=previous;
             control.source.record("JAVA_HOST","DEPLOYMENT_ACTIVATED",Map.of("deploymentId",item.candidate().deploymentId,"binding",control.deployments.activeBindings()));
             ceremony("ACTIVE_BINDING_ESTABLISHED",item);
         }
@@ -117,17 +121,17 @@ final class RiskScoringSlot implements AutoCloseable {
     synchronized void rollback() {
         ready();String active=control.deployments.activeBindings().get(ReferenceControl.SLOT);
         Installed current=installed.stream().filter(i->i.candidate().deploymentId.equals(active)).findFirst().orElseThrow();
-        String prior=current.definition().version().equals("v2")?"v1":"v2";
-        if(!latest.containsKey(prior))throw new IllegalStateException("no prior installed artifact");
-        Definition d=definitions.get(prior);operation="FRESH ROLLBACK "+prior;lastOperationError="";
+        Installed prior=priorActive;
+        if(prior==null)throw new IllegalStateException("no prior active artifact; a standby artifact is not a rollback target");
+        Definition d=prior.definition();operation="FRESH ROLLBACK "+d.version();lastOperationError="";
         lifecycle.submit(()->{
             try {
-                ceremony("SELECT_PRIOR_IMMUTABLE_ARTIFACT",latest.get(prior));
+                ceremony("SELECT_PRIOR_IMMUTABLE_ARTIFACT",prior);
                 var candidate=control.construct(d.identity(),d.bytes(),environment,"normal");
                 Installed fresh=new Installed(d,candidate,"FRESH_ROLLBACK");installed.add(fresh);
                 control.requireQualified(candidate);ceremony("CONSTRUCT_FRESH_WORKER_AND_REPRESENTATIVE_WARM",fresh);
                 ceremony("CONTROL_QUALIFICATION_GRANTED",fresh);control.rollback(candidate);
-                latest.put(prior,fresh);ceremony("FRESH_ROLLBACK_ACTIVATED",fresh);
+                latest.put(d.version(),fresh);priorActive=current;ceremony("FRESH_ROLLBACK_ACTIVATED",fresh);
             } catch(Exception error) {lastOperationError=error.toString();}
             finally {operation="IDLE";}
         });
@@ -265,7 +269,8 @@ final class RiskScoringSlot implements AutoCloseable {
             view.set("history",ReferenceJson.tree(history));return view;
         }).toList()));
         state.set("requests",ReferenceJson.tree(requests.values().stream().sorted(Comparator.comparing(r->r.id)).map(Request::view).toList()));
-        state.set("ceremonies",ReferenceJson.tree(ceremonies));state.put("canRollback",!closed&&!closing&&operation.equals("IDLE")&&activeItem!=null&&latest.size()==2);
+        state.set("ceremonies",ReferenceJson.tree(ceremonies));state.put("rollbackVersion",priorActive==null?"":priorActive.definition().version());
+        state.put("canRollback",!closed&&!closing&&operation.equals("IDLE")&&activeItem!=null&&priorActive!=null);
         state.put("canClose",!closed&&!closing&&operation.equals("IDLE")&&requests.values().stream().noneMatch(r->r.terminal==null));
         state.put("allOwnedWorkersStopped",closed&&installed.stream().noneMatch(i->i.candidate().launch!=null&&i.candidate().launch.process.isAlive()));return state;
     }

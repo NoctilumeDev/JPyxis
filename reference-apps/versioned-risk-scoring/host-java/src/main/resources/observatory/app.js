@@ -35,7 +35,7 @@ function render(){
   }
   const standby=state.deployments.filter(d=>d.state==='STANDBY'&&d.qualified&&d.alive);
   for(const d of standby)addAction(`Activate risk-${d.version}`,'activate',{version:d.version},true,!idle);
-  if(state.canRollback)addAction(`Fresh rollback to ${state.activeVersion==='v2'?'v1':'v2'}`,'rollback',{},false,!idle);
+  if(state.canRollback)addAction(`Fresh rollback to ${state.rollbackVersion}`,'rollback',{},false,!idle);
   if(!idle&&!state.closed){const span=document.createElement('span');span.textContent=state.closing?'Closing owned processes…':state.operation;span.className='label';actions.append(span);}
   if(state.closed){const span=document.createElement('span');span.textContent='OWNED WORKERS STOPPED';span.className='label';actions.append(span);}
   const pendingOnActive=state.requests.some(r=>r.executionState==='IN_FLIGHT'&&r.executionBinding?.realization?.deploymentId===state.activeDeploymentId);

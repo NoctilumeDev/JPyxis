@@ -101,3 +101,10 @@ fields in M2's normalized input projection. Its original jar, observations and f
 retained under `evidence/risk-scoring-reference/v1/rejected-candidates/8ff5df5-first-reader` before
 the reader correction. The corrected check joins Java DTO metadata and the frozen Runtime
 requirement with M2's normalized shape/values. No carrier or Core contract was changed.
+
+The next real UI pass retained a premature rollback eligibility projection at `a6b11dd`: merely
+installing a second STANDBY artifact offered rollback before any prior active binding existed.
+The original rendered witness and raw owner observations remain in
+`evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback`. The private
+host now tracks the actual previous active binding; the HTTP scenario checks a 409 rejection with
+no new construction before v2 activation. Fresh rollback after the real v2 crash remains explicit.
