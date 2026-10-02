@@ -4,8 +4,12 @@ Prior rendered candidate: regression verification PASS; visual acceptance PENDIN
 Sequential independent tester and product-manager reviews of `333bcec65ef1e636100a0abe4fae9c6b0fd56d4b`
 confirmed two P2 narrow-width defects. Their original reports and evidence are retained under
 `polish-v4/reviews/`. The existing media rules now use a continuous 1024px read-only boundary;
-source-bound post-repair observations and independent P2 closure are pending. The measurements
-below describe the earlier rendered source, not the unverified repair.
+The first repair at `3143a78fcfa6195942030ca49f830c86675130e7` passed actual browser checks,
+with original proof in `polish-v4/review-fix/` and a bounded independent source/native-evidence
+P2 closure in `polish-v4/reviews/product-recheck-3143a78f/`. The user then requested both desktop
+directories to give the center more room. A shared 200-to-180px width and matching padding
+now implement that refinement; source-bound final observations are pending. The measurements
+below describe the earlier rendered source, not this unverified final refinement.
 Independent Product Acceptance Agent review is still required. User final visual sign-off
 is still required. No merge is authorized. CI, screenshots and implementer measurements
 do not grant either form of acceptance.

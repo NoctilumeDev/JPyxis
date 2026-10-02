@@ -2,6 +2,8 @@
   --navy:#172e45; --navy-deep:#142635; --paper:#f8f8f6; --white:#ffffff;
   --ink:#303a40; --muted:#4b575c; --brass:#8b6b36; --brass-light:#d5bd88;
   --wine:#642836; --line:#d1d7dc; --stone:#f0f2f4;
+  --directory-width:clamp(180px,calc(12.5vw + 20px),200px);
+  --directory-padding:clamp(8px,calc(3.75vw - 40px),14px);
   --serif:Georgia,"Times New Roman",serif;
   --sans:"Segoe UI",Arial,sans-serif;
   --mono:Consolas,"Courier New",monospace;
@@ -29,34 +31,34 @@ a { color:inherit; }
 svg { width:18px; height:18px; flex-shrink:0; }
 
 /* Matching directories, aligned to their outside edges. */
-.rail { position:fixed; inset:0 auto 0 0; width:200px; background:var(--navy-deep); color:#eef2f6; border-right:2px solid var(--brass); display:flex; flex-direction:column; text-align:left; }
-.rail-brand { padding:22px 14px 18px; text-decoration:none; border-bottom:1px solid #a18a5d; }
+.rail { position:fixed; inset:0 auto 0 0; width:var(--directory-width); background:var(--navy-deep); color:#eef2f6; border-right:2px solid var(--brass); display:flex; flex-direction:column; text-align:left; }
+.rail-brand { padding:22px var(--directory-padding) 18px; text-decoration:none; border-bottom:1px solid #a18a5d; }
 .rail-wordmark { display:block; font:700 24px/1.25 var(--serif); letter-spacing:2px; }
 .rail-subtitle { display:block; font:12px/1.5 var(--sans); margin-top:7px; color:#c9d2db; }
 .rail nav { padding-top:16px; }
-.rail nav a { display:flex; align-items:center; gap:9px; text-decoration:none; padding:14px 10px; border-left:4px solid transparent; color:#d5dcdf; font-size:13px; }
+.rail nav a { display:flex; align-items:center; gap:9px; text-decoration:none; padding:14px calc(var(--directory-padding) - 4px); border-left:4px solid transparent; color:#d5dcdf; font-size:13px; }
 .rail nav svg { color:#c3cdd1; stroke-width:1.7; }
 .rail nav a:hover { background:#243d50; color:#f8fbff; }
 .rail nav .selected { background:#2d475a; border-left-color:var(--brass-light); color:#f8fbff; }
 .rail nav .selected svg { color:#eef2f6; }
-.rail-foot { margin:auto 14px 22px; border-top:1px solid var(--brass); padding-top:14px; }
+.rail-foot { margin:auto var(--directory-padding) 22px; border-top:1px solid var(--brass); padding-top:14px; }
 .rail-foot>span { font:11px/1.5 var(--mono); color:#c9d2db; letter-spacing:.6px; }
 .rail-foot p { color:#d4dadd; font-size:12px; line-height:1.6; margin:7px 0 0; }
-.instrument-rail { position:fixed; inset:0 0 0 auto; width:200px; margin:0; padding:0 0 18px; background:var(--navy-deep); color:#eef2f6; border-left:2px solid var(--brass); overflow-y:auto; min-width:0; text-align:right; scrollbar-color:#718896 var(--navy-deep); }
-.context-heading { padding:22px 14px 18px; min-height:94px; border-bottom:1px solid #a18a5d; }
+.instrument-rail { position:fixed; inset:0 0 0 auto; width:var(--directory-width); margin:0; padding:0 0 18px; background:var(--navy-deep); color:#eef2f6; border-left:2px solid var(--brass); overflow-y:auto; min-width:0; text-align:right; scrollbar-color:#718896 var(--navy-deep); }
+.context-heading { padding:22px var(--directory-padding) 18px; min-height:94px; border-bottom:1px solid #a18a5d; }
 .context-heading>span { font:700 24px/1.25 var(--serif); letter-spacing:2px; }
 .context-heading p { font-size:12px; line-height:1.5; color:#c9d2db; margin:7px 0 0; }
 .instrument-rail section { margin:0; padding:0; }
-.section-heading { display:flex; justify-content:flex-end; align-items:center; height:48px; padding:0 14px; margin:0; }
+.section-heading { display:flex; justify-content:flex-end; align-items:center; height:48px; padding:0 var(--directory-padding); margin:0; }
 .section-heading h2 { font:400 12px/1.5 var(--sans); margin:0; letter-spacing:.8px; text-transform:uppercase; color:#c9d2db; }
 .timeline,.context-menu { margin:0; padding:0; font:12px/1.5 var(--sans); color:#c9d2db; }
-.timeline.empty,.context-menu.empty { display:flex; justify-content:flex-end; align-items:center; min-height:48px; padding:0 14px; }
-.context-link { display:flex; justify-content:flex-end; align-items:center; width:100%; height:48px; padding:0 10px 0 14px; border:0; border-right:4px solid transparent; border-radius:0; background:transparent; color:#d5dcdf; text-align:right; font:400 13px/1.5 var(--sans); }
+.timeline.empty,.context-menu.empty { display:flex; justify-content:flex-end; align-items:center; min-height:48px; padding:0 var(--directory-padding); }
+.context-link { display:flex; justify-content:flex-end; align-items:center; width:100%; height:48px; padding:0 calc(var(--directory-padding) - 4px) 0 var(--directory-padding); border:0; border-right:4px solid transparent; border-radius:0; background:transparent; color:#d5dcdf; text-align:right; font:400 13px/1.5 var(--sans); }
 .context-link:hover:not(:disabled) { background:#243d50; color:#f8fbff; }
 .context-link.selected { background:#2d475a; border-right-color:var(--brass-light); color:#f8fbff; }
 .context-link>span { display:block; white-space:nowrap; }
 
-.shell { margin:0 200px; min-height:100vh; text-align:center; }
+.shell { margin:0 var(--directory-width); min-height:100vh; text-align:center; }
 header { min-height:62px; display:flex; justify-content:space-between; align-items:center; padding:7px 20px; border-bottom:1px solid var(--brass); background:var(--white); gap:18px; }
 .brand { font:700 23px/1.12 var(--serif); letter-spacing:4px; }
 .brand span { display:block; font:600 12px/1.5 var(--sans); letter-spacing:1.7px; margin-top:2px; }
@@ -188,16 +190,15 @@ footer { padding:10px 0; border-top:1px solid var(--brass); font-size:12px; line
   #decision.withheld { font-size:23px; }
 }
 @media (width < 1280px) {
-  .rail { width:160px; }
-  .shell { margin-left:160px; margin-right:0; }
+  :root { --directory-width:160px; }
+  .shell { margin-right:0; }
   .instrument-rail { position:relative; inset:auto; width:auto; margin:0 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:0 16px; }
   .context-heading { grid-column:1/-1; }
 }
 @media (1024px <= width <= 1120px) {
-  .rail { width:124px; }
-  .shell { margin-left:124px; }
+  :root { --directory-width:124px; }
   .rail-wordmark { font-size:22px; }
-  .rail nav a { padding:13px 7px; gap:7px; font-size:12px; }
+  .rail nav a { padding:13px calc(var(--directory-padding) - 4px); gap:7px; font-size:12px; }
   main { padding:12px 16px 0; }
   header { padding:9px 16px; }
   .control-strip { flex-wrap:wrap; gap:10px; }
