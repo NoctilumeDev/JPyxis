@@ -78,10 +78,20 @@ workers and exporting the receipt. The scenario uses the same HTTP operations an
 workers. Public qualification additionally requires fresh-VM gates, protected merge, exact-main
 replay and downloaded independent readback. First failed candidates are retained before repair.
 
-The observatory uses an ivory/navy/brass/burgundy palette, a stable central charter and two wings.
-Score and business decision have separate visual treatments. UNKNOWN is amber and WITHHELD, never
-a success decision or a red toast. No landmarks, heraldry or decorative assets carry application
-state. All actions, lifecycle states, request records and receipt layers are accessible DOM.
+The observatory has a white central four-stage view between matching navy directories.
+Request → Control Binding → Execution → Host Decision retain directional arrows; Control Binding
+has slightly more width. Burgundy denotes authority/decision, navy denotes execution/context,
+and gold denotes boundaries and active authorization. UNKNOWN has no score and withholds the
+business decision. Left text aligns left, central text centers, and right navigation aligns right
+with uniform 48px rows. Both directories select a central view. Below 1440px the directories give
+space to the center; below 1024px the presentation is read-only. This is a desktop inspection tool,
+not a separate mobile control product. All states, request records and receipt layers are DOM.
+
+**[▶ 演示 / Play the public frontend demo](https://noctilumedev.github.io/JPyxis/)**
+opens an interactive browser-only simulation using the same current layout and renderer.
+It launches no Java/Python processes and exports a distinct demo receipt, not qualified execution
+evidence. The [demo guide](../../docs/observatory-demo.md) describes the controls, local host and
+source synchronization. Native actual-host observations remain in [Design QA](../../design-qa.md).
 
 This slice does not establish production readiness, general algorithms, durable host restart,
 arbitrary environments, multi-node control, resource scheduling, untrusted-code isolation, FlowKernel
