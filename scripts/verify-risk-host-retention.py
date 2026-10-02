@@ -56,4 +56,30 @@ with zipfile.ZipFile(folder/'raw-observations.zip') as archive:
     assert json.loads(archive.read('risk-host-entry.json'))['executionBuild']['sourceRevision']==witness['sourceRevision']
     assert json.loads(archive.read('receipt.json'))['allOwnedWorkersStopped']
 results.append({'candidate':witness['sourceRevision'],'classification':'UI premature rollback eligibility projection; no invalid action fired','containerSha256':sha(raw),'verdict':'PASS'})
-print(json.dumps({'verdict':'PASS','originalRejectedCandidates':results},indent=2))
+visual=[]
+for name in ['polish-v2','polish-v3']:
+    folder=pathlib.Path('evidence/risk-scoring-reference/v1/design-qa')/name
+    ledger=json.loads((folder/'raw-retention.json').read_bytes())
+    container=folder/ledger['container'];raw=container.read_bytes()
+    assert len(raw)==ledger['containerBytes'] and sha(raw)==ledger['sha256']
+    with zipfile.ZipFile(container) as archive:
+        assert sorted(archive.namelist())==sorted(m['path'] for m in ledger['members'])
+        for member in ledger['members']:
+            content=archive.read(member['path'])
+            assert len(content)==member['bytes'] and sha(content)==member['sha256']
+        source=json.loads(archive.read('source.json'))
+        config=json.loads(archive.read('config.json'))
+        assert source['revision']==ledger['sourceRevision']==config['executionBuild']['sourceRevision']
+        tree=subprocess.check_output(['git','rev-parse',source['revision']+'^{tree}'],text=True).strip()
+        assert source['tree']==tree==config['executionBuild']['sourceTree']
+        receipt=json.loads(archive.read('receipt.json'))
+        assert len(receipt['requests'])==5 and receipt['allOwnedWorkersStopped']
+        shutdown=json.loads(archive.read('independent-shutdown.json'))
+        assert len(shutdown['observations'])==6 and all(not o['alive'] for o in shutdown['observations'])
+        iteration=json.loads((folder/'iteration.json').read_bytes())
+        assert iteration['sourceRevision']==source['revision']
+        construction=json.loads(archive.read('construction.json'))
+        assert iteration['installedArtifactSha256']==construction['javaArtifactSha256']
+    visual.append({'candidate':source['revision'],'visualStatus':'SUPERSEDED' if name=='polish-v2' else 'PASS',
+                   'containerSha256':sha(raw),'retentionVerdict':'PASS'})
+print(json.dumps({'verdict':'PASS','originalRejectedCandidates':results,'visualObservations':visual},indent=2))

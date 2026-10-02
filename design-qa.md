@@ -1,106 +1,98 @@
 # Risk Scoring Observatory QA
 
-final result: blocked
+final result: passed
 
-The previous visual pass is superseded by the user's subsequent review. The original report at
-commit `0f5994ed9c3dcc0fe09ff083fbb32e5b88d7d1f2` and the unchanged `final/` captures are retained
-as the pre-polish candidate. Their former "passed" conclusion is not current authority.
+This result covers installed-product visual and interaction QA. Public fresh-VM evidence,
+protected merge, exact-main gates and independently downloaded readback are separate predicates.
 
-Open P2 findings: restore the desktop lifecycle/invocation right rail; strengthen paper/stone,
-brass charter and oxblood decision hierarchy; compact the hero; connect numbered flow to a real
-Request card; use licensed linear library icons; improve dense metadata contrast and size; keep
-current route, score/decision and continuity visible in the first desktop screen. The next pass
-must recapture desktop success, UNKNOWN, narrow desktop, mobile and the expanded receipt, and
-compare the implementation with the same retained source image. Runtime and receipt semantics
-remain frozen during this presentation-only repair. Historical findings below describe the
-superseded candidate, not the new visual result.
+Source visual truth: the selected ivory/navy/brass image at
+evidence/risk-scoring-reference/v1/design-qa/source-reference.png, 1503 × 1047 pixels.
+Final rendered implementation: a4136cb022d4bffe67ea182dd4a9ae5b4075bd32.
+Its fresh Java host and workers reused the private installed environment of its completed
+source-bound construction. This is an installed-product observation, not a fresh-VM claim.
+The original five UI requests, construction coordinate and six stopped worker/probe processes
+are retained in polish-v3/raw-observations.zip with the complete raw-retention.json byte ledger.
 
-Source visual truth: the user's selected ivory/navy/brass observatory image,
-retained at `evidence/risk-scoring-reference/v1/design-qa/source-reference.png`.
-This is the principal style reference. Its generated dates, user identity, versions and requests
-are not runtime facts. The host keeps the required west execution / central charter / east Java
-policy layout; continuity and recent records sit below it instead of the image's fourth sidebar.
+## Preserved supersession and iteration history
 
-Initial implementation: committed `6882a7ffd36c315f7f7f50ea7250b5aff5098aa8`, real Java HTTP host.
-Source pixels: 1503 × 1047. Desktop CSS viewport: 1440 × 900. Full-page implementation:
-1424 × 1284 pixels, with browser scrollbar width excluded. The contact sheet fits each image into
-800 × 1000 without changing its aspect ratio. It compares style and hierarchy, not identical content
-or a pixel-matched state: actual v1 REVIEW and the image's fictional active v2/standby v3 differ.
+The prior “passed” report at 0f5994ed9c3dcc0fe09ff083fbb32e5b88d7d1f2 is superseded by the
+user's visual review. Its exact original report, Git blob and hash remain in pre-polish/.
+All final/ screenshots and their original byte ledger are unchanged historical observations.
 
-Initial combined comparison: `evidence/risk-scoring-reference/v1/design-qa/comparison-initial.png`.
-Initial desktop REVIEW, cutover, UNKNOWN, 1120 × 800 narrow desktop, 390 × 844 mobile UNKNOWN,
-fresh rollback and expanded receipt captures are retained beside it. All were rendered from actual
-workers, not fixture output. Console errors/warnings: none for the app.
+The user identified P2 findings: missing desktop overview rail; weak paper/stone, brass and
+oxblood hierarchy; weak central axis; excess hero whitespace and wrong product heading;
+disconnected steps and request controls; sparse navigation; small low-contrast metadata;
+poor first-screen density. HTML/CSS and presentation repairs address these findings.
+Runtime, algorithms, authority and receipt semantics remain identical to
+93c3763de99fc2d2f3644c8e91e50968c79c46a3, verified by a bounded Git source comparison.
 
-Initial findings:
+First polish source 16e769f3dfc8aae30aa2f1bd61a6a839e7e94a4e is preserved in polish-v2/.
+Its multi-version state exposed P2 deployment cards squeezed side by side, and a P3 missing
+motto space. The next candidate stacks actual cards vertically and fixes the literal space.
+Its original five-request observations, screenshots and sealed receipt remain in its own ZIP.
 
-- P2: the central feature text lost its intended line breaks. Preserve `white-space: pre-line`.
-- P2: state polling rebuilt lifecycle/record buttons, risking keyboard focus loss. Skip unchanged
-  state renders and restore the keyed focused control after a real state update.
-- P2: the empty state presented two equally strong install actions. Make initial v1 installation
-  primary, with v2 secondary; an eligible STANDBY activation remains primary.
+Earlier 6882a7f, revised/a6b11dd and final/93c3763d captures are retained. Feature line breaks,
+keyed keyboard focus and actual prior-active rollback eligibility remain verified. The first
+premature rollback witness is separately retained under rejected-candidates/a6b11dd-premature-rollback.
 
-These fixes are implemented but require a rebuilt rendered comparison and keyboard readback.
-The `a6b11dd` revised pass confirms the line breaks, unique initial primary action and keyed
-keyboard focus preservation. Its combined full/focused captures are in the `revised` subfolder.
-A further P1 was found in that real pass: v2 STANDBY offered rollback before a prior active version
-existed. Its first rendered counterexample and raw owner facts were retained before repair.
-The private host repair and actual HTTP rejection check require one final rebuilt QA pass.
-The final pass must cover fonts/typography, spacing/layout rhythm, colors/tokens, image quality,
-copy/content, focused dense regions, responsive states and receipt/export. There are no raster
-decorations or invented crown/flag/landmark icons: the reference brand is plain typography and the
-user's explicit constitutional visual constraints govern the required three-wing adaptation.
+## Same-source rendered comparison
 
-Verified interactions in the initial real session: install v1, explicit activation, score 0.73 / REVIEW,
-v2 STANDBY, held A pinned to v1 through cutover, B on v2 with score 0.85 / REJECT, release A,
-actual v2 process crash, amber UNKNOWN / AUTHORITY HELD / WITHHELD, fresh rollback with a new
-launch nonce, successful new v1 invocation, three-layer receipt, physical close and downloaded
-sealed receipt. All three owned workers were stopped before the server was terminated.
+polish-v3/comparison-bounded.png contains the selected source and actual final success in one
+image, using aspect-preserving containment. comparison-focused.png compares dense charter,
+score and policy regions at native pixels. Source fictional v2/v3/user/date fields differ
+from actual v1 observations and are not copied. The implementation full-page success is
+1424 × 1104 at a 1440 × 900 CSS viewport, density approximately 1. The browser excludes its
+scrollbar strip. Some secondary full-page captures retain its current fixed-rail scroll offset;
+review-desktop.png and stable viewport captures show the rail at the viewport origin.
 
-## Final rendered reconciliation
+Five fidelity surfaces were assessed against those combined images:
 
-Final implementation source: `93c3763de99fc2d2` (the complete coordinate is retained in the sealed
-receipt). This pass launched the source-bound jar from the completed local construction into a
-fresh Java host, with fresh owned workers and probes; it reused the installed private environment.
-It is an installed-product observation, not a fresh-VM qualification claim.
+- Typography: Georgia product/section/score/decision hierarchy, Segoe UI controls and Consolas
+  coordinates. Compact uppercase “JPYXIS CONTROL OBSERVATORY” heading; lifecycle/body metadata
+  increases from 11 to 12 pixels, dense mono is 12–13, and coordinates use stronger contrast.
+  Complete identities remain readable in the expanded receipt.
+- Layout: paper field, stone request/instrument surfaces, dark navy rail/flow and visible brass
+  rules. At ≥1280 the lifecycle/recent overview sits on the right. Numbered library arrows map
+  to 01 Request, 02 Central Charter, 03 West Execution and 04 East Java Decision. The charter
+  is wider and slightly taller, with a five-pixel brass cap and a stronger authority block.
+  Current route, score/decision and continuity appear together in the first desktop screen.
+- Colors: green marks execution success; binding uses brass; Java policy uses oxblood.
+  Business REJECT is not execution-failure red. UNKNOWN retains amber score, AUTHORITY HELD
+  and WITHHELD, with the existing owner semantics.
+- Assets: exact vendored Lucide shapes at aace268b9be318c4f6d8a09a35139f860d07d9c5, original
+  license/Git blobs/byte hashes and accessible hidden decoration attributes. No custom drawn
+  icon, pillar, crown, heraldry, landmark, avatar or generated texture was introduced.
+- Copy: source, definition, environment, worker, runtime, pin, scores, timestamps and M4 history
+  derive from actual observations. The held request remains explicitly a real 15-second M3
+  barrier. No generated identity, date, version or fictional lifecycle enters the product.
 
-Combined full-view comparison: `evidence/risk-scoring-reference/v1/design-qa/final/comparison-full.png`.
-Focused native-pixel charter comparison: `final/comparison-focused.png` in the same directory.
-Desktop REVIEW capture: 1424 × 1298 pixels at 1440 × 900 CSS pixels, density approximately 1;
-the full-page capture excludes the 16-pixel scrollbar strip. The source stays 1503 × 1047.
-The full-view sheet uses aspect-preserving containment; the focused sheet preserves native pixels.
+## Actual interaction and responsive readback
 
-All initial P2 findings are fixed and recaptured. Keyboard Enter selects a retained request while
-the keyed request button keeps focus, including across polling. Features retain three separate
-lines. Initial v1 install is primary; qualified STANDBY activation is primary. The P1 rollback
-finding is fixed: the final STANDBY capture offers activation with no premature rollback action;
-the actual HTTP scenario rejects rollback with 409 and no new deployment. After v2 activation and
-its actual crash, the UI offers fresh rollback to the real prior v1 artifact and displays a new nonce.
+The final live pass installed/qualified v1 to STANDBY, explicitly activated it and produced
+0.73 / REVIEW / SUCCEEDED. It installed actual v2 to STANDBY. Held A stayed pinned to v1 through
+explicit v2 activation; B used v2 and produced 0.85 / REJECT. Released A completed REVIEW.
+Actual v2 exit produced OUTCOME_UNKNOWN / AUTHORITY HELD / WITHHELD. Explicit fresh rollback
+selected the real prior v1 bytes, launched a new nonce, ran representative warm and qualification,
+activated it and produced another successful invocation.
 
-Required fidelity surfaces:
+Keyboard Enter selected R001 while its keyed request button retained focus. Unchanged polling
+does not rebuild controls. Native table headers remain available in compact desktop record
+layout, and decorative icons are hidden from assistive technology. No new action eligibility
+or presentation authority was introduced.
 
-- Typography: Georgia display/section/score hierarchy, Segoe UI controls and Consolas coordinates
-  preserve the source's serif/sans/mono division. The main title is 43 pixels. Dense metadata is
-  readable in the native-pixel crop; long identities wrap, and full values remain in the receipt.
-- Layout: ivory field, dark fixed desktop rail, thin brand/control strips and navy four-step flow;
-  aligned three-wing grid, stable central charter and compact receipt disclosure. The lower
-  lifecycle/recent area is the intentional required three-wing adaptation of the reference sidebar.
-- Colors: navy/ivory/brass/oxblood tokens match the selected direction. Green marks successful
-  execution only. UNKNOWN is amber in all three wings, with AUTHORITY HELD / WITHHELD; a business
-  REJECT remains a Java policy value and does not use execution-failure red.
-- Assets: no decorative raster asset, crown, flag, landmark, avatar or invented icon carries state.
-  The reference's decorative pillar and generated user identity are omitted under the user's
-  explicit visual and factual constraints. Branding is accessible plain typography.
-- Copy: dates, coordinates, score, policy and lifecycle derive from actual observations. The source's
-  fictional versions and user are not copied. Score and Java decision remain distinct; the held
-  witness is explicitly labelled as a real barrier rather than a claim that NumPy is busy.
+polish-v3/ captures cover desktop success, real v1/v2 cutover, UNKNOWN at 1440 × 900 and
+1280 × 900, narrow desktop at 1120 × 800, mobile at 390 × 844, expanded rollback receipt and
+closed/export state. Document width stays within each measured viewport. At 1280 the overview
+remains on the right; at 1120 it moves below the wings; mobile stacks the wings and keeps records
+reachable. Actual history stays in DOM/tooltips and expanded ceremony. Version cards are vertical.
+Execution Binding / Observed Execution / Java Decision remain distinct receipt layers.
 
-Final responsive captures at 1120 × 800 and 390 × 844: `final/unknown-narrow.png` and
-`final/unknown-mobile.png`. The DOM's document scroll width equals the respective viewport width.
-All controls and the table remain reachable; the mobile wings stack in the same authority order.
-Final expanded rollback/receipt and closed/export states: `final/rollback-receipt.png` and
-`final/closed-receipt.png`. Downloaded bytes equal the source-bound `final/sealed-receipt.json`;
-all three owned workers were stopped. App console warning/error entries: empty (`final/console.json`).
+Downloaded bytes exactly matched the owner's sealed receipt before packing. After natural
+Java exit, three actual workers and three probes were independently observed stopped.
+Console warnings/errors are empty (polish-v3/console.json). The same implementation's complete
+local seven-request scenario and all six independent mutations also passed.
 
-No actionable P0/P1/P2 findings remain. P3: further decorative polish is optional. Public
-fresh-VM, protected merge and exact-main qualification are separate from this visual result.
+The user's P2 findings and the first polish P2 are fixed and recaptured. No actionable P0/P1/P2
+remains within this visual/interaction scope. This result grants no public qualification or
+production readiness by itself.
+
