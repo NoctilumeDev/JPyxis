@@ -1,0 +1,534 @@
+[
+  {
+    "name": "Right version opens full fresh-v2 realization",
+    "observedAt": "2026-10-02T15:03:39.494Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "VERSION CONTINUITY"
+  },
+  {
+    "name": "Ceremony opens",
+    "observedAt": "2026-10-02T15:03:39.788Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": true,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "SUMMARY",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 66.66666412353516,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "VERSION CONTINUITY"
+  },
+  {
+    "name": "Ceremony closes",
+    "observedAt": "2026-10-02T15:03:40.085Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "SUMMARY",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 66.66666412353516,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "VERSION CONTINUITY"
+  },
+  {
+    "name": "Left Invocations opens six retained requests",
+    "observedAt": "2026-10-02T15:03:40.140Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "INVOCATION HISTORY"
+  },
+  {
+    "name": "History selects original UNKNOWN R004",
+    "observedAt": "2026-10-02T15:03:40.209Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "RISK SCORING OBSERVATORY"
+  },
+  {
+    "name": "Left Receipts opens R004 receipt",
+    "observedAt": "2026-10-02T15:03:40.296Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": true,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "EXECUTION RECEIPT"
+  },
+  {
+    "name": "Receipt closes",
+    "observedAt": "2026-10-02T15:03:40.605Z",
+    "authority": "AUTHORITY HELD",
+    "caption": "R004 · PINNED risk-v2",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "WITHHELD",
+    "exportDisabled": false,
+    "focus": {
+      "id": "",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "SUMMARY",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "OUTCOME_UNKNOWN",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "OUTCOME_UNKNOWN",
+    "title": "EXECUTION RECEIPT"
+  },
+  {
+    "name": "Right request opens original REVIEW R001",
+    "observedAt": "2026-10-02T15:03:40.677Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "RISK SCORING OBSERVATORY"
+  },
+  {
+    "name": "Brand goes Overview and close/export states correct",
+    "observedAt": "2026-10-02T15:03:40.734Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "view-title",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "H1",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  },
+  {
+    "name": "Sample End then Escape preserves STANDARD",
+    "observedAt": "2026-10-02T15:04:21.003Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "sample-control",
+      "outline": "rgb(139, 107, 54) solid 2.66667px",
+      "tag": "BUTTON",
+      "visible": true
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  },
+  {
+    "name": "Sample ArrowDown then Enter chooses LOW",
+    "observedAt": "2026-10-02T15:04:21.056Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "sample-control",
+      "outline": "rgb(139, 107, 54) solid 2.66667px",
+      "tag": "BUTTON",
+      "visible": true
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Low exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  },
+  {
+    "name": "Sample pointer chooses STANDARD",
+    "observedAt": "2026-10-02T15:04:21.628Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "sample-control",
+      "outline": "rgb(139, 107, 54) solid 2.66667px",
+      "tag": "BUTTON",
+      "visible": true
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  },
+  {
+    "name": "Mode End then Tab commits crash and moves focus",
+    "observedAt": "2026-10-02T15:04:21.941Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "",
+      "outline": "rgb(139, 107, 54) solid 2.66667px",
+      "tag": "SUMMARY",
+      "visible": true
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Crash after dispatch\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  },
+  {
+    "name": "Mode pointer restores normal",
+    "observedAt": "2026-10-02T15:04:22.507Z",
+    "authority": "CONTROL BINDING ESTABLISHED",
+    "caption": "R001 · PINNED risk-v1",
+    "ceremonyOpen": false,
+    "closeDisabled": true,
+    "decision": "REVIEW",
+    "exportDisabled": false,
+    "focus": {
+      "id": "mode-control",
+      "outline": "rgb(48, 58, 64) none 2.66667px",
+      "tag": "BUTTON",
+      "visible": false
+    },
+    "invokeDisabled": true,
+    "receiptOpen": false,
+    "route": "NONE",
+    "score": "0.73",
+    "scrollY": 0,
+    "selectors": [
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "sample-control",
+        "text": "Standard exposure\n  \n"
+      },
+      {
+        "active": null,
+        "expanded": "false",
+        "id": "mode-control",
+        "text": "Normal computation\n  \n"
+      }
+    ],
+    "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+    "terminal": "SUCCEEDED",
+    "title": "JPYXIS CONTROL OBSERVATORY"
+  }
+]

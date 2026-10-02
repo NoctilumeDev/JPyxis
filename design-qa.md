@@ -1,129 +1,186 @@
-# Risk Scoring Observatory: polish-v4 candidate review
+# Risk Scoring Observatory: polish-v4 review candidate
 
-Visual acceptance: PENDING USER SIGN-OFF.
-Merge authorization: WITHHELD until explicit user visual acceptance, independent product
-acceptance (P0/P1 cleared, P2 adjudicated by the user), and regression gates.
-CI and implementer measurements do not grant visual acceptance.
+Final result: candidate regression verification PASS; visual acceptance PENDING.
+Independent Product Acceptance Agent review is still required. User final visual sign-off
+is still required. No merge is authorized. CI, screenshots and implementer measurements
+do not grant either form of acceptance.
 
-Base: 109646c7c5266a164018ac2f9534afe850b94c7c.
-Reference: evidence/risk-scoring-reference/v1/design-qa/source-reference.png (1503 x 1047).
-User-selected source file: exec-95a48f36-a157-4817-b943-fdb5da5e6463.png.
-Viewport target: 1440 x 900 CSS px, 100 percent zoom, browser density 1.
+## Scope and source
 
-## Retained counterexamples
+Base main: `109646c7c5266a164018ac2f9534afe850b94c7c`.
+Rendered source: `8aa073c5f06c718511cced38d7c59376db05bed1`.
+The later review commit adds evidence and this report only. The three asset Git blobs
+below bind the rendered implementation to that review commit:
 
-The unchanged exact-main v1 REVIEW first screen is polish-v4/00-exact-main-before.png.
-The receipt entry sits below the viewport, several labels are 8-10px, and the pale card
-surfaces and charter do not yet express the selected reference's material hierarchy.
-The exact prior design-qa.md bytes and their source coordinate are retained in
-polish-v4/previous-polish-v3-report.md and supersession.json. polish-v3 and all earlier
-screenshots, reports, raw observations and failures remain unchanged.
+| Asset under reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory | Git blob |
+| --- | --- |
+| index.html | 59cfddc4ba9d38f23fe39317b89ec82bb877654d |
+| style.css | 7df63ea35ece5f1c4326058f0dfe22a887a9a079 |
+| app.js | 0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb |
 
-## Candidate changes to inspect
+Only these UI assets, this report and design evidence change. Java, Python algorithms,
+protocols, policy, receipt schema, frozen contracts, tests and gate scripts stay at base.
+The original user checkout retains its unrelated README and roadmap edits.
 
-- Typography floors: body, table and auxiliary copy 12px; technical coordinates 11px or
-  larger with at least 1.5 line height. Auxiliary text uses a readable muted ink.
-- Compact header, control and request surfaces keep the system in the first viewport.
-- The wider central charter has a brass frame, deeper stone header, inset paper body,
-  explicit authority state and grouped binding coordinates.
-- Navy structure, ivory paper, stone panels and oxblood decision surfaces are distinct.
-- A qualified standby's Activate action is the only primary action. Fresh rollback has
-  an amber recovery outline and keeps its explicit action wording.
-- Navigation reflects its actual anchor; real Lucide source vectors are retained.
-- Actual empty state has explicit request guidance. The desktop overview rail is retained.
+All evidence paths below are relative to
+`evidence/risk-scoring-reference/v1/design-qa/polish-v4/`.
+`final-summary.json` contains the source inventory, exact screenshots and actual outcomes.
 
-These are implementation proposals to assess from rendered evidence; they are not visual
-acceptance assertions. No runtime, Java policy, state machine, protocol or receipt edits.
+## User-selected direction
 
-## Capture and comparison work still required
+The original selected reference remains
+`evidence/risk-scoring-reference/v1/design-qa/source-reference.png` (1503 x 1047,
+SHA256 f666f4b20c206dc703ca5bd9da17e9d2092c4a38a8fe94cf145fae268e3afa2e).
+The subsequent user references authorize the following changes to that image:
 
-Capture actual empty/install, v1 REVIEW, v2 STANDBY, held old request during cutover,
-v2 REJECT, crash UNKNOWN / HELD / WITHHELD, fresh rollback, expanded receipt,
-physical close/export, 1280 desktop, 1120 narrow and 390 mobile. Inspect keyboard and
-focus, disabled, navigation and recovery affordances. Preserve intermediate captures.
-Put the 1440 x 900 implementation and aspect-preserving reference normalization together,
-then inspect native-pixel three-wing, control and rail crops. Classify each difference as
-intentional adaptation or unmet; do not downgrade an unmet requirement to optional.
+- Clean white stage surfaces, flat results and status text, without nested colored cards.
+- Matching navy desktop directories: left text left aligned, middle centered, right right aligned.
+- Both directories change the central view. Full realization coordinates and invocation history
+  appear centrally; the right directory contains short plain navigation rows.
+- Control Binding has slightly more width. The shared tracks are 1 : 1.1 : 1.02 : 0.88.
+- Wine identifies authority and decision; navy identifies execution and context; gold marks
+  boundaries, selected navigation boundaries and established active authorization.
+- The main serif title remains prominent. Eyebrow and slogan use quieter 12px text.
+- Desktop inspection remains the product. Below 768px, a desktop-use notice and a safe read-only
+  presentation replace operational controls. No mobile-specific control architecture is added.
+- Fix the component's own rules; remove obsolete styles instead of appending force overrides.
 
-## Exit
+## CSS consolidation audit
 
-Stop at the candidate PR, precise commit and actual screenshots. User visual signature and
-independent product acceptance are outstanding. Do not merge this candidate.
+`css-consolidation-audit.json` compares the previous style sheet at
+`df07798d808be9df5d34446e1f68f9a8c0278953` with the final component rules.
+It records 38 repeated complete selector blocks in the same context before cleanup and zero
+after cleanup. Shared selector groups, state variants and bounded media queries remain intentional.
 
-## First iteration counterexample
+The working stylesheet shrank from 29,149 to 17,571 bytes. Removed rules include old deployment
+cards, version-card buttons, right-side tables, nested status surfaces and obsolete color tokens.
+The only `!important` is the existing `[hidden]` attribute contract. No final override pile remains.
 
-Candidate 9d8b482415a114b28b17cdaef734476b667c8222 was actually constructed and
-ran the unchanged seven-request/three-worker scenario and mutation reader. Its UI R001
-returned 0.73 / REVIEW / SUCCEEDED, but 05-v1-review.metrics.json puts the receipt summary
-bottom at 906.21875px. This fails the stated first-screen requirement. The first UI receipt
-is byte-identical to receipt.json; its original worker/probe were physically stopped.
-Raw source/construction/owner/receipt bytes remain in first-iteration-observations.zip.
-The layout is revised through padding, definition-list gaps and header rhythm while
-preserving measured font floors. New actual screenshots are still required.
+## Visual evidence and measurements
 
-01-empty-install is a rejected default-viewport capture; 02-empty-1440 is a rejected resize
-transient. Both are retained. 03-empty-1440-stable is the inspected stable empty screen.
+Primary viewport: 1440 x 900 CSS pixels, zoom 1, density approximately 1.
+Original screenshots are retained at native resolution. When a scrollbar is present the
+browser capture is 1425 x 891 pixels; the accompanying metrics still record the 1440 x 900
+CSS viewport. Captures are never stretched or substituted with mock data.
 
-## Second iteration counterexamples
+| Actual view | Screenshot | Receipt entry bottom at scroll 0 |
+| --- | --- | --- |
+| Empty | 200-final-empty.png | 779.06px |
+| Qualified v1 standby | 201-final-v1-standby.png | 779.06px |
+| v1 STANDARD, 0.73 REVIEW | 202-final-review.png | 797.06px |
+| Expanded sample and execution menus | 203-final-sample-open.png / 204-final-mode-open.png | 797.06px |
+| Qualified v2 standby | 205-final-v2-standby.png | 797.06px |
+| Held v1 request while current route is v2 | 206-final-held-cutover.png | 888.40px |
+| v2 HIGH, 0.93 REJECT | 207-final-reject.png | 797.06px |
+| Actual worker crash, UNKNOWN / WITHHELD | 208-final-unknown.png | 849.06px |
+| Fresh v1 rollback preserves old UNKNOWN | 212-final-fresh-v1-unknown.png | 849.06px |
+| Fresh v1 LOW, 0.09 ALLOW | 216-final-allow.png | 797.06px |
+| Fresh v2 keeps R005 pinned to v1 | 217-final-fresh-v2.png | 797.06px |
+| Six actual requests, fresh v2 STANDARD, 0.85 REJECT | 218-final-six-requests.png | 797.06px |
+| Closed session preserves UNKNOWN | 221-final-closed.png | 849.06px |
 
-783d45ef715c717576d8ebfdc4dc1d7e9d381b86 ran five actual GUI requests.
-13-v2-standby shows REVIEW and the sole primary Activate action at scrollY=0; its receipt
-summary bottom is 853.385px. Held cutover and UNKNOWN still push the summary bottom to
-918.969px and 910.219px. Latest fresh realization details are partly hidden below older
-cards. These are unmet requirements, preserved in 14/16/17 screenshots and raw ZIP.
-The next presentation candidate embeds the readable status notice inside Request, orders
-actual version cards newest first, and bounds history/recent scrollers. No host state or
-selection data changes. 10/11/12 retain scroll offsets and do not prove the first screen.
-The source-bound functional scenario and mutations returned their expected results; all
-six original UI worker/probe processes stopped, and export equals the original receipt.
+At the primary viewport all four stages, actual result and receipt entry fit on the first
+screen, including the held state. Both directories measure 200px. Stage headers measure
+85px and all four content columns share their top and bottom boundaries.
 
-## Third iteration observations and retained capture failure
+`final-directory-and-colors.json` measures the complete directory with four realizations
+and six requests: headings and row text centers advance by 48px (rounding tolerance 0.001px).
+Every navigation row is 48px, single-line, right aligned and has no internal text overflow.
+The established authority is gold, UNKNOWN authority and withheld decision are wine, and
+execution score and terminal text are navy.
 
-a31aad7b3534677e63ed0ea4625531c4d84e921f completed the unchanged seven-request
-scenario and six mutation expectations. The first GUI pilot used an incorrect release
-locator, exceeded the actual 15-second held deadline and produced FAILED. Capture 24
-does not prove held cutover. The original pilot receipt, archive and four stopped
-worker/probe observations are retained; this is an operator capture failure.
+Twenty-two source-bound captures have no body/table/auxiliary text below 12px and no
+technical text below 11px; technical line height is at least 1.5. The minimum measured
+enabled text contrast is 4.74:1. Console warning/error readback is empty.
+These measurements do not replace independent visual or assistive-technology acceptance.
 
-A fresh actual GUI session produced captures 30-42: v1 REVIEW, qualified v2 standby,
-old v1 pin across v2 activation (34, IN_FLIGHT, subsequently explicitly released and
-SUCCEEDED), v2 REJECT, dispatched crash UNKNOWN, fresh rollback and new v1 ALLOW.
-Receipt summary bottoms were 888.802px during held cutover and 880.052px for UNKNOWN.
-Fresh rollback keeps the original R004 UNKNOWN / HELD / WITHHELD while its actual new
-v1 realization appears first. Its journey line still clips the launch nonce on desktop;
-that remaining visibility requirement is unmet. Remove journey text truncation while
-retaining the bounded, keyboard-accessible version history. Recent history also receives
-an explicit focus target and label. New source-bound observations are required.
+1280px (`209-final-1280.png`) remains readable with vertical scrolling; its receipt entry
+is 905.16px, so it does not meet the primary viewport's first-screen threshold.
+1120px (`210-final-1120.png`) retains the four stages and moves context below the center.
+390px (`211-final-safe-narrow.png`, `final-narrow-safety.json`) shows the desktop notice,
+has zero horizontal document overflow and exposes no mutation or selector controls.
+This is a safety fallback, not a mobile product acceptance claim.
 
-40-unknown-1280 has a nonzero scroll offset after receipt keyboard focus and resizing;
-it is retained but rejected as top-of-page evidence. 41 and 42 are at scrollY=0. The
-third GUI export equals the original receipt byte-for-byte, Java exited normally and
-all six original worker/probe processes were independently observed stopped.
+## Reference comparison
 
-## User correction: white surfaces and two navigation rails
+`final-comparison-1440.png` pairs the original reference with the actual 0.73 REVIEW view.
+The reference is contained without distortion; the actual 1440 x 900 screenshot is copied
+at its original size. `final-comparison-native.png` compares native control, stages and
+directory crops without resizing them.
 
-The user rejected the broad yellow surfaces, unequal visual weights and weak connectors.
-Their annotated reference selects three outer regions: left global navigation, a broad
-central workspace, and right contextual navigation. Both side rails should be comparable
-in width and should select content in the center. This supersedes the wider central
-charter and broad paper/stone tint as visual targets for this candidate.
+The visible REVIEW state matches for comparison; the reference is a static illustration
+with different version/runtime records. Actual inputs, workers, versions and results are
+retained from the running Java host. No reference data is substituted into the application.
+The flat surfaces, second navy directory, weighted columns, semantic colors and calmer
+title hierarchy are deliberate user-directed differences.
 
-The next source uses white and light-gray surfaces, four equal step columns in Request /
-Control Binding / Execution / Host Decision order, and visible connectors in the gaps.
-Both desktop navigation rails are 200px. Right version selection shows actual deployment
-facts in the center; right invocation selection shows its actual existing binding,
-execution and policy result. Left navigation switches the central observation view.
-Selection remains presentation state and does not activate, roll back or invoke a worker.
+## Actual interaction and shutdown evidence
 
-The rejected yellow empty screen is retained as 50-empty-before-white at exact source
-e2ef833f553255687d460256bfd9cdc13979b015. Its empty session closed normally with zero
-owned processes. The source completed the unchanged seven-request/three-worker scenario
-and six mutation expectations. Four exported receipt copies failed the repository text
-newline rule. Their original bytes are now retained under .bin names (same blobs and ZIP
-members), so their formatting remains unchanged; the verifier itself is unchanged.
-Visual acceptance remains pending and no merge is authorized.
-`nWhite-layout first counterexample: 60-empty-white.png split the WITHHELD word. The word is kept on one line with sizes matched to the available width. Complete connectors use the unmodified path coordinates from the official Lucide arrow-right.svg source. The incoming heading keeps programmatic focus for navigation without an action-style outline.
-White pilot 3408eff0: both navigation rails drive central panels using actual state. The compact request row wrapped risk-v1; reserve 58px for its version. Keep long WITHHELD at a fitting size while restoring emphasis for successful Java decisions. Pilot receipt bytes match the original; its worker and interpreter were independently observed stopped after Java exit 0. Captures 61 and 63 had a 2px scroll offset and are not first-screen proofs.
-User steering: both directories must use the same deep navy background, including context items and selection styling. White right rail captures 80-84 are superseded by this explicit correction. Matching rails use the same navy-deep base and selected blue, with pale text and warm selection accents. The central workspace remains white.
-User steering: left navigation text left aligned, central workspace text centered, right navigation text right aligned. Apply the direction to titles, explanations, controls, detail panels and directory selections, then verify from new actual captures.
-User steering: nested status and result cards are visually discordant; the right directory is cluttered compared with the left. Remove inset card fills, shadows and colored frames from authority, scores, decisions and policy. Make the right directory flat rows; retain full source-derived version coordinates, invocation results and rollback ceremony in the central views. The 3ef7b49e boxed captures are superseded. Their held and unknown receipt entry positions (988.23 and 942.90px) remain original counterexamples.
+The unchanged source-bound bootstrap scenario passed seven actual requests and all six
+mutation gates. Exact source, input inventory, construction, independent readback, mutation
+readback and independent shutdown are retained in `final-bootstrap-*.json`; the original
+machine construction bytes are retained as `final-bootstrap-construction.bin`.
+This local construction reused a private Maven repository; it grants no fresh-VM qualification.
+
+The separate browser session exercised installation, activation, explicit invocation,
+hold/release during cutover, actual crash after dispatch, both fresh rollback directions,
+left navigation, right version/request selection, central history selection, rollback
+ceremony and receipt disclosures, close and sealed export.
+
+| Request | Actual version / sample / mode | Terminal | Java decision |
+| --- | --- | --- | --- |
+| R001 | v1 / STANDARD / normal | SUCCEEDED | REVIEW |
+| R002 | v1 / STANDARD / hold, released after v2 activation | SUCCEEDED | REVIEW |
+| R003 | v2 / HIGH / normal | SUCCEEDED | REJECT |
+| R004 | v2 / HIGH / crash after dispatch | OUTCOME_UNKNOWN, score null | WITHHELD |
+| R005 | fresh v1 / LOW / normal | SUCCEEDED | ALLOW |
+| R006 | fresh v2 / STANDARD / normal | SUCCEEDED | REJECT |
+
+Both fresh rollbacks create new realizations. R004 retains its original UNKNOWN outcome
+and withheld authority after both; old pins and decisions are not rewritten.
+`213-final-lifecycle.png`, `214-final-ceremony.png`, `215-final-receipt.png`,
+`219-final-history.png` and `220-final-right-version.png` retain the actual full details.
+
+`final-source-button-readbacks.json` retains 14 navigation/selector/disabled-state readings.
+Pointer selection and keyboard ArrowDown, End, Enter, Escape and Tab were exercised.
+The canonical native selects still supply the unchanged invoke action values.
+A full screen-reader session was not performed.
+
+`final-receipt.bin` is the original exported 72,167-byte receipt, byte-equal to the host's
+sealed receipt. The actual session's eight owned worker/interpreter processes were all
+independently observed stopped; Java exited with code 0.
+`final-observations.zip` is 21,807,338 bytes, SHA256
+37a1a944b3a4e63068c27b53002023aa4560bf0ca54a54a80fc5c7e2b80d2d10.
+All 301 manifest members and the exported receipt were byte-verified.
+These shutdown claims apply to this test session; the original main preview is separate.
+
+## Retained counterexamples and supersession
+
+Every prior image, raw archive, failed candidate and original receipt remains retained.
+The superseded working report is preserved as `superseded-v4-working-report.md` with
+the exact previous Git content and `superseded-v4-working-report.bin` with exact working
+file bytes. Its earlier proposals and interim claims do not describe this candidate.
+
+The warm, boxed and cluttered iterations were superseded by the user's white/flat/double
+directory direction. The 39ed61e candidate met the first-screen measurements but preceded
+the new weighting, semantic colors and uniform group-heading rhythm.
+
+The CSS consolidation pilot at 2b860e82 exposed narrow Request wrapping: held receipt
+bottom 958.09px (`182-consolidated-held-counterexample.png`).
+The 67c60b13 weighted pilot exposed scrollbar-induced wrapping: 906.40px
+(`193-semantic-held-cutover.png`).
+Their original archives and receipts remain retained. The final source fixes the shared
+track proportions directly and measures 888.40px; neither failure is relabeled as passing.
+
+## Preview and review boundary
+
+Build from a clean committed checkout with the repository's existing
+`node scripts/run-risk-scoring-host.mjs` runner and its documented Java/Python prerequisites.
+To reproduce from the retained local construction, use the original verified host jar and
+config together; do not edit its source or execution coordinates. Select an unused loopback
+port so the original main preview remains separate.
+
+The review candidate may be pushed as a draft PR. The four protected repository gates
+must remain intact. A green run is regression evidence only.
+Independent Product Acceptance Agent assessment must clear P0/P1 and surface P2 issues for
+user adjudication before any merge. Final visual acceptance remains pending; no merge occurs.

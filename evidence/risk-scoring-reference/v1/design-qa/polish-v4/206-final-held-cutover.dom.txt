@@ -1,0 +1,148 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v2
+    - generic: ELIGIBLE WORKERS
+    - strong: 2 / 2 live
+    - button "Fresh rollback to v1"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "JPYXIS CONTROL OBSERVATORY" [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - list "Authority flow":
+    - generic: "01"
+    - generic: REQUEST
+    - generic: "02"
+    - generic: CONTROL BINDING
+    - generic: "03"
+    - generic: EXECUTION
+    - generic: "04"
+    - generic: HOST DECISION
+  - region "Current request":
+    - article "Prepare synthetic request":
+      - text: JAVA / HOST
+      - heading "Request" [level=2]
+      - paragraph: Synthetic features · prepared by Java
+      - paragraph: R002 · PINNED risk-v1
+      - status: Hold barrier · release within 15s. Computation has not started.
+      - generic: NEXT INVOCATION
+      - generic: SYNTHETIC RISK FEATURES
+      - combobox "Synthetic sample":
+        - generic: Standard exposure
+      - generic: EXECUTION MODE
+      - combobox "Execution mode":
+        - generic: Hold for cutover · 15s
+      - button "Invoke explicitly"
+      - button "Release held request"
+      - generic: RISK FEATURES · PREPARED BY JAVA
+      - generic: Exposure 0.90 · Activity 0.35 Velocity 0.20 · Case STANDARD Concentration 0.45
+      - paragraph: Java prepares the inputs. Invocation is explicit.
+    - article:
+      - text: CONTROL / HOST
+      - heading "Control binding" [level=2]
+      - paragraph: Definition · eligibility
+      - generic: CONTROL AUTHORIZED · REQUEST PIN HELD
+      - term: Definition
+      - definition: jpyxis:definition:reference/risk-affine@1.0.0
+      - term: Artifact digest
+      - definition: sha256:980b74c66
+      - term: Environment
+      - definition: sha256:281fd1706
+      - term: Qualification
+      - definition: d7a81a9e-8579-44
+      - term: Request pin
+      - definition: c65164ec-d4c2-4b
+      - term: Current route
+      - definition: risk-v2
+      - paragraph: Observation ≠ score ≠ business decision.
+    - article:
+      - text: PYTHON / RUNTIME
+      - heading "Execution report" [level=2]
+      - paragraph: Delegated computation
+      - generic: RISK SCORE · COMPUTATION ONLY
+      - strong: —
+      - paragraph: ACTUAL M3 WITNESS BARRIER · 15 SECOND LIMIT
+      - term: Request
+      - definition: R002
+      - term: Pinned version
+      - definition: risk-v1
+      - term: Worker
+      - definition: worker-9ad24e47-
+      - term: Runtime
+      - definition: numpy.cpu
+      - term: Attempt
+      - definition: e26f95e1-c08b-47
+      - term: Completed
+      - definition: Awaiting completion
+      - paragraph: IN_FLIGHT
+    - article:
+      - text: JAVA / POLICY
+      - heading "Host decision" [level=2]
+      - paragraph: Host-owned business authority
+      - generic: BUSINESS DECISION
+      - strong: WITHHELD
+      - paragraph: Only validated successful execution may enter Java policy.
+      - generic: SEALED JAVA POLICY · v1.0.0
+      - code: score ≥ 0.80
+      - generic: REJECT
+      - code: score ≥ 0.55
+      - generic: REVIEW
+      - code: otherwise
+      - generic: ALLOW
+      - paragraph:
+        - text: Python computes. Java decides.
+        - text: No automatic retry.
+  - generic "View execution receipt Execution Binding / Observed Execution / Java Decision":
+    - text: View execution receipt
+    - generic: Execution Binding / Observed Execution / Java Decision
+  - paragraph: Shutdown is a separate physical observation.
+  - button "Close owned workers" [disabled]
+  - button "Export sealed receipt" [disabled]
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v2 realization 9d42ccc3-25b7-4e":
+        - generic: risk-v2
+      - button "Inspect risk-v1 realization 2cf5d3b4-34e3-4a":
+        - generic: risk-v1
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R002" [pressed]:
+        - generic: R002
+      - button "Inspect request R001":
+        - generic: R001
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.
