@@ -1,0 +1,9 @@
+{
+  "sourceRevision": "0fcb6790f7b33c11367171fb71513a796ff1c8cb",
+  "executedRevision": "7545def80f7679cab9d1005664e6de2e35ff058a",
+  "run": 36988929166,
+  "job": 110780315395,
+  "classification": "M5 repository boundary rejected five raw registry members after Git had already normalized their original CRLF into LF blobs. Source-bound Risk Host and actual reference jobs succeeded; no overall qualification granted. Retain original CI failure before re-indexing only existing byte-bound raw members.",
+  "originalLogBytes": 31401,
+  "originalLogSha256": "sha256:e37739ed8190a603dbcf65a145c035ee9927bb4649ecbc1c6fe02c2ed85cffb0"
+}
