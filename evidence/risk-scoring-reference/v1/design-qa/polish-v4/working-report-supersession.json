@@ -1,0 +1,9 @@
+{
+  "sourceRevision": "8aa073c5f06c718511cced38d7c59376db05bed1",
+  "originalGitBytes": 9876,
+  "originalGitSha256": "4747dbde32296e31463ecac5da0de43c8b6678581f808224fcadbf14a30d5c66",
+  "originalWorkingBytes": 9881,
+  "originalWorkingSha256": "506a68f489f55243a17f9b928d5fbc6601f87154d8fd53b5326a9619c3b482c3",
+  "replacement": "design-qa.md",
+  "reason": "Rewrite around final user-directed candidate; retain superseded proposals and failure reports without granting visual acceptance."
+}

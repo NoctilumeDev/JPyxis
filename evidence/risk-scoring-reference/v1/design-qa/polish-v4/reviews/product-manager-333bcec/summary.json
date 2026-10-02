@@ -1,0 +1,101 @@
+{
+  "reviewHead": "333bcec65ef1e636100a0abe4fae9c6b0fd56d4b",
+  "renderedSource": "8aa073c5f06c718511cced38d7c59376db05bed1",
+  "businessMutated": false,
+  "sourceModified": false,
+  "viewportReset": true,
+  "reviewTabClosed": true,
+  "verdict": "Desktop direction supported; candidate acceptance blocked by two confirmed P2 safety defects",
+  "p0": 0,
+  "p1": 0,
+  "p2": 2,
+  "p3": 1,
+  "recommendedOperatingMinimumCssPx": 1024,
+  "realUnknownAt1024Confirmed": false,
+  "requiredRecheck": "actual UNKNOWN/WITHHELD at 1024; continuous repaired boundary; original 800/767 failures; 1440 homepage first display and direct Lifecycle to Overview; visible preview source sync",
+  "acceptedEvidence": [
+    {
+      "stem": "02-desktop-1440",
+      "viewport": [
+        1440,
+        900
+      ],
+      "documentOverflow": 0,
+      "decisionContentWidth": 184.7916717529297,
+      "decisionInternalOverflow": 0,
+      "notice": "none"
+    },
+    {
+      "stem": "03-boundary-1024",
+      "viewport": [
+        1024,
+        900
+      ],
+      "documentOverflow": 0,
+      "decisionContentWidth": 154.375,
+      "decisionInternalOverflow": 0,
+      "notice": "none"
+    },
+    {
+      "stem": "04-boundary-1000",
+      "viewport": [
+        1000,
+        900
+      ],
+      "documentOverflow": 0,
+      "decisionContentWidth": 149.09375,
+      "decisionInternalOverflow": 0,
+      "notice": "none"
+    },
+    {
+      "stem": "05-boundary-960",
+      "viewport": [
+        960,
+        900
+      ],
+      "documentOverflow": 0,
+      "decisionContentWidth": 140.30209350585938,
+      "decisionInternalOverflow": 1,
+      "notice": "none"
+    },
+    {
+      "stem": "06-boundary-800",
+      "viewport": [
+        800,
+        900
+      ],
+      "documentOverflow": 8,
+      "decisionContentWidth": 105.09375,
+      "decisionInternalOverflow": 36,
+      "notice": "none"
+    },
+    {
+      "stem": "07-readonly-390",
+      "viewport": [
+        390,
+        900
+      ],
+      "documentOverflow": 0,
+      "decisionContentWidth": 319.3333435058594,
+      "decisionInternalOverflow": 0,
+      "notice": "block"
+    },
+    {
+      "stem": "08-old-boundary-767",
+      "viewport": [
+        767,
+        900
+      ],
+      "documentOverflow": 23,
+      "decisionContentWidth": 86.22917175292969,
+      "decisionInternalOverflow": 55,
+      "notice": "none"
+    }
+  ],
+  "providedContextImages": [
+    "206-final-held-cutover.png",
+    "208-final-unknown.png",
+    "213-final-lifecycle.png",
+    "218-final-six-requests.png"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "Exact actual HTTP resource readback; user preview and independent actual test are separate sessions",
+  "sessions": [
+    {
+      "port": 8766,
+      "sourceRevision": "3143a78fcfa6195942030ca49f830c86675130e7",
+      "closed": false,
+      "requests": 0,
+      "observedLiveWorkers": 0,
+      "assets": [
+        {
+          "name": "index.html",
+          "gitBlob": "2a1223394734146e8f382f4c98511c346e1f8ecc",
+          "bytes": 11789,
+          "sha256": "sha256:e006c1adbcecc78ca416f815faa0063a46cf8f89b7392690b93f5a64ae7443e8"
+        },
+        {
+          "name": "style.css",
+          "gitBlob": "7e8ac82b7f4dfd820ebf77ad4b5ded7134484b01",
+          "bytes": 17537,
+          "sha256": "sha256:b261e62bbe1e1af95dbb3633d8734d665fb68c1496cd72bb91acfb4cff015b9f"
+        },
+        {
+          "name": "app.js",
+          "gitBlob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+          "bytes": 19980,
+          "sha256": "sha256:cfdf1db8097e99e6a3f2b0273dd45227e8cc64456a0dd3834e4b43076d26541a"
+        }
+      ]
+    },
+    {
+      "port": 8767,
+      "sourceRevision": "3143a78fcfa6195942030ca49f830c86675130e7",
+      "closed": false,
+      "requests": 3,
+      "observedLiveWorkers": 0,
+      "assets": [
+        {
+          "name": "index.html",
+          "gitBlob": "2a1223394734146e8f382f4c98511c346e1f8ecc",
+          "bytes": 11789,
+          "sha256": "sha256:e006c1adbcecc78ca416f815faa0063a46cf8f89b7392690b93f5a64ae7443e8"
+        },
+        {
+          "name": "style.css",
+          "gitBlob": "7e8ac82b7f4dfd820ebf77ad4b5ded7134484b01",
+          "bytes": 17537,
+          "sha256": "sha256:b261e62bbe1e1af95dbb3633d8734d665fb68c1496cd72bb91acfb4cff015b9f"
+        },
+        {
+          "name": "app.js",
+          "gitBlob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+          "bytes": 19980,
+          "sha256": "sha256:cfdf1db8097e99e6a3f2b0273dd45227e8cc64456a0dd3834e4b43076d26541a"
+        }
+      ]
+    }
+  ]
+}

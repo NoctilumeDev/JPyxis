@@ -1,0 +1,37 @@
+{
+  "source": "2456e291faac791ceb2fda6b00db249d4236584b",
+  "method": "Independent exact source diff and supplied native actual-browser evidence review",
+  "independentLiveBrowserReexecuted": false,
+  "childIabRetried": false,
+  "businessMutated": false,
+  "sourceModified": false,
+  "verdict": "No remaining confirmed product defect in reviewed paths; both previously reported P2 defects remain closed for this source and accepted evidence",
+  "p0Found": 0,
+  "p1Found": 0,
+  "p2RemainingInReviewedPaths": 0,
+  "p2PreviouslyReportedAndClosed": 2,
+  "operatingMinimumCssPx": 1024,
+  "nativeAcceptedImagesOpened": [
+    "260-directory-empty.png",
+    "264-directory-held-cutover.png",
+    "267-directory-1280-scroll.png",
+    "271-directory-1023-fractional.png",
+    "273-directory-767-fractional.png",
+    "277-directory-unknown-home.png",
+    "283-directory-live-home-default.png",
+    "284-stable-1280-unknown.png",
+    "285-stable-1360-unknown.png",
+    "286-stable-1024-unknown.png"
+  ],
+  "newEvidenceAcquisitionFailuresFoundAndCorrected": [
+    { "excluded": "268-directory-1280-unknown.png", "acceptedReplacement": "284-stable-1280-unknown.png" },
+    { "excluded": "269-directory-1360-unknown.png", "acceptedReplacement": "285-stable-1360-unknown.png" },
+    { "excluded": "270-directory-1024-unknown.png", "acceptedReplacement": "286-stable-1024-unknown.png" }
+  ],
+  "primaryFirstScreenViewport": { "width": 1440, "height": 900 },
+  "narrowerOperatingWidthsRequireVerticalScroll": [1280, 1024],
+  "previewAssetEqualityEvidence": "directory-preview-sync.json",
+  "supplementaryStableCaptureSessionShutdownIndependentlyExecutedByThisReviewer": false,
+  "finalUserVisualAcceptance": "PENDING",
+  "mergeAuthorized": false
+}

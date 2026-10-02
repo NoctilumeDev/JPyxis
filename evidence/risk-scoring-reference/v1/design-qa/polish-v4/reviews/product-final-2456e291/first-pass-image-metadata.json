@@ -1,0 +1,338 @@
+[
+  {
+    "image": "283-directory-live-home-default.png",
+    "viewport": {
+      "dpr": 1.5,
+      "height": 720,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1264,
+    "imageHeight": 898,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "3b3f4e9994423393f4b77f40c20f0b75130986b4083c12aee670c032e8d3e10b"
+  },
+  {
+    "image": "282-directory-live-home.png",
+    "viewport": {
+      "dpr": 1.5,
+      "height": 720,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1265,
+    "imageHeight": 712,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "217d1948375db2b2720ff9ac8bc219545671bc75d23b64233116c8cb2bde7ac8"
+  },
+  {
+    "image": "281-directory-live-preview-default.png",
+    "viewport": {
+      "dpr": 1.5,
+      "height": 720,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1265,
+    "imageHeight": 712,
+    "scrollY": 178,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "e92333c0873b57b4981d2bf5f1a5ed45d827f8caba64e1e10ef98113f3b7deec"
+  },
+  {
+    "image": "280-directory-live-preview-1440.png",
+    "viewport": {
+      "dpr": 1.5,
+      "height": 720,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1265,
+    "imageHeight": 712,
+    "scrollY": 178,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "e92333c0873b57b4981d2bf5f1a5ed45d827f8caba64e1e10ef98113f3b7deec"
+  },
+  {
+    "image": "279-directory-closed.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1425,
+    "imageHeight": 891,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "70375273d24fc9fa73bbfa6e8a80fe743059a8d4090d457f1bf6931cbf485244"
+  },
+  {
+    "image": "278-directory-receipt.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1424,
+    "imageHeight": 1021,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "d1d8e2914ddfe6223e929f3d329ba6608dd386bb8998e29f983870092317e094"
+  },
+  {
+    "image": "277-directory-unknown-home.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1425,
+    "imageHeight": 891,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "0e958f5152557c88b68e6724eb419b322273929c5fe5ad1b469360c353da570f"
+  },
+  {
+    "image": "276-directory-request-home.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1440,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "664a4d1aaf0361d713806ae744fc34954625181d5de5d94e19b94a86d72bebe5"
+  },
+  {
+    "image": "275-directory-lifecycle-home.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1425,
+    "imageHeight": 891,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "0e958f5152557c88b68e6724eb419b322273929c5fe5ad1b469360c353da570f"
+  },
+  {
+    "image": "274-directory-390-safe.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 844,
+      "scale": 1,
+      "width": 390
+    },
+    "imageWidth": 374,
+    "imageHeight": 2723,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "55eeea7fd68a796ca57b9f1f960f69ec86beb88b9b6c4e3390416afe98383e3e"
+  },
+  {
+    "image": "273-directory-767-fractional.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 767
+    },
+    "imageWidth": 752,
+    "imageHeight": 2490,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "3de53fee9dcbccae4eb1ed83ce9bbfd61e1955de360dc478eeb88d25264b99c4"
+  },
+  {
+    "image": "272-directory-800-safe.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 800
+    },
+    "imageWidth": 784,
+    "imageHeight": 2490,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "c932379f8c6c284358358d0dca4148d0f7fffa53d0e5a66e3ec8ee8129980bce"
+  },
+  {
+    "image": "271-directory-1023-fractional.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1023
+    },
+    "imageWidth": 1008,
+    "imageHeight": 2490,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "c0c175ac88e041608423d060bb6eb5a8143e60f41388d534efbc3f8833403c6b"
+  },
+  {
+    "image": "270-directory-1024-unknown.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1024
+    },
+    "imageWidth": 1009,
+    "imageHeight": 668,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "1dc101375044bd40863b8e6d2fd3d462d2b4eeeb30ce70a717fdc3502fa77077"
+  },
+  {
+    "image": "269-directory-1360-unknown.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1360
+    },
+    "imageWidth": 1266,
+    "imageHeight": 890,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "ef8560bdf9709716355c75160d477fd3149f3766da4fe715bf748f7fe22c491d"
+  },
+  {
+    "image": "268-directory-1280-unknown.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1265,
+    "imageHeight": 356,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "5c569145bbdf30c4c5c259fbc7a0769293b0f13cb59f2c6bd9332c5e01415f2d"
+  },
+  {
+    "image": "267-directory-1280-scroll.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 360,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1265,
+    "imageHeight": 356,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "1a6071d0ea5f0f6e5f14e67071bdea28ec3295d923f9490fdae11360168a4f71"
+  },
+  {
+    "image": "266-directory-unknown-settled.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1425,
+    "imageHeight": 891,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "cc86b5bfbd00bf878cec0c08bcf479400e4461ce1d1418c6462b717a296ceb75"
+  },
+  {
+    "image": "265-directory-unknown.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1440,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "0651c4b393b53e52b3271f7ba95a804b42fb79a3838692ab7d768b1ae5566984"
+  },
+  {
+    "image": "264-directory-held-cutover.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1425,
+    "imageHeight": 891,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "725ccac9e7733bcef48490d6cada512429a01381bd1a989a436836d36bdf60a6"
+  },
+  {
+    "image": "263-directory-mode-menu.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1440,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "61ed11ed0d4197677cb5f4b168adcc4416fbfde362b75d0bb2f7a4267599f7ef"
+  },
+  {
+    "image": "262-directory-review.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1440,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "be21c5593b9c3ccfa6a44d48fb12acbc04fbbbd6bb00fafaa75646c3396752e5"
+  },
+  {
+    "image": "261-directory-1280-empty.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1280
+    },
+    "imageWidth": 1280,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "3a298b8c945a2077f73a0f590d892bc5b6184badb02cc718dbc5b948f6ef05e1"
+  },
+  {
+    "image": "260-directory-empty.png",
+    "viewport": {
+      "dpr": 1.0000000298023224,
+      "height": 900,
+      "scale": 1,
+      "width": 1440
+    },
+    "imageWidth": 1440,
+    "imageHeight": 900,
+    "scrollY": 0,
+    "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+    "sha256": "597b2a5fd4d8cf41df4eb42d305c19217de2d2c49e9aed0fe7e97df02d423342"
+  }
+]

@@ -1,0 +1,164 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE ad17338b457336d8 · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v1
+    - generic: ELIGIBLE WORKERS
+    - strong: 1 / 1 live
+    - button "Fresh rollback to v2"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "JPYXIS CONTROL OBSERVATORY" [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - list "Authority flow":
+    - generic: "01"
+    - generic: REQUEST
+    - generic: "02"
+    - generic: CONTROL BINDING
+    - generic: "03"
+    - generic: EXECUTION
+    - generic: "04"
+    - generic: HOST DECISION
+  - region "Current request":
+    - article "Prepare synthetic request":
+      - text: JAVA / HOST
+      - heading "Request" [level=2]
+      - paragraph: Synthetic features · prepared by Java
+      - paragraph: R004 · PINNED risk-v2
+      - status: OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD
+      - generic: NEXT INVOCATION
+      - generic: SYNTHETIC RISK FEATURES
+      - combobox "Synthetic sample":
+        - option "Standard exposure"
+        - option "Low exposure"
+        - option "High exposure" [selected]
+      - generic: EXECUTION MODE
+      - combobox "Execution mode":
+        - option "Normal computation"
+        - option "Hold for cutover · 15s witness"
+        - option "Crash after dispatch · diagnostic" [selected]
+      - button "Invoke explicitly"
+      - generic: RISK FEATURES · PREPARED BY JAVA
+      - generic: "Exposure 0.99 / Activity 0.85 Velocity 0.76 / Concentration 0.94 Synthetic case: HIGH"
+      - paragraph: Java prepares the inputs. Invocation is explicit.
+    - article:
+      - text: CONTROL / HOST
+      - heading "Control binding" [level=2]
+      - paragraph: Definition · eligibility
+      - generic: AUTHORITY HELD
+      - term: Definition
+      - definition: jpyxis:definition:reference/risk-affine@2.0.0
+      - term: Artifact digest
+      - definition: sha256:498ebd78b
+      - term: Environment
+      - definition: sha256:281fd1706
+      - term: Qualification
+      - definition: dbba04c3-91ac-47
+      - term: Request pin
+      - definition: a52cc397-6a35-4b
+      - term: Current route
+      - definition: risk-v1
+      - paragraph: Observation ≠ score ≠ business decision.
+    - article:
+      - text: PYTHON / RUNTIME
+      - heading "Execution report" [level=2]
+      - paragraph: Delegated computation
+      - generic: RISK SCORE · COMPUTATION ONLY
+      - strong: OUTCOME_UNKNOWN
+      - paragraph: Dispatch occurred; a sufficient result is unavailable.
+      - term: Request
+      - definition: R004
+      - term: Pinned version
+      - definition: risk-v2
+      - term: Worker
+      - definition: worker-7d14cc62-
+      - term: Runtime
+      - definition: numpy.cpu
+      - term: Attempt
+      - definition: 719d54c8-63f8-4c
+      - term: Completed
+      - definition: 21:48:50
+      - paragraph: OUTCOME_UNKNOWN
+    - article:
+      - text: JAVA / POLICY
+      - heading "Host decision" [level=2]
+      - paragraph: Host-owned business authority
+      - generic: BUSINESS DECISION
+      - strong: WITHHELD
+      - paragraph: WITHHELD · uncertainty is never a business verdict.
+      - generic: SEALED JAVA POLICY · v1.0.0
+      - code: score ≥ 0.80
+      - generic: REJECT
+      - code: score ≥ 0.55
+      - generic: REVIEW
+      - code: otherwise
+      - generic: ALLOW
+      - paragraph:
+        - text: Python computes. Java decides.
+        - text: No automatic retry.
+  - generic "View execution receipt Execution Binding / Observed Execution / Java Decision":
+    - text: View execution receipt
+    - generic: Execution Binding / Observed Execution / Java Decision
+  - paragraph: Shutdown is a separate physical observation.
+  - button "Close owned workers"
+  - button "Export sealed receipt" [disabled]
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v1 realization f17ecb6b-b076-4d":
+        - text: risk-v1 · fresh
+        - generic: ACTIVE · live
+      - button "Inspect risk-v2 realization 22696d19-c88c-49":
+        - text: risk-v2
+        - generic: DRAINING · stopped
+      - button "Inspect risk-v1 realization c83bbc43-af2b-42":
+        - text: risk-v1
+        - generic: RETIRED · stopped
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R004" [pressed]:
+        - text: R004
+        - generic: risk-v2
+      - button "Inspect request R003":
+        - text: R003
+        - generic: risk-v2
+      - button "Inspect request R002":
+        - text: R002
+        - generic: risk-v1
+      - button "Inspect request R001":
+        - text: R001
+        - generic: risk-v1
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

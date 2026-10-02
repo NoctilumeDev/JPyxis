@@ -1,0 +1,116 @@
+{
+  "reviewHead": "333bcec65ef1e636100a0abe4fae9c6b0fd56d4b",
+  "renderedSource": "8aa073c5f06c718511cced38d7c59376db05bed1",
+  "port": 8767,
+  "rawRoot": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\design-qa\\installed\\8aa073c5-mur42xge",
+  "requests": [
+    {
+      "id": "R001",
+      "version": "v1",
+      "mode": "normal",
+      "sample": "LOW",
+      "terminal": "SUCCEEDED",
+      "score": 0.09,
+      "decision": "ALLOW"
+    },
+    {
+      "id": "R002",
+      "version": "v1",
+      "mode": "hold",
+      "sample": "STANDARD",
+      "terminal": "SUCCEEDED",
+      "score": 0.72999996,
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R003",
+      "version": "v2",
+      "mode": "normal",
+      "sample": "STANDARD",
+      "terminal": "SUCCEEDED",
+      "score": 0.84999996,
+      "decision": "REJECT"
+    },
+    {
+      "id": "R004",
+      "version": "v2",
+      "mode": "crash",
+      "sample": "HIGH",
+      "terminal": "OUTCOME_UNKNOWN",
+      "score": null,
+      "decision": "WITHHELD"
+    },
+    {
+      "id": "R005",
+      "version": "v1",
+      "mode": "normal",
+      "sample": "LOW",
+      "terminal": "SUCCEEDED",
+      "score": 0.09,
+      "decision": "ALLOW"
+    },
+    {
+      "id": "R006",
+      "version": "v2",
+      "mode": "normal",
+      "sample": "HIGH",
+      "terminal": "SUCCEEDED",
+      "score": 0.931,
+      "decision": "REJECT"
+    }
+  ],
+  "archive": {
+    "file": "actual-observations.zip",
+    "bytes": 21818320,
+    "sha256": "sha256:ca0e965d169e91af45662c5d26e19231d36f369e360eaa308f5895c72d299dfd",
+    "manifestMembersVerified": 301
+  },
+  "receipt": {
+    "file": "exported-receipt.bin",
+    "bytes": 72112,
+    "sha256": "sha256:e2af40106ae03bffa1a112e6184f42ea54d321f7d5efd78973f0e226b5da07a3",
+    "originalByteEqual": true
+  },
+  "ownedProcesses": [
+    {
+      "pid": 10848,
+      "alive": false
+    },
+    {
+      "pid": 6484,
+      "alive": false
+    },
+    {
+      "pid": 43040,
+      "alive": false
+    },
+    {
+      "pid": 29864,
+      "alive": false
+    },
+    {
+      "pid": 43972,
+      "alive": false
+    },
+    {
+      "pid": 6744,
+      "alive": false
+    },
+    {
+      "pid": 36520,
+      "alive": false
+    },
+    {
+      "pid": 30636,
+      "alive": false
+    }
+  ],
+  "javaExit": {
+    "code": 0,
+    "signal": null,
+    "observedAt": "2026-10-02T15:34:28.658Z"
+  },
+  "sourceModified": false,
+  "viewportReset": true,
+  "reviewTabClosed": true
+}

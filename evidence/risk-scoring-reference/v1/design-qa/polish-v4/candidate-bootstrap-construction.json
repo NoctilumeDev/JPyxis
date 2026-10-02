@@ -1,0 +1,152 @@
+{
+  "revision": "39ed61e53625f739a0a238ad73c6d3ef9425c357",
+  "tree": "3acdb50babd4dce0a85fe8ec0d5c80489436e146",
+  "interpreter": {
+    "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "version": "3.12.14",
+    "platform": "win32",
+    "architecture": "AMD64"
+  },
+  "workerExecutable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "workerExecutableSha256": "sha256:dd5f8d19f6755d6491ee7c4bef2fe35ddd521334cc3ca3ed8fc93ebcadf135d0",
+  "requirementsClosure": {
+    "invocation/python/requirements-m2.txt": "sha256:9cc62ac4eea340bd8ecd81d6439d61fbcf936b04db11ec9bc8bc8820df2f6b90",
+    "invocation/python/requirements-m3.txt": "sha256:2550f4831470fc7f21af3ecd7c59086dcc6d5e669ab6d6f2bedc408463881c6b"
+  },
+  "installedInventory": {
+    "grpcio": "1.83.1",
+    "grpcio-tools": "1.83.1",
+    "numpy": "2.2.6",
+    "pip": "25.0.1",
+    "protobuf": "7.35.1",
+    "setuptools": "80.9.0",
+    "typing_extensions": "4.16.0"
+  },
+  "launchEnvironment": {
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONHASHSEED": "0",
+    "PYTHONPATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Lib\\site-packages;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\bindings\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\invocation\\python;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\generated;C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\reference\\python",
+    "PATH": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Scripts;C:\\WINDOWS\\System32",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\temporary",
+    "TMP": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\temporary"
+  },
+  "javaArtifactSha256": "sha256:b7d65439d3a5740de24bf40c0a99c4827c965455ca5edd116a8ca1638e566cb2",
+  "inputInventoryDigest": "sha256:6c1f221e85e18045cd9b34af3f782ad838a69e8c19fe041d08e467c486554856",
+  "commands": [
+    {
+      "id": "interpreter",
+      "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "args": [
+        "-S",
+        "-c",
+        "import sys,platform,json; print(json.dumps({\"executable\":sys._base_executable,\"version\":platform.python_version(),\"platform\":sys.platform,\"architecture\":platform.machine()}))"
+      ],
+      "startedAt": "2026-10-02T14:11:09.684Z",
+      "durationMs": 158,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "private_environment",
+      "executable": "C:\\Users\\lenovo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "args": [
+        "-m",
+        "venv",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e"
+      ],
+      "startedAt": "2026-10-02T14:11:09.854Z",
+      "durationMs": 8119,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "pinned_requirements",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "--no-cache-dir",
+        "-r",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\invocation\\python\\requirements-m3.txt"
+      ],
+      "startedAt": "2026-10-02T14:11:17.974Z",
+      "durationMs": 29256,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "pip_check",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "startedAt": "2026-10-02T14:11:47.231Z",
+      "durationMs": 611,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "installed_inventory",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Scripts\\python.exe",
+      "args": [
+        "-c",
+        "import importlib.metadata,json; print(json.dumps({d.metadata[\"Name\"]:d.version for d in importlib.metadata.distributions()},sort_keys=True))"
+      ],
+      "startedAt": "2026-10-02T14:11:47.845Z",
+      "durationMs": 186,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "frozen_carrier",
+      "executable": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\e\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "grpc_tools.protoc",
+        "-I",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\spec\\m2\\proto",
+        "--python_out=C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\generated",
+        "--grpc_python_out=C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\risk\\39ed61e5-mur1jkf6\\generated",
+        "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\spec\\m2\\proto\\jpyxis_invocation_v1.proto"
+      ],
+      "startedAt": "2026-10-02T14:11:48.032Z",
+      "durationMs": 488,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    },
+    {
+      "id": "build_host",
+      "executable": "C:\\WINDOWS\\system32\\cmd.exe",
+      "args": [
+        "/d",
+        "/s",
+        "/c",
+        "mvnw.cmd -q -pl reference-apps/versioned-risk-scoring/host-java -am package"
+      ],
+      "startedAt": "2026-10-02T14:11:48.522Z",
+      "durationMs": 28600,
+      "exit": {
+        "code": 0,
+        "signal": null
+      }
+    }
+  ]
+}

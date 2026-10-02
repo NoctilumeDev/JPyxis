@@ -1,0 +1,28 @@
+{
+  "sourceRevision": "3408eff044586ce5fbc8a44023f4ed05b80b72e5",
+  "archive": "white-pilot-observations.zip",
+  "bytes": 21672374,
+  "sha256": "4f2d65dc77439c17a0df97fb184db5a1f6eb5b3ffd3e4deb9636b1d481b6475d",
+  "members": 228,
+  "originalRoot": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\design-qa\\installed\\3408eff0-muqzrwak",
+  "manifestMembersVerified": 227,
+  "independentShutdown": {
+    "owner": "NODE_AFTER_JAVA_EXIT",
+    "observations": [
+      {
+        "pid": 5944,
+        "alive": false
+      },
+      {
+        "pid": 31056,
+        "alive": false
+      }
+    ]
+  },
+  "javaExit": {
+    "code": 0,
+    "signal": null,
+    "observedAt": "2026-10-02T13:24:38.773Z"
+  },
+  "scope": "Exact original installed GUI observation bytes; visual acceptance remains pending."
+}

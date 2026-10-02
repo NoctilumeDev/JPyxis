@@ -1,0 +1,212 @@
+{
+  "beforeRevision": "df07798d808be9df5d34446e1f68f9a8c0278953",
+  "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css",
+  "beforeBytes": 29149,
+  "afterWorkingBytes": 17571,
+  "afterWorkingSha256": "7e772785f9374f7ccdc0bc7342489f0014afca6bd82e63f8b419ab3257ad6055",
+  "beforeRepeatedSelectorsInSameContext": [
+    {
+      "context": "base",
+      "selector": ":root",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".primary",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".primary:hover:not(:disabled)",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".recovery",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".recovery:hover:not(:disabled)",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".rail-brand",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".rail nav .selected svg",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".shell",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".title-row",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".eyebrow",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".title-row blockquote",
+      "count": 3
+    },
+    {
+      "context": "base",
+      "selector": ".flow li",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".flow span",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".flow svg",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".request-card .notice",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".next-label",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".request-caption",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".request-bar",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".charter .wing-head",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".score-sheet,.decision-sheet",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".authority",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".unknown .score-sheet,.unknown .decision-sheet,.unknown .authority",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".unknown .decision-sheet strong",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".features",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".policy-rules",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".policy-rules>div",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".instrument-rail",
+      "count": 3
+    },
+    {
+      "context": "base",
+      "selector": ".instrument-rail section+section",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".deployment .journey",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": "#ceremony",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": "#ceremony summary",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": "#receipt-details",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": "#receipt-details>summary",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".receipt-layer dl",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".detail-panel ol",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".unknown .authority",
+      "count": 2
+    },
+    {
+      "context": "base",
+      "selector": ".instrument-rail .section-heading",
+      "count": 3
+    },
+    {
+      "context": "base",
+      "selector": ".instrument-rail .context-link",
+      "count": 2
+    }
+  ],
+  "afterRepeatedSelectorsInSameContext": [],
+  "removedUnusedRulesAndTokens": [
+    ".deployment",
+    ".version-link",
+    ".records-key",
+    ".table-scroll",
+    ".empty-row",
+    "--amber",
+    "--green",
+    "--red"
+  ],
+  "strategy": "Consolidate each base component, then explicit state variants and narrow breakpoint rules. No force override section; sole important is the existing hidden attribute contract.",
+  "mobileScope": "Below 768px: desktop notice and read-only presentation. No mobile control flow or mobile widgets."
+}

@@ -1,0 +1,132 @@
+{
+  "active": {
+    "id": "",
+    "role": null,
+    "text": "JPYXISCONTROL / EXECUTION\n  \n  \n  \n  \nOverview\n\n  \n  \n  \n  \n  \n  \nRisk scoring\n\n  \n  \n  \nLifecycle\n\n  \n  \n  \n  \n  \n  \nIn"
+  },
+  "authority": "NO ACTIVE BINDING",
+  "caption": "No invocation yet",
+  "columns": [
+    {
+      "bottom": 1262.937530517578,
+      "left": 180,
+      "top": 319.8645935058594,
+      "w": 124.5
+    },
+    {
+      "bottom": 1262.937530517578,
+      "left": 322.5,
+      "top": 319.8645935058594,
+      "w": 136.9479217529297
+    },
+    {
+      "bottom": 1262.937530517578,
+      "left": 477.4479370117187,
+      "top": 319.8645935058594,
+      "w": 126.98958587646484
+    },
+    {
+      "bottom": 1262.937530517578,
+      "left": 622.4375,
+      "top": 319.8645935058594,
+      "w": 109.5625
+    }
+  ],
+  "combo": [
+    {
+      "active": null,
+      "expanded": "false",
+      "id": "sample-control",
+      "text": "Standard exposure"
+    },
+    {
+      "active": null,
+      "expanded": "false",
+      "id": "mode-control",
+      "text": "Normal computation"
+    }
+  ],
+  "controls": [
+    {
+      "disabled": false,
+      "id": "",
+      "text": "Install & warm v1",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "",
+      "text": "Install & warm v2",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "sample",
+      "text": "Standard exposureLow exposureHigh exposure",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "sample-control",
+      "text": "Standard exposure",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "mode",
+      "text": "Normal computationHold for cutover · 15s witnessCrash after dispatch · diagnostic",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "mode-control",
+      "text": "Normal computation",
+      "visible": true
+    },
+    {
+      "disabled": true,
+      "id": "invoke",
+      "text": "Invoke explicitly",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "id": "release",
+      "text": "Release held request",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "id": "close",
+      "text": "Close owned workers",
+      "visible": true
+    },
+    {
+      "disabled": true,
+      "id": "export",
+      "text": "Export sealed receipt",
+      "visible": true
+    }
+  ],
+  "decision": "WITHHELD",
+  "overflow": 23,
+  "receipt": 1331.4375,
+  "route": "NONE",
+  "score": "—",
+  "scroll": {
+    "x": 0,
+    "y": 0
+  },
+  "selection": {
+    "mode": "normal",
+    "sample": "STANDARD"
+  },
+  "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+  "terminal": "AWAITING REQUEST",
+  "title": "JPYXIS CONTROL OBSERVATORY",
+  "viewport": {
+    "dpr": 1.0000000298023224,
+    "h": 900,
+    "w": 767
+  }
+}

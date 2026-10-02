@@ -1,0 +1,123 @@
+{
+  "actions": [
+    {
+      "disabled": false,
+      "text": "Install & warm v1",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "text": "Install & warm v2",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "text": "Standard exposure\n  \n",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "text": "Normal computation\n  \n",
+      "visible": true
+    },
+    {
+      "disabled": true,
+      "text": "Invoke explicitly",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "text": "Release held request",
+      "visible": false
+    },
+    {
+      "disabled": false,
+      "text": "Close owned workers",
+      "visible": true
+    },
+    {
+      "disabled": true,
+      "text": "Export sealed receipt",
+      "visible": true
+    }
+  ],
+  "cssMediaWidth1000": false,
+  "cssMediaWidth1024": false,
+  "decision": {
+    "font": "26px",
+    "height": 31.197917938232425,
+    "lineHeight": "31.2px",
+    "overflow": 36,
+    "text": "WITHHELD",
+    "whiteSpace": "nowrap",
+    "width": 105.09375,
+    "x": 652.90625,
+    "y": 520.6146240234375
+  },
+  "decisionParent": {
+    "font": "13px",
+    "height": 146.1979217529297,
+    "lineHeight": "19.5px",
+    "overflow": 36,
+    "text": "BUSINESS DECISIONWITHHELDA validated success is required.",
+    "whiteSpace": "normal",
+    "width": 105.09375,
+    "x": 652.90625,
+    "y": 461.6145935058594
+  },
+  "documentOverflow": 8,
+  "dpr": 1.0000000298023224,
+  "innerHeight": 900,
+  "innerWidth": 800,
+  "notice": "none",
+  "scrollX": 0,
+  "scrollY": 0,
+  "title": "JPYXIS CONTROL OBSERVATORY",
+  "url": "http://127.0.0.1:8766/",
+  "wings": [
+    {
+      "font": "13px",
+      "height": 612.84375,
+      "lineHeight": "19.5px",
+      "overflow": 0,
+      "text": "JAVA / HOSTRequestSynthetic features · prepared by JavaNo invocation yetNEXT INVOCATIONSYNTHETIC RISK FEATURESStandard exposureLow exposureHigh exposureStandard exposure\n  \nStandard exposureLow exposureHigh exposureEXECUTION MODENormal computationHold for cutover · 15s witnessCrash after dispatch · diagnosticNormal computation\n  \nNormal computationHold for cutover · 15s witnessCrash after dispatch · diagnosticInvoke explicitlyRelease held requestRISK FEATURES · PREPARED BY JAVAJava will prepare the selected synthetic case.Java prepares the inputs. Invocation is explicit.",
+      "whiteSpace": "normal",
+      "width": 143.6666717529297,
+      "x": 140,
+      "y": 327.44793701171875
+    },
+    {
+      "font": "13px",
+      "height": 612.84375,
+      "lineHeight": "19.5px",
+      "overflow": 0,
+      "text": "CONTROL / HOSTControl bindingDefinition · eligibilityNO ACTIVE BINDINGActive routeNONEStandbyNONEEnvironmentQualified per actual realizationObservation ≠ score ≠ business decision.",
+      "whiteSpace": "normal",
+      "width": 158.03125,
+      "x": 301.66668701171875,
+      "y": 327.44793701171875
+    },
+    {
+      "font": "13px",
+      "height": 612.84375,
+      "lineHeight": "19.5px",
+      "overflow": 0,
+      "text": "PYTHON / RUNTIMEExecution reportDelegated computationRISK SCORE · COMPUTATION ONLY—No computation has been delegated.SourceJava-prepared synthetic featuresRuntimeNo invocationTerminalNo outcomeAWAITING REQUEST",
+      "whiteSpace": "normal",
+      "width": 146.5416717529297,
+      "x": 477.6979370117187,
+      "y": 327.44793701171875
+    },
+    {
+      "font": "13px",
+      "height": 612.84375,
+      "lineHeight": "19.5px",
+      "overflow": 26,
+      "text": "JAVA / POLICYHost decisionHost-owned business authorityBUSINESS DECISIONWITHHELDA validated success is required.SEALED JAVA POLICY · v1.0.0score ≥ 0.80REJECTscore ≥ 0.55REVIEWotherwiseALLOWPython computes. Java decides.No automatic retry.",
+      "whiteSpace": "normal",
+      "width": 126.42708587646484,
+      "x": 642.2396240234375,
+      "y": 327.44793701171875
+    }
+  ]
+}

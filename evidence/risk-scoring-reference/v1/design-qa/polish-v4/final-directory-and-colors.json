@@ -1,0 +1,256 @@
+{
+  "heads": [
+    85,
+    85,
+    85,
+    85
+  ],
+  "items": [
+    {
+      "center": 119.66667175292967,
+      "height": 18,
+      "lineHeight": "18px",
+      "text": "Versions",
+      "textAlign": "right",
+      "whiteSpace": "normal"
+    },
+    {
+      "center": 167.6666717529297,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "risk-v2 · fresh",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 215.6666717529297,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "risk-v1 · fresh",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 263.6666717529297,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "risk-v2",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 311.66668701171875,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "risk-v1",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 359.66668701171875,
+      "height": 18,
+      "lineHeight": "18px",
+      "text": "Invocations",
+      "textAlign": "right",
+      "whiteSpace": "normal"
+    },
+    {
+      "center": 407.6666870117187,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R006",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 455.6666870117187,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R005",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 503.6666870117187,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R004",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 551.6666870117188,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R003",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 599.6666870117188,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R002",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    },
+    {
+      "center": 647.6666870117188,
+      "height": 19.5,
+      "lineHeight": "19.5px",
+      "text": "R001",
+      "textAlign": "right",
+      "whiteSpace": "nowrap"
+    }
+  ],
+  "rows": [
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "risk-v2 · fresh"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "risk-v1 · fresh"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "risk-v2"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "risk-v1"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R006"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R005"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R004"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R003"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R002"
+    },
+    {
+      "clientWidth": 194,
+      "height": 48,
+      "scrollWidth": 194,
+      "text": "R001"
+    }
+  ],
+  "semanticColors": [
+    {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(100, 40, 54)",
+      "fontSize": "12px",
+      "text": "Fresh rollback to v1"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(103, 112, 120)",
+      "fontSize": "12px",
+      "text": "RISK SCORING · SYNTHETIC REFERENCE"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(103, 112, 120)",
+      "fontSize": "12px",
+      "text": "Compute can be delegated. Authority cannot."
+    },
+    {
+      "background": "rgb(240, 242, 244)",
+      "color": "rgb(48, 58, 64)",
+      "fontSize": "12px",
+      "text": "01REQUEST"
+    },
+    {
+      "background": "rgb(100, 40, 54)",
+      "color": "rgb(248, 251, 255)",
+      "fontSize": "12px",
+      "text": "02CONTROL BINDING"
+    },
+    {
+      "background": "rgb(23, 46, 69)",
+      "color": "rgb(248, 251, 255)",
+      "fontSize": "12px",
+      "text": "03EXECUTION"
+    },
+    {
+      "background": "rgb(100, 40, 54)",
+      "color": "rgb(248, 251, 255)",
+      "fontSize": "12px",
+      "text": "04HOST DECISION"
+    },
+    {
+      "background": "rgb(23, 46, 69)",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "text": "Invoke explicitly"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(139, 107, 54)",
+      "fontSize": "12px",
+      "text": "CONTROL BINDING ESTABLISHED"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 46, 69)",
+      "fontSize": "67px",
+      "text": "0.85"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(23, 46, 69)",
+      "fontSize": "12px",
+      "text": "SUCCEEDED"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(100, 40, 54)",
+      "fontSize": "35px",
+      "text": "REJECT"
+    }
+  ],
+  "source": "SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION",
+  "steps": [
+    48,
+    48,
+    48,
+    48.00001525878906,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48
+  ]
+}

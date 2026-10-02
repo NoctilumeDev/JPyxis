@@ -1,0 +1,126 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 39ed61e53625f739 · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v2
+    - generic: ELIGIBLE WORKERS
+    - strong: 2 / 2 live
+    - button "Fresh rollback to v1"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "INVOCATION HISTORY" [active] [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - region "Invocation history":
+    - heading "Actual invocations" [level=2]
+    - paragraph: Select a request to inspect its binding, execution and Java decision.
+    - generic "All invocation records":
+      - table:
+        - rowgroup:
+          - row "Request Pinned version Score Java decision Execution":
+            - columnheader "Request"
+            - columnheader "Pinned version"
+            - columnheader "Score"
+            - columnheader "Java decision"
+            - columnheader "Execution"
+        - rowgroup:
+          - row "Open invocation R006 risk-v2 0.85 REJECT SUCCEEDED":
+            - cell "Open invocation R006":
+              - button "Open invocation R006": R006
+            - cell "risk-v2"
+            - cell "0.85"
+            - cell "REJECT"
+            - cell "SUCCEEDED"
+          - row "Open invocation R005 risk-v1 0.09 ALLOW SUCCEEDED":
+            - cell "Open invocation R005":
+              - button "Open invocation R005": R005
+            - cell "risk-v1"
+            - cell "0.09"
+            - cell "ALLOW"
+            - cell "SUCCEEDED"
+          - row "Open invocation R004 risk-v2 — WITHHELD OUTCOME_UNKNOWN":
+            - cell "Open invocation R004":
+              - button "Open invocation R004": R004
+            - cell "risk-v2"
+            - cell "—"
+            - cell "WITHHELD"
+            - cell "OUTCOME_UNKNOWN"
+          - row "Open invocation R003 risk-v2 0.93 REJECT SUCCEEDED":
+            - cell "Open invocation R003":
+              - button "Open invocation R003": R003
+            - cell "risk-v2"
+            - cell "0.93"
+            - cell "REJECT"
+            - cell "SUCCEEDED"
+          - row "Open invocation R002 risk-v1 0.73 REVIEW SUCCEEDED":
+            - cell "Open invocation R002":
+              - button "Open invocation R002": R002
+            - cell "risk-v1"
+            - cell "0.73"
+            - cell "REVIEW"
+            - cell "SUCCEEDED"
+          - row "Open invocation R001 risk-v1 0.73 REVIEW SUCCEEDED":
+            - cell "Open invocation R001":
+              - button "Open invocation R001": R001
+            - cell "risk-v1"
+            - cell "0.73"
+            - cell "REVIEW"
+            - cell "SUCCEEDED"
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v2 realization 97a0c1d9-3b88-41":
+        - generic: risk-v2 · fresh
+      - button "Inspect risk-v1 realization 43a0142d-ef08-49":
+        - generic: risk-v1 · fresh
+      - button "Inspect risk-v2 realization 3e115aa0-4fd3-42":
+        - generic: risk-v2
+      - button "Inspect risk-v1 realization 5ad56a23-2f52-40":
+        - generic: risk-v1
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R006":
+        - generic: R006
+      - button "Inspect request R005":
+        - generic: R005
+      - button "Inspect request R004":
+        - generic: R004
+      - button "Inspect request R003":
+        - generic: R003
+      - button "Inspect request R002":
+        - generic: R002
+      - button "Inspect request R001":
+        - generic: R001
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

@@ -1,0 +1,92 @@
+{
+  "verdict": "PASS",
+  "mutations": [
+    {
+      "id": "missing-owned-worker-facts",
+      "expected": "INCONCLUSIVE",
+      "actual": {
+        "verdict": "INCONCLUSIVE",
+        "missing": [
+          "candidate-0/launch-0/worker-facts.json"
+        ],
+        "failures": [],
+        "productizationQualified": false
+      }
+    },
+    {
+      "id": "unknown-promoted-to-decision",
+      "expected": "FAIL",
+      "actual": {
+        "verdict": "FAIL",
+        "failures": [
+          "non-success cannot become business truth\n+ actual - expected\n\n+ 'ALLOW'\n- 'WITHHELD'\n"
+        ],
+        "missing": [],
+        "requests": 7,
+        "actualWorkers": 3,
+        "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+        "productizationQualified": false
+      }
+    },
+    {
+      "id": "rehashed-worker-identity",
+      "expected": "FAIL",
+      "actual": {
+        "verdict": "FAIL",
+        "failures": [
+          "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'jpyxis:definition:unrelated@1.0.0'\n- 'jpyxis:definition:reference/risk-affine@1.0.0'\n"
+        ],
+        "missing": [],
+        "requests": 0,
+        "actualWorkers": 1,
+        "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+        "productizationQualified": false
+      }
+    },
+    {
+      "id": "rehashed-live-physical-obligation",
+      "expected": "FAIL",
+      "actual": {
+        "verdict": "FAIL",
+        "failures": [
+          "independent no-leaks"
+        ],
+        "missing": [],
+        "requests": 7,
+        "actualWorkers": 3,
+        "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+        "productizationQualified": false
+      }
+    },
+    {
+      "id": "rehashed-wire-bytes",
+      "expected": "FAIL",
+      "actual": {
+        "verdict": "FAIL",
+        "failures": [
+          "truncated protobuf varint"
+        ],
+        "missing": [],
+        "requests": 0,
+        "actualWorkers": 1,
+        "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+        "productizationQualified": false
+      }
+    },
+    {
+      "id": "rehashed-source-feature-substitution",
+      "expected": "FAIL",
+      "actual": {
+        "verdict": "FAIL",
+        "failures": [
+          "independent synthetic feature preparation\n+ actual - expected\n\n  [\n+   0.91,\n-   0.1,\n    0.12,\n    0.07,\n    0.11\n  ]\n"
+        ],
+        "missing": [],
+        "requests": 7,
+        "actualWorkers": 3,
+        "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+        "productizationQualified": false
+      }
+    }
+  ]
+}

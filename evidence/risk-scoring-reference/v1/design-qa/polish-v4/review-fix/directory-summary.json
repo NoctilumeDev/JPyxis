@@ -1,0 +1,770 @@
+{
+  "renderedSourceRevision": "2456e291faac791ceb2fda6b00db249d4236584b",
+  "baseRevision": "109646c7c5266a164018ac2f9534afe850b94c7c",
+  "assets": [
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/index.html",
+      "gitBlob": "2a1223394734146e8f382f4c98511c346e1f8ecc",
+      "bytes": 11789,
+      "sha256": "sha256:e006c1adbcecc78ca416f815faa0063a46cf8f89b7392690b93f5a64ae7443e8"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css",
+      "gitBlob": "638085c30a28ce69a4d9e881504f692433edb4b6",
+      "bytes": 17897,
+      "sha256": "sha256:5164d05b22db68a55e031d0320faf398f2feccdfbd3e69f7667689abafb2a55e"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/app.js",
+      "gitBlob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+      "bytes": 19980,
+      "sha256": "sha256:cfdf1db8097e99e6a3f2b0273dd45227e8cc64456a0dd3834e4b43076d26541a"
+    }
+  ],
+  "captures": [
+    {
+      "name": "260-directory-empty",
+      "pixels": [
+        1440,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 779.0625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "261-directory-1280-empty",
+      "pixels": [
+        1280,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 799.15625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "262-directory-review",
+      "pixels": [
+        1440,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "263-directory-mode-menu",
+      "pixels": [
+        1440,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "264-directory-held-cutover",
+      "pixels": [
+        1425,
+        891
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 888.3958740234375,
+      "terminal": "IN_FLIGHT",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "265-directory-unknown",
+      "pixels": [
+        1440,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "IN_FLIGHT",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "IN_FLIGHT transition before actual crash readback settled; not UNKNOWN evidence"
+    },
+    {
+      "name": "266-directory-unknown-settled",
+      "pixels": [
+        1425,
+        891
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "267-directory-1280-scroll",
+      "pixels": [
+        1265,
+        356
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 360,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 923.15625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "268-directory-1280-unknown",
+      "pixels": [
+        1265,
+        356
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 923.15625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "Resize transition frame: PNG still 1265x356; replaced by stable native 284"
+    },
+    {
+      "name": "269-directory-1360-unknown",
+      "pixels": [
+        1266,
+        890
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1360
+      },
+      "scrollY": 0,
+      "receiptBottom": 855.8646240234375,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "Resize transition frame: PNG canvas still about1280px and context clipped; replaced by stable native285"
+    },
+    {
+      "name": "270-directory-1024-unknown",
+      "pixels": [
+        1009,
+        668
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1024
+      },
+      "scrollY": 0,
+      "receiptBottom": 926.78125,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "Resize transition frame: PNG 1009x668 with stale narrower content; replaced by stable native286"
+    },
+    {
+      "name": "271-directory-1023-fractional",
+      "pixels": [
+        1008,
+        2490
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1023
+      },
+      "scrollY": 0,
+      "receiptBottom": 1916.21875,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "272-directory-800-safe",
+      "pixels": [
+        784,
+        2490
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 800
+      },
+      "scrollY": 0,
+      "receiptBottom": 1916.21875,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "273-directory-767-fractional",
+      "pixels": [
+        752,
+        2490
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 767
+      },
+      "scrollY": 0,
+      "receiptBottom": 1916.21875,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "274-directory-390-safe",
+      "pixels": [
+        374,
+        2723
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 844,
+        "scale": 1,
+        "width": 390
+      },
+      "scrollY": 0,
+      "receiptBottom": 2149.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "275-directory-lifecycle-home",
+      "pixels": [
+        1425,
+        891
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "276-directory-request-home",
+      "pixels": [
+        1440,
+        900
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "277-directory-unknown-home",
+      "pixels": [
+        1425,
+        891
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "278-directory-receipt",
+      "pixels": [
+        1424,
+        1021
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 302.8958435058594,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "279-directory-closed",
+      "pixels": [
+        1425,
+        891
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "280-directory-live-preview-1440",
+      "pixels": [
+        1265,
+        712
+      ],
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 178,
+      "receiptBottom": 621.15625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "Filename expected 1440 but actual viewport is 1280x720 at scrollY178; not primary viewport or first-screen proof"
+    },
+    {
+      "name": "281-directory-live-preview-default",
+      "pixels": [
+        1265,
+        712
+      ],
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 178,
+      "receiptBottom": 621.15625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": "Actual default viewport at scrollY178; not homepage return or first-screen proof"
+    },
+    {
+      "name": "282-directory-live-home",
+      "pixels": [
+        1265,
+        712
+      ],
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 799.15625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "283-directory-live-home-default",
+      "pixels": [
+        1264,
+        898
+      ],
+      "viewport": {
+        "dpr": 1.5,
+        "height": 720,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 799.15625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "284-stable-1280-unknown",
+      "pixels": [
+        1265,
+        889
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 923.15625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "285-stable-1360-unknown",
+      "pixels": [
+        1345,
+        890
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1360
+      },
+      "scrollY": 0,
+      "receiptBottom": 855.8646240234375,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    },
+    {
+      "name": "286-stable-1024-unknown",
+      "pixels": [
+        1009,
+        887
+      ],
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1024
+      },
+      "scrollY": 0,
+      "receiptBottom": 926.78125,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": 4.740984153945828,
+      "claimExclusion": null
+    }
+  ],
+  "primaryFirstScreenCaptures": [
+    "260-directory-empty",
+    "262-directory-review",
+    "264-directory-held-cutover",
+    "266-directory-unknown-settled",
+    "275-directory-lifecycle-home",
+    "276-directory-request-home",
+    "277-directory-unknown-home",
+    "279-directory-closed"
+  ],
+  "unchanged1440Geometry": [
+    {
+      "earlier": "230-repair-empty",
+      "latest": "260-directory-empty",
+      "maximumGeometryDelta": 0
+    },
+    {
+      "earlier": "234-repair-review",
+      "latest": "262-directory-review",
+      "maximumGeometryDelta": 0
+    },
+    {
+      "earlier": "236-repair-held-cutover",
+      "latest": "264-directory-held-cutover",
+      "maximumGeometryDelta": 0
+    },
+    {
+      "earlier": "237-repair-unknown",
+      "latest": "266-directory-unknown-settled",
+      "maximumGeometryDelta": 0
+    }
+  ],
+  "directories": [
+    {
+      "name": "directory-1440-final",
+      "width": 200,
+      "rows": 7,
+      "lineBoxCenterStep": 48,
+      "subtitleWidth": 142.4896240234375,
+      "headingUsableWidth": 170,
+      "rightScroll": {
+        "client": 900,
+        "clientWidth": 198,
+        "height": 900,
+        "outerWidth": 200
+      }
+    },
+    {
+      "name": "directory-1360-final",
+      "width": 190,
+      "rows": 7,
+      "lineBoxCenterStep": 48,
+      "subtitleWidth": 142.4896240234375,
+      "headingUsableWidth": 166,
+      "rightScroll": {
+        "client": 900,
+        "clientWidth": 188,
+        "height": 900,
+        "outerWidth": 190
+      }
+    },
+    {
+      "name": "directory-1280-scroll",
+      "width": 180,
+      "rows": 7,
+      "lineBoxCenterStep": 48,
+      "subtitleWidth": 142.4896240234375,
+      "headingUsableWidth": 147,
+      "rightScroll": {
+        "client": 360,
+        "clientWidth": 163,
+        "height": 450,
+        "outerWidth": 180
+      }
+    }
+  ],
+  "centerWidthRecoveredAt1280": 40,
+  "actualGuiRequests": [
+    {
+      "id": "R001",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "normal",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R002",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "hold",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R003",
+      "version": "v2",
+      "sample": "STANDARD",
+      "mode": "crash",
+      "score": null,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD"
+    }
+  ],
+  "stableViewportReplacementCaptures": [
+    {
+      "name": "284-stable-1280-unknown",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "pixels": [
+        1265,
+        889
+      ],
+      "receiptBottom": 923.15625
+    },
+    {
+      "name": "285-stable-1360-unknown",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1360
+      },
+      "pixels": [
+        1345,
+        890
+      ],
+      "receiptBottom": 855.8646240234375
+    },
+    {
+      "name": "286-stable-1024-unknown",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1024
+      },
+      "pixels": [
+        1009,
+        887
+      ],
+      "receiptBottom": 926.78125
+    }
+  ],
+  "stableViewportSession": {
+    "actualRequests": 1,
+    "mode": "crash",
+    "version": "v2",
+    "terminal": "OUTCOME_UNKNOWN",
+    "score": null,
+    "decision": "WITHHELD",
+    "exportOriginalBytesEqual": true,
+    "exportBytes": 12239,
+    "exportSha256": "f25c898c415f6a4b8bf344cc9ad6c18666145b6ed74d43820846109e0aab67ed",
+    "manifestMembersVerified": 226,
+    "ownedProcessesStopped": 2,
+    "javaExit": 0
+  },
+  "exportOriginalBytesEqual": true,
+  "exportBytes": 36034,
+  "exportSha256": "f33d3b91b2da569339b19527c22d90ea48a07b2a3c03f04cfc558e646e35096a",
+  "retainedManifestMembersVerified": 253,
+  "ownedWorkersAndInterpretersStopped": 4,
+  "bootstrapScenario": "7 actual requests PASS",
+  "bootstrapMutationChecks": "6 PASS",
+  "localMavenReuse": true,
+  "browser": "Actual Codex In-app Browser, real Java host; no separate Chrome surface connected",
+  "fractionalBoundaryMethod": "Integer viewport request; DOM range media proves effective width between 1023 and 1024, and between 767 and 768. Recorded innerWidth is integer.",
+  "visualAcceptance": "PENDING_USER_FINAL_VISUAL_SIGN_OFF",
+  "mergeAuthorized": false,
+  "scope": "Implementer native browser observations. Earlier tester independently exercised six requests and both fresh rollbacks. Latest cohort has three requests, not fresh rollback coverage. PM final review reads source and native evidence; no independent live browser rerun."
+}

@@ -1,0 +1,109 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE fd6ba74d816f6dff · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v1
+    - generic: ELIGIBLE WORKERS
+    - strong: 1 / 1 live
+    - button "Install & warm v2"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "VERSION CONTINUITY" [active] [level=1]
+  - blockquote:
+    - text: Compute can be delegated.
+    - text: Authority cannot.
+  - region "Selected version realization":
+    - generic: OBSERVED REALIZATION
+    - heading "risk-v1" [level=2]
+    - paragraph: ACTIVE · owned worker live · 0 outstanding pins
+    - term: Definition
+    - definition: jpyxis:definition:reference/risk-affine@1.0.0
+    - term: Artifact digest
+    - definition: sha256:980b74c66dddcb5d96ff0d450efeb83d5851471c65e94b17eae3448a69f65bb3
+    - term: Deployment
+    - definition: 28b0b649-cfab-40e3-9e5b-e351d216414f
+    - term: Environment
+    - definition: sha256:281fd17060081d5e06aee47adfd10d41838e2e63ed2b8ebde6bdd4c3abf83f49
+    - term: Worker / instance
+    - definition: worker-28b0b649-cfab-40e3-9e5b-e351d216414f / worker-28b0b649-cfab-40e3-9e5b-e351d216414f@b6bd96dc-51d2-4f4b-9eaa-d7c1cd2ef3ab-1
+    - term: Launch nonce
+    - definition: 02ddd52a-c6d4-400f-95d9-be201d877e1e
+    - term: Runtime
+    - definition: "{\"capabilityIdentity\":\"jpyxis.capability/affine-float32\",\"capabilityVersion\":\"1\",\"runtimeIdentity\":\"numpy.cpu\",\"runtimeVersion\":\"2.2.6\"}"
+    - term: Control qualification
+    - definition: Retained
+    - term: Current route
+    - definition: risk-v1
+    - heading "Lifecycle history" [level=3]
+    - list:
+      - listitem: REQUESTED · DEPLOYMENT_REQUESTED · sequence 4
+      - listitem: LOADING · DEPLOYMENT_LOADING · sequence 5
+      - listitem: WARMING · DEPLOYMENT_WARMING · sequence 8
+      - listitem: STANDBY · DEPLOYMENT_STANDBY · sequence 10
+      - listitem: ACTIVE · DEPLOYMENT_ACTIVE · sequence 11
+  - complementary "Context navigation":
+    - text: SESSION CONTEXT
+    - paragraph: Select a version or invocation
+    - heading "Version continuity" [level=2]
+    - generic: VERSIONS
+    - generic "Owned version realizations":
+      - article:
+        - button "Inspect risk-v1 realization 02ddd52a-c6d4-40" [pressed]:
+          - generic: risk-v1
+          - generic: ACTIVE
+        - paragraph: 0 pins · worker live
+        - paragraph: nonce 02ddd52a-c6d4-40
+    - generic "Inspect rollback ceremony":
+      - text: Inspect rollback ceremony
+    - heading "Recent invocations" [level=2]
+    - generic: REQUESTS
+    - paragraph: Request · score · Java decision
+    - generic "Recent invocation history":
+      - table:
+        - rowgroup:
+          - row "Request Pinned version Score Java decision Execution":
+            - columnheader "Request"
+            - columnheader "Pinned version"
+            - columnheader "Score"
+            - columnheader "Java decision"
+            - columnheader "Execution"
+        - rowgroup:
+          - row "Inspect request R001 risk-v1 0.73 REVIEW SUCCEEDED":
+            - cell "Inspect request R001":
+              - button "Inspect request R001": R001
+            - cell "risk-v1"
+            - cell "0.73"
+            - cell "REVIEW"
+            - cell "SUCCEEDED"
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

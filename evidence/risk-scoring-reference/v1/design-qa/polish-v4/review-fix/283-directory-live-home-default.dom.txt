@@ -1,0 +1,127 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 2456e291faac791c · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: NONE
+    - generic: ELIGIBLE WORKERS
+    - strong: 0 / 0 live
+    - button "Install & warm v1"
+    - button "Install & warm v2"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "JPYXIS CONTROL OBSERVATORY" [active] [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - list "Authority flow":
+    - generic: "01"
+    - generic: REQUEST
+    - generic: "02"
+    - generic: CONTROL BINDING
+    - generic: "03"
+    - generic: EXECUTION
+    - generic: "04"
+    - generic: HOST DECISION
+  - region "Current request":
+    - article "Prepare synthetic request":
+      - text: JAVA / HOST
+      - heading "Request" [level=2]
+      - paragraph: Synthetic features · prepared by Java
+      - paragraph: No invocation yet
+      - generic: NEXT INVOCATION
+      - generic: SYNTHETIC RISK FEATURES
+      - combobox "Synthetic sample":
+        - generic: Standard exposure
+      - generic: EXECUTION MODE
+      - combobox "Execution mode":
+        - generic: Normal computation
+      - button "Invoke explicitly" [disabled]
+      - generic: RISK FEATURES · PREPARED BY JAVA
+      - generic: Java will prepare the selected synthetic case.
+      - paragraph: Java prepares the inputs. Invocation is explicit.
+    - article:
+      - text: CONTROL / HOST
+      - heading "Control binding" [level=2]
+      - paragraph: Definition · eligibility
+      - generic: NO ACTIVE BINDING
+      - term: Active route
+      - definition: NONE
+      - term: Standby
+      - definition: NONE
+      - term: Environment
+      - definition: Qualified per actual realization
+      - paragraph: Observation ≠ score ≠ business decision.
+    - article:
+      - text: PYTHON / RUNTIME
+      - heading "Execution report" [level=2]
+      - paragraph: Delegated computation
+      - generic: RISK SCORE · COMPUTATION ONLY
+      - strong: —
+      - paragraph: No computation has been delegated.
+      - term: Source
+      - definition: Java-prepared synthetic features
+      - term: Runtime
+      - definition: No invocation
+      - term: Terminal
+      - definition: No outcome
+      - paragraph: AWAITING REQUEST
+    - article:
+      - text: JAVA / POLICY
+      - heading "Host decision" [level=2]
+      - paragraph: Host-owned business authority
+      - generic: BUSINESS DECISION
+      - strong: WITHHELD
+      - paragraph: A validated success is required.
+      - generic: SEALED JAVA POLICY · v1.0.0
+      - code: score ≥ 0.80
+      - generic: REJECT
+      - code: score ≥ 0.55
+      - generic: REVIEW
+      - code: otherwise
+      - generic: ALLOW
+      - paragraph:
+        - text: Python computes. Java decides.
+        - text: No automatic retry.
+  - generic "View execution receipt Execution Binding / Observed Execution / Java Decision":
+    - text: View execution receipt
+    - generic: Execution Binding / Observed Execution / Java Decision
+  - paragraph: Shutdown is a separate physical observation.
+  - button "Close owned workers"
+  - button "Export sealed receipt" [disabled]
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory": No versions yet.
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory": No invocations yet.
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

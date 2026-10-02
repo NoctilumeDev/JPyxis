@@ -1,0 +1,102 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 8aa073c5f06c7185 · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v2
+    - generic: ELIGIBLE WORKERS
+    - strong: 2 / 2 live
+    - button "Fresh rollback to v1"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "VERSION CONTINUITY" [active] [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - region "Selected version realization":
+    - generic: OBSERVED REALIZATION
+    - heading "risk-v2 · Fresh realization" [level=2]
+    - paragraph: ACTIVE · owned worker live · 0 outstanding pins
+    - term: Definition
+    - definition: jpyxis:definition:reference/risk-affine@2.0.0
+    - term: Artifact digest
+    - definition: sha256:498ebd78b91f6d164246e9a7a8151b6f9a231b12ed60e87f80968539179ff27a
+    - term: Deployment
+    - definition: c7343601-2b44-49e3-afc3-f583aec4770c
+    - term: Environment
+    - definition: sha256:281fd17060081d5e06aee47adfd10d41838e2e63ed2b8ebde6bdd4c3abf83f49
+    - term: Worker / instance
+    - definition: worker-c7343601-2b44-49e3-afc3-f583aec4770c / worker-c7343601-2b44-49e3-afc3-f583aec4770c@89b13ddc-6b83-4717-b019-5832ee0e5a4f-1
+    - term: Launch nonce
+    - definition: 734bd570-6edc-4104-83ed-34cad26ecef8
+    - term: Runtime
+    - definition: "{\"capabilityIdentity\":\"jpyxis.capability/affine-float32\",\"capabilityVersion\":\"1\",\"runtimeIdentity\":\"numpy.cpu\",\"runtimeVersion\":\"2.2.6\"}"
+    - term: Control qualification
+    - definition: Retained
+    - term: Current route
+    - definition: risk-v2
+    - heading "Lifecycle history" [level=3]
+    - list:
+      - listitem: REQUESTED · DEPLOYMENT_REQUESTED · sequence 55
+      - listitem: LOADING · DEPLOYMENT_LOADING · sequence 56
+      - listitem: WARMING · DEPLOYMENT_WARMING · sequence 59
+      - listitem: STANDBY · DEPLOYMENT_STANDBY · sequence 61
+      - listitem: ACTIVE · DEPLOYMENT_ACTIVE · sequence 64
+    - generic "Inspect rollback ceremony":
+      - text: Inspect rollback ceremony
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v2 realization 734bd570-6edc-41" [pressed]:
+        - generic: risk-v2 · fresh
+      - button "Inspect risk-v1 realization 14b10f58-8e74-40":
+        - generic: risk-v1 · fresh
+      - button "Inspect risk-v2 realization 9d42ccc3-25b7-4e":
+        - generic: risk-v2
+      - button "Inspect risk-v1 realization 2cf5d3b4-34e3-4a":
+        - generic: risk-v1
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R006":
+        - generic: R006
+      - button "Inspect request R005":
+        - generic: R005
+      - button "Inspect request R004":
+        - generic: R004
+      - button "Inspect request R003":
+        - generic: R003
+      - button "Inspect request R002":
+        - generic: R002
+      - button "Inspect request R001":
+        - generic: R001
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

@@ -1,0 +1,1276 @@
+{
+  "renderedSourceRevision": "8aa073c5f06c718511cced38d7c59376db05bed1",
+  "baseRevision": "109646c7c5266a164018ac2f9534afe850b94c7c",
+  "assets": [
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/index.html",
+      "gitBlob": "59cfddc4ba9d38f23fe39317b89ec82bb877654d",
+      "bytes": 11754,
+      "sha256": "sha256:e858c91394d88eea1ca39098e7f12f6c7d5b10fb49a4f54d753fb0d47a481875"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css",
+      "gitBlob": "7df63ea35ece5f1c4326058f0dfe22a887a9a079",
+      "bytes": 17571,
+      "sha256": "sha256:7e772785f9374f7ccdc0bc7342489f0014afca6bd82e63f8b419ab3257ad6055"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/app.js",
+      "gitBlob": "0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb",
+      "bytes": 19980,
+      "sha256": "sha256:cfdf1db8097e99e6a3f2b0273dd45227e8cc64456a0dd3834e4b43076d26541a"
+    }
+  ],
+  "captures": [
+    {
+      "name": "200-final-empty",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 779.0625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "201-final-v1-standby",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 779.0625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 710.5625305175781,
+          "height": 432.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "202-final-review",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "203-final-sample-open",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "204-final-mode-open",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "205-final-v2-standby",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "206-final-held-cutover",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 888.3958740234375,
+      "terminal": "IN_FLIGHT",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 819.8958435058594,
+          "height": 541.5,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 819.8958435058594,
+          "height": 541.5,
+          "id": "binding",
+          "width": 255.92709350585935,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 819.8958435058594,
+          "height": 541.5,
+          "id": "execution",
+          "width": 237.3229217529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 819.8958435058594,
+          "height": 541.5,
+          "id": "policy",
+          "width": 204.73959350585935,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "207-final-reject",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "208-final-unknown",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 255.92709350585935,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 237.3229217529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 204.73959350585935,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "209-final-1280",
+      "pixels": [
+        1265,
+        791
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 905.15625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 836.6563110351562,
+          "height": 567.4583740234375,
+          "id": "request",
+          "width": 192.6666717529297,
+          "y": 269.19793701171875
+        },
+        {
+          "bottom": 836.6563110351562,
+          "height": 567.4583740234375,
+          "id": "binding",
+          "width": 211.92709350585935,
+          "y": 269.19793701171875
+        },
+        {
+          "bottom": 836.6563110351562,
+          "height": 567.4583740234375,
+          "id": "execution",
+          "width": 196.52084350585935,
+          "y": 269.19793701171875
+        },
+        {
+          "bottom": 836.6563110351562,
+          "height": 567.4583740234375,
+          "id": "policy",
+          "width": 169.5416717529297,
+          "y": 269.19793701171875
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "210-final-1120",
+      "pixels": [
+        1105,
+        691
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1120
+      },
+      "scrollY": 0,
+      "receiptBottom": 858.28125,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 789.7812805175781,
+          "height": 518.1666870117188,
+          "id": "request",
+          "width": 223.6666717529297,
+          "y": 271.6145935058594
+        },
+        {
+          "bottom": 789.7812805175781,
+          "height": 518.1666870117188,
+          "id": "binding",
+          "width": 246.03125,
+          "y": 271.6145935058594
+        },
+        {
+          "bottom": 789.7812805175781,
+          "height": 518.1666870117188,
+          "id": "execution",
+          "width": 228.1354217529297,
+          "y": 271.6145935058594
+        },
+        {
+          "bottom": 789.7812805175781,
+          "height": 518.1666870117188,
+          "id": "policy",
+          "width": 196.83334350585935,
+          "y": 271.6145935058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "211-final-safe-narrow",
+      "pixels": [
+        374,
+        2753
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 844,
+        "scale": 1,
+        "width": 390
+      },
+      "scrollY": 0,
+      "receiptBottom": 2131.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 793.4687805175781,
+          "height": 304.8645935058594,
+          "id": "request",
+          "width": 348.66668701171875,
+          "y": 488.6041870117187
+        },
+        {
+          "bottom": 1162.5,
+          "height": 354.03125,
+          "id": "binding",
+          "width": 348.66668701171875,
+          "y": 808.46875
+        },
+        {
+          "bottom": 1609.1979370117188,
+          "height": 431.6979370117187,
+          "id": "execution",
+          "width": 348.66668701171875,
+          "y": 1177.5
+        },
+        {
+          "bottom": 2044.5625915527344,
+          "height": 420.3645935058594,
+          "id": "policy",
+          "width": 348.66668701171875,
+          "y": 1624.197998046875
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "212-final-fresh-v1-unknown",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 255.92709350585935,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 237.3229217529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 204.73959350585935,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "213-final-lifecycle",
+      "pixels": [
+        1424,
+        908
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "214-final-ceremony",
+      "pixels": [
+        1424,
+        1176
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 8.666666984558105,
+      "receiptBottom": 0,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "215-final-receipt",
+      "pixels": [
+        1424,
+        1021
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 302.8958435058594,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "216-final-allow",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "217-final-fresh-v2",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "218-final-six-requests",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 797.0625,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 260.1458435058594,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 241.2291717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 728.5625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 208.125,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "219-final-history",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "220-final-right-version",
+      "pixels": [
+        1424,
+        908
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    },
+    {
+      "name": "221-final-closed",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 8aa073c5f06c7185 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 849.0625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 255.92709350585935,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 237.3229217529297,
+          "y": 278.3958435058594
+        },
+        {
+          "bottom": 780.5625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 204.73959350585935,
+          "y": 278.3958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "eyebrow",
+        "ratio": 4.740984153945828
+      }
+    }
+  ],
+  "actualGuiRequests": [
+    {
+      "id": "R001",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "normal",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R002",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "hold",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R003",
+      "version": "v2",
+      "sample": "HIGH",
+      "mode": "normal",
+      "score": 0.931,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT"
+    },
+    {
+      "id": "R004",
+      "version": "v2",
+      "sample": "HIGH",
+      "mode": "crash",
+      "score": null,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD"
+    },
+    {
+      "id": "R005",
+      "version": "v1",
+      "sample": "LOW",
+      "mode": "normal",
+      "score": 0.09,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW"
+    },
+    {
+      "id": "R006",
+      "version": "v2",
+      "sample": "STANDARD",
+      "mode": "normal",
+      "score": 0.84999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT"
+    }
+  ],
+  "exportOriginalBytesEqual": true,
+  "retainedManifestMembersVerified": 301,
+  "ownedWorkersAndInterpretersStopped": 8,
+  "visualAcceptance": "PENDING_USER_FINAL_VISUAL_SIGN_OFF_AND_INDEPENDENT_PRODUCT_ACCEPTANCE",
+  "mergeAuthorized": false,
+  "scope": "Implementer regression observations and measurements do not constitute independent product acceptance."
+}

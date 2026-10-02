@@ -1,0 +1,38 @@
+{
+  "scope": "Verify all independently retained review members against staged Git bytes. Preserve exact originals where public text requires LF normalization. Earlier retention manifests remain historical originals; this sidecar corrects the three original-to-projection coordinates.",
+  "reviewMembersVerified": 107,
+  "exactGitMembers": 104,
+  "normalizedTextProjections": [
+    {
+      "projectionPath": "product-final-2456e291/first-pass-image-metadata.json",
+      "originalArchiveMember": "product-final-2456e291/first-pass-image-metadata.json",
+      "originalBytes": 9409,
+      "originalSha256": "c832ee70644f0a17d027c36abe85316519ff14d4912067c3c5627e0fc96bfd09",
+      "gitProjectionBytes": 9072,
+      "gitProjectionSha256": "da09c3d3c84494649ab6f31b1fa409283f313414309665d77ee1c45a8f96193f",
+      "projectionChange": "Git-required CRLF to LF normalization only; original bytes remain in the archive"
+    },
+    {
+      "projectionPath": "tester-333bcec/static-audit.json",
+      "originalArchiveMember": "tester-333bcec/static-audit.json",
+      "originalBytes": 1397,
+      "originalSha256": "9bb5f303e95ef3da7735168691daabcab558703cdc23fdede2533da8430c2024",
+      "gitProjectionBytes": 1365,
+      "gitProjectionSha256": "ff59c251d4f12dfa1b1fa63886fc62cd64c1cf11a5b35c0bc4438cd40be8e0c6",
+      "projectionChange": "Git-required CRLF to LF normalization only; original bytes remain in the archive"
+    },
+    {
+      "projectionPath": "tester-333bcec/summary.json",
+      "originalArchiveMember": "tester-333bcec/summary.json",
+      "originalBytes": 2566,
+      "originalSha256": "f441c2326063fbe57847694e35d60cb05f02f0f625b984d97fb1d1a64260a387",
+      "gitProjectionBytes": 2450,
+      "gitProjectionSha256": "61d61c0d3c5870657f8f418fd9636b2f279aa0651957967b51c33d034f8d492f",
+      "projectionChange": "Git-required CRLF to LF normalization only; original bytes remain in the archive"
+    }
+  ],
+  "originalArchive": "original-review-line-ending-bytes.zip",
+  "originalArchiveBytes": 3457,
+  "originalArchiveSha256": "4e8c3dbc531696d6a6bcb4d9b5ac8c4457f6b84b553cd884c910050fc0bc2e5a",
+  "verdict": "PASS"
+}

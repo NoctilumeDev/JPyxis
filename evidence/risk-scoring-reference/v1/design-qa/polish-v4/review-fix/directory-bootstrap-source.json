@@ -1,0 +1,10 @@
+{
+  "revision": "2456e291faac791ceb2fda6b00db249d4236584b",
+  "tree": "fd5e0bd6a478a743100356cee115271eeeee57b4",
+  "dirty": false,
+  "publicClean": false,
+  "localMavenReuse": true,
+  "scope": "private risk reference host",
+  "hostPlatform": "win32",
+  "ci": null
+}

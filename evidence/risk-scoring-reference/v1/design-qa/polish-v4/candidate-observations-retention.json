@@ -1,0 +1,52 @@
+{
+  "sourceRevision": "39ed61e53625f739a0a238ad73c6d3ef9425c357",
+  "archive": "candidate-observations.zip",
+  "bytes": 21810564,
+  "sha256": "20ced0e60865142691a133928a72f12d65562e725029219d51aa72f494e94671",
+  "members": 302,
+  "originalRoot": "C:\\Users\\lenovo\\Desktop\\GitHubProjects\\JPyxis-risk-polish-v4\\build\\design-qa\\installed\\39ed61e5-mur1lph2",
+  "manifestMembersVerified": 301,
+  "independentShutdown": {
+    "owner": "NODE_AFTER_JAVA_EXIT",
+    "observations": [
+      {
+        "pid": 27428,
+        "alive": false
+      },
+      {
+        "pid": 40476,
+        "alive": false
+      },
+      {
+        "pid": 6248,
+        "alive": false
+      },
+      {
+        "pid": 27016,
+        "alive": false
+      },
+      {
+        "pid": 40296,
+        "alive": false
+      },
+      {
+        "pid": 41244,
+        "alive": false
+      },
+      {
+        "pid": 40808,
+        "alive": false
+      },
+      {
+        "pid": 22960,
+        "alive": false
+      }
+    ]
+  },
+  "javaExit": {
+    "code": 0,
+    "signal": null,
+    "observedAt": "2026-10-02T14:18:52.556Z"
+  },
+  "scope": "Exact original installed GUI observation bytes; visual acceptance remains pending."
+}

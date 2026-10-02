@@ -1,0 +1,25 @@
+{
+  "source": "3143a78fcfa6195942030ca49f830c86675130e7",
+  "method": "Independent source diff and supplied native actual-browser evidence review",
+  "independentLiveBrowserReexecuted": false,
+  "browserLimitation": "Child IAB unavailable; empty browser inventory; one session reset did not restore availability",
+  "childViewportChanged": false,
+  "childTabCreated": false,
+  "businessMutated": false,
+  "sourceModified": false,
+  "p2PreviouslyReported": 2,
+  "p2ClosedForThisSourceAndEvidence": 2,
+  "operatingMinimumCssPx": 1024,
+  "actualUnknownAt1024EvidenceReviewed": true,
+  "nativeImagesOpened": [
+    "238-repair-1024-unknown.png",
+    "241-repair-800-unknown.png",
+    "240-repair-1023-fractional.png",
+    "242-repair-767-fractional.png",
+    "236-repair-held-cutover.png",
+    "250-repair-home-top-stable.png"
+  ],
+  "finalUserVisualSignoff": "PENDING",
+  "mergeAuthorized": false,
+  "laterDirectoryWidthChangeCovered": false
+}
