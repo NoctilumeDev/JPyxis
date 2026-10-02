@@ -1,0 +1,116 @@
+{
+  "consoleRelevant": "Collected separately",
+  "items": [
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect risk-v2 realization 97a0c1d9-3b88-41",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "risk-v2 · fresh",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect risk-v1 realization 43a0142d-ef08-49",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "risk-v1 · fresh",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect risk-v2 realization 3e115aa0-4fd3-42",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "risk-v2",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect risk-v1 realization 5ad56a23-2f52-40",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "risk-v1",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R006",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R006",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R005",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R005",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R004",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R004",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R003",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R003",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R002",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R002",
+      "textAlign": "right",
+      "textHeight": 19.5
+    },
+    {
+      "clientWidth": 194,
+      "lineHeight": "19.5px",
+      "name": "Inspect request R001",
+      "nowrap": "nowrap",
+      "rowHeight": 48,
+      "scrollWidth": 194,
+      "text": "R001",
+      "textAlign": "right",
+      "textHeight": 19.5
+    }
+  ],
+  "source": "SOURCE 39ed61e53625f739 · LOOPBACK SESSION"
+}

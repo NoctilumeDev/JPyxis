@@ -19,13 +19,14 @@ async function act(action,extra={}){
     await refresh();
   }catch(error){lastError=error.message;notice(lastError);}finally{busy=false;render();}
 }
-function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.dataset.focusKey=`${action}:${extra?.version||''}`;button.className=primary?'primary':action==='rollback'?'recovery':'';button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
+function addAction(label,action,extra,primary=false,disabled=false){const button=document.createElement('button');button.textContent=label;button.dataset.focusKey=`${action}:${extra?.version||''}`;button.className=[primary?'primary':'',action==='activate'?'authority-action':'',action==='rollback'?'recovery authority-action':''].filter(Boolean).join(' ');button.disabled=busy||disabled;button.addEventListener('click',()=>act(action,extra));$('lifecycle-actions').append(button);}
 function requestSelected(){return state?.requests.find(r=>r.id===selectedId)||state?.requests.at(-1)||null;}
 function render(){
   if(!state)return;
   const focusedKey=document.activeElement?.dataset.focusKey;
   const idle=state.operation==='IDLE'&&!state.closed&&!state.closing;
   const selected=requestSelected(),unknown=selected?.executionState==='OUTCOME_UNKNOWN';
+  $('authority').classList.toggle('authorized',selected?['IN_FLIGHT','SUCCEEDED'].includes(selected.executionState):state.activeEligible);
   $('decision').classList.toggle('withheld',!selected||selected.decision==='WITHHELD');
   text('control-status',state.controlStatus);text('route',`${version(state.activeVersion)}${state.activeVersion&&!state.activeEligible?' · UNAVAILABLE':''}`);
   text('workers',`${state.eligibleWorkers} / ${state.observedLiveWorkers} live`);
@@ -72,6 +73,7 @@ function render(){
     text('features','Java will prepare the selected synthetic case.');$('receipt-layers').textContent='A request is required before an execution receipt exists.';
   }
   $('timeline').replaceChildren();
+  $('timeline').classList.toggle('empty',!state.deployments.length);
   if(!state.deployments.length)$('timeline').textContent='No versions yet.';
   for(const d of [...state.deployments].reverse()){
     const button=document.createElement('button'),name=document.createElement('span');
@@ -84,6 +86,7 @@ function render(){
   $('ceremony-events').replaceChildren();
   for(const event of state.ceremonies){const li=document.createElement('li');li.textContent=`${event.phase.replaceAll('_',' ')}${event.version?' · risk-'+event.version:''} · ${new Date(event.observedAt).toLocaleTimeString()}`;$('ceremony-events').append(li);}
   $('request-rows').replaceChildren();
+  $('request-rows').classList.toggle('empty',!state.requests.length);
   if(!state.requests.length)$('request-rows').textContent='No invocations yet.';
   for(const r of [...state.requests].reverse()){
     const button=document.createElement('button'),name=document.createElement('span');
@@ -97,7 +100,7 @@ function render(){
   renderCentralLists();reflectNavigation();
   if(focusedKey){const restored=[...document.querySelectorAll('[data-focus-key]')].find(el=>el.dataset.focusKey===focusedKey);if(restored&&!restored.disabled)restored.focus({preventScroll:true});}
 }
-$('invoke').onclick=()=>act('invoke',{sample:$('sample').value,mode:$('mode').value});
+$('invoke').classList.add('execution-action');$('invoke').onclick=()=>act('invoke',{sample:$('sample').value,mode:$('mode').value});
 $('close').onclick=()=>act('close');$('export').onclick=()=>{window.location.href='/api/receipt';};
 const selectors=[];
 function enhanceSelect(select){

@@ -1,0 +1,75 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 39ed61e53625f739 · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v1
+    - generic: ELIGIBLE WORKERS
+    - strong: 1 / 1 live
+    - button "Install & warm v2"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "INVOCATION HISTORY" [active] [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - region "Invocation history":
+    - heading "Actual invocations" [level=2]
+    - paragraph: Select a request to inspect its binding, execution and Java decision.
+    - generic "All invocation records":
+      - table:
+        - rowgroup:
+          - row "Request Pinned version Score Java decision Execution":
+            - columnheader "Request"
+            - columnheader "Pinned version"
+            - columnheader "Score"
+            - columnheader "Java decision"
+            - columnheader "Execution"
+        - rowgroup:
+          - row "Open invocation R001 risk-v1 0.73 REVIEW SUCCEEDED":
+            - cell "Open invocation R001":
+              - button "Open invocation R001": R001
+            - cell "risk-v1"
+            - cell "0.73"
+            - cell "REVIEW"
+            - cell "SUCCEEDED"
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v1 realization 5ad56a23-2f52-40":
+        - generic: risk-v1
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R001":
+        - generic: R001
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

@@ -1,0 +1,1384 @@
+{
+  "renderedSourceRevision": "39ed61e53625f739a0a238ad73c6d3ef9425c357",
+  "baseRevision": "109646c7c5266a164018ac2f9534afe850b94c7c",
+  "assets": [
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/index.html",
+      "gitBlob": "dafc071449aedc5449c558a74c128d8de9d9a349",
+      "bytes": 11661,
+      "sha256": "sha256:97d7f38eef721bbbe5e02b48d51ae02cb5f25a36682a87f51b2024f010df5f82"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/style.css",
+      "gitBlob": "ad60eab245e09c59cfb3d562022c4c9da91cbe32",
+      "bytes": 26924,
+      "sha256": "sha256:8cb188e867653aefbb12ad954af2f42426a838402869fb397db36ee76790e056"
+    },
+    {
+      "path": "reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory/app.js",
+      "gitBlob": "765525d02b970aca73e379eef644de09f6f059c1",
+      "bytes": 19566,
+      "sha256": "sha256:d478ba7a720b04f8f748ce34113167358b829140ee561877987ea409a01be88e"
+    }
+  ],
+  "captures": [
+    {
+      "name": "150-candidate-empty",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 777.5625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "151-candidate-v1-standby",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 777.5625,
+      "terminal": "AWAITING REQUEST",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 709.0625305175781,
+          "height": 432.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "152-candidate-review",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "153-candidate-sample-open",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "154-candidate-mode-open",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "155-candidate-history",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "156-candidate-v2-standby",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "157-candidate-held-cutover",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 886.8958740234375,
+      "terminal": "IN_FLIGHT",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 818.3958435058594,
+          "height": 541.5,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 818.3958435058594,
+          "height": 541.5,
+          "id": "binding",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 818.3958435058594,
+          "height": 541.5,
+          "id": "execution",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 818.3958435058594,
+          "height": 541.5,
+          "id": "policy",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "158-candidate-v2-reject",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "159-candidate-unknown",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 847.5625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "160-candidate-unknown-1280",
+      "pixels": [
+        1265,
+        889
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1280
+      },
+      "scrollY": 0,
+      "receiptBottom": 903.65625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 835.1563110351562,
+          "height": 567.4583740234375,
+          "id": "request",
+          "width": 192.6666717529297,
+          "y": 267.69793701171875
+        },
+        {
+          "bottom": 835.1563110351562,
+          "height": 567.4583740234375,
+          "id": "binding",
+          "width": 192.6666717529297,
+          "y": 267.69793701171875
+        },
+        {
+          "bottom": 835.1563110351562,
+          "height": 567.4583740234375,
+          "id": "execution",
+          "width": 192.6666717529297,
+          "y": 267.69793701171875
+        },
+        {
+          "bottom": 835.1563110351562,
+          "height": 567.4583740234375,
+          "id": "policy",
+          "width": 192.6666717529297,
+          "y": 267.69793701171875
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "161-candidate-unknown-1120",
+      "pixels": [
+        1104,
+        1365
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1120
+      },
+      "scrollY": 0,
+      "receiptBottom": 879.78125,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 809.2812805175781,
+          "height": 535.1666870117188,
+          "id": "request",
+          "width": 223.6666717529297,
+          "y": 274.1145935058594
+        },
+        {
+          "bottom": 809.2812805175781,
+          "height": 535.1666870117188,
+          "id": "binding",
+          "width": 223.6666717529297,
+          "y": 274.1145935058594
+        },
+        {
+          "bottom": 809.2812805175781,
+          "height": 535.1666870117188,
+          "id": "execution",
+          "width": 223.6666717529297,
+          "y": 274.1145935058594
+        },
+        {
+          "bottom": 809.2812805175781,
+          "height": 535.1666870117188,
+          "id": "policy",
+          "width": 223.6666717529297,
+          "y": 274.1145935058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "162-candidate-unknown-mobile",
+      "pixels": [
+        374,
+        3120
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 844,
+        "scale": 1,
+        "width": 390
+      },
+      "scrollY": 0,
+      "receiptBottom": 2422.385498046875,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 1056.6875610351562,
+          "height": 527.8333740234375,
+          "id": "request",
+          "width": 348.66668701171875,
+          "y": 528.8541870117188
+        },
+        {
+          "bottom": 1433.21875,
+          "height": 361.53125,
+          "id": "binding",
+          "width": 348.66668701171875,
+          "y": 1071.6875
+        },
+        {
+          "bottom": 1893.71875,
+          "height": 445.5,
+          "id": "execution",
+          "width": 348.66668701171875,
+          "y": 1448.21875
+        },
+        {
+          "bottom": 2333.8854370117188,
+          "height": 425.1666870117187,
+          "id": "policy",
+          "width": 348.66668701171875,
+          "y": 1908.71875
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "163-candidate-mode-open-mobile",
+      "pixels": [
+        375,
+        812
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 844,
+        "scale": 1,
+        "width": 390
+      },
+      "scrollY": 423.3333435058594,
+      "receiptBottom": 1999.0521240234375,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 633.3542098999023,
+          "height": 527.8333740234375,
+          "id": "request",
+          "width": 348.66668701171875,
+          "y": 105.52083587646484
+        },
+        {
+          "bottom": 1009.8854370117188,
+          "height": 361.53125,
+          "id": "binding",
+          "width": 348.66668701171875,
+          "y": 648.3541870117188
+        },
+        {
+          "bottom": 1470.385498046875,
+          "height": 445.5,
+          "id": "execution",
+          "width": 348.66668701171875,
+          "y": 1024.885498046875
+        },
+        {
+          "bottom": 1910.5521850585935,
+          "height": 425.1666870117187,
+          "id": "policy",
+          "width": 348.66668701171875,
+          "y": 1485.385498046875
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "164-candidate-lifecycle-mobile",
+      "pixels": [
+        374,
+        1972
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 844,
+        "scale": 1,
+        "width": 390
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "165-candidate-fresh-v1-rollback",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 847.5625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "166-candidate-fresh-realization",
+      "pixels": [
+        1424,
+        907
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "167-candidate-fresh-ceremony",
+      "pixels": [
+        1424,
+        1175
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 7.333333492279053,
+      "receiptBottom": 0,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "168-candidate-unknown-receipt",
+      "pixels": [
+        1424,
+        1019
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 301.3958435058594,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "169-candidate-fresh-v1-allow",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "170-candidate-fresh-v2-rollback",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "171-candidate-six-requests",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 795.5625,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "request",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "binding",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "execution",
+          "width": 236.5,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 727.0625305175781,
+          "height": 450.1666870117187,
+          "id": "policy",
+          "width": 236.5,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    },
+    {
+      "name": "172-candidate-all-history",
+      "pixels": [
+        1440,
+        900
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 0,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT",
+      "columns": [
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "request",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "binding",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "execution",
+          "width": 0,
+          "y": 0
+        },
+        {
+          "bottom": 0,
+          "height": 0,
+          "id": "policy",
+          "width": 0,
+          "y": 0
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "label",
+        "ratio": 6.642633714712687
+      }
+    },
+    {
+      "name": "173-candidate-closed",
+      "pixels": [
+        1425,
+        891
+      ],
+      "source": "SOURCE 39ed61e53625f739 \u00b7 LOOPBACK SESSION",
+      "viewport": {
+        "dpr": 1.0000000298023224,
+        "height": 900,
+        "scale": 1,
+        "width": 1440
+      },
+      "scrollY": 0,
+      "receiptBottom": 847.5625,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD",
+      "columns": [
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "request",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "binding",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "execution",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        },
+        {
+          "bottom": 779.0625305175781,
+          "height": 502.1666870117187,
+          "id": "policy",
+          "width": 232.6666717529297,
+          "y": 276.8958435058594
+        }
+      ],
+      "horizontalOverflow": 0,
+      "typographyViolations": [],
+      "minimumEnabledContrast": {
+        "element": "SPAN",
+        "ratio": 6.482680134662785
+      }
+    }
+  ],
+  "actualGuiRequests": [
+    {
+      "id": "R001",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "normal",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R002",
+      "version": "v1",
+      "sample": "STANDARD",
+      "mode": "hold",
+      "score": 0.72999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REVIEW"
+    },
+    {
+      "id": "R003",
+      "version": "v2",
+      "sample": "HIGH",
+      "mode": "normal",
+      "score": 0.931,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT"
+    },
+    {
+      "id": "R004",
+      "version": "v2",
+      "sample": "HIGH",
+      "mode": "crash",
+      "score": null,
+      "terminal": "OUTCOME_UNKNOWN",
+      "decision": "WITHHELD"
+    },
+    {
+      "id": "R005",
+      "version": "v1",
+      "sample": "LOW",
+      "mode": "normal",
+      "score": 0.09,
+      "terminal": "SUCCEEDED",
+      "decision": "ALLOW"
+    },
+    {
+      "id": "R006",
+      "version": "v2",
+      "sample": "STANDARD",
+      "mode": "normal",
+      "score": 0.84999996,
+      "terminal": "SUCCEEDED",
+      "decision": "REJECT"
+    }
+  ],
+  "exportOriginalBytesEqual": true,
+  "retainedManifestMembersVerified": 301,
+  "ownedWorkersAndInterpretersStopped": 8,
+  "visualAcceptance": "PENDING_USER_FINAL_VISUAL_SIGN_OFF_AND_INDEPENDENT_PRODUCT_ACCEPTANCE",
+  "mergeAuthorized": false,
+  "scope": "Implementer regression observations and measurements do not constitute independent product acceptance."
+}
