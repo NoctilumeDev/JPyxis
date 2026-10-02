@@ -79,7 +79,7 @@ h1 { font:400 clamp(28px,2.5vw,38px)/1.15 var(--serif); margin:0; letter-spacing
 .title-row blockquote br { display:none; }
 
 /* Stage strip and content share weighted tracks. */
-.flow,.wings { display:grid; grid-template-columns:minmax(0,.98fr) minmax(0,1.12fr) minmax(0,1fr) minmax(0,.9fr); gap:18px; }
+.flow,.wings { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1.02fr) minmax(0,.88fr); gap:18px; }
 .flow { list-style:none; margin:0; padding:0; }
 .flow li { position:relative; display:flex; justify-content:center; align-items:center; gap:7px; min-width:0; min-height:44px; padding:9px 8px; color:#f8fbff; font:12px/1.5 var(--serif); background:var(--navy); border:1px solid var(--navy); border-radius:2px 2px 0 0; }
 .flow b { font:12px/1.5 var(--mono); color:#eef2f6; border:1px solid #879ba9; padding:0 4px; }
