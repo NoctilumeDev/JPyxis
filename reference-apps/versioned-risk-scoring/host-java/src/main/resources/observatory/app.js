@@ -72,25 +72,26 @@ function render(){
     text('features','Java will prepare the selected synthetic case.');$('receipt-layers').textContent='A request is required before an execution receipt exists.';
   }
   $('timeline').replaceChildren();
-  if(!state.deployments.length)$('timeline').textContent='No deployment. Install and warm a retained artifact before activation.';
+  if(!state.deployments.length)$('timeline').textContent='No versions yet.';
   for(const d of [...state.deployments].reverse()){
-    const card=document.createElement('article'),button=document.createElement('button'),name=document.createElement('span'),status=document.createElement('span'),detail=document.createElement('p'),nonce=document.createElement('p');
+    const button=document.createElement('button'),name=document.createElement('span'),status=document.createElement('span');
     const current=navigationTarget()==='#lifecycle'&&deploymentSelected()?.deploymentId===d.deploymentId;
-    card.className=`deployment ${d.state==='ACTIVE'?'active':''} ${current?'selected':''}`;
-    button.className='version-link';button.dataset.focusKey=`version:${d.deploymentId}`;button.setAttribute('aria-label',`Inspect ${version(d.version)} realization ${short(d.realization?.launchNonce)}`);button.setAttribute('aria-pressed',String(current));
+    button.className=`context-link ${current?'selected':''}`;button.dataset.focusKey=`version:${d.deploymentId}`;button.setAttribute('aria-label',`Inspect ${version(d.version)} realization ${short(d.realization?.launchNonce)}`);button.setAttribute('aria-pressed',String(current));
     button.onclick=()=>{selectedDeploymentId=d.deploymentId;navigate('#lifecycle');};
-    name.className='version';name.textContent=version(d.version);status.className='state';status.textContent=d.state;button.append(name,status);
-    detail.textContent=`${d.outstandingPins} pin${d.outstandingPins===1?'':'s'} · worker ${d.alive?'live':'stopped'}`;
-    nonce.className='journey';nonce.textContent=`nonce ${short(d.realization?.launchNonce)}`;nonce.title=d.realization?.launchNonce||'';
-    card.append(button,detail);
-    if(d.purpose==='FRESH_ROLLBACK'){const fresh=document.createElement('p');fresh.className='fresh';fresh.textContent='FRESH REALIZATION';card.append(fresh);}
-    card.append(nonce);$('timeline').append(card);
+    name.textContent=version(d.version)+(d.purpose==='FRESH_ROLLBACK'?' · fresh':'');status.className='context-caption';status.textContent=`${d.state} · ${d.alive?'live':'stopped'}`;
+    button.append(name,status);$('timeline').append(button);
   }
   $('ceremony-events').replaceChildren();
   for(const event of state.ceremonies){const li=document.createElement('li');li.textContent=`${event.phase.replaceAll('_',' ')}${event.version?' · risk-'+event.version:''} · ${new Date(event.observedAt).toLocaleTimeString()}`;$('ceremony-events').append(li);}
   $('request-rows').replaceChildren();
-  if(!state.requests.length){const tr=document.createElement('tr'),td=document.createElement('td');tr.className='empty-row';td.colSpan=5;td.textContent='No requests. Activate a qualified worker, then invoke explicitly.';tr.append(td);$('request-rows').append(tr);}
-  for(const r of [...state.requests].reverse()){const tr=document.createElement('tr');tr.className=r.id===selected?.id?'current':'';const cell=document.createElement('td'),button=document.createElement('button');button.textContent=r.id;button.dataset.focusKey=`request:${r.id}`;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.onclick=()=>{selectedId=r.id;navigate('#workspace');};cell.append(button);tr.append(cell);for(const value of [version(r.version),r.score==null?'—':Number(r.score).toFixed(2),r.decision,r.executionState]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('request-rows').append(tr);}
+  if(!state.requests.length)$('request-rows').textContent='No invocations yet.';
+  for(const r of [...state.requests].reverse()){
+    const button=document.createElement('button'),name=document.createElement('span'),caption=document.createElement('span');
+    const current=['#overview','#workspace','#receipt'].includes(navigationTarget())&&r.id===selected?.id;
+    button.className=`context-link ${current?'selected':''}`;button.dataset.focusKey=`request:${r.id}`;button.setAttribute('aria-label',`Inspect request ${r.id}`);button.setAttribute('aria-pressed',String(current));
+    button.onclick=()=>{selectedId=r.id;navigate('#workspace');};name.textContent=r.id;caption.className='context-caption';caption.textContent=version(r.version);
+    button.append(name,caption);$('request-rows').append(button);
+  }
   text('shutdown-note',state.allOwnedWorkersStopped?'All owned workers observed stopped. Sealed receipt available.':'Shutdown is a separate physical observation.');
   notice(lastError||state.operationError||(unknown?'OUTCOME_UNKNOWN · AUTHORITY HELD · JAVA DECISION WITHHELD':selected?.mode==='hold'&&selected.executionState==='IN_FLIGHT'?'Actual M3 witness barrier: release within 15 seconds. Waiting is not a claim that NumPy is computing.':''));
   renderCentralLists();reflectNavigation();

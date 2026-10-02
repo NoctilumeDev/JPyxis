@@ -1,0 +1,175 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 3ef7b49e21e1727a · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v1
+    - generic: ELIGIBLE WORKERS
+    - strong: 2 / 2 live
+    - button "Activate risk-v2"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "RISK SCORING OBSERVATORY" [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - list "Authority flow":
+    - generic: "01"
+    - generic: REQUEST
+    - generic: "02"
+    - generic: CONTROL BINDING
+    - generic: "03"
+    - generic: EXECUTION
+    - generic: "04"
+    - generic: HOST DECISION
+  - region "Current request":
+    - article "Prepare synthetic request":
+      - text: JAVA / HOST
+      - heading "Request" [level=2]
+      - paragraph: Synthetic features · prepared by Java
+      - paragraph: R001 · PINNED risk-v1
+      - generic: NEXT INVOCATION
+      - generic: SYNTHETIC RISK FEATURES
+      - combobox "Synthetic sample":
+        - option "Standard exposure" [selected]
+        - option "Low exposure"
+        - option "High exposure"
+      - generic: EXECUTION MODE
+      - combobox "Execution mode":
+        - option "Normal computation" [selected]
+        - option "Hold for cutover · 15s witness"
+        - option "Crash after dispatch · diagnostic"
+      - button "Invoke explicitly"
+      - generic: RISK FEATURES · PREPARED BY JAVA
+      - generic: "Exposure 0.90 / Activity 0.35 Velocity 0.20 / Concentration 0.45 Synthetic case: STANDARD"
+      - paragraph: Java prepares the inputs. Invocation is explicit.
+    - article:
+      - text: CONTROL / HOST
+      - heading "Control binding" [level=2]
+      - paragraph: Definition · eligibility
+      - generic: CONTROL BINDING ESTABLISHED
+      - term: Definition
+      - definition: jpyxis:definition:reference/risk-affine@1.0.0
+      - term: Artifact digest
+      - definition: sha256:980b74c66
+      - term: Environment
+      - definition: sha256:281fd1706
+      - term: Qualification
+      - definition: b9bd87c0-dddf-47
+      - term: Request pin
+      - definition: 40c6d928-6be0-47
+      - term: Current route
+      - definition: risk-v1
+      - paragraph: Observation ≠ score ≠ business decision.
+    - article:
+      - text: PYTHON / RUNTIME
+      - heading "Execution report" [level=2]
+      - paragraph: Delegated computation
+      - generic: RISK SCORE · COMPUTATION ONLY
+      - strong: "0.73"
+      - paragraph: "Pure computed signal: 0.29"
+      - term: Request
+      - definition: R001
+      - term: Pinned version
+      - definition: risk-v1
+      - term: Worker
+      - definition: worker-0f0bab9c-
+      - term: Runtime
+      - definition: numpy.cpu
+      - term: Attempt
+      - definition: d01b6801-8172-47
+      - term: Completed
+      - definition: 21:34:06
+      - paragraph: SUCCEEDED
+    - article:
+      - text: JAVA / POLICY
+      - heading "Host decision" [level=2]
+      - paragraph: Host-owned business authority
+      - generic: BUSINESS DECISION
+      - strong: REVIEW
+      - paragraph: Evaluated by Java policy · R001
+      - generic: SEALED JAVA POLICY · v1.0.0
+      - code: score ≥ 0.80
+      - generic: REJECT
+      - code: score ≥ 0.55
+      - generic: REVIEW
+      - code: otherwise
+      - generic: ALLOW
+      - paragraph:
+        - text: Python computes. Java decides.
+        - text: No automatic retry.
+  - generic "View execution receipt Execution Binding / Observed Execution / Java Decision":
+    - text: View execution receipt
+    - generic: Execution Binding / Observed Execution / Java Decision
+  - paragraph: Shutdown is a separate physical observation.
+  - button "Close owned workers"
+  - button "Export sealed receipt" [disabled]
+  - complementary "Context navigation":
+    - text: SESSION CONTEXT
+    - paragraph: Select a version or invocation
+    - heading "Version continuity" [level=2]
+    - generic: VERSIONS
+    - generic "Owned version realizations":
+      - article:
+        - button "Inspect risk-v2 realization 20160775-04f1-43":
+          - generic: risk-v2
+          - generic: STANDBY
+        - paragraph: 0 pins · worker live
+        - paragraph: nonce 20160775-04f1-43
+      - article:
+        - button "Inspect risk-v1 realization 1484107c-07e2-44":
+          - generic: risk-v1
+          - generic: ACTIVE
+        - paragraph: 0 pins · worker live
+        - paragraph: nonce 1484107c-07e2-44
+    - generic "Inspect rollback ceremony":
+      - text: Inspect rollback ceremony
+    - heading "Recent invocations" [level=2]
+    - generic: REQUESTS
+    - paragraph: Request · score · Java decision
+    - generic "Recent invocation history":
+      - table:
+        - rowgroup:
+          - row "Request Pinned version Score Java decision Execution":
+            - columnheader "Request"
+            - columnheader "Pinned version"
+            - columnheader "Score"
+            - columnheader "Java decision"
+            - columnheader "Execution"
+        - rowgroup:
+          - row "Inspect request R001 risk-v1 0.73 REVIEW SUCCEEDED":
+            - cell "Inspect request R001":
+              - button "Inspect request R001": R001
+            - cell "risk-v1"
+            - cell "0.73"
+            - cell "REVIEW"
+            - cell "SUCCEEDED"
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

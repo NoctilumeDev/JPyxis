@@ -141,7 +141,19 @@
 <article class="wing policy" id="policy"><div class="wing-head"><span>JAVA / POLICY</span><h2>Host decision</h2><p>Host-owned business authority</p></div><div class="wing-body"><div class="decision-sheet"><span class="label">BUSINESS DECISION</span><strong id="decision">WITHHELD</strong><p id="decision-note">A validated success is required.</p></div><div class="policy-rules"><span class="label">SEALED JAVA POLICY · v1.0.0</span><div><code>score ≥ 0.80</code><b>REJECT</b></div><div><code>score ≥ 0.55</code><b>REVIEW</b></div><div><code>otherwise</code><b>ALLOW</b></div></div><p class="boundary">Python computes. Java decides.<br>No automatic retry.</p></div></article>
 </section>
 </div>
-<section class="detail-panel" id="lifecycle" aria-label="Selected version realization" hidden><div class="detail-heading"><span class="label">OBSERVED REALIZATION</span><h2 id="realization-title">No deployment</h2><p id="realization-state">Install and warm a retained artifact.</p></div><dl id="realization-facts"></dl><h3>Lifecycle history</h3><ol id="realization-history"></ol></section>
+<section class="detail-panel" id="lifecycle" aria-label="Selected version realization" hidden><div class="detail-heading"><span class="label">OBSERVED REALIZATION</span><h2 id="realization-title">No deployment</h2><p id="realization-state">Install and warm a retained artifact.</p></div><dl id="realization-facts"></dl><h3>Lifecycle history</h3><ol id="realization-history"></ol><details id="ceremony"><summary>Inspect rollback ceremony <svg aria-hidden="true" focusable="false" data-lucide="chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><ol id="ceremony-events"></ol></details></section>
 <section class="detail-panel" id="records" aria-label="Invocation history" hidden><h2>Actual invocations</h2><p>Select a request to inspect its binding, execution and Java decision.</p><div class="history-table" tabindex="0" aria-label="All invocation records"><table><thead><tr><th>Request</th><th>Pinned version</th><th>Score</th><th>Java decision</th><th>Execution</th></tr></thead><tbody id="history-rows"></tbody></table></div></section>
 <section class="receipt-section" id="receipt"><details id="receipt-details"><summary><svg aria-hidden="true" focusable="false" data-lucide="file-text"
   xmlns="http://www.w3.org/2000/svg"
@@ -173,21 +185,9 @@
   <path d="m6 9 6 6 6-6" />
 </svg></summary><div class="receipt-layers" id="receipt-layers"></div></details><div class="receipt-bottom"><p id="shutdown-note">Shutdown is a separate physical observation.</p><div class="receipt-actions"><button id="close">Close owned workers</button><button id="export" disabled>Export sealed receipt</button></div></div></section>
 </div>
-<aside class="instrument-rail" aria-label="Context navigation"><div class="context-heading"><span>SESSION CONTEXT</span><p>Select a version or invocation</p></div>
-<section class="continuity" id="context-versions"><div class="section-heading"><h2>Version continuity</h2><span class="label">VERSIONS</span></div><div id="timeline" class="timeline" tabindex="0" aria-label="Owned version realizations"></div><details id="ceremony"><summary>Inspect rollback ceremony <svg aria-hidden="true" focusable="false" data-lucide="chevron-down"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="m6 9 6 6 6-6" />
-</svg></summary><ol id="ceremony-events"></ol></details></section>
-<section id="context-records"><div class="section-heading"><h2>Recent invocations</h2><span class="label">REQUESTS</span></div><p class="records-key">Request · score · Java decision</p><div class="table-scroll" tabindex="0" aria-label="Recent invocation history"><table><thead><tr><th>Request</th><th>Pinned version</th><th>Score</th><th>Java decision</th><th>Execution</th></tr></thead><tbody id="request-rows"></tbody></table></div></section>
+<aside class="instrument-rail" aria-label="Context navigation"><div class="context-heading"><span>CONTEXT</span><p>VERSIONS / INVOCATIONS</p></div>
+<section class="continuity" id="context-versions"><div class="section-heading"><h2>Versions</h2></div><nav id="timeline" class="timeline" aria-label="Version directory"></nav></section>
+<section id="context-records"><div class="section-heading"><h2>Invocations</h2></div><nav id="request-rows" class="context-menu" aria-label="Invocation directory"></nav></section>
 </aside>
 </div>
 <footer>JPyxis reference witnesses: Java · Python · NumPy · gRPC<span>Authority stays with its owner.</span></footer>
