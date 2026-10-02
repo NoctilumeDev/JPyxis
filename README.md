@@ -366,6 +366,12 @@ observer repair PR #36, and successful exact-main reconciliation at
 this one trusted local CPU stateless typed affine path; it does not widen the M0-M6 freezes
 or establish a general product API, production security, distribution or capacity authority.
 
+The [Versioned Risk Scoring Reference Host](reference-apps/versioned-risk-scoring/README.md) is a
+separate private host candidate over that qualified path. It exposes explicit installation,
+activation, pinned cutover, actual worker crash/UNKNOWN, fresh rollback, Java policy and sealed
+receipts through a local observatory. Its independent fresh-VM and exact-main qualification is
+required before the host candidate can be described as qualified. It does not widen Core contracts.
+
 ## M6 reproducibility baseline
 
 M6 composes the frozen gates into one ordered, retained journey: immutable source inspection,

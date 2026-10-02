@@ -1,0 +1,398 @@
+﻿2026-10-02T09:17:35.7342175Z Current runner version: '2.337.0'
+2026-10-02T09:17:35.7368607Z ##[group]Runner Image Provisioner
+2026-10-02T09:17:35.7369555Z Hosted Compute Agent
+2026-10-02T09:17:35.7370206Z Version: 20260901.588
+2026-10-02T09:17:35.7370969Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-02T09:17:35.7371800Z Build Date: 2026-09-01T19:56:44Z
+2026-10-02T09:17:35.7372564Z Worker ID: {7610a265-ee1d-49cd-9dd0-164383054004}
+2026-10-02T09:17:35.7373834Z Azure Region: northcentralus
+2026-10-02T09:17:35.7374565Z ##[endgroup]
+2026-10-02T09:17:35.7376292Z ##[group]Operating System
+2026-10-02T09:17:35.7377047Z Ubuntu
+2026-10-02T09:17:35.7377621Z 24.04.5
+2026-10-02T09:17:35.7378257Z LTS
+2026-10-02T09:17:35.7378827Z ##[endgroup]
+2026-10-02T09:17:35.7379472Z ##[group]Runner Image
+2026-10-02T09:17:35.7380181Z Image: ubuntu-24.04
+2026-10-02T09:17:35.7380813Z Version: 20260927.320.1
+2026-10-02T09:17:35.7382195Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-02T09:17:35.7384304Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-02T09:17:35.7385412Z ##[endgroup]
+2026-10-02T09:17:35.7386678Z ##[group]GITHUB_TOKEN Permissions
+2026-10-02T09:17:35.7388637Z Contents: read
+2026-10-02T09:17:35.7389304Z Metadata: read
+2026-10-02T09:17:35.7390030Z ##[endgroup]
+2026-10-02T09:17:35.7392272Z Secret source: Actions
+2026-10-02T09:17:35.7393762Z Cache mode: write
+2026-10-02T09:17:35.7394572Z Prepare workflow directory
+2026-10-02T09:17:35.7842068Z Prepare all required actions
+2026-10-02T09:17:35.7913714Z Getting action download info
+2026-10-02T09:17:36.0765003Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-10-02T09:17:36.1666609Z Download action repository 'actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c' (SHA:dd06d9cba3e5552c54d9f8ea23572deb30010f7c)
+2026-10-02T09:17:36.7219954Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-10-02T09:17:36.8058470Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-10-02T09:17:37.1173910Z Complete job name: Verify M5 resilience repository
+2026-10-02T09:17:37.2269876Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-10-02T09:17:37.2271536Z with:
+2026-10-02T09:17:37.2272320Z   repository: NoctilumeDev/JPyxis
+2026-10-02T09:17:37.2281132Z   token: ***
+2026-10-02T09:17:37.2281881Z   ssh-strict: true
+2026-10-02T09:17:37.2282644Z   ssh-user: git
+2026-10-02T09:17:37.2283628Z   persist-credentials: true
+2026-10-02T09:17:37.2284504Z   clean: true
+2026-10-02T09:17:37.2285301Z   sparse-checkout-cone-mode: true
+2026-10-02T09:17:37.2286232Z   fetch-depth: 1
+2026-10-02T09:17:37.2287000Z   fetch-tags: false
+2026-10-02T09:17:37.2287782Z   show-progress: true
+2026-10-02T09:17:37.2288575Z   lfs: false
+2026-10-02T09:17:37.2289348Z   submodules: false
+2026-10-02T09:17:37.2290151Z   set-safe-directory: true
+2026-10-02T09:17:37.2291083Z   allow-unsafe-pr-checkout: false
+2026-10-02T09:17:37.2292320Z ##[endgroup]
+2026-10-02T09:17:37.3343882Z Syncing repository: NoctilumeDev/JPyxis
+2026-10-02T09:17:37.3348380Z ##[group]Getting Git version info
+2026-10-02T09:17:37.3350329Z Working directory is '/home/runner/work/JPyxis/JPyxis'
+2026-10-02T09:17:37.3353695Z [command]/usr/bin/git version
+2026-10-02T09:17:37.3401553Z git version 2.55.0
+2026-10-02T09:17:37.3428665Z ##[endgroup]
+2026-10-02T09:17:37.3439352Z Temporarily overriding HOME='/home/runner/work/_temp/8b438f8a-5efc-4299-801c-f005e7d0fb9c' before making global git config changes
+2026-10-02T09:17:37.3444401Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T09:17:37.3448314Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/JPyxis/JPyxis
+2026-10-02T09:17:37.3502432Z Deleting the contents of '/home/runner/work/JPyxis/JPyxis'
+2026-10-02T09:17:37.3508696Z ##[group]Determining repository object format
+2026-10-02T09:17:37.3511504Z ##[endgroup]
+2026-10-02T09:17:37.3513953Z ##[group]Initializing the repository
+2026-10-02T09:17:37.3517188Z [command]/usr/bin/git init /home/runner/work/JPyxis/JPyxis
+2026-10-02T09:17:37.3646466Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T09:17:37.3649711Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T09:17:37.3652790Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T09:17:37.3655303Z hint: call:
+2026-10-02T09:17:37.3656430Z hint:
+2026-10-02T09:17:37.3657913Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T09:17:37.3659608Z hint:
+2026-10-02T09:17:37.3661115Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T09:17:37.3663485Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T09:17:37.3666424Z hint:
+2026-10-02T09:17:37.3668282Z hint: 	git branch -m <name>
+2026-10-02T09:17:37.3670320Z hint:
+2026-10-02T09:17:37.3672252Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T09:17:37.3675675Z Initialized empty Git repository in /home/runner/work/JPyxis/JPyxis/.git/
+2026-10-02T09:17:37.3686200Z [command]/usr/bin/git remote add origin https://github.com/NoctilumeDev/JPyxis
+2026-10-02T09:17:37.3736929Z ##[endgroup]
+2026-10-02T09:17:37.3739039Z ##[group]Disabling automatic garbage collection
+2026-10-02T09:17:37.3740830Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T09:17:37.3778475Z ##[endgroup]
+2026-10-02T09:17:37.3780520Z ##[group]Setting up auth
+2026-10-02T09:17:37.3781937Z Removing SSH command configuration
+2026-10-02T09:17:37.3784215Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T09:17:37.3824881Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T09:17:37.4191947Z Removing HTTP extra header
+2026-10-02T09:17:37.4198636Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T09:17:37.4241431Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T09:17:37.4478491Z Removing includeIf entries pointing to credentials config files
+2026-10-02T09:17:37.4484543Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T09:17:37.4532614Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T09:17:37.4771100Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T09:17:37.4815139Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/JPyxis/JPyxis/.git.path /home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:37.4852923Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/JPyxis/JPyxis/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:37.4891491Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:37.4929146Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:37.4962842Z ##[endgroup]
+2026-10-02T09:17:37.4964557Z ##[group]Fetching the repository
+2026-10-02T09:17:37.4970460Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7545def80f7679cab9d1005664e6de2e35ff058a:refs/remotes/pull/38/merge
+2026-10-02T09:17:40.1679133Z From https://github.com/NoctilumeDev/JPyxis
+2026-10-02T09:17:40.1681275Z  * [new ref]         7545def80f7679cab9d1005664e6de2e35ff058a -> pull/38/merge
+2026-10-02T09:17:40.1684889Z ##[endgroup]
+2026-10-02T09:17:40.1686052Z ##[group]Determining the checkout info
+2026-10-02T09:17:40.1687126Z ##[endgroup]
+2026-10-02T09:17:40.1690961Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T09:17:40.1751037Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T09:17:40.1787044Z ##[group]Checking out the ref
+2026-10-02T09:17:40.1791280Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/38/merge
+2026-10-02T09:17:40.5828930Z Note: switching to 'refs/remotes/pull/38/merge'.
+2026-10-02T09:17:40.5829705Z 
+2026-10-02T09:17:40.5830490Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-02T09:17:40.5831632Z changes and commit them, and you can discard any commits you make in this
+2026-10-02T09:17:40.5832739Z state without impacting any branches by switching back to a branch.
+2026-10-02T09:17:40.5833765Z 
+2026-10-02T09:17:40.5834300Z If you want to create a new branch to retain commits you create, you may
+2026-10-02T09:17:40.5835282Z do so (now or later) by using -c with the switch command. Example:
+2026-10-02T09:17:40.5835789Z 
+2026-10-02T09:17:40.5836056Z   git switch -c <new-branch-name>
+2026-10-02T09:17:40.5836466Z 
+2026-10-02T09:17:40.5836731Z Or undo this operation with:
+2026-10-02T09:17:40.5837125Z 
+2026-10-02T09:17:40.5837352Z   git switch -
+2026-10-02T09:17:40.5837687Z 
+2026-10-02T09:17:40.5838182Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-02T09:17:40.5838863Z 
+2026-10-02T09:17:40.5839626Z HEAD is now at 7545def Merge 0fcb6790f7b33c11367171fb71513a796ff1c8cb into 9b0002c0591978a76a23eead1872c2b4e01997e3
+2026-10-02T09:17:40.5866811Z ##[endgroup]
+2026-10-02T09:17:40.5922762Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T09:17:40.5956641Z 7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:40.6315902Z ##[group]Run actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c
+2026-10-02T09:17:40.6316354Z with:
+2026-10-02T09:17:40.6316592Z   distribution: temurin
+2026-10-02T09:17:40.6316827Z   java-version: 17
+2026-10-02T09:17:40.6317041Z   cache: maven
+2026-10-02T09:17:40.6317246Z   java-package: jdk
+2026-10-02T09:17:40.6317463Z   check-latest: false
+2026-10-02T09:17:40.6317712Z   force-download: false
+2026-10-02T09:17:40.6317929Z   set-default: true
+2026-10-02T09:17:40.6318134Z   server-id: github
+2026-10-02T09:17:40.6318369Z   mvn-repositories-include-central: true
+2026-10-02T09:17:40.6318688Z   mvn-repositories-prioritize-central: true
+2026-10-02T09:17:40.6318991Z   overwrite-settings: true
+2026-10-02T09:17:40.6319230Z   cache-read-only: false
+2026-10-02T09:17:40.6319478Z   job-status: success
+2026-10-02T09:17:40.6321976Z   token: ***
+2026-10-02T09:17:40.6322202Z   show-download-progress: false
+2026-10-02T09:17:40.6322468Z   problem-matcher: true
+2026-10-02T09:17:40.6322760Z ##[endgroup]
+2026-10-02T09:17:40.7085128Z ##[group]Installed distributions
+2026-10-02T09:17:40.7783818Z Resolved Java 17.0.20+1 from tool-cache
+2026-10-02T09:17:40.7784648Z Setting Java 17.0.20+1 as the default
+2026-10-02T09:17:40.7793969Z 
+2026-10-02T09:17:40.7795405Z Java configuration:
+2026-10-02T09:17:40.7795689Z   Distribution: temurin
+2026-10-02T09:17:40.7796080Z   Version: 17.0.20+1
+2026-10-02T09:17:40.7796762Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:40.7797262Z 
+2026-10-02T09:17:40.7843982Z ##[endgroup]
+2026-10-02T09:17:40.7910492Z Creating settings.xml with server-id: github
+2026-10-02T09:17:40.7914789Z Creating toolchains.xml for JDK version 17 from temurin
+2026-10-02T09:17:40.7929831Z Writing to /home/runner/.m2/settings.xml
+2026-10-02T09:17:40.7936445Z Writing to /home/runner/.m2/toolchains.xml
+2026-10-02T09:17:40.7946658Z Configured MAVEN_ARGS to include -ntp to suppress Maven transfer progress logs. Set 'show-download-progress: true' to keep the download progress output.
+2026-10-02T09:17:41.5514315Z maven cache is not found
+2026-10-02T09:17:41.5539592Z Cache hit for: setup-java-Linux-x64-maven-wrapper-43047e7f565c5d4786650a6a0ad3df4c1232ce523de5de1ac83d9f1c6a50ea91
+2026-10-02T09:17:42.2789561Z Received 9001107 of 9001107 (100.0%), 15.0 MBs/sec
+2026-10-02T09:17:42.2790262Z Cache Size: ~9 MB (9001107 B)
+2026-10-02T09:17:42.2823784Z [command]/usr/bin/tar -xf /home/runner/work/_temp/8c01c5bd-be50-4226-8ee3-68c7d6bfeadd/cache.tzst -P -C /home/runner/work/JPyxis/JPyxis --use-compress-program unzstd
+2026-10-02T09:17:42.3082484Z Cache restored successfully
+2026-10-02T09:17:42.3098887Z maven-wrapper cache restored from key: setup-java-Linux-x64-maven-wrapper-43047e7f565c5d4786650a6a0ad3df4c1232ce523de5de1ac83d9f1c6a50ea91
+2026-10-02T09:17:42.3320620Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-10-02T09:17:42.3321053Z with:
+2026-10-02T09:17:42.3321268Z   python-version: 3.12
+2026-10-02T09:17:42.3321498Z   cache: pip
+2026-10-02T09:17:42.3321941Z   cache-dependency-path: invocation/python/requirements-m2.txt
+invocation/python/requirements-m3.txt
+
+2026-10-02T09:17:42.3322446Z   check-latest: false
+2026-10-02T09:17:42.3325473Z   token: ***
+2026-10-02T09:17:42.3325730Z   update-environment: true
+2026-10-02T09:17:42.3325993Z   allow-prereleases: false
+2026-10-02T09:17:42.3326230Z   freethreaded: false
+2026-10-02T09:17:42.3326448Z env:
+2026-10-02T09:17:42.3326756Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:42.3327249Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:42.3327669Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:42.3327886Z ##[endgroup]
+2026-10-02T09:17:42.4722689Z ##[group]Installed versions
+2026-10-02T09:17:42.4854419Z Successfully set up CPython (3.12.14)
+2026-10-02T09:17:42.4855342Z ##[endgroup]
+2026-10-02T09:17:42.5364053Z [command]/opt/hostedtoolcache/Python/3.12.14/x64/bin/pip cache dir
+2026-10-02T09:17:43.8315771Z /home/runner/.cache/pip
+2026-10-02T09:17:43.9609535Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.14-pip-cb7d9ea1392efd8d704f98967ae1516c27750d54c2713a95949ddccc17855c32
+2026-10-02T09:17:44.6926492Z Received 31097361 of 31097361 (100.0%), 49.9 MBs/sec
+2026-10-02T09:17:44.6934577Z Cache Size: ~30 MB (31097361 B)
+2026-10-02T09:17:44.7004663Z [command]/usr/bin/tar -xf /home/runner/work/_temp/628aae6c-c5dc-4011-819c-fac356188e86/cache.tzst -P -C /home/runner/work/JPyxis/JPyxis --use-compress-program unzstd
+2026-10-02T09:17:44.7528948Z Cache restored successfully
+2026-10-02T09:17:44.7549713Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.12.14-pip-cb7d9ea1392efd8d704f98967ae1516c27750d54c2713a95949ddccc17855c32
+2026-10-02T09:17:44.7683864Z ##[group]Run node scripts/verify-repository.mjs
+2026-10-02T09:17:44.7684349Z [36;1mnode scripts/verify-repository.mjs[0m
+2026-10-02T09:17:44.7935593Z shell: /usr/bin/bash -e {0}
+2026-10-02T09:17:44.7935929Z env:
+2026-10-02T09:17:44.7936302Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:44.7936877Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:44.7937325Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:44.7937651Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:44.7938148Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:44.7938648Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:44.7939089Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:44.7939533Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:44.7940052Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:44.7940409Z ##[endgroup]
+2026-10-02T09:17:45.2751560Z Repository verification failed with 7 issue(s):
+2026-10-02T09:17:45.2753616Z - control-source.jsonl: retained receipt bytes changed
+2026-10-02T09:17:45.2754492Z - final-state.json: retained receipt bytes changed
+2026-10-02T09:17:45.2755350Z - raw-retention.json: retained receipt bytes changed
+2026-10-02T09:17:45.2756229Z - risk-host-entry.json: retained receipt bytes changed
+2026-10-02T09:17:45.2757111Z - witness.json: retained receipt bytes changed
+2026-10-02T09:17:45.2758642Z - evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback/final-state.json: missing final newline
+2026-10-02T09:17:45.2760243Z - evidence/risk-scoring-reference/v1/rejected-candidates/a6b11dd-premature-rollback/risk-host-entry.json: missing final newline
+2026-10-02T09:17:45.2831847Z ##[error]Process completed with exit code 1.
+2026-10-02T09:17:45.2942827Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-02T09:17:45.2943602Z with:
+2026-10-02T09:17:45.2944009Z   name: m1-conformance-7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:45.2944366Z   path: build/m1
+2026-10-02T09:17:45.2944599Z   if-no-files-found: ignore
+2026-10-02T09:17:45.2944841Z   retention-days: 14
+2026-10-02T09:17:45.2945069Z   compression-level: 6
+2026-10-02T09:17:45.2945293Z   overwrite: false
+2026-10-02T09:17:45.2945514Z   include-hidden-files: false
+2026-10-02T09:17:45.2945763Z   archive: true
+2026-10-02T09:17:45.2945961Z env:
+2026-10-02T09:17:45.2946266Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.2946763Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.2947147Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:45.2947441Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.2947905Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:45.2948327Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.2948727Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.2949116Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.2949528Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:45.2949878Z ##[endgroup]
+2026-10-02T09:17:45.4370237Z No files were found with the provided path: build/m1. No artifacts will be uploaded.
+2026-10-02T09:17:45.4566758Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-02T09:17:45.4567542Z with:
+2026-10-02T09:17:45.4568068Z   name: m2-invocation-7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:45.4568837Z   path: build/m2/conformance-summary.json
+build/m2/runs
+
+2026-10-02T09:17:45.4569463Z   if-no-files-found: ignore
+2026-10-02T09:17:45.4569895Z   retention-days: 14
+2026-10-02T09:17:45.4570293Z   compression-level: 6
+2026-10-02T09:17:45.4570695Z   overwrite: false
+2026-10-02T09:17:45.4571098Z   include-hidden-files: false
+2026-10-02T09:17:45.4571578Z   archive: true
+2026-10-02T09:17:45.4571936Z env:
+2026-10-02T09:17:45.4572479Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.4573631Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.4574334Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:45.4574827Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.4575618Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:45.4576380Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.4577079Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.4577777Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.4578492Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:45.4579098Z ##[endgroup]
+2026-10-02T09:17:45.6093552Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T09:17:45.6115057Z The least common ancestor is /home/runner/work/JPyxis/JPyxis/build/m2. This will be the root directory of the artifact
+2026-10-02T09:17:45.6116558Z No files were found with the provided path: build/m2/conformance-summary.json
+2026-10-02T09:17:45.6117557Z build/m2/runs. No artifacts will be uploaded.
+2026-10-02T09:17:45.6266513Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-02T09:17:45.6266947Z with:
+2026-10-02T09:17:45.6267224Z   name: m3-runtime-7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:45.6267637Z   path: build/m3/conformance-summary.json
+build/m3/runs
+
+2026-10-02T09:17:45.6267975Z   if-no-files-found: ignore
+2026-10-02T09:17:45.6268219Z   retention-days: 14
+2026-10-02T09:17:45.6268450Z   compression-level: 6
+2026-10-02T09:17:45.6268675Z   overwrite: false
+2026-10-02T09:17:45.6268904Z   include-hidden-files: false
+2026-10-02T09:17:45.6269156Z   archive: true
+2026-10-02T09:17:45.6269358Z env:
+2026-10-02T09:17:45.6269681Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.6270252Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.6270652Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:45.6270941Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.6271405Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:45.6271830Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.6272223Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.6272619Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.6273032Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:45.6273679Z ##[endgroup]
+2026-10-02T09:17:45.7779550Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T09:17:45.7782728Z The least common ancestor is /home/runner/work/JPyxis/JPyxis/build/m3. This will be the root directory of the artifact
+2026-10-02T09:17:45.7784064Z No files were found with the provided path: build/m3/conformance-summary.json
+2026-10-02T09:17:45.7785211Z build/m3/runs. No artifacts will be uploaded.
+2026-10-02T09:17:45.7987261Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-02T09:17:45.7987705Z with:
+2026-10-02T09:17:45.7987993Z   name: m4-lifecycle-7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:45.7988623Z   path: build/m4/conformance-summary.json
+build/m4/runs
+build/m4/handle-validation
+build/m4/handle-validation-mutations
+
+2026-10-02T09:17:45.7989238Z   if-no-files-found: ignore
+2026-10-02T09:17:45.7989482Z   retention-days: 14
+2026-10-02T09:17:45.7989710Z   compression-level: 6
+2026-10-02T09:17:45.7989927Z   overwrite: false
+2026-10-02T09:17:45.7990148Z   include-hidden-files: false
+2026-10-02T09:17:45.7990403Z   archive: true
+2026-10-02T09:17:45.7990608Z env:
+2026-10-02T09:17:45.7990914Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.7991441Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.7991834Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:45.7992156Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.7992609Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:45.7993051Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.7993671Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.7994053Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.7994440Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:45.7994774Z ##[endgroup]
+2026-10-02T09:17:45.9496825Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T09:17:45.9500691Z The least common ancestor is /home/runner/work/JPyxis/JPyxis/build/m4. This will be the root directory of the artifact
+2026-10-02T09:17:45.9502608Z No files were found with the provided path: build/m4/conformance-summary.json
+2026-10-02T09:17:45.9503796Z build/m4/runs
+2026-10-02T09:17:45.9504382Z build/m4/handle-validation
+2026-10-02T09:17:45.9505301Z build/m4/handle-validation-mutations. No artifacts will be uploaded.
+2026-10-02T09:17:45.9652042Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-10-02T09:17:45.9652740Z with:
+2026-10-02T09:17:45.9653207Z   name: m5-resilience-7545def80f7679cab9d1005664e6de2e35ff058a
+2026-10-02T09:17:45.9654964Z   path: build/m5/conformance-summary.json
+build/m5/runs
+build/m5/coordinate-validation
+build/m5/coordinate-validation-mutations
+build/m5/coordinate-validation-journals
+
+2026-10-02T09:17:45.9656268Z   if-no-files-found: ignore
+2026-10-02T09:17:45.9656669Z   retention-days: 14
+2026-10-02T09:17:45.9657047Z   compression-level: 6
+2026-10-02T09:17:45.9657417Z   overwrite: false
+2026-10-02T09:17:45.9657783Z   include-hidden-files: false
+2026-10-02T09:17:45.9658214Z   archive: true
+2026-10-02T09:17:45.9658539Z env:
+2026-10-02T09:17:45.9659047Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.9659952Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T09:17:45.9660644Z   MAVEN_ARGS: -ntp
+2026-10-02T09:17:45.9661106Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.9661830Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-02T09:17:45.9662547Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.9663192Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.9664085Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-02T09:17:45.9664743Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-02T09:17:45.9665300Z ##[endgroup]
+2026-10-02T09:17:46.1396147Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-02T09:17:46.1399649Z The least common ancestor is /home/runner/work/JPyxis/JPyxis/build/m5. This will be the root directory of the artifact
+2026-10-02T09:17:46.1401112Z No files were found with the provided path: build/m5/conformance-summary.json
+2026-10-02T09:17:46.1402045Z build/m5/runs
+2026-10-02T09:17:46.1402710Z build/m5/coordinate-validation
+2026-10-02T09:17:46.1403721Z build/m5/coordinate-validation-mutations
+2026-10-02T09:17:46.1404705Z build/m5/coordinate-validation-journals. No artifacts will be uploaded.
+2026-10-02T09:17:46.1648208Z Post job cleanup.
+2026-10-02T09:17:46.2545194Z Post job cleanup.
+2026-10-02T09:17:46.3450271Z [command]/usr/bin/git version
+2026-10-02T09:17:46.3516735Z git version 2.55.0
+2026-10-02T09:17:46.3563775Z Temporarily overriding HOME='/home/runner/work/_temp/10382599-e4f0-4c40-95c8-d6d5bcbe1e8e' before making global git config changes
+2026-10-02T09:17:46.3565413Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T09:17:46.3569650Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/JPyxis/JPyxis
+2026-10-02T09:17:46.3616676Z Removing SSH command configuration
+2026-10-02T09:17:46.3624874Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T09:17:46.3678338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T09:17:46.3960635Z Removing HTTP extra header
+2026-10-02T09:17:46.3969089Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T09:17:46.4012424Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T09:17:46.4295119Z Removing includeIf entries pointing to credentials config files
+2026-10-02T09:17:46.4302009Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T09:17:46.4340912Z includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git.path
+2026-10-02T09:17:46.4341837Z includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git/worktrees/*.path
+2026-10-02T09:17:46.4342943Z includeif.gitdir:/github/workspace/.git.path
+2026-10-02T09:17:46.4344214Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-02T09:17:46.4353871Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git.path
+2026-10-02T09:17:46.4382273Z /home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:46.4393804Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-7b342f65\-a11b\-477a\-ad15\-0cbb83a7bb92\.config
+2026-10-02T09:17:46.4438713Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git/worktrees/*.path
+2026-10-02T09:17:46.4467756Z /home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:46.4490567Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/JPyxis/JPyxis/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-7b342f65\-a11b\-477a\-ad15\-0cbb83a7bb92\.config
+2026-10-02T09:17:46.4535530Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-02T09:17:46.4565914Z /github/runner_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:46.4573350Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-7b342f65\-a11b\-477a\-ad15\-0cbb83a7bb92\.config
+2026-10-02T09:17:46.4611251Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-02T09:17:46.4637630Z /github/runner_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config
+2026-10-02T09:17:46.4645253Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-7b342f65\-a11b\-477a\-ad15\-0cbb83a7bb92\.config
+2026-10-02T09:17:46.4683739Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T09:17:46.4924896Z Removing credentials config '/home/runner/work/_temp/git-credentials-7b342f65-a11b-477a-ad15-0cbb83a7bb92.config'
+2026-10-02T09:17:46.5071093Z Cleaning up orphan processes

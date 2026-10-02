@@ -1,0 +1,41 @@
+{
+  "containerBytes": 167154,
+  "sha256": "sha256:a63e61093b39ff027b4323cb53f823f09cc3db227ad514fc3b295de4bce67b6b",
+  "members": [
+    {
+      "path": "control-source.jsonl",
+      "bytes": 83504,
+      "sha256": "sha256:e3bd8100cd71ce30ce6b99a29fa5af75a4f3aac057e9612de672d59835d3e8e0"
+    },
+    {
+      "path": "final-state.json",
+      "bytes": 1859,
+      "sha256": "sha256:4512227dca9d1920039a2f02f5041155b287adc1ff181ced84ca12a15baec9ae"
+    },
+    {
+      "path": "raw-observations.zip",
+      "bytes": 9528,
+      "sha256": "sha256:eda7925618023adc564582aac4ddd8f3738da26fc8413df1914e1658d40785a1"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 24719,
+      "sha256": "sha256:9ac929960e4ccc0812da0f7ee8fc46b6cbf198e8f19b8a756151ddaa348bd600"
+    },
+    {
+      "path": "risk-host-entry.json",
+      "bytes": 1173,
+      "sha256": "sha256:93d594c5682d48028ae96ccc3d9e832bb05f117e0177082daba8446a5cd20468"
+    },
+    {
+      "path": "standby-desktop.png",
+      "bytes": 180417,
+      "sha256": "sha256:b6c1780866bb1716b7d72ba2d3b258ed0f2acbe0f46370ede7a2ec76dffd1046"
+    },
+    {
+      "path": "witness.json",
+      "bytes": 1414,
+      "sha256": "sha256:db44464f9a0e7203f185929153e6dbaa97c6ddcf6f88319daf818364dfd48e6d"
+    }
+  ]
+}

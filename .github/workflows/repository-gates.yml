@@ -18,6 +18,42 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  verify_risk_host:
+    name: Verify risk scoring reference host
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact risk host candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+      - name: Set up Java without dependency cache
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Set up Python without dependency cache
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Verify original rejected candidates before replay
+        run: python scripts/verify-risk-host-retention.py
+      - name: Execute actual HTTP host and independent mutation gates
+        run: node scripts/run-risk-scoring-host.mjs --scenario --public-clean
+      - name: Retain raw host construction, execution, receipts and mutations
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: risk-reference-${{ github.sha }}
+          include-hidden-files: true
+          path: |
+            build/risk
+            !build/risk/**/e/**
+            !build/risk/**/maven-repository/**
+            !build/risk/**/maven-user-home/**
+            !build/risk/**/temporary/**
+          if-no-files-found: ignore
+          retention-days: 14
   verify_reference:
     name: Verify reference actual path
     runs-on: ubuntu-24.04

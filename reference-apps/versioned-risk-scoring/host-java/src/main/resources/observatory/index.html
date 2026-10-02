@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JPyxis · Risk Scoring Reference Host</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside class="rail"><a class="rail-brand" href="#overview"><span class="rail-wordmark">JPYXIS</span><span class="rail-subtitle">CONTROL / EXECUTION</span></a><nav aria-label="Observatory"><a href="#overview"><svg aria-hidden="true" focusable="false" data-lucide="layout-dashboard"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="7" height="9" x="3" y="3" rx="1" />
+  <rect width="7" height="5" x="14" y="3" rx="1" />
+  <rect width="7" height="9" x="14" y="12" rx="1" />
+  <rect width="7" height="5" x="3" y="16" rx="1" />
+</svg><span>Overview</span></a>
+<a href="#workspace" class="selected"><svg aria-hidden="true" focusable="false" data-lucide="chart-no-axes-combined"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 16v5" />
+  <path d="M16 14.639V21" />
+  <path d="M20 10.656V21" />
+  <path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" />
+  <path d="M4 18.463V21" />
+  <path d="M8 14.656V21" />
+</svg><span>Risk scoring</span></a>
+<a href="#lifecycle"><svg aria-hidden="true" focusable="false" data-lucide="layers"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</svg><span>Lifecycle</span></a>
+<a href="#records"><svg aria-hidden="true" focusable="false" data-lucide="list-ordered"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 5h10" />
+  <path d="M11 12h10" />
+  <path d="M11 19h10" />
+  <path d="M4 4h1v5" />
+  <path d="M4 9h2" />
+  <path d="M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02" />
+</svg><span>Invocations</span></a>
+<a href="#receipt"><svg aria-hidden="true" focusable="false" data-lucide="file-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" />
+</svg><span>Receipts</span></a></nav><div class="rail-foot"><span>REFERENCE HOST</span><p>One local host.<br>Explicit authority.</p></div></aside>
+<div class="shell">
+<header id="overview"><div class="brand">JPYXIS<span>CONTROL OBSERVATORY</span></div><div class="host-label">RISK SCORING REFERENCE HOST<span id="source-label">Connecting to Java host…</span></div></header>
+<main>
+<section class="control-strip" aria-label="Live control status"><div><span class="label">CONTROL</span><strong id="control-status">CONNECTING</strong></div><div><span class="label">ACTIVE ROUTE</span><strong id="route">—</strong></div><div><span class="label">ELIGIBLE WORKERS</span><strong id="workers">—</strong></div><div class="actions" id="lifecycle-actions"></div></section>
+<div class="dashboard-grid">
+<div class="work-surface">
+<section class="title-row"><div><p class="eyebrow">RISK SCORING · SYNTHETIC REFERENCE</p><h1>JPYXIS CONTROL OBSERVATORY</h1></div><blockquote>Compute can be delegated.<br> Authority cannot.</blockquote></section>
+<ol class="flow" aria-label="Authority flow"><li><b>01</b><span>REQUEST</span><svg aria-hidden="true" focusable="false" data-lucide="chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg></li><li><b>02</b><span>CONTROL BINDING</span><svg aria-hidden="true" focusable="false" data-lucide="chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg></li><li><b>03</b><span>EXECUTION</span><svg aria-hidden="true" focusable="false" data-lucide="chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg></li><li><b>04</b><span>HOST DECISION</span></li></ol>
+<div id="message" class="notice" role="status" aria-live="polite" hidden></div>
+<section class="request-card" aria-label="Prepare synthetic request"><div class="request-heading"><span><b>01</b> REQUEST <em>Java Host</em></span><span class="request-caption" id="request-caption">No invocation yet</span></div><div class="request-bar"><div><span class="label">SYNTHETIC RISK FEATURES</span><select id="sample" aria-label="Synthetic sample"><option value="STANDARD">Standard exposure</option><option value="LOW">Low exposure</option><option value="HIGH">High exposure</option></select></div><div><span class="label">EXECUTION MODE</span><select id="mode" aria-label="Execution mode"><option value="normal">Normal computation</option><option value="hold">Hold for cutover · 15s witness</option><option value="crash">Crash after dispatch · diagnostic</option></select></div><button id="invoke" class="primary">Invoke explicitly</button><button id="release" hidden>Release held request</button></div></section>
+<section class="wings" id="workspace" aria-label="Current request">
+<article class="wing execution"><div class="wing-head"><span>03 · WEST WING</span><h2>Execution report</h2><p>Python / Runtime</p></div><div class="wing-body"><div class="score-sheet"><span class="label">RISK SCORE · COMPUTATION ONLY</span><strong id="score">—</strong><p id="score-note">No computation has been delegated.</p></div><dl id="execution-facts"></dl><p class="terminal" id="terminal">AWAITING REQUEST</p></div></article>
+<article class="wing charter"><div class="wing-head"><span>02 · CENTRAL CHARTER</span><h2>Control binding</h2><p>Contract · eligibility · continuity</p></div><div class="wing-body"><div class="authority" id="authority">NO ACTIVE BINDING</div><dl id="binding-facts"></dl><div class="features"><span class="label">RISK FEATURES · PREPARED BY JAVA</span><div id="features">Select a synthetic sample and invoke.</div></div><p class="boundary">Observation ≠ score ≠ business decision.</p></div></article>
+<article class="wing policy"><div class="wing-head"><span>04 · EAST WING</span><h2>Java policy decision</h2><p>Host-owned business authority</p></div><div class="wing-body"><div class="decision-sheet"><span class="label">BUSINESS DECISION</span><strong id="decision">WITHHELD</strong><p id="decision-note">A validated success is required.</p></div><div class="policy-rules"><span class="label">SEALED JAVA POLICY · v1.0.0</span><div><code>score ≥ 0.80</code><b>REJECT</b></div><div><code>score ≥ 0.55</code><b>REVIEW</b></div><div><code>otherwise</code><b>ALLOW</b></div></div><p class="boundary">Python computes. Java decides.<br>No automatic retry.</p></div></article>
+</section>
+<section class="receipt-section" id="receipt"><details id="receipt-details"><summary><svg aria-hidden="true" focusable="false" data-lucide="file-text"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" />
+</svg><span>View execution receipt<small>Execution Binding / Observed Execution / Java Decision</small></span><svg aria-hidden="true" focusable="false" data-lucide="chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><div class="receipt-layers" id="receipt-layers"></div></details><div class="receipt-bottom"><p id="shutdown-note">Shutdown is a separate physical observation.</p><div class="receipt-actions"><button id="close">Close owned workers</button><button id="export" disabled>Export sealed receipt</button></div></div></section>
+</div>
+<aside class="instrument-rail" aria-label="Version and invocation overview">
+<section class="continuity" id="lifecycle"><div class="section-heading"><h2>Version continuity</h2><span class="label">OWNER STATES</span></div><div id="timeline" class="timeline"></div><details id="ceremony"><summary>Inspect rollback ceremony <svg aria-hidden="true" focusable="false" data-lucide="chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg></summary><ol id="ceremony-events"></ol></details></section>
+<section id="records"><div class="section-heading"><h2>Recent invocations</h2><span class="label">SELECT REQUEST</span></div><div class="table-scroll"><table><thead><tr><th>Request</th><th>Pinned version</th><th>Score</th><th>Java decision</th><th>Execution</th></tr></thead><tbody id="request-rows"></tbody></table></div></section>
+</aside>
+</div>
+<footer>JPyxis reference witnesses: Java · Python · NumPy · gRPC<span>Authority stays with its owner.</span></footer>
+</main></div></body></html>

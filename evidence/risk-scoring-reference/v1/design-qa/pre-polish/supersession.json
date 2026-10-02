@@ -1,0 +1,11 @@
+{
+  "schema": "jpyxis-risk-visual-supersession-v1",
+  "priorReportCommit": "0f5994ed9c3dcc0fe09ff083fbb32e5b88d7d1f2",
+  "priorReportBlob": "4f73a56ac3d9417f449ba66f37eadf058cd39a20",
+  "priorReportSha256": "608acf31a15f5e577980dfd266eb070ab7aea53defe5604d370c219ced75fc0f",
+  "screenshots": "../final",
+  "rawScreenshotLedger": "../final/archive-retention.json",
+  "status": "SUPERSEDED",
+  "reason": "User visual review identifies P2 fidelity and density findings; semantic witnesses do not establish visual fidelity.",
+  "repairScope": "HTML/CSS/presentation only; runtime, authority and receipt semantics frozen"
+}

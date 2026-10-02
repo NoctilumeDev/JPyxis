@@ -1,0 +1,29 @@
+{
+  "executionBuild" : {
+    "sourceRevision" : "a6b11ddef22b94bff8504b39894766ace171d1c0",
+    "sourceTree" : "2be42fefa504a8a7493fd43c7d9edf2d94bcf921",
+    "inputInventoryDigest" : "sha256:808e21e45c9cf2416b2295453f477f8e46664ef1eedc3fa9383e4880fff473ba",
+    "constructionReceiptDigest" : "sha256:cb3ef97d7cff4336e13256b141bfcb06436319cb818fd9dca59318eaaac8142b"
+  },
+  "policy" : {
+    "identity" : "jpyxis.reference/risk-policy@1.0.0",
+    "nonSuccess" : "WITHHELD",
+    "allowBelow" : 0.55,
+    "reviewBelow" : 0.8
+  },
+  "schemaVersion" : "jpyxis.io/risk-host-entry/v1alpha1",
+  "policyDigest" : "sha256:73bf6bdb0622fa3762090861e938372a7f0bc9f04385ce502f3a0fd965b0d3f6",
+  "definitions" : [ {
+    "identity" : "jpyxis:definition:reference/risk-affine@1.0.0",
+    "scale" : 0.8,
+    "version" : "v1",
+    "digest" : "sha256:980b74c66dddcb5d96ff0d450efeb83d5851471c65e94b17eae3448a69f65bb3",
+    "bias" : 0.01
+  }, {
+    "identity" : "jpyxis:definition:reference/risk-affine@2.0.0",
+    "scale" : 0.9,
+    "version" : "v2",
+    "digest" : "sha256:498ebd78b91f6d164246e9a7a8151b6f9a231b12ed60e87f80968539179ff27a",
+    "bias" : 0.04
+  } ]
+}

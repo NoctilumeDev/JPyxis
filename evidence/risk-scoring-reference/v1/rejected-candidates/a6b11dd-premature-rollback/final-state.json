@@ -1,0 +1,49 @@
+{
+  "binding" : { },
+  "deployments" : [ {
+    "deploymentId" : "ed219fa4-f652-43f9-a65c-9a99673acbbd",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:reference/risk-affine@1.0.0",
+      "digest" : "sha256:980b74c66dddcb5d96ff0d450efeb83d5851471c65e94b17eae3448a69f65bb3"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  }, {
+    "deploymentId" : "f277f04a-bfd5-4c6b-bd1a-a991cb2482c0",
+    "slot" : "affine-reference",
+    "artifact" : {
+      "identity" : "jpyxis:definition:reference/risk-affine@2.0.0",
+      "digest" : "sha256:498ebd78b91f6d164246e9a7a8151b6f9a231b12ed60e87f80968539179ff27a"
+    },
+    "state" : "RETIRED",
+    "runtimeProviderIdentity" : "jpyxis.reference.python-launch",
+    "runtimeProviderVersion" : "v1",
+    "outstandingPins" : 0
+  } ],
+  "processes" : [ {
+    "pid" : 33092,
+    "birth" : "2026-10-02T08:53:51.843Z",
+    "alive" : false,
+    "launchNonce" : "3efd1fd6-8d4a-443a-821e-612fd7e05f6b",
+    "handle" : {
+      "workerId" : "worker-ed219fa4-f652-43f9-a65c-9a99673acbbd",
+      "instanceId" : "worker-ed219fa4-f652-43f9-a65c-9a99673acbbd@e4f20336-affd-4d04-9444-910453249773-1",
+      "controlEpoch" : "e4f20336-affd-4d04-9444-910453249773",
+      "processId" : 33092
+    }
+  }, {
+    "pid" : 21768,
+    "birth" : "2026-10-02T08:56:48.658Z",
+    "alive" : false,
+    "launchNonce" : "7ef32649-36d6-4b59-bce5-66e4405fd5ab",
+    "handle" : {
+      "workerId" : "worker-f277f04a-bfd5-4c6b-bd1a-a991cb2482c0",
+      "instanceId" : "worker-f277f04a-bfd5-4c6b-bd1a-a991cb2482c0@e4f20336-affd-4d04-9444-910453249773-1",
+      "controlEpoch" : "e4f20336-affd-4d04-9444-910453249773",
+      "processId" : 21768
+    }
+  } ]
+}

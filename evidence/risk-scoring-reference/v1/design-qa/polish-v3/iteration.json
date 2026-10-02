@@ -1,0 +1,34 @@
+{
+  "sourceRevision": "a4136cb022d4bffe67ea182dd4a9ae5b4075bd32",
+  "sourceTree": "23e5a93bd552ffa7d97d54e576be27a9d52c6ae4",
+  "installedArtifactSha256": "sha256:8be34e4abe27a6f727f54069668917046955265b8196221180a90ae2f5f6eb3e",
+  "visualResult": "PASS",
+  "findings": [],
+  "supersedes": [
+    "../final",
+    "../polish-v2"
+  ],
+  "scope": "Installed-product visual and interaction QA; fresh private host/workers, reused installed environment. No public qualification claim.",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "width": 1120,
+      "height": 800
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "requests": 5,
+  "allOwnedWorkersStopped": true,
+  "downloadMatchesOwnerReceipt": true,
+  "runtimeSemanticsUnchangedFrom": "93c3763de99fc2d2f3644c8e91e50968c79c46a3"
+}
