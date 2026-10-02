@@ -14,12 +14,12 @@ import java.util.concurrent.*;
 
 /** Private business host. The reused owners retain every execution/lifecycle decision. */
 final class RiskScoringSlot implements AutoCloseable {
-    record RiskFeatures(String sample, double normalizedExposure, double activity) {
+    record RiskFeatures(String sample, double normalizedExposure, double activity, double velocity, double concentration) {
         static RiskFeatures synthetic(String sample) {
             return switch(sample) {
-                case "LOW" -> new RiskFeatures(sample, 0.10, 0.12);
-                case "STANDARD" -> new RiskFeatures(sample, 0.90, 0.35);
-                case "HIGH" -> new RiskFeatures(sample, 0.99, 0.85);
+                case "LOW" -> new RiskFeatures(sample, 0.10, 0.12, 0.07, 0.11);
+                case "STANDARD" -> new RiskFeatures(sample, 0.90, 0.35, 0.20, 0.45);
+                case "HIGH" -> new RiskFeatures(sample, 0.99, 0.85, 0.76, 0.94);
                 default -> throw new IllegalArgumentException("unknown synthetic sample");
             };
         }
@@ -182,8 +182,8 @@ final class RiskScoringSlot implements AutoCloseable {
                 Files.deleteIfExists(launch.resolve("runtime-entered.json"));Files.deleteIfExists(launch.resolve("release-execution"));
                 ReferenceJson.write(launch.resolve("execution-control.json"),Map.of("mode",mode.equals("hold")?"wait":mode));
             } catch(Exception e) {throw new IllegalStateException("cannot retain explicit diagnostic mode",e);}
-            JsonNode input=ReferenceJson.tree(Map.of("values",Map.of("dtype","float32","shape",List.of(1,2),"layout","ROW_MAJOR",
-                    "values",List.of(features.normalizedExposure(),features.activity())),"scale",item.definition().scale(),"bias",item.definition().bias()));
+            JsonNode input=ReferenceJson.tree(Map.of("values",Map.of("dtype","float32","shape",List.of(1,4),"layout","ROW_MAJOR",
+                    "values",List.of(features.normalizedExposure(),features.activity(),features.velocity(),features.concentration())),"scale",item.definition().scale(),"bias",item.definition().bias()));
             var prepared=control.prepare(input);
             ReferenceJson.require(prepared.candidate==item.candidate(),"atomic active route and calibration selection");
             request=new Request(id,mode,features,item,prepared);requests.put(id,request);
@@ -204,6 +204,7 @@ final class RiskScoringSlot implements AutoCloseable {
                 float score=(float)values.get(0).asDouble();
                 ReferenceJson.require(Float.isFinite(score)&&score>=0&&score<=1,"bounded RiskScore");
                 terminal.put("score",score);terminal.put("signal",(float)values.get(1).asDouble());
+                terminal.set("signals",values.deepCopy());
                 terminal.put("decision",score<0.55f?"ALLOW":score<0.80f?"REVIEW":"REJECT");
             } else {terminal.putNull("score");terminal.put("decision","WITHHELD");}
             if(request.mode.equals("crash")&&p.wireCalled&&p.candidate.launch.process.waitFor(5,TimeUnit.SECONDS)) {

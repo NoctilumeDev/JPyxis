@@ -18,7 +18,9 @@ const canonical=v=>Buffer.from(JSON.stringify(sort(v)));
 const commands=[],pythonBase=process.env.JPYXIS_PYTHON||(process.platform==='win32'?'python':'python3');
 const venv=path.join(root,'e'),python=path.join(venv,process.platform==='win32'?'Scripts/python.exe':'bin/python'),generated=path.join(root,'generated');
 fs.mkdirSync(generated);fs.mkdirSync(path.join(root,'temporary'));
-const env={...process.env,PIP_NO_CACHE_DIR:'1',PIP_DISABLE_PIP_VERSION_CHECK:'1',PYTHONDONTWRITEBYTECODE:'1',MAVEN_USER_HOME:path.join(root,'maven-user-home'),MAVEN_OPTS:[process.env.MAVEN_OPTS,`-Dmaven.repo.local=${path.join(root,'maven-repository')}`].filter(Boolean).join(' ')};
+assert.ok(!publicClean||!process.env.JPYXIS_LOCAL_MAVEN_REPO,'Public proof requires a fresh private Maven repository');
+const mavenRepository=process.env.JPYXIS_LOCAL_MAVEN_REPO||path.join(root,'maven-repository');
+const env={...process.env,PIP_NO_CACHE_DIR:'1',PIP_DISABLE_PIP_VERSION_CHECK:'1',PYTHONDONTWRITEBYTECODE:'1',MAVEN_USER_HOME:path.join(root,'maven-user-home'),MAVEN_OPTS:[process.env.MAVEN_OPTS,`-Dmaven.repo.local=${mavenRepository}`].filter(Boolean).join(' ')};
 let javaChild,failed;
 async function run(id,executable,args,live=false){
   console.log(`Risk host: ${id}`);
@@ -33,7 +35,7 @@ async function run(id,executable,args,live=false){
 }
 const walk=dir=>fs.existsSync(dir)?fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]):[];
 try{
-  write('source.json',{revision,tree,dirty:false,publicClean,scope:'private risk reference host',hostPlatform:process.platform});
+  write('source.json',{revision,tree,dirty:false,publicClean,localMavenReuse:!!process.env.JPYXIS_LOCAL_MAVEN_REPO,scope:'private risk reference host',hostPlatform:process.platform});
   const inputFiles=git('ls-tree','-r','--name-only',revision).split('\n').filter(name=>/^(reference-apps\/versioned-risk-scoring\/|reference\/|bindings\/(java\/src\/main|python\/)|invocation\/(java\/src\/main|python\/)|lifecycle\/java\/src\/main|resilience\/java\/src\/main|spec\/(m1\/contracts|m2\/(proto|cases))|scripts\/(run-risk-scoring-host|verify-risk-host|verify-reference-wire))/.test(name)||name==='pom.xml'||/\/java\/pom.xml$/.test(name));
   const inventory=[];
   for(const name of inputFiles){const raw=fs.readFileSync(name),dest=path.join(root,'inputs',name);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,raw);inventory.push({path:name,gitBlob:git('rev-parse',`${revision}:${name}`),bytes:raw.length,sha256:sha(raw)});}

@@ -4,8 +4,9 @@ Status: `REFERENCE HOST CANDIDATE · ACTUAL QUALIFICATION REQUIRED`
 
 This private application is a second host integration over the already qualified bounded affine
 reference composition. It is not a public SDK or a new Core profile. Java prepares synthetic
-normalized exposure and activity features. Python/NumPy computes two finite float32 affine values;
-the first is RiskScore and the second is a computation signal. Java alone applies the sealed
+normalized exposure, activity, velocity and concentration features. The frozen tensor contract
+requires four columns. Python/NumPy computes four finite float32 affine values; the first is RiskScore
+and the other three are computation signals. Java alone applies the sealed
 policy: score below 0.55 is ALLOW, below 0.80 is REVIEW, otherwise REJECT. Any non-success withholds
 the decision. The policy is a demonstration over synthetic inputs, not a financial model.
 
@@ -80,3 +81,16 @@ state. All actions, lifecycle states, request records and receipt layers are acc
 This slice does not establish production readiness, general algorithms, durable host restart,
 arbitrary environments, multi-node control, resource scheduling, untrusted-code isolation, FlowKernel
 integration or VeriTrail authority. Any missing frozen semantic seam requires STOP before repair.
+
+## First retained failures
+
+The first install candidate `594ba2dd179ed47bbccb46bf0d8bb2dc97bdbeb4` hit Windows MAX_PATH before
+any business worker launched. Its unchanged 181-member original archive is retained under
+`evidence/risk-scoring-reference/v1/rejected-candidates/594ba2d-first-install`. The path repair
+candidate `69ca5225af42d25b636c81848dfaefc0e2e9b8a3` then reached real HTTP/worker execution but its
+two-column mapper was rejected against the frozen four-column input, and Java withheld the decision.
+Its 228-member original archive and independently stopped processes remain under
+`evidence/risk-scoring-reference/v1/rejected-candidates/69ca522-first-mapper`. The initial archive
+metadata transcribed that complete source SHA incorrectly; its separate coordinate correction
+derives the exact SHA/tree from original contained source facts without rewriting the initial ledger.
+The mapper repair expands only application features, not the frozen contract.
