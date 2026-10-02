@@ -1,0 +1,55 @@
+{
+  "revision": "011bb66aba9ef89af4aa37dc379cd4e826d95b39",
+  "base": "http://127.0.0.1:8768/observatory-demo/",
+  "rows": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 12313,
+      "sha256": "291222e09235af7caacb5b1aafd2d0b519b8a6512dada65021ea3fde348730c3",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "bytes": 19958,
+      "sha256": "8c82100c27fab0d9a662e40ac779750654c60e63d75d0c2a379c2c458196d01b",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "style.css",
+      "status": 200,
+      "bytes": 17897,
+      "sha256": "5164d05b22db68a55e031d0320faf398f2feccdfbd3e69f7667689abafb2a55e",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "demo.css",
+      "status": 200,
+      "bytes": 354,
+      "sha256": "d399f4fe6076d4c4db3f38dae597e7972d863c4c6ab16136c8aabe3698ade789",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "demo-engine.mjs",
+      "status": 200,
+      "bytes": 7662,
+      "sha256": "3a0bb5d0c75547f60223d915c62c3c227e4bb216d410f8d60bed46c3fe2460b6",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "catalog.json",
+      "status": 200,
+      "bytes": 1100,
+      "sha256": "a015bdd4dbae8a2b5adf82400e0639b01ff8d01a7b68ab2d480fc627c3beb6be",
+      "byteEqualToBuild": true
+    },
+    {
+      "file": "publication.json",
+      "status": 200,
+      "bytes": 743,
+      "sha256": "aad3f91cdd5bc1da0ccdf044e46e55c42e2425db91f20a0075ee62773acddcc3",
+      "byteEqualToBuild": true
+    }
+  ]
+}

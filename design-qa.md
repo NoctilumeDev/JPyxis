@@ -1,9 +1,13 @@
-# Risk Scoring Observatory: polish-v4 final review candidate
+# Risk Scoring Observatory: polish-v4 design verification
 
 Implementation regression verification: PASS. The independent tester and product-manager
 reviews have completed in sequence. Two confirmed P2 narrow-width issues were repaired;
 the final directory refinement has no remaining substantive product finding in the bounded
-source and native-evidence review. Final user visual sign-off is PENDING. No merge is authorized.
+source and native-evidence review. The user subsequently authorized merge, commit and push.
+PR [#40](https://github.com/NoctilumeDev/JPyxis/pull/40) merged on 2026-10-02 UTC at
+`09ac1d4caea32ff1ce251da8acdc56cbebb5020e`; its four exact-main repository gates passed in
+[run 37047689101](https://github.com/NoctilumeDev/JPyxis/actions/runs/37047689101).
+The [public demo guide](docs/observatory-demo.md) describes the later browser-only presentation.
 
 ## Scope and exact source
 
@@ -20,7 +24,8 @@ Later evidence/report-only commits retain these asset blobs:
 Only these UI assets, this report and design evidence change from base. Java, Python
 algorithms, protocols, policy, receipt schema, frozen contracts, tests and gate scripts
 remain unchanged. The original user checkout retains its unrelated README/roadmap edits;
-the original main preview remains separate.
+the original main preview was retained separately during review and has since been replaced by
+a fresh installed preview built from merged source `09ac1d4caea32ff1ce251da8acdc56cbebb5020e`.
 
 All paths below are relative to `evidence/risk-scoring-reference/v1/design-qa/polish-v4/`.
 The latest source-bound inventory, native captures, geometry comparisons and actual outcomes
@@ -212,6 +217,7 @@ are retained. Historical comparisons under `final-comparison-*` describe the ear
 ## Acceptance boundary
 
 The implementer verification and the sequential bounded independent reviews are complete.
-User final visual approval remains pending. Source-bound CI completion is reported on the
-draft PR separately; passing CI does not grant visual acceptance or merge authorization.
-This candidate remains a draft review artifact. No merge has been performed or authorized.
+The user authorized publication after the bounded reviews. PR #40 is merged, and its exact-main
+four-gate run is green. That authorization is separate from CI results. The native captures and
+raw archives below remain records of their original rendered sources; they are not relabelled as
+the later public browser simulation. The public demo adds no actual runtime qualification.

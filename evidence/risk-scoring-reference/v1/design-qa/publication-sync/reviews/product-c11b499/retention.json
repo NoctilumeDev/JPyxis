@@ -1,0 +1,16 @@
+{
+  "scope": "Exact original reviewer bytes in ZIP; public text projections normalize LF and final newline only",
+  "archiveSha256": "e1dca9adf5c8d4683855012fff8bc551f97857f7610b6f2ad5c12eccecaf16f0",
+  "members": [
+    {
+      "path": "report.md",
+      "bytes": 9457,
+      "sha256": "89efe9d714f82c31f2daf759a280cabe03e147567a241491688e266630e7e0e2"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 2841,
+      "sha256": "84b41206b9ab9cb4f8a7e2d96ccf18c311da429f9b5fa627bd4e494fbe1bec3f"
+    }
+  ]
+}

@@ -6,6 +6,14 @@
 
 JPyxis is a staged research framework for governing heterogeneous compute workloads through explicit, versioned contracts. Its first reference profile studies a Java control plane, a Python definition frontend, and an existing CPU runtime. Those languages and runtimes are reference adapters, not the identity of the architecture.
 
+**[▶ 演示 / Play the Observatory Demo](https://noctilumedev.github.io/JPyxis/)**
+
+Open the desktop frontend and try installation, activation, synthetic requests, pinned version
+cutover, missing outcomes and fresh rollback. This public demo runs entirely in your browser;
+its simulated execution and downloadable demo receipt do not claim real Java/Python execution.
+For the real loopback host and retained browser evidence, see the
+[demo and local-run guide](docs/observatory-demo.md).
+
 ## Status
 
 **`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE · BOUNDED ACTUAL REFERENCE PATH PROVEN`**
@@ -373,6 +381,12 @@ receipts through a local observatory. Its [bounded qualification record](docs/re
 binds protected PR #38, four fresh-VM gates, independently downloaded readbacks and a fresh installed
 observation at exact main `151785c281e8e18f8e023c301009f0f1c53e32f2`. This qualifies the synthetic
 reference host within that retained scope; it does not widen Core contracts or establish production readiness.
+
+The [desktop observatory](docs/observatory-demo.md) presents Request → Control Binding → Execution →
+Host Decision together, between matching context directories. Its interactive public demo is
+generated from the same HTML/CSS and renderer as the local host; browser simulation is kept separate
+from actual execution evidence. [Design QA](design-qa.md) retains the native browser checks,
+sequential independent reviews and the front-end publication boundary.
 
 ## M6 reproducibility baseline
 

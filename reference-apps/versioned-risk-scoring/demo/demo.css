@@ -1,0 +1,8 @@
+.demo-toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px 16px; padding:8px 0; font-size:12px; color:var(--muted); }
+.demo-toolbar strong { color:var(--navy); }
+.demo-toolbar a { text-underline-offset:3px; }
+.demo-toolbar button { font-size:12px; padding:4px 10px; }
+.demo-toolbar p { flex-basis:100%; margin:0; }
+@media (width < 1024px) {
+  #demo-reset { display:none; }
+}

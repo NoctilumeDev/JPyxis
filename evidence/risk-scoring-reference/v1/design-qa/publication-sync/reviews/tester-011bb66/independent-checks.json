@@ -1,0 +1,77 @@
+{
+  "head": "011bb66aba9ef89af4aa37dc379cd4e826d95b39",
+  "checks": [
+    {
+      "name": "Every current version/sample policy branch",
+      "result": "PASS"
+    },
+    {
+      "name": "STANDBY does not authorize rollback and an unavailable first version cannot rollback",
+      "result": "PASS"
+    },
+    {
+      "name": "Three independent held realization pins survive cutover and fresh rollback",
+      "result": "PASS"
+    },
+    {
+      "name": "UNKNOWN/null/WITHHELD and original pin remain unchanged across both rollback directions",
+      "result": "PASS"
+    },
+    {
+      "name": "Close terminates every held request without awarding a decision, snapshot receipt detached, reset reinitializes model",
+      "result": "PASS"
+    },
+    {
+      "name": "Relative public entry, simulation copy, no loopback API or host credentials",
+      "result": "PASS"
+    },
+    {
+      "name": "Publication binds normalized host assets and copied style has no drift",
+      "result": "PASS"
+    }
+  ],
+  "results": [
+    {
+      "version": "v1",
+      "sample": "LOW",
+      "score": 0.09000000357627869,
+      "signal": 0.10599999874830246,
+      "decision": "ALLOW"
+    },
+    {
+      "version": "v1",
+      "sample": "STANDARD",
+      "score": 0.7299999594688416,
+      "signal": 0.28999999165534973,
+      "decision": "REVIEW"
+    },
+    {
+      "version": "v1",
+      "sample": "HIGH",
+      "score": 0.8019999861717224,
+      "signal": 0.6899999976158142,
+      "decision": "REJECT"
+    },
+    {
+      "version": "v2",
+      "sample": "LOW",
+      "score": 0.12999999523162842,
+      "signal": 0.14800000190734863,
+      "decision": "ALLOW"
+    },
+    {
+      "version": "v2",
+      "sample": "STANDARD",
+      "score": 0.8499999642372131,
+      "signal": 0.35499998927116394,
+      "decision": "REJECT"
+    },
+    {
+      "version": "v2",
+      "sample": "HIGH",
+      "score": 0.9309999942779541,
+      "signal": 0.8050000071525574,
+      "decision": "REJECT"
+    }
+  ]
+}
