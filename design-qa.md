@@ -76,3 +76,26 @@ actual version cards newest first, and bounds history/recent scrollers. No host 
 selection data changes. 10/11/12 retain scroll offsets and do not prove the first screen.
 The source-bound functional scenario and mutations returned their expected results; all
 six original UI worker/probe processes stopped, and export equals the original receipt.
+
+## Third iteration observations and retained capture failure
+
+a31aad7b3534677e63ed0ea4625531c4d84e921f completed the unchanged seven-request
+scenario and six mutation expectations. The first GUI pilot used an incorrect release
+locator, exceeded the actual 15-second held deadline and produced FAILED. Capture 24
+does not prove held cutover. The original pilot receipt, archive and four stopped
+worker/probe observations are retained; this is an operator capture failure.
+
+A fresh actual GUI session produced captures 30-42: v1 REVIEW, qualified v2 standby,
+old v1 pin across v2 activation (34, IN_FLIGHT, subsequently explicitly released and
+SUCCEEDED), v2 REJECT, dispatched crash UNKNOWN, fresh rollback and new v1 ALLOW.
+Receipt summary bottoms were 888.802px during held cutover and 880.052px for UNKNOWN.
+Fresh rollback keeps the original R004 UNKNOWN / HELD / WITHHELD while its actual new
+v1 realization appears first. Its journey line still clips the launch nonce on desktop;
+that remaining visibility requirement is unmet. Remove journey text truncation while
+retaining the bounded, keyboard-accessible version history. Recent history also receives
+an explicit focus target and label. New source-bound observations are required.
+
+40-unknown-1280 has a nonzero scroll offset after receipt keyboard focus and resizing;
+it is retained but rejected as top-of-page evidence. 41 and 42 are at scrollY=0. The
+third GUI export equals the original receipt byte-for-byte, Java exited normally and
+all six original worker/probe processes were independently observed stopped.
