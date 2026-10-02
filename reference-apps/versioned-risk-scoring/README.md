@@ -66,7 +66,8 @@ node scripts/run-risk-scoring-host.mjs --scenario
 
 Set `JPYXIS_PYTHON` to the native interpreter when needed. Bootstrap installs only the existing
 pinned M2/M3 requirements into a private environment and retains construction/source facts under
-`build/risk-scoring-reference/`. The live server binds loopback; stop it with Ctrl+C after closing
+`build/risk/`. Its short directory names avoid Windows MAX_PATH without changing machine settings.
+The live server binds loopback; stop it with Ctrl+C after closing
 workers and exporting the receipt. The scenario uses the same HTTP operations and real separate
 workers. Public qualification additionally requires fresh-VM gates, protected merge, exact-main
 replay and downloaded independent readback. First failed candidates are retained before repair.

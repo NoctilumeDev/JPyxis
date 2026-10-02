@@ -9,14 +9,14 @@ const revision=git('rev-parse','HEAD'),tree=git('rev-parse','HEAD^{tree}');
 assert.equal(git('status','--porcelain'),'','Commit the complete candidate before running the source-bound host');
 const scenario=process.argv.includes('--scenario'),publicClean=process.argv.includes('--public-clean');
 assert.ok(!publicClean||(scenario&&process.env.GITHUB_ACTIONS==='true'),'A local run cannot grant fresh-VM qualification');
-const root=path.join(project,'build/risk-scoring-reference',`${revision.slice(0,12)}-${Date.now()}`);
+const root=path.join(project,'build/risk',`${revision.slice(0,8)}-${Date.now().toString(36)}`);
 fs.mkdirSync(path.join(root,'logs'),{recursive:true});
 const write=(name,value)=>fs.writeFileSync(path.join(root,name),JSON.stringify(value,null,2)+'\n');
 const sha=raw=>'sha256:'+crypto.createHash('sha256').update(raw).digest('hex');
 const sort=v=>Array.isArray(v)?v.map(sort):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,sort(v[k])])):v;
 const canonical=v=>Buffer.from(JSON.stringify(sort(v)));
 const commands=[],pythonBase=process.env.JPYXIS_PYTHON||(process.platform==='win32'?'python':'python3');
-const venv=path.join(root,'environment'),python=path.join(venv,process.platform==='win32'?'Scripts/python.exe':'bin/python'),generated=path.join(root,'generated');
+const venv=path.join(root,'e'),python=path.join(venv,process.platform==='win32'?'Scripts/python.exe':'bin/python'),generated=path.join(root,'generated');
 fs.mkdirSync(generated);fs.mkdirSync(path.join(root,'temporary'));
 const env={...process.env,PIP_NO_CACHE_DIR:'1',PIP_DISABLE_PIP_VERSION_CHECK:'1',PYTHONDONTWRITEBYTECODE:'1',MAVEN_USER_HOME:path.join(root,'maven-user-home'),MAVEN_OPTS:[process.env.MAVEN_OPTS,`-Dmaven.repo.local=${path.join(root,'maven-repository')}`].filter(Boolean).join(' ')};
 let javaChild,failed;
@@ -34,7 +34,7 @@ async function run(id,executable,args,live=false){
 const walk=dir=>fs.existsSync(dir)?fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]):[];
 try{
   write('source.json',{revision,tree,dirty:false,publicClean,scope:'private risk reference host',hostPlatform:process.platform});
-  const inputFiles=git('ls-tree','-r','--name-only',revision).split('\n').filter(name=>/^(reference-apps\/versioned-risk-scoring\/|reference\/|bindings\/(java\/src\/main|python\/)|invocation\/(java\/src\/main|python\/)|lifecycle\/java\/src\/main|resilience\/java\/src\/main|spec\/(m1\/contracts|m2\/proto)|scripts\/(run-risk-scoring-host|verify-risk-host|verify-reference-wire))/.test(name)||name==='pom.xml'||/\/java\/pom.xml$/.test(name));
+  const inputFiles=git('ls-tree','-r','--name-only',revision).split('\n').filter(name=>/^(reference-apps\/versioned-risk-scoring\/|reference\/|bindings\/(java\/src\/main|python\/)|invocation\/(java\/src\/main|python\/)|lifecycle\/java\/src\/main|resilience\/java\/src\/main|spec\/(m1\/contracts|m2\/(proto|cases))|scripts\/(run-risk-scoring-host|verify-risk-host|verify-reference-wire))/.test(name)||name==='pom.xml'||/\/java\/pom.xml$/.test(name));
   const inventory=[];
   for(const name of inputFiles){const raw=fs.readFileSync(name),dest=path.join(root,'inputs',name);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,raw);inventory.push({path:name,gitBlob:git('rev-parse',`${revision}:${name}`),bytes:raw.length,sha256:sha(raw)});}
   write('input-inventory.json',{revision,tree,files:inventory});
@@ -66,9 +66,9 @@ finally{
   const pids=[...new Set(records.filter(r=>r.owner==='HOST_LAUNCH'&&['ACTUAL_WORKER_STARTED','INDEPENDENT_INTERPRETER_STARTED'].includes(r.event)).map(r=>r.details.pid||r.details.handle.processId))];
   const alive=pid=>{try{process.kill(pid,0);return true;}catch{return false;}};
   write('independent-shutdown.json',{owner:'NODE_AFTER_JAVA_EXIT',observations:pids.map(pid=>({pid,alive:alive(pid)}))});
-  const files=walk(root).filter(file=>!['environment','maven-repository','maven-user-home','temporary'].some(name=>file.includes(`${path.sep}${name}${path.sep}`))&&!file.endsWith(`${path.sep}manifest.json`));
+  const files=walk(root).filter(file=>!['e','maven-repository','maven-user-home','temporary'].some(name=>file.includes(`${path.sep}${name}${path.sep}`))&&!file.endsWith(`${path.sep}manifest.json`));
   write('manifest.json',{schemaVersion:'jpyxis.io/risk-host-evidence/v1alpha1',sourceRevision:revision,files:files.map(file=>{const raw=fs.readFileSync(file);return {path:path.relative(root,file).split(path.sep).join('/'),bytes:raw.length,sha256:sha(raw)};})});
-  fs.writeFileSync(path.join(project,'build/risk-scoring-reference/latest.json'),JSON.stringify({root,revision})+'\n');
+  fs.writeFileSync(path.join(project,'build/risk/latest.json'),JSON.stringify({root,revision})+'\n');
 }
 if(failed){console.error(failed.message);process.exitCode=1;}
 else if(scenario){const result=verifyRiskHostEvidence(root,{expectedSourceRevision:revision});write('independent-readback.json',result);console.log(JSON.stringify({root,...result}));if(result.verdict!=='PASS')process.exitCode=1;}
