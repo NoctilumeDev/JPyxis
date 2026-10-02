@@ -1,0 +1,64 @@
+{
+  "reviewRevision": "c11b499d07c919bc77966aa563b6192317570263",
+  "mergedPresentationBase": "09ac1d4caea32ff1ce251da8acdc56cbebb5020e",
+  "role": "Independent read-only Product Manager",
+  "verdict": "Product direction coherent; fixed c11b499 requires one narrow Reset repair; no P0/P1; current live and HTTPS acceptance not established",
+  "confirmedFindings": {
+    "P0": [],
+    "P1": [],
+    "P2": [{
+      "id": "PM-DEMO-READONLY-RESET",
+      "scope": "Immutable c11b499 candidate only",
+      "topic": "New Reset button escapes documented width <1024 read-only boundary",
+      "evidence": "Immutable toolbar/CSS source and separately reported parent 800px live observation",
+      "independentlyLiveReproduced": false,
+      "minimalRepair": "Demo-only media rule hides #demo-reset under the shared width <1024 range",
+      "subsequentParentRepair": "Working-tree rule inspected; later supplied 800/390 native images and metrics show Reset hidden and overflow 0; not an immutable c11 closure"
+    }]
+  },
+  "optionalFindings": [{"priority": "P3", "topic": "Explicitly list Node.js in local-run prerequisite sentence", "kind": "Onboarding completeness suggestion, not observed runtime failure"}],
+  "resetDisclosureFix": {
+    "implementedInReviewedSource": true,
+    "parentCurrentNativeEvidenceInspected": true,
+    "nativeImage": "evidence/risk-scoring-reference/v1/design-qa/publication-sync/c11b499-reset-1280.png",
+    "receiptOpen": false,
+    "ceremonyOpen": false,
+    "independentLiveVerification": false
+  },
+  "presentation": {
+    "productionThreeAssetsUnchangedFromMergedBase": true,
+    "sharedRendererAndCss": true,
+    "prototypeImagesPreserveOriginalSourceLabels": true,
+    "prototypeSource": "09ac1d4caea32ff1 with then-uncommitted adapter",
+    "completeCurrentVisualMatrixClaim": false,
+    "personalProfileChangedInReviewedPatch": false,
+    "desktopInstallerAdded": false
+  },
+  "simulationBoundary": {
+    "prominentPageAndReadmeDisclosure": true,
+    "distinctReceiptSchemaAndExplicitNonEvidenceScope": true,
+    "actualRuntimeQualificationAdded": false,
+    "realHostInstructionsPresent": true
+  },
+  "independentTesterWitness": {
+    "revision": "011bb66aba9ef89af4aa37dc379cd4e826d95b39",
+    "scope": "Model/build/static HTTP",
+    "result": "PASS",
+    "notCurrentIndependentLiveAcceptance": true
+  },
+  "browser": {
+    "independentTabAttempts": 1,
+    "available": false,
+    "failure": "Browser is not available: iab",
+    "parentBrowserOperated": false,
+    "independentLiveClaim": false,
+    "independentDownloadClaim": false,
+    "httpsDeploymentClaim": false
+  },
+  "sourceChangedByReviewer": false,
+  "workerActionByReviewer": false,
+  "mergedByReviewer": false,
+  "userVisualAcceptance": "pending",
+  "publicHttpsAcceptance": "pending",
+  "report": "build/demo-product-c11b499/report.md"
+}

@@ -1,0 +1,21 @@
+{
+  "ceremonyOpen": false,
+  "decision": "WITHHELD",
+  "dpr": 1.0000000298023224,
+  "height": 900,
+  "mode": "normal",
+  "overflow": 0,
+  "railWidths": [
+    180,
+    180
+  ],
+  "receiptOpen": false,
+  "rows": [],
+  "sample": "STANDARD",
+  "score": "—",
+  "scrollY": 0,
+  "source": "DEMO SOURCE c11b499d07c919bc · BROWSER SIMULATION",
+  "terminal": "AWAITING REQUEST",
+  "title": "JPYXIS CONTROL OBSERVATORY",
+  "width": 1280
+}

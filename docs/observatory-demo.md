@@ -26,7 +26,7 @@ Below 1024px the shared layout is read-only; widen the browser to operate the de
 
 ## Run the real host
 
-Clone the repository and install Java 17, native CPython 3.12 and the Maven wrapper prerequisites.
+Clone the repository and install Node.js, Java 17, native CPython 3.12 and the Maven wrapper prerequisites.
 From the repository root:
 
 ```text
