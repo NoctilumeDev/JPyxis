@@ -1,0 +1,29 @@
+{
+  "owner": "NODE_AFTER_JAVA_EXIT",
+  "observations": [
+    {
+      "pid": 27292,
+      "alive": false
+    },
+    {
+      "pid": 336,
+      "alive": false
+    },
+    {
+      "pid": 36860,
+      "alive": false
+    },
+    {
+      "pid": 30804,
+      "alive": false
+    },
+    {
+      "pid": 12824,
+      "alive": false
+    },
+    {
+      "pid": 30832,
+      "alive": false
+    }
+  ]
+}

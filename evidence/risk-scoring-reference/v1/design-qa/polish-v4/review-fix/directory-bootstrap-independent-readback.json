@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "failures": [],
+  "missing": [],
+  "requests": 7,
+  "actualWorkers": 3,
+  "scope": "private synthetic risk reference host; actual Control/Execution and Java policy separation",
+  "productizationQualified": false
+}

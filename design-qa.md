@@ -1,195 +1,217 @@
-# Risk Scoring Observatory: polish-v4 review candidate
+# Risk Scoring Observatory: polish-v4 final review candidate
 
-Prior rendered candidate: regression verification PASS; visual acceptance PENDING.
-Sequential independent tester and product-manager reviews of `333bcec65ef1e636100a0abe4fae9c6b0fd56d4b`
-confirmed two P2 narrow-width defects. Their original reports and evidence are retained under
-`polish-v4/reviews/`. The existing media rules now use a continuous 1024px read-only boundary;
-The first repair at `3143a78fcfa6195942030ca49f830c86675130e7` passed actual browser checks,
-with original proof in `polish-v4/review-fix/` and a bounded independent source/native-evidence
-P2 closure in `polish-v4/reviews/product-recheck-3143a78f/`. The user then requested both desktop
-directories to give the center more room. A shared 200-to-180px width and matching padding
-now implement that refinement; source-bound final observations are pending. The measurements
-below describe the earlier rendered source, not this unverified final refinement.
-Independent Product Acceptance Agent review is still required. User final visual sign-off
-is still required. No merge is authorized. CI, screenshots and implementer measurements
-do not grant either form of acceptance.
+Implementation regression verification: PASS. The independent tester and product-manager
+reviews have completed in sequence. Two confirmed P2 narrow-width issues were repaired;
+the final directory refinement has no remaining substantive product finding in the bounded
+source and native-evidence review. Final user visual sign-off is PENDING. No merge is authorized.
 
-## Scope and source
+## Scope and exact source
 
 Base main: `109646c7c5266a164018ac2f9534afe850b94c7c`.
-Rendered source: `8aa073c5f06c718511cced38d7c59376db05bed1`.
-The `333bcec` review commit adds evidence and this report only. The three asset Git blobs
-below bind the earlier rendered implementation to that reviewed commit:
+Final rendered source: `2456e291faac791ceb2fda6b00db249d4236584b`.
+Later evidence/report-only commits retain these asset blobs:
 
 | Asset under reference-apps/versioned-risk-scoring/host-java/src/main/resources/observatory | Git blob |
 | --- | --- |
-| index.html | 59cfddc4ba9d38f23fe39317b89ec82bb877654d |
-| style.css | 7df63ea35ece5f1c4326058f0dfe22a887a9a079 |
+| index.html | 2a1223394734146e8f382f4c98511c346e1f8ecc |
+| style.css | 638085c30a28ce69a4d9e881504f692433edb4b6 |
 | app.js | 0e8863d2791b4e3f6e75f2dfd76d3ad0987c44fb |
 
-Only these UI assets, this report and design evidence change. Java, Python algorithms,
-protocols, policy, receipt schema, frozen contracts, tests and gate scripts stay at base.
-The original user checkout retains its unrelated README and roadmap edits.
+Only these UI assets, this report and design evidence change from base. Java, Python
+algorithms, protocols, policy, receipt schema, frozen contracts, tests and gate scripts
+remain unchanged. The original user checkout retains its unrelated README/roadmap edits;
+the original main preview remains separate.
 
-All evidence paths below are relative to
-`evidence/risk-scoring-reference/v1/design-qa/polish-v4/`.
-`final-summary.json` contains the source inventory, exact screenshots and actual outcomes.
+All paths below are relative to `evidence/risk-scoring-reference/v1/design-qa/polish-v4/`.
+The latest source-bound inventory, native captures, geometry comparisons and actual outcomes
+are in `review-fix/directory-summary.json`. Earlier `final-summary.json` describes rendered
+source `8aa073c5`; it is preserved historical evidence, not the current candidate summary.
 
-## User-selected direction
+## User-selected direction and final refinement
 
-The original selected reference remains
+The selected original reference is
 `evidence/risk-scoring-reference/v1/design-qa/source-reference.png` (1503 x 1047,
 SHA256 f666f4b20c206dc703ca5bd9da17e9d2092c4a38a8fe94cf145fae268e3afa2e).
-The subsequent user references authorize the following changes to that image:
+The user's subsequent references and instructions authorize:
 
-- Clean white stage surfaces, flat results and status text, without nested colored cards.
-- Matching navy desktop directories: left text left aligned, middle centered, right right aligned.
-- Both directories change the central view. Full realization coordinates and invocation history
-  appear centrally; the right directory contains short plain navigation rows.
-- Control Binding has slightly more width. The shared tracks are 1 : 1.1 : 1.02 : 0.88.
-- Wine identifies authority and decision; navy identifies execution and context; gold marks
-  boundaries, selected navigation boundaries and established active authorization.
-- The main serif title remains prominent. Eyebrow and slogan use quieter 12px text.
-- Desktop inspection remains the product. Below 768px, a desktop-use notice and a safe read-only
-  presentation replace operational controls. No mobile-specific control architecture is added.
-- Fix the component's own rules; remove obsolete styles instead of appending force overrides.
+- Clean white central stages and flat results/status text, without nested colored cards.
+- Matching navy directories: left text left aligned, middle centered, right right aligned.
+- Both directories change the central actual view. Full realization coordinates and history
+  appear centrally; right navigation contains short, single-line rows.
+- Shared stage tracks 1 : 1.1 : 1.02 : 0.88 give Control Binding slightly more weight.
+- Wine for authority/decision; navy for execution/context; gold for boundaries and active
+  authorization. Lucide icons and the directional arrows remain.
+- Strong main serif title with quieter 12px eyebrow and slogan.
+- Desktop-first inspection, with a continuous read-only boundary below 1024px. The desktop
+  notice says to widen the window to use controls. No mobile control architecture is added.
+- Correct existing component rules directly and remove obsolete styles.
 
-## CSS consolidation audit
+The final request to let both directories give the middle more space is implemented by
+shared width and padding variables in the existing rules, rather than added overrides:
 
-`css-consolidation-audit.json` compares the previous style sheet at
+| Desktop viewport width | Left directory | Right directory | Directory horizontal padding |
+| --- | --- | --- | --- |
+| 1440px and wider | 200px | 200px | 14px |
+| 1360px | 190px | 190px | 11px |
+| 1280px | 180px | 180px | 8px |
+
+This gives the center 40px more width at 1280px. At intermediate widths the existing compact
+124px left rail is retained; context moves below the central view. Below 1024px the existing
+read-only presentation exposes no mutation or selector controls. These are safety boundaries,
+not mobile product acceptance.
+
+## Component consolidation
+
+`review-fix/directory-css-audit.json` compares the stylesheet at
 `df07798d808be9df5d34446e1f68f9a8c0278953` with the final component rules.
 It records 38 repeated complete selector blocks in the same context before cleanup and zero
-after cleanup. Shared selector groups, state variants and bounded media queries remain intentional.
+after cleanup. Intentional state variants and media contexts remain. The stylesheet is
+17,897 bytes, down from 29,149. Old deployment cards, version-card buttons, right tables,
+nested status surfaces and obsolete color tokens were removed. The sole `!important` is
+the existing `[hidden]` attribute contract. No appended override pile remains.
 
-The working stylesheet shrank from 29,149 to 17,571 bytes. Removed rules include old deployment
-cards, version-card buttons, right-side tables, nested status surfaces and obsolete color tokens.
-The only `!important` is the existing `[hidden]` attribute contract. No final override pile remains.
+## Real browser observations and homepage consistency
 
-## Visual evidence and measurements
+The implementer used the actual Codex In-app Browser against a source-bound installed Java
+host and real Python workers. No separate Chrome or Edge surface was connected. Screenshots
+are retained at their original pixel dimensions; no image is stretched or substituted with
+mock data. CSS viewport, DPR, scroll position and observed DOM are retained separately.
 
-Primary viewport: 1440 x 900 CSS pixels, zoom 1, density approximately 1.
-Original screenshots are retained at native resolution. When a scrollbar is present the
-browser capture is 1425 x 891 pixels; the accompanying metrics still record the 1440 x 900
-CSS viewport. Captures are never stretched or substituted with mock data.
+Primary acceptance viewport: 1440 x 900 CSS pixels, zoom 1, density approximately 1.
+All following final-source captures are at scroll 0:
 
-| Actual view | Screenshot | Receipt entry bottom at scroll 0 |
+| Actual view | Native screenshot under review-fix | Receipt entry bottom |
 | --- | --- | --- |
-| Empty | 200-final-empty.png | 779.06px |
-| Qualified v1 standby | 201-final-v1-standby.png | 779.06px |
-| v1 STANDARD, 0.73 REVIEW | 202-final-review.png | 797.06px |
-| Expanded sample and execution menus | 203-final-sample-open.png / 204-final-mode-open.png | 797.06px |
-| Qualified v2 standby | 205-final-v2-standby.png | 797.06px |
-| Held v1 request while current route is v2 | 206-final-held-cutover.png | 888.40px |
-| v2 HIGH, 0.93 REJECT | 207-final-reject.png | 797.06px |
-| Actual worker crash, UNKNOWN / WITHHELD | 208-final-unknown.png | 849.06px |
-| Fresh v1 rollback preserves old UNKNOWN | 212-final-fresh-v1-unknown.png | 849.06px |
-| Fresh v1 LOW, 0.09 ALLOW | 216-final-allow.png | 797.06px |
-| Fresh v2 keeps R005 pinned to v1 | 217-final-fresh-v2.png | 797.06px |
-| Six actual requests, fresh v2 STANDARD, 0.85 REJECT | 218-final-six-requests.png | 797.06px |
-| Closed session preserves UNKNOWN | 221-final-closed.png | 849.06px |
+| Empty | 260-directory-empty.png | 779.06px |
+| v1 STANDARD, actual 0.73 REVIEW | 262-directory-review.png | 797.06px |
+| Held v1 request while route switches to v2 | 264-directory-held-cutover.png | 888.40px |
+| Actual worker crash, UNKNOWN / WITHHELD | 266-directory-unknown-settled.png | 849.06px |
+| Lifecycle to Overview | 275-directory-lifecycle-home.png | 849.06px |
+| Right request directory to branded homepage | 276-directory-request-home.png | 797.06px |
+| Restored UNKNOWN homepage | 277-directory-unknown-home.png | 849.06px |
+| Closed session preserves UNKNOWN | 279-directory-closed.png | 849.06px |
 
-At the primary viewport all four stages, actual result and receipt entry fit on the first
-screen, including the held state. Both directories measure 200px. Stage headers measure
-85px and all four content columns share their top and bottom boundaries.
+All four stages, actual result and receipt entry fit at the primary viewport, including
+the held state. Comparing the empty, REVIEW, held and UNKNOWN scenes against the earlier
+`3143a78f` repair yields zero measured geometry delta for control bar, title, arrows, stage
+region, receipt entry, directories and all four stage boundaries. Thus the final directory
+refinement leaves the 1440px homepage geometry unchanged.
 
-`final-directory-and-colors.json` measures the complete directory with four realizations
-and six requests: headings and row text centers advance by 48px (rounding tolerance 0.001px).
-Every navigation row is 48px, single-line, right aligned and has no internal text overflow.
-The established authority is gold, UNKNOWN authority and withheld decision are wine, and
-execution score and terminal text are navy.
+`directory-1440-final.json` and `directory-1280-scroll.json` measure label line boxes:
+every group heading and directory row is 48px high and label centers advance by 48px
+(rounding tolerance 0.001px). In the actual 1280 x 360 populated scene (`267-directory-1280-scroll.png`),
+the right directory has a real scrollbar: scroll height 450px exceeds client height 360px.
+Its heading has 147px available; the 142.49px subtitle remains one 18px line and the wordmark
+fits. These are actual entries from three requests and two realizations, not inserted data.
 
-Twenty-two source-bound captures have no body/table/auxiliary text below 12px and no
-technical text below 11px; technical line height is at least 1.5. The minimum measured
-enabled text contrast is 4.74:1. Console warning/error readback is empty.
-These measurements do not replace independent visual or assistive-technology acceptance.
+Stable replacement captures are `284-stable-1280-unknown.png`,
+`285-stable-1360-unknown.png` and `286-stable-1024-unknown.png`. They bind fresh DOM state
+to the real UNKNOWN/WITHHELD result of a separate actual v2 crash invocation. At 1280px,
+the receipt entry is 923.16px; at 1024px it is 926.78px. Vertical scrolling is expected at
+these widths and neither is claimed to meet the 1440px first-screen threshold. At 1024px
+the compact left rail still measures 124px and WITHHELD has no internal overflow.
 
-1280px (`209-final-1280.png`) remains readable with vertical scrolling; its receipt entry
-is 905.16px, so it does not meet the primary viewport's first-screen threshold.
-1120px (`210-final-1120.png`) retains the four stages and moves context below the center.
-390px (`211-final-safe-narrow.png`, `final-narrow-safety.json`) shows the desktop notice,
-has zero horizontal document overflow and exposes no mutation or selector controls.
-This is a safety fallback, not a mobile product acceptance claim.
+`272-directory-800-safe.png` and `274-directory-390-safe.png` show the actual UNKNOWN
+read-only fallback with zero horizontal document overflow. `271-directory-1023-fractional.png`
+and `273-directory-767-fractional.png` close the fractional boundary gap: DOM range media
+matches prove effective widths between the adjacent integer boundaries, although innerWidth
+is recorded as an integer. Each has the desktop notice and hides every mutation/selector.
 
-## Reference comparison
+Across the 27 final-source DOM measurements, auxiliary text is at least 12px and technical
+text at least 11px, with no recorded typography-floor violation. Minimum measured enabled
+text contrast is 4.74:1. Both latest actual-session console warning/error readbacks are empty.
+Measurements do not replace visual or assistive-technology acceptance.
 
-`final-comparison-1440.png` pairs the original reference with the actual 0.73 REVIEW view.
-The reference is contained without distortion; the actual 1440 x 900 screenshot is copied
-at its original size. `final-comparison-native.png` compares native control, stages and
-directory crops without resizing them.
+Three resize captures (`268`, `269`, `270`) caught browser transition frames: their PNG canvas
+or content did not match the settled metrics. The product manager detected this mismatch;
+the originals are retained and excluded from visual closure, then replaced by stable native
+`284` through `286`. `265` is an IN_FLIGHT transition, not settled UNKNOWN evidence.
+`280` is named 1440 but actually records the default 1280 x 720 viewport at scrollY178;
+`281` has the same nonzero scroll. Both are excluded from homepage/first-screen proof.
 
-The visible REVIEW state matches for comparison; the reference is a static illustration
-with different version/runtime records. Actual inputs, workers, versions and results are
-retained from the running Java host. No reference data is substituted into the application.
-The flat surfaces, second navy directory, weighted columns, semantic colors and calmer
-title hierarchy are deliberate user-directed differences.
+The user's separate fresh preview remains at `http://127.0.0.1:8766/`, with zero requests
+and zero live workers. `directory-preview-sync.json` and `directory-stable-preview-sync.json`
+verify that all three resources actually served by the user preview and both actual test
+sessions exactly match the final source inventory. `283-directory-live-home-default.png`
+shows the preview at its restored default 1280 x 720 viewport, DPR1.5, Overview and scroll0.
+It is a native full-page capture; it is not 1440px first-screen evidence.
 
-## Actual interaction and shutdown evidence
+## Sequential independent reviews and repairs
 
-The unchanged source-bound bootstrap scenario passed seven actual requests and all six
-mutation gates. Exact source, input inventory, construction, independent readback, mutation
-readback and independent shutdown are retained in `final-bootstrap-*.json`; the original
-machine construction bytes are retained as `final-bootstrap-construction.bin`.
-This local construction reused a private Maven repository; it grants no fresh-VM qualification.
+The independent tester first reviewed pushed commit `333bcec65ef1e636100a0abe4fae9c6b0fd56d4b`.
+Original reports and observations are retained in `reviews/tester-333bcec/`. The tester
+ran six actual requests, both fresh rollbacks, every action button, dropdown pointer/keyboard
+paths, both directories, disclosures, Overview return, Close and exact receipt export. All
+eight owned worker/interpreter PIDs were independently observed stopped after Java exited0.
+No P0/P1 was reported; two P2 defects were confirmed:
 
-The separate browser session exercised installation, activation, explicit invocation,
-hold/release during cutover, actual crash after dispatch, both fresh rollback directions,
-left navigation, right version/request selection, central history selection, rollback
-ceremony and receipt disclosures, close and sealed export.
+1. At 800px, four operational columns persisted; WITHHELD overflowed and technical text
+   fragmented. The safe read-only boundary was too low.
+2. Integer max-width767/min-width768 queries left an unhandled fractional gap.
 
-| Request | Actual version / sample / mode | Terminal | Java decision |
-| --- | --- | --- | --- |
-| R001 | v1 / STANDARD / normal | SUCCEEDED | REVIEW |
-| R002 | v1 / STANDARD / hold, released after v2 activation | SUCCEEDED | REVIEW |
-| R003 | v2 / HIGH / normal | SUCCEEDED | REJECT |
-| R004 | v2 / HIGH / crash after dispatch | OUTCOME_UNKNOWN, score null | WITHHELD |
-| R005 | fresh v1 / LOW / normal | SUCCEEDED | ALLOW |
-| R006 | fresh v2 / STANDARD / normal | SUCCEEDED | REJECT |
+The product-manager agent then independently inspected real browser views at 1440, 1024,
+1000, 960, 800, 390 and the fractional boundary. Its original report is retained in
+`reviews/product-manager-333bcec/`. It confirmed the P2 issues and recommended a continuous
+1024px read-only boundary, matching the workstation inspection scope.
 
-Both fresh rollbacks create new realizations. R004 retains its original UNKNOWN outcome
-and withheld authority after both; old pins and decisions are not rewritten.
-`213-final-lifecycle.png`, `214-final-ceremony.png`, `215-final-receipt.png`,
-`219-final-history.png` and `220-final-right-version.png` retain the actual full details.
+Source `3143a78fcfa6195942030ca49f830c86675130e7` repaired the existing queries using range
+syntax and added the concise widen-window instruction. Original actual browser and request
+evidence is retained in `review-fix/actual-observations.zip`; the bounded P2 source/native
+evidence closure is in `reviews/product-recheck-3143a78f/`.
 
-`final-source-button-readbacks.json` retains 14 navigation/selector/disabled-state readings.
-Pointer selection and keyboard ArrowDown, End, Enter, Escape and Tab were exercised.
-The canonical native selects still supply the unchanged invoke action values.
-A full screen-reader session was not performed.
+Final source `2456e291` adds the user's directory refinement. The product manager reviewed
+the final source and native images, caught the three transition-frame captures, and examined
+their stable replacements. Its final report is in `reviews/product-final-2456e291/`.
+Both original P2s remain closed, with no new substantive product defect reported. The
+follow-up agent browser surface was unavailable: these follow-ups are independent source
+and native-evidence reviews, not independent live-browser reruns. The initial independent
+browser reviews and the implementer's final actual browser observations remain separate.
 
-`final-receipt.bin` is the original exported 72,167-byte receipt, byte-equal to the host's
-sealed receipt. The actual session's eight owned worker/interpreter processes were all
-independently observed stopped; Java exited with code 0.
-`final-observations.zip` is 21,807,338 bytes, SHA256
-37a1a944b3a4e63068c27b53002023aa4560bf0ca54a54a80fc5c7e2b80d2d10.
-All 301 manifest members and the exported receipt were byte-verified.
-These shutdown claims apply to this test session; the original main preview is separate.
+`reviews/review-byte-retention-reconciliation.json` verifies all 107 independent review
+members against their staged Git bytes. Three original JSON files required CRLF-to-LF public
+text normalization; their exact original bytes remain in
+`reviews/original-review-line-ending-bytes.zip`, with original and projection hashes mapped
+by the reconciliation. Earlier retention manifests remain historical originals. Native PNGs,
+raw observation archives and receipts are preserved byte-for-byte.
 
-## Retained counterexamples and supersession
+## Exact retained actual execution evidence
 
-Every prior image, raw archive, failed candidate and original receipt remains retained.
-The superseded working report is preserved as `superseded-v4-working-report.md` with
-the exact previous Git content and `superseded-v4-working-report.bin` with exact working
-file bytes. Its earlier proposals and interim claims do not describe this candidate.
+The final source was built from a clean Git checkout with declared local Maven reuse.
+Its standard scenario contains seven actual requests and PASS independent readback; all six
+counterexample mutations return the expected rejection or INCONCLUSIVE result. Source,
+input inventory, independent readback, mutation readback and shutdown files are copied as
+`review-fix/directory-bootstrap-*`. Original construction bytes are retained as `.bin`.
+This is local regression evidence, not a fresh-VM or productization qualification claim.
 
-The warm, boxed and cluttered iterations were superseded by the user's white/flat/double
-directory direction. The 39ed61e candidate met the first-screen measurements but preceded
-the new weighting, semantic colors and uniform group-heading rhythm.
+The final main GUI cohort contains three actual requests:
 
-The CSS consolidation pilot at 2b860e82 exposed narrow Request wrapping: held receipt
-bottom 958.09px (`182-consolidated-held-counterexample.png`).
-The 67c60b13 weighted pilot exposed scrollbar-induced wrapping: 906.40px
-(`193-semantic-held-cutover.png`).
-Their original archives and receipts remain retained. The final source fixes the shared
-track proportions directly and measures 888.40px; neither failure is relabeled as passing.
+| Request | Pinned version | Mode | Actual score | Execution | Java decision |
+| --- | --- | --- | --- | --- | --- |
+| R001 | v1 | normal STANDARD | 0.72999996 | SUCCEEDED | REVIEW |
+| R002 | v1 while route becomes v2 | hold STANDARD | 0.72999996 | SUCCEEDED | REVIEW |
+| R003 | v2 | crash after dispatch | null | OUTCOME_UNKNOWN | WITHHELD |
 
-## Preview and review boundary
+`review-fix/directory-observations.zip` preserves all original installed observation bytes:
+21,717,991 bytes, SHA256 2266f75445a40a1caecb00f894013ae8beb6e7e59df7255cfac1bb901d6da755.
+253 manifest members were individually verified. The UI-exported `directory-receipt.bin`
+matches the raw receipt byte-for-byte. After Close then Export then host stop, Java exited0
+and all four owned worker/interpreter PIDs were independently observed stopped.
 
-Build from a clean committed checkout with the repository's existing
-`node scripts/run-risk-scoring-host.mjs` runner and its documented Java/Python prerequisites.
-To reproduce from the retained local construction, use the original verified host jar and
-config together; do not edit its source or execution coordinates. Select an unused loopback
-port so the original main preview remains separate.
+The stable replacement cohort has one actual v2 crash request, UNKNOWN/null/WITHHELD.
+`review-fix/directory-stable-observations.zip` is 21,666,423 bytes, SHA256
+8639e00353a62067dd2b84aeeaa8fe973fa84cfd0fc27aaf7d2fed5c51f2a4f3.
+226 manifest members were individually verified; `directory-stable-receipt.bin` exactly
+matches its raw receipt. Java exited0 and both owned worker/interpreter PIDs stopped.
 
-The review candidate may be pushed as a draft PR. The four protected repository gates
-must remain intact. A green run is regression evidence only.
-Independent Product Acceptance Agent assessment must clear P0/P1 and surface P2 issues for
-user adjudication before any merge. Final visual acceptance remains pending; no merge occurs.
+The latest GUI cohorts do not claim both fresh rollbacks; that coverage belongs to the
+earlier independent tester. The JavaScript asset has not changed since that review.
+Original prior candidates, first failures, raw archives and native reference comparisons
+are retained. Historical comparisons under `final-comparison-*` describe the earlier
+8aa073c5 implementation; the current source is bound by its final inventory and native images.
+
+## Acceptance boundary
+
+The implementer verification and the sequential bounded independent reviews are complete.
+User final visual approval remains pending. Source-bound CI completion is reported on the
+draft PR separately; passing CI does not grant visual acceptance or merge authorization.
+This candidate remains a draft review artifact. No merge has been performed or authorized.

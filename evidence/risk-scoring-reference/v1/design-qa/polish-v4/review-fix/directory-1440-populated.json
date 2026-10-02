@@ -1,0 +1,112 @@
+{
+  "contextHeading": {
+    "box": {
+      "height": 95.66667175292967,
+      "width": 198,
+      "x": 1242,
+      "y": 0
+    },
+    "lineHeight": 18,
+    "subtitle": {
+      "height": 16.000003814697266,
+      "width": 142.489501953125,
+      "x": 1283.510498046875,
+      "y": 59.66666793823242
+    },
+    "subtitleHeight": 18,
+    "usableWidth": 170,
+    "wordmark": {
+      "height": 27.33333396911621,
+      "width": 140.5416259765625,
+      "x": 1285.4583740234375,
+      "y": 23.33333396911621
+    }
+  },
+  "directoryPadding": "clamp(8px,calc(3.75vw - 40px),14px)",
+  "directoryWidth": "clamp(180px,calc(12.5vw + 20px),200px)",
+  "left": {
+    "height": 900,
+    "width": 200,
+    "x": 0,
+    "y": 0
+  },
+  "right": {
+    "height": 900,
+    "width": 200,
+    "x": 1240,
+    "y": 0
+  },
+  "rightScroll": {
+    "client": 900,
+    "clientWidth": 198,
+    "height": 900,
+    "outerWidth": 200
+  },
+  "rows": [
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "Versions",
+      "textCenter": 119.33333587646484,
+      "textWidth": 61.0728759765625,
+      "whiteSpace": "normal"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "risk-v2",
+      "textCenter": 167.25000762939453,
+      "textWidth": 38.083251953125,
+      "whiteSpace": "nowrap"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "risk-v1",
+      "textCenter": 215.25000762939453,
+      "textWidth": 38.083251953125,
+      "whiteSpace": "nowrap"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "Invocations",
+      "textCenter": 263.3333435058594,
+      "textWidth": 85.364501953125,
+      "whiteSpace": "normal"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "R003",
+      "textCenter": 311.25001525878906,
+      "textWidth": 28.802001953125,
+      "whiteSpace": "nowrap"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "R002",
+      "textCenter": 359.25001525878906,
+      "textWidth": 28.802001953125,
+      "whiteSpace": "nowrap"
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "R001",
+      "textCenter": 407.25001525878906,
+      "textWidth": 28.802001953125,
+      "whiteSpace": "nowrap"
+    }
+  ],
+  "shellMargins": {
+    "left": "200px",
+    "right": "200px"
+  },
+  "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+  "viewport": {
+    "height": 900,
+    "width": 1440
+  }
+}

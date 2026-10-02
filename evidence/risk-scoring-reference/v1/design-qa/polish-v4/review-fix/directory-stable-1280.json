@@ -1,0 +1,93 @@
+{
+  "contextHeading": {
+    "box": {
+      "height": 95.66667175292967,
+      "width": 178,
+      "x": 1086.666748046875,
+      "y": 0
+    },
+    "lineHeight": 18,
+    "subtitle": {
+      "height": 16.000003814697266,
+      "width": 142.4896240234375,
+      "x": 1114.1771240234375,
+      "y": 59.66666793823242
+    },
+    "subtitleHeight": 18,
+    "usableWidth": 162,
+    "wordmark": {
+      "height": 27.33333396911621,
+      "width": 140.541748046875,
+      "x": 1116.125,
+      "y": 23.33333396911621
+    }
+  },
+  "directoryPadding": "clamp(8px,calc(3.75vw - 40px),14px)",
+  "directoryWidth": "clamp(180px,calc(12.5vw + 20px),200px)",
+  "left": {
+    "height": 900,
+    "width": 180,
+    "x": 0,
+    "y": 0
+  },
+  "right": {
+    "height": 900,
+    "width": 180,
+    "x": 1084.666748046875,
+    "y": 0
+  },
+  "rightScroll": {
+    "client": 900,
+    "clientWidth": 178,
+    "height": 900,
+    "outerWidth": 180
+  },
+  "rows": [
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "Versions",
+      "textCenter": 119.66667175292967,
+      "textWidth": 61.072998046875,
+      "whiteSpace": "normal",
+      "glyphCenter": 119.33333587646484
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "risk-v2",
+      "textCenter": 167.6666717529297,
+      "textWidth": 38.0833740234375,
+      "whiteSpace": "nowrap",
+      "glyphCenter": 167.25000762939453
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "Invocations",
+      "textCenter": 215.6666717529297,
+      "textWidth": 85.3646240234375,
+      "whiteSpace": "normal",
+      "glyphCenter": 215.33334350585935
+    },
+    {
+      "height": 48,
+      "labelOverflow": 0,
+      "text": "R001",
+      "textCenter": 263.6666717529297,
+      "textWidth": 28.8021240234375,
+      "whiteSpace": "nowrap",
+      "glyphCenter": 263.25001525878906
+    }
+  ],
+  "shellMargins": {
+    "left": "180px",
+    "right": "180px"
+  },
+  "source": "SOURCE 2456e291faac791c · LOOPBACK SESSION",
+  "viewport": {
+    "height": 900,
+    "width": 1280
+  },
+  "textCenterMethod": "DOM label line box, matching the earlier directory rhythm measurement"
+}

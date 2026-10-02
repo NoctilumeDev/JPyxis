@@ -1,0 +1,104 @@
+- complementary:
+  - link "JPYXIS CONTROL / EXECUTION":
+    - /url: "#overview"
+    - generic: JPYXIS
+    - generic: CONTROL / EXECUTION
+  - navigation "Observatory":
+    - link "Overview":
+      - /url: "#overview"
+      - generic: Overview
+    - link "Risk scoring":
+      - /url: "#workspace"
+      - generic: Risk scoring
+    - link "Lifecycle":
+      - /url: "#lifecycle"
+      - generic: Lifecycle
+    - link "Invocations":
+      - /url: "#records"
+      - generic: Invocations
+    - link "Receipts":
+      - /url: "#receipt"
+      - generic: Receipts
+  - text: REFERENCE HOST
+  - paragraph:
+    - text: One local host.
+    - text: Explicit authority.
+- banner:
+  - text: JPYXIS
+  - generic: CONTROL OBSERVATORY
+  - text: RISK SCORING REFERENCE HOST
+  - generic: SOURCE 2456e291faac791c · LOOPBACK SESSION
+- main:
+  - region "Live control status":
+    - generic: CONTROL
+    - strong: CONTROL READY
+    - generic: ACTIVE ROUTE
+    - strong: risk-v2 · UNAVAILABLE
+    - generic: ELIGIBLE WORKERS
+    - strong: 0 / 0 live
+    - button "Fresh rollback to v1"
+  - paragraph: RISK SCORING · SYNTHETIC REFERENCE
+  - heading "EXECUTION RECEIPT" [active] [level=1]
+  - blockquote: Compute can be delegated. Authority cannot.
+  - generic "View execution receipt Execution Binding / Observed Execution / Java Decision":
+    - text: View execution receipt
+    - generic: Execution Binding / Observed Execution / Java Decision
+  - heading "Execution Binding" [level=3]
+  - term: Definition
+  - definition: jpyxis:definition:reference/risk-affine@2.0.0
+  - term: Definition digest
+  - definition: sha256:498ebd78b91f6d164246e9a7a8151b6f9a231b12ed60e87f80968539179ff27a
+  - term: Environment
+  - definition: sha256:281fd17060081d5e06aee47adfd10d41838e2e63ed2b8ebde6bdd4c3abf83f49
+  - term: Runtime
+  - definition: "{\"capabilityIdentity\":\"jpyxis.capability/affine-float32\",\"capabilityVersion\":\"1\",\"runtimeIdentity\":\"numpy.cpu\",\"runtimeVersion\":\"2.2.6\"}"
+  - term: Worker / instance
+  - definition: worker-bd650290-02df-4cb5-a871-3056124a3470 / worker-bd650290-02df-4cb5-a871-3056124a3470@4631932a-b583-46ae-9628-349e69fb21b7-1
+  - term: Launch nonce
+  - definition: c0c46425-dadd-419b-bb62-2c42e5cb79c3
+  - term: Request pin
+  - definition: 4e9fa20e-34d2-4eaa-acab-c9908a2b18f2
+  - heading "Observed Execution" [level=3]
+  - term: Invocation
+  - definition: 58326aae-b52a-4156-b671-f0c193747fa1
+  - term: Attempt
+  - definition: 58326aae-b52a-4156-b671-f0c193747fa1/attempt-1
+  - term: Accepted
+  - definition: 2026-10-02T16:32:14.061585Z
+  - term: Completed
+  - definition: 2026-10-02T16:32:14.131894400Z
+  - term: Terminal
+  - definition: OUTCOME_UNKNOWN
+  - term: Wire invoked
+  - definition: "true"
+  - heading "Java Decision" [level=3]
+  - term: Policy
+  - definition: jpyxis.reference/risk-policy@1.0.0
+  - term: Policy digest
+  - definition: sha256:73bf6bdb0622fa3762090861e938372a7f0bc9f04385ce502f3a0fd965b0d3f6
+  - term: Score
+  - definition: Unavailable
+  - term: Decision
+  - definition: WITHHELD
+  - paragraph: Shutdown is a separate physical observation.
+  - button "Close owned workers"
+  - button "Export sealed receipt" [disabled]
+  - complementary "Context navigation":
+    - text: CONTEXT
+    - paragraph: VERSIONS / INVOCATIONS
+    - heading "Versions" [level=2]
+    - navigation "Version directory":
+      - button "Inspect risk-v2 realization c0c46425-dadd-41":
+        - generic: risk-v2
+      - button "Inspect risk-v1 realization aeb5e17a-af9c-44":
+        - generic: risk-v1
+    - heading "Invocations" [level=2]
+    - navigation "Invocation directory":
+      - button "Inspect request R003" [pressed]:
+        - generic: R003
+      - button "Inspect request R002":
+        - generic: R002
+      - button "Inspect request R001":
+        - generic: R001
+  - text: "JPyxis reference witnesses: Java · Python · NumPy · gRPC"
+  - generic: Authority stays with its owner.

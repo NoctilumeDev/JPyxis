@@ -1,0 +1,20 @@
+{
+  "scope": "Original independent review bytes retained; JSON requiring final newline has an exact .bin original and a newline-only public projection",
+  "files": [
+    {
+      "path": "first-pass-image-metadata.json",
+      "bytes": 9409,
+      "sha256": "c832ee70644f0a17d027c36abe85316519ff14d4912067c3c5627e0fc96bfd09"
+    },
+    {
+      "path": "report.md",
+      "bytes": 6799,
+      "sha256": "3473e256507e2f29c0eaca30f4af073c56d79ed8cdd30ed9ea6f575788282dc5"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 1730,
+      "sha256": "f64f727afc5d1725c3002324dc05719149f4a09f872f6230f4f783e293ff8f32"
+    }
+  ]
+}
