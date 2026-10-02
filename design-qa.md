@@ -99,3 +99,26 @@ an explicit focus target and label. New source-bound observations are required.
 it is retained but rejected as top-of-page evidence. 41 and 42 are at scrollY=0. The
 third GUI export equals the original receipt byte-for-byte, Java exited normally and
 all six original worker/probe processes were independently observed stopped.
+
+## User correction: white surfaces and two navigation rails
+
+The user rejected the broad yellow surfaces, unequal visual weights and weak connectors.
+Their annotated reference selects three outer regions: left global navigation, a broad
+central workspace, and right contextual navigation. Both side rails should be comparable
+in width and should select content in the center. This supersedes the wider central
+charter and broad paper/stone tint as visual targets for this candidate.
+
+The next source uses white and light-gray surfaces, four equal step columns in Request /
+Control Binding / Execution / Host Decision order, and visible connectors in the gaps.
+Both desktop navigation rails are 200px. Right version selection shows actual deployment
+facts in the center; right invocation selection shows its actual existing binding,
+execution and policy result. Left navigation switches the central observation view.
+Selection remains presentation state and does not activate, roll back or invoke a worker.
+
+The rejected yellow empty screen is retained as 50-empty-before-white at exact source
+e2ef833f553255687d460256bfd9cdc13979b015. Its empty session closed normally with zero
+owned processes. The source completed the unchanged seven-request/three-worker scenario
+and six mutation expectations. Four exported receipt copies failed the repository text
+newline rule. Their original bytes are now retained under .bin names (same blobs and ZIP
+members), so their formatting remains unchanged; the verifier itself is unchanged.
+Visual acceptance remains pending and no merge is authorized.
