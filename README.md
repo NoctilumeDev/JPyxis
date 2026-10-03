@@ -452,6 +452,7 @@ coordinates, resource observations, limits, and claims that remain unproven.
 - [Single-node Baseline](docs/roadmap/single-node-baseline.md)
 - [Evolution Map](docs/roadmap/evolution-map.md)
 - [Productization Reference Path Audit — STOP at candidate audit](docs/roadmap/productization-reference-path-audit.md)
+- [Historical Residuals — classification and retention boundary](archive/historical-residuals/README.md)
 
 ### Accepted M0 decisions
 
