@@ -67,13 +67,17 @@ The analogy explains governance pressure; it does not authorize operating-system
 
 ## Why Python becomes less central
 
-Python is the first planned Definition plugin because it has a rich algorithm and model ecosystem. The architectural value would come from preserving contract and authority when that plugin or its runtime changes, not from making Python callable from Java.
+Python is the first implemented Definition plugin because it has a rich algorithm and model
+ecosystem. The bounded reference paths demonstrate that its contract, lifecycle and business
+authority remain outside the definition code. The architectural value comes from preserving those
+boundaries when the plugin or runtime changes, not from making Python callable from Java.
 
 If a future definition uses Rust, a DSL, ONNX, StableHLO, or another representation, it qualifies only by satisfying the same capability, contract, and ownership rules. Future diversity cannot change the meaning of an existing baseline contract by accident.
 
 ## Present-value requirement
 
-The long horizon cannot excuse a weak current project. M0-M6 must demonstrate present value on one machine:
+The long horizon cannot excuse a weak current project. Within the frozen single-node boundary,
+M0–M6 now demonstrate present value on one machine:
 
 - clearer ownership than an ad hoc Python service;
 - stronger contract and failure semantics than a raw RPC client;

@@ -16,7 +16,7 @@ For the real loopback host and retained browser evidence, see the
 
 ## Status
 
-**`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE · BOUNDED ACTUAL REFERENCE PATH PROVEN`**
+**`M0–M6 FROZEN · SINGLE-NODE BASELINE COMPLETE · BOUNDED ACTUAL REFERENCE PATH PROVEN · SYNTHETIC RISK HOST QUALIFIED`**
 
 The repository now contains the bounded M1 contract model, independent Java and Python validators,
 and a shared conformance corpus. It also contains one bounded M2 prototype: a typed Java mapper,
@@ -36,6 +36,11 @@ and merged-main checks, downloaded evidence bundles, and offline verifier agree.
 outer reproduction and evidence layer; it does not alter M1–M5 ownership or implementation
 semantics. Two fresh public 16 GB-class runs completed the full ordered journey without dependency
 caches, and both downloaded bundles passed independent offline readback.
+
+Beyond the milestone freezes, one trusted local CPU composition now has a separately closed actual
+reference-path qualification, and the versioned synthetic risk-scoring host is qualified as its
+first bounded application. Neither result grants production, distribution, capacity, untrusted-code
+isolation or general public-SDK authority.
 
 The M0 blueprint is frozen at `m0-blueprint-v1`; the bounded M1 contract layer is frozen at
 `m1-contract-v1`; the bounded M2 invocation slice is frozen at `m2-invocation-v1`; and the first
@@ -63,7 +68,10 @@ JPyxis does not treat cross-language calling itself as novel. Its candidate cont
 - fault ownership and recovery evidence;
 - replaceable definition, transport, and runtime adapters.
 
-These are research hypotheses until experiments validate them.
+The generality of that composition remains a research hypothesis outside explicitly qualified
+boundaries. Within the frozen M0–M6 single-node baseline, the bounded actual reference path and the
+qualified synthetic risk-scoring host, these properties now have retained implementations,
+counterexamples, public gates and independent readbacks rather than only future intent.
 
 ## Architecture at a glance
 
@@ -88,8 +96,8 @@ flowchart TB
 
     subgraph CAPABILITIES["Replaceable capabilities"]
         DEFINITION["Definition Plugin<br/>Python first"]
-        TRANSPORT["Transport Plugin<br/>gRPC candidate"]
-        DATA["Data-plane Plugin<br/>Protobuf candidate"]
+        TRANSPORT["Transport Plugin<br/>gRPC first reference"]
+        DATA["Data-plane Plugin<br/>Protobuf first carrier"]
         RUNTIME["Runtime Plugins<br/>NumPy + reference CPU fixtures"]
         OTHER["Other plugins<br/>store · scheduler · telemetry"]
     end
@@ -110,9 +118,13 @@ dependency or grants a plugin control-plane authority.
 
 Single-node execution is not a reduced substitute for the first stage. It is the declared proof boundary.
 
-Within that boundary, M0-M6 must eventually provide real implementation, automated tests, fault injection, observable evidence, and clean-machine reproduction. Outside that boundary, this repository records only attachment points, entry conditions, and non-binding evolution directions.
+Within that boundary, M0–M6 now provide real implementation, automated tests, fault injection,
+observable evidence and clean-machine reproduction. The separately qualified actual reference path
+and synthetic risk-scoring host compose those frozen responsibilities without widening them. Outside
+these named boundaries, the repository records only attachment points, entry conditions and
+non-binding evolution directions.
 
-The candidate reference environment is:
+The qualified bounded reference environment is:
 
 ```text
 RAM:      16 GB-class, observed for the bounded M0-M6 reference slice
@@ -172,9 +184,9 @@ They acquire milestone status only after their entry evidence is accepted.
 
 ## First reference vertical slice
 
-M1 starts with one deliberately narrow path selected during M0. It proves contract meaning and
-failure attribution before lifecycle, distributed control, accelerators, or production infrastructure
-are allowed to widen the scope.
+M1 began with one deliberately narrow path selected during M0. Its frozen profile proves bounded
+contract meaning and failure attribution before lifecycle, distributed control, accelerators or
+production infrastructure are allowed to widen the scope.
 
 ```mermaid
 flowchart LR
@@ -187,8 +199,8 @@ flowchart LR
 
 The reference workload is a deterministic, stateless batch affine transform with no external side
 effects. Its acceptance and rejection boundaries are frozen in
-[ADR-0004](docs/adr/0004-first-reference-vertical-slice.md). Passing it will prove only the bounded
-slice—not performance, production readiness, GPU support, distribution, or an ecosystem.
+[ADR-0004](docs/adr/0004-first-reference-vertical-slice.md). The completed slice proves only that
+bounded claim—not performance, production readiness, GPU support, distribution or an ecosystem.
 
 Execution does not verify itself. [ADR-0005](docs/adr/0005-first-verifiable-end-to-end-closure.md)
 separates invocation outcome, acceptance verdict, and project evidence state, and requires retained
@@ -214,7 +226,7 @@ contract + identity lock + 38-case corpus
        cross-binding report equality
 ```
 
-Run the complete local M1 candidate gate from the repository root:
+Run the complete local M1 frozen regression gate from the repository root:
 
 ```text
 node scripts/verify-repository.mjs
@@ -224,7 +236,7 @@ node scripts/verify-m1.mjs
 The [M1 Contract Profile](docs/spec/m1-contract-profile.md) defines the bounded semantics,
 [ADR-0006](docs/adr/0006-m1-canonical-contract-profile.md) records the representation decision, and
 the [M1 Contract Review](docs/reviews/m1-contract-review.md) records the accepted evidence and what
-remains unproven. M2 may now investigate the bounded invocation question without weakening M1.
+remains unproven. M2 subsequently implemented the bounded invocation question without weakening M1.
 
 ## M2 invocation prototype
 
@@ -233,7 +245,7 @@ Invocation Manager alone commits one terminal outcome; an external Acceptance Ha
 retained bundle and emits a separate verdict. Neither gRPC status nor a Worker success label can
 become invocation or project truth by itself.
 
-Run the complete local candidate gate from the repository root:
+Run the complete local M2 frozen regression gate from the repository root:
 
 ```text
 node scripts/verify-repository.mjs
@@ -451,8 +463,18 @@ coordinates, resource observations, limits, and claims that remain unproven.
 - [Research Evidence Traceability](docs/research/evidence-traceability.md)
 - [Single-node Baseline](docs/roadmap/single-node-baseline.md)
 - [Evolution Map](docs/roadmap/evolution-map.md)
-- [Productization Reference Path Audit — STOP at candidate audit](docs/roadmap/productization-reference-path-audit.md)
 - [Historical Residuals — classification and retention boundary](archive/historical-residuals/README.md)
+
+### Reference composition and application
+
+- [Historical first Productization Audit — STOP at candidate audit](docs/roadmap/productization-reference-path-audit.md)
+- [Fresh Productization Audit v3](docs/reviews/productization-reference-path-audit-review-v3.md)
+- [Productization Reference Path Contract v1](docs/spec/productization-reference-path-contract-v1.md)
+- [Actual Reference Path Implementation Review](docs/reviews/reference-path-implementation-review-v1.md)
+- [Actual Reference Path Qualification Closure](docs/reviews/reference-path-qualification-closure-v1.md)
+- [Versioned Risk Scoring Reference Host](reference-apps/versioned-risk-scoring/README.md)
+- [Risk Scoring Reference Host Qualification](docs/reviews/risk-scoring-reference-host-qualification-v1.md)
+- [Observatory Demo and local-run guide](docs/observatory-demo.md)
 
 ### Accepted M0 decisions
 
