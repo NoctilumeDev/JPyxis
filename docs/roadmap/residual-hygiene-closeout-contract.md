@@ -233,7 +233,7 @@ At the contract base:
 - the external evidence identity, publication, readback and consumer-migration contract has not
   started.
 
-Therefore the honest current result is:
+Therefore the honest current candidate disposition, rather than a completed gate invocation, is:
 
 ```text
 RESIDUAL_HYGIENE_CONTRACT_CANDIDATE
