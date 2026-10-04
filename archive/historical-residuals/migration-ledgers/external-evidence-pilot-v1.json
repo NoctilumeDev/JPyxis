@@ -121,5 +121,26 @@
     "excludesOtherEvidenceObjects": true,
     "excludesHistoryRewrite": true
   },
-  "migrationState": "CURRENT_TREE_REMOVAL_ELIGIBLE"
+  "externalizationQualification": {
+    "removalPullRequest": 54,
+    "removalHeadRevision": "e45f53158638f5128850237830d38168ab075a74",
+    "removalMergeRevision": "2a601b8a7c88bbddff11cd16bfdfa026280d74b7",
+    "repositoryGatesRunId": 37229536453,
+    "repositoryGatesConclusion": "success",
+    "observatoryRunId": 37229536462,
+    "observatoryConclusion": "success",
+    "postRemovalReadbackObservedAt": "2026-10-04T19:51:02.135245Z",
+    "currentTreeObjectAbsent": true,
+    "anonymous": true,
+    "tokenEnvironmentAbsent": true,
+    "externalConsumerVerdict": "PASS",
+    "failClosedMutationWitnesses": 14,
+    "successAndCleanupWitness": true,
+    "repositoryVerificationVerdict": "PASS",
+    "originalRecoveryCommit": "a4136cb022d4bffe67ea182dd4a9ae5b4075bd32",
+    "originalRecoveryGitBlob": "b7b6fd73946ab814289fc7c63442f569eec89213",
+    "historyRewritePerformed": false,
+    "verdict": "PASS"
+  },
+  "migrationState": "EXTERNALIZED"
 }

@@ -30,6 +30,11 @@ and the sole `polish-v2` consumer passed a fresh readback while the local Git ZI
 absent.
 
 An explicit repository-owner instruction then authorized one independent current-tree removal PR for
-that pilot ZIP only. The ledger therefore records `CURRENT_TREE_REMOVAL_ELIGIBLE`; it does not claim
-`EXTERNALIZED` until the removal enters protected main, exact-main gates pass and a post-removal
-anonymous readback succeeds. No other evidence object or Git history is in scope.
+that pilot ZIP only. PR #54 entered protected main at
+`2a601b8a7c88bbddff11cd16bfdfa026280d74b7`; that exact main passed Repository Gates and Observatory,
+and a fresh anonymous post-removal readback proved that the external consumer, the fail-closed
+mutation set and repository verification still pass while the Git path is absent. The ledger now
+records `EXTERNALIZED`. The original bytes remain recoverable from commit
+`a4136cb022d4bffe67ea182dd4a9ae5b4075bd32` and Git blob
+`b7b6fd73946ab814289fc7c63442f569eec89213`; no other evidence object was removed and Git history was
+not rewritten.
