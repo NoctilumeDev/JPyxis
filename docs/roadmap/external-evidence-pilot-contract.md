@@ -1,6 +1,12 @@
 # External Evidence Pilot Contract
 
-Status: `CONTRACT FROZEN · PROVIDER PRECONDITION UNSATISFIED · NO BYTES MOVED`
+Status: `CONTRACT FROZEN`
+
+Qualification-time state: `PROVIDER PRECONDITION UNSATISFIED · NO BYTES MOVED`
+
+Post-freeze implementation state is recorded separately in
+[`external-evidence-pilot-v1.json`](../../archive/historical-residuals/migration-ledgers/external-evidence-pilot-v1.json).
+The implementation record cannot amend this contract or grant removal authority.
 
 Contract base: `main@8e773a216b1b12ef2ab81b02f9e9ae0e3113f4a8`
 
@@ -390,7 +396,7 @@ final contract bytes
 Contract qualification does not enable immutable Releases, create a tag or Release, upload an asset,
 modify `scripts/verify-risk-host-retention.py`, move bytes or authorize removal.
 
-Current frozen state:
+Qualification-time frozen state:
 
 ```text
 EXTERNAL_EVIDENCE_PILOT_CONTRACT_FROZEN
