@@ -142,6 +142,21 @@ def verify(record_path: pathlib.Path, timeout_seconds: float) -> dict[str, Any]:
         raise VerificationError("unsupported migration ledger schema")
     if record.get("migrationState") not in {"EXTERNAL_READBACK_VERIFIED", "DUAL_RETAINED"}:
         raise VerificationError("migration ledger is not eligible for anonymous readback")
+    if record.get("provider") != "github-immutable-release-asset":
+        raise VerificationError("unexpected external evidence provider")
+    if record.get("mediaType") != "application/zip":
+        raise VerificationError("unexpected external evidence media type")
+    if record.get("originalRecoveryCommit") != record.get("firstRetainingCommit"):
+        raise VerificationError("recovery commit does not match first retaining commit")
+    if record.get("originalRecoveryGitBlob") != record.get("originalGitBlob"):
+        raise VerificationError("recovery blob does not match original Git blob")
+
+    verifier_revision = record["readbackVerifierRevision"]
+    verifier_path = record["readbackVerifierPath"]
+    expected_verifier_blob = git_output(root, "rev-parse", f"{verifier_revision}:{verifier_path}")
+    current_verifier_blob = git_output(root, "hash-object", str(pathlib.Path(__file__).resolve()))
+    if current_verifier_blob != expected_verifier_blob:
+        raise VerificationError("current readback verifier differs from its recorded revision")
 
     member_path = repository_path(root, record["memberLedgerPath"])
     claim_path = repository_path(root, record["claimRecordPath"])
@@ -189,6 +204,7 @@ def verify(record_path: pathlib.Path, timeout_seconds: float) -> dict[str, Any]:
         "tag_name": record["releaseTag"],
         "target_commitish": record["releaseTarget"],
         "draft": False,
+        "prerelease": True,
         "immutable": True,
     }
     for field, expected in expected_release.items():
