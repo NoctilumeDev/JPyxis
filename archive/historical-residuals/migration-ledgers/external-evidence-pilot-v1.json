@@ -28,7 +28,7 @@
   "publicationObservedAt": "2026-10-04T17:45:19Z",
   "publicationRevision": "9b15ae5dc0cb5d146de917769c12f08ebb863688",
   "anonymousReadbackObservedAt": "2026-10-04T17:53:17.026712Z",
-  "readbackVerifierRevision": "388f6a90874f1f2017513461473a8fcc5375a8ea",
+  "readbackVerifierRevision": "7219be185b94bff55d49a63feb58e7e0da54f009",
   "readbackVerifierPath": "scripts/verify-external-evidence-pilot.py",
   "providerSettingObservation": {
     "observedAt": "2026-10-04T17:43:39Z",
@@ -92,5 +92,25 @@
     "allOwnedWorkersStopped": true,
     "verdict": "PASS"
   },
-  "migrationState": "DUAL_RETAINED"
+  "consumerMigrationQualification": {
+    "consumerMigrationPullRequest": 52,
+    "consumerMigrationHeadRevision": "27bab44799e64ff0cc2e15f06fe5ec80a88e293e",
+    "consumerMigrationMergeRevision": "28419d0ecbbd3b212c893f39db72458d4448a807",
+    "repositoryGatesRunId": 37224887447,
+    "repositoryGatesConclusion": "success",
+    "observatoryRunId": 37224887466,
+    "observatoryConclusion": "success",
+    "exactMainConsumerReadbackObservedAt": "2026-10-04T18:38:43.0129469Z",
+    "providerReadbackObservedAt": "2026-10-04T18:38:42.905511Z",
+    "externalReadbackVerifierRevision": "388f6a90874f1f2017513461473a8fcc5375a8ea",
+    "stateProjectionVerifierRevision": "7219be185b94bff55d49a63feb58e7e0da54f009",
+    "candidateStateProjectionReadbackObservedAt": "2026-10-04T18:40:20.283350Z",
+    "consumerPath": "scripts/verify-risk-host-retention.py",
+    "localGitZipAbsentDuringReadback": true,
+    "localGitZipRestoredAfterReadback": true,
+    "failClosedMutationWitnesses": 14,
+    "successAndCleanupWitness": true,
+    "verdict": "PASS"
+  },
+  "migrationState": "CONSUMERS_MIGRATED"
 }
