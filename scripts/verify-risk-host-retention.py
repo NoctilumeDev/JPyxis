@@ -1,11 +1,13 @@
 """Read-only byte/source checks of original rejected and bounded qualified containers."""
 import contextlib,hashlib,json,pathlib,subprocess,zipfile
 
-from external_evidence_consumer import acquire_verified_object,load_migration_ledger,verify_zip_members
+from external_evidence_consumer import (acquire_verified_object,load_migration_ledger,require_coordinate,
+                                        verify_bound_file,verify_zip_members)
 
 base=pathlib.Path('evidence/risk-scoring-reference/v1/rejected-candidates')
 sha=lambda raw:'sha256:'+hashlib.sha256(raw).hexdigest()
 pilot_ledger=pathlib.Path('archive/historical-residuals/migration-ledgers/external-evidence-pilot-v1.json')
+pilot_record=load_migration_ledger(pilot_ledger)
 cases=[('594ba2d-first-install','94e4cb93493df6f2d82e04338b3fae41bc2f868c'),('69ca522-first-mapper','99e4281c05f311b4439eb5d532a8b4a2fcaab3bd'),('8ff5df5-first-reader',None)]
 results=[]
 for name,introduced in cases:
@@ -64,8 +66,15 @@ visual=[]
 for name in ['polish-v2','polish-v3']:
     folder=pathlib.Path('evidence/risk-scoring-reference/v1/design-qa')/name
     ledger=json.loads((folder/'raw-retention.json').read_bytes())
-    container_context=(acquire_verified_object(load_migration_ledger(pilot_ledger)) if name=='polish-v2'
-                       else contextlib.nullcontext(folder/ledger['container']))
+    if name=='polish-v2':
+        require_coordinate(pilot_record,'originalGitPath',(folder/ledger['container']).as_posix())
+        verify_bound_file(pilot_record,path_field='memberLedgerPath',digest_field='memberLedgerSha256',
+                          expected_path=folder/'raw-retention.json')
+        verify_bound_file(pilot_record,path_field='claimRecordPath',digest_field='claimRecordSha256',
+                          expected_path=folder/'iteration.json')
+        container_context=acquire_verified_object(pilot_record)
+    else:
+        container_context=contextlib.nullcontext(folder/ledger['container'])
     with container_context as container:
         verify_zip_members(container,folder/'raw-retention.json')
         raw=container.read_bytes()
@@ -80,6 +89,9 @@ for name in ['polish-v2','polish-v3']:
             assert source['revision']==ledger['sourceRevision']==config['executionBuild']['sourceRevision']
             tree=subprocess.check_output(['git','rev-parse',source['revision']+'^{tree}'],text=True).strip()
             assert source['tree']==tree==config['executionBuild']['sourceTree']
+            if name=='polish-v2':
+                require_coordinate(pilot_record,'sourceRevision',source['revision'])
+                require_coordinate(pilot_record,'sourceTree',source['tree'])
             receipt=json.loads(archive.read('receipt.json'))
             assert len(receipt['requests'])==5 and receipt['allOwnedWorkersStopped']
             shutdown=json.loads(archive.read('independent-shutdown.json'))

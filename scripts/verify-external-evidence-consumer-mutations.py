@@ -16,7 +16,9 @@ from external_evidence_consumer import (
     acquire_verified_object,
     canonical_asset_url,
     load_migration_ledger,
+    require_coordinate,
     sha256,
+    verify_bound_file,
     verify_zip_members,
 )
 
@@ -42,6 +44,13 @@ def record_for(payload: bytes) -> dict:
         "objectId": digest,
         "bytes": len(payload),
         "sha256": digest,
+        "memberLedgerPath": "fixture/members.json",
+        "memberLedgerSha256": sha256(b"placeholder"),
+        "originalGitPath": "fixture/raw.zip",
+        "claimRecordPath": "fixture/claim.json",
+        "claimRecordSha256": sha256(b"claim"),
+        "sourceRevision": "fixture-source",
+        "sourceTree": "fixture-tree",
         "provider": "github-immutable-release-asset",
         "repository": "NoctilumeDev/JPyxis",
         "releaseTag": "consumer-mutation-fixture",
@@ -124,6 +133,32 @@ with tempfile.TemporaryDirectory(prefix="jpyxis-consumer-mutations-") as tempora
             "wrong-locator",
             ExternalEvidenceContractError,
             lambda: acquire_once(wrong_locator, good_zip, root),
+        )
+    )
+    results.append(
+        expect(
+            "wrong-original-git-coordinate",
+            ExternalEvidenceContractError,
+            lambda: require_coordinate(good_record, "originalGitPath", "fixture/other.zip"),
+        )
+    )
+    bound_record = copy.deepcopy(good_record)
+    bound_record["memberLedgerPath"] = member_ledger.as_posix()
+    bound_record["memberLedgerSha256"] = sha256(member_ledger.read_bytes())
+    changed_member_ledger = root / "changed-members.json"
+    changed_member_ledger.write_bytes(member_ledger.read_bytes() + b" ")
+    changed_record = copy.deepcopy(bound_record)
+    changed_record["memberLedgerPath"] = changed_member_ledger.as_posix()
+    results.append(
+        expect(
+            "bound-member-ledger-digest",
+            ExternalEvidenceIntegrityError,
+            lambda: verify_bound_file(
+                changed_record,
+                path_field="memberLedgerPath",
+                digest_field="memberLedgerSha256",
+                expected_path=changed_member_ledger,
+            ),
         )
     )
 
@@ -250,7 +285,11 @@ with tempfile.TemporaryDirectory(prefix="jpyxis-consumer-mutations-") as tempora
         verify_zip_members(path, member_ledger)
         assert path.exists()
     results.append(expect("no-cache-fallback", ExternalEvidenceTransportError, transport_failure))
-    assert sorted(path.name for path in root.iterdir()) == ["members.json", "wrong-members.json"]
+    assert sorted(path.name for path in root.iterdir()) == [
+        "changed-members.json",
+        "members.json",
+        "wrong-members.json",
+    ]
     results.append({"mutation": "success-and-cleanup", "verdict": "PASS"})
 
 print(json.dumps({"verdict": "PASS", "mutations": results}, indent=2))

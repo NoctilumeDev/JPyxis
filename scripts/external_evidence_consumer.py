@@ -71,6 +71,13 @@ def validate_migration_ledger(record: Mapping[str, Any]) -> None:
         "objectId",
         "bytes",
         "sha256",
+        "memberLedgerPath",
+        "memberLedgerSha256",
+        "originalGitPath",
+        "claimRecordPath",
+        "claimRecordSha256",
+        "sourceRevision",
+        "sourceTree",
         "provider",
         "repository",
         "releaseTag",
@@ -95,6 +102,27 @@ def validate_migration_ledger(record: Mapping[str, Any]) -> None:
         raise ExternalEvidenceContractError("external object identities disagree")
     if record["browserDownloadUrl"] != canonical_asset_url(record):
         raise ExternalEvidenceContractError("external asset locator does not match its frozen coordinate")
+
+
+def require_coordinate(record: Mapping[str, Any], field: str, expected: str) -> None:
+    if record.get(field) != expected:
+        raise ExternalEvidenceContractError(f"migration ledger {field} does not match its consumer coordinate")
+
+
+def verify_bound_file(
+    record: Mapping[str, Any],
+    *,
+    path_field: str,
+    digest_field: str,
+    expected_path: pathlib.Path,
+) -> None:
+    require_coordinate(record, path_field, expected_path.as_posix())
+    try:
+        raw = expected_path.read_bytes()
+    except OSError as error:
+        raise ExternalEvidenceContractError(f"cannot read bound file: {expected_path}") from error
+    if sha256(raw) != record.get(digest_field):
+        raise ExternalEvidenceIntegrityError(f"bound file digest mismatch: {expected_path}")
 
 
 def _download_attempt(
