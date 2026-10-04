@@ -27,5 +27,9 @@ then coexist under the qualified compact ledger.
 It reached `CONSUMERS_MIGRATED` after PR #52 entered protected main at
 `28419d0ecbbd3b212c893f39db72458d4448a807`, that exact main passed Repository Gates and Observatory,
 and the sole `polish-v2` consumer passed a fresh readback while the local Git ZIP was deliberately
-absent. The original ZIP remains in Git. The ledger does not claim removal eligibility,
-repository-wide closeout or history reduction.
+absent.
+
+An explicit repository-owner instruction then authorized one independent current-tree removal PR for
+that pilot ZIP only. The ledger therefore records `CURRENT_TREE_REMOVAL_ELIGIBLE`; it does not claim
+`EXTERNALIZED` until the removal enters protected main, exact-main gates pass and a post-removal
+anonymous readback succeeds. No other evidence object or Git history is in scope.

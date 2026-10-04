@@ -112,5 +112,14 @@
     "successAndCleanupWitness": true,
     "verdict": "PASS"
   },
-  "migrationState": "CONSUMERS_MIGRATED"
+  "currentTreeRemovalAuthorization": {
+    "observedAt": "2026-10-04T19:39:52.6544577Z",
+    "authorizedScope": "one current-tree pilot ZIP",
+    "authorizedPath": "evidence/risk-scoring-reference/v1/design-qa/polish-v2/raw-observations.zip",
+    "authorizationChannel": "explicit interactive repository-owner instruction",
+    "prerequisiteMainRevision": "9ef68c120ec8df2646acf4bdcf823356f1b118a9",
+    "excludesOtherEvidenceObjects": true,
+    "excludesHistoryRewrite": true
+  },
+  "migrationState": "CURRENT_TREE_REMOVAL_ELIGIBLE"
 }
