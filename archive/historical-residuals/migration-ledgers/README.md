@@ -12,5 +12,8 @@ The qualified pre-contract findings are recorded in the
 [Evidence Retention and Externalization Pre-Contract Audit](../../../docs/roadmap/evidence-retention-externalization-precontract-audit.md).
 The audit reached exact-main qualification at
 `a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`, but authorizes no migration, deletion, workflow change
-or history rewrite. This directory remains empty until a separately qualified external evidence
-contract produces an actual migration ledger.
+or history rewrite. The first bounded successor is the
+[External Evidence Pilot Contract](../../../docs/roadmap/external-evidence-pilot-contract.md), which
+is a candidate until its own protected-merge and exact-main qualification finishes. This directory
+remains empty until a separately qualified external evidence contract produces an actual migration
+ledger.
