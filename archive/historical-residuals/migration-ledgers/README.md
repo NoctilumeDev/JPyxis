@@ -14,6 +14,7 @@ The audit reached exact-main qualification at
 `a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`, but authorizes no migration, deletion, workflow change
 or history rewrite. The first bounded successor is the
 [External Evidence Pilot Contract](../../../docs/roadmap/external-evidence-pilot-contract.md), which
-is a candidate until its own protected-merge and exact-main qualification finishes. This directory
-remains empty until a separately qualified external evidence contract produces an actual migration
-ledger.
+is frozen at `main@60ae50247f9da60c22d1798e2ccac9048319aa37`. Its provider precondition remains
+unsatisfied, and it authorizes no setting change, publication, migration or removal by itself. This
+directory remains empty until the qualified contract produces an actual migration ledger through a
+later implementation closure.

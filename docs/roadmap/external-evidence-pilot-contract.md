@@ -1,8 +1,33 @@
 # External Evidence Pilot Contract
 
-Status: `CONTRACT CANDIDATE · PROVIDER PRECONDITION UNSATISFIED · NO BYTES MOVED`
+Status: `CONTRACT FROZEN · PROVIDER PRECONDITION UNSATISFIED · NO BYTES MOVED`
 
-Candidate base: `main@8e773a216b1b12ef2ab81b02f9e9ae0e3113f4a8`
+Contract base: `main@8e773a216b1b12ef2ab81b02f9e9ae0e3113f4a8`
+
+Qualification coordinate: `main@60ae50247f9da60c22d1798e2ccac9048319aa37`
+
+## Qualification record
+
+The contract entered the protected repository through
+[PR #48](https://github.com/NoctilumeDev/JPyxis/pull/48):
+
+- reviewed head: `5e1ba7236630e355711d55312003c30e4d9b02b9`;
+- merge revision: `60ae50247f9da60c22d1798e2ccac9048319aa37`;
+- pull-request Repository Gates: run `37219940544`, all four jobs succeeded;
+- pull-request Observatory demo: run `37219940605`, build verification succeeded;
+- exact-main Repository Gates: run `37220255027`, all four jobs succeeded at the merge revision;
+- exact-main Observatory demo: run `37220254985`, build and deployment succeeded at the merge
+  revision.
+
+Independent reconciliation at the qualification coordinate re-observed the pilot as 156507 bytes,
+SHA-256 `1fb9d9fd4254ef51a190881cc76e784e4548e55cd93aa091399e7dfc12db7ee0` and Git blob
+`b7b6fd73946ab814289fc7c63442f569eec89213`. It also re-observed repository immutable Releases as
+`enabled: false`, `enforced_by_owner: false`.
+
+These coordinates freeze the object identity, provider prerequisites, authority boundaries,
+publication/readback ordering, migration states and removal-eligibility rules. They do not satisfy
+the provider prerequisite, change a repository setting, create a Release or tag, publish an asset,
+modify a consumer, move bytes or authorize removal.
 
 ## Purpose
 
@@ -20,7 +45,7 @@ authorize removal merely because an upload succeeds.
 
 ## Upstream authority
 
-This candidate consumes, and does not reopen:
+This contract consumes, and does not reopen:
 
 - the independently qualified
   [Evidence Retention and Externalization Pre-Contract Audit](evidence-retention-externalization-precontract-audit.md);
@@ -351,7 +376,7 @@ successful pilot does not authorize migration or deletion of the other 43 retain
 
 ## Qualification boundary
 
-This candidate may become a frozen contract only through:
+This contract is frozen through:
 
 ```text
 final contract bytes
@@ -365,10 +390,10 @@ final contract bytes
 Contract qualification does not enable immutable Releases, create a tag or Release, upload an asset,
 modify `scripts/verify-risk-host-retention.py`, move bytes or authorize removal.
 
-Current candidate state:
+Current frozen state:
 
 ```text
-EXTERNAL_EVIDENCE_PILOT_CONTRACT_CANDIDATE
+EXTERNAL_EVIDENCE_PILOT_CONTRACT_FROZEN
 PILOT_OBJECT_IDENTITY_BOUND
 PROVIDER_CANDIDATE_GITHUB_IMMUTABLE_RELEASE
 PROVIDER_PRECONDITION_UNSATISFIED
@@ -399,7 +424,7 @@ Stop and reopen the minimum affected boundary if any implementation:
 
 ## Next authority after qualification
 
-If and only if this contract reaches exact-main qualification, the next bounded work is a provider
-activation and publication candidate for this one object. Because immutable Releases are currently
-disabled and enabling them changes the lifecycle of all future repository releases, that next step
-still requires explicit human authorization before the setting is changed.
+The next bounded work is a provider-activation and publication candidate for this one object.
+Because immutable Releases are currently disabled and enabling them changes the lifecycle of all
+future repository releases, that next step still requires explicit human authorization before the
+setting is changed.
