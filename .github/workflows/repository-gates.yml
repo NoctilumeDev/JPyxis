@@ -38,6 +38,8 @@ jobs:
           python-version: "3.12"
       - name: Verify original rejected candidates before replay
         run: python scripts/verify-risk-host-retention.py
+      - name: Verify external evidence consumer mutations
+        run: python scripts/verify-external-evidence-consumer-mutations.py
       - name: Execute actual HTTP host and independent mutation gates
         run: node scripts/run-risk-scoring-host.mjs --scenario --public-clean
       - name: Retain raw host construction, execution, receipts and mutations
