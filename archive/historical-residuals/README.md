@@ -50,7 +50,7 @@ this directory would not reduce Git history and would break documented coordinat
 reduction requires a separately qualified externalization contract rather than an ad hoc cleanup
 commit.
 
-The stage-exit ordering, disposition meanings and `PASS / HELD / FAIL` boundary are specified by the
-[Residual Hygiene Closeout Contract](../../docs/roadmap/residual-hygiene-closeout-contract.md). Until
-that candidate is qualified and its blocking external-evidence path is closed, this archive remains a
-classification aid rather than evidence that repository hygiene has passed.
+The stage-exit ordering, disposition meanings and `PASS / HELD / FAIL` boundary are frozen by the
+[Residual Hygiene Closeout Contract](../../docs/roadmap/residual-hygiene-closeout-contract.md). The
+contract is qualified, but the current closeout remains `HELD` until its blocking external-evidence
+path is closed. This archive is a classification aid, not evidence that repository hygiene passed.
