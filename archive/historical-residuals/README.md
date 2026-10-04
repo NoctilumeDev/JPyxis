@@ -48,3 +48,8 @@ moved or deleted.
 The large `evidence/risk-scoring-reference/v1/design-qa` tree remains in place. Moving those files into
 this directory would not reduce Git history and would break documented coordinates. Any future size
 reduction requires an `EXTERNALIZE` contract rather than an ad hoc cleanup commit.
+
+The stage-exit ordering, disposition meanings and `PASS / HELD / FAIL` boundary are specified by the
+[Residual Hygiene Closeout Contract](../../docs/roadmap/residual-hygiene-closeout-contract.md). Until
+that candidate is qualified and its blocking external-evidence path is closed, this archive remains a
+classification aid rather than evidence that repository hygiene has passed.
