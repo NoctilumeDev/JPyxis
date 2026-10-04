@@ -1,8 +1,27 @@
 # Residual Hygiene Closeout Contract
 
-Status: `CANDIDATE · CONTRACT ONLY · GATE NOT IMPLEMENTED · CURRENT CLOSEOUT HELD`
+Status: `CONTRACT FROZEN · GATE NOT IMPLEMENTED · CURRENT CLOSEOUT HELD`
 
 Contract base: `main@b9f2fe46745b5c93c599f505a46912d3054f21d8`
+
+Qualification coordinate: `main@4e6eed39790853d6cf4d0f6f2903bea3e20e6fff`
+
+## Qualification record
+
+The closeout contract entered the protected repository through
+[PR #46](https://github.com/NoctilumeDev/JPyxis/pull/46):
+
+- reviewed head: `995435025947c62c1ba23a7475f653772f26a981`;
+- merge revision: `4e6eed39790853d6cf4d0f6f2903bea3e20e6fff`;
+- pull-request Repository Gates: run `37217945269`, all four jobs succeeded;
+- pull-request Observatory demo: run `37217945240`, build verification succeeded;
+- exact-main Repository Gates: run `37218343802`, all four jobs succeeded at the merge revision;
+- exact-main Observatory demo: run `37218343789`, build and deployment succeeded at the merge
+  revision.
+
+These coordinates freeze the closeout ordering, disposition meanings, terminal results and authority
+boundaries. They do not implement a gate, change a workflow, migrate or delete evidence, qualify an
+external provider, close the current `HELD` disposition or update a public product-state projection.
 
 ## Purpose
 
@@ -236,7 +255,7 @@ At the contract base:
 Therefore the honest current candidate disposition, rather than a completed gate invocation, is:
 
 ```text
-RESIDUAL_HYGIENE_CONTRACT_CANDIDATE
+RESIDUAL_HYGIENE_CONTRACT_FROZEN
 RESIDUAL_HYGIENE_GATE_NOT_IMPLEMENTED
 RESIDUAL_HYGIENE_CLOSEOUT_HELD
 BLOCKER: QUALIFIED_EXTERNAL_EVIDENCE_PATH_NOT_ESTABLISHED
@@ -250,8 +269,8 @@ user experience.
 
 ## Qualification and next authority
 
-This candidate may become a JPyxis closeout contract only after review, protected merge and exact-main
-verification. That qualification still does not implement the gate or authorize evidence migration.
+This JPyxis closeout contract is qualified through review, protected merge and exact-main
+verification. That qualification does not implement the gate or authorize evidence migration.
 
 After qualification, the next bounded work is the separately identified external evidence contract
 for one pilot object. A successful pilot proves only that one externalization mechanism is eligible
@@ -259,8 +278,8 @@ for wider use. It does not close the repository-wide hygiene result. The gate ma
 after every blocking family in the named closeout has completed its authorized remediation and
 post-remediation verification.
 
-README, the public Observatory, Project Charter and Vision must remain unchanged during this
-candidate. They may project a hygiene closeout state only after the real gate passes.
+README, the public Observatory, Project Charter and Vision remain unchanged by this contract closure.
+They may project a hygiene closeout state only after the real gate passes.
 
 ## Stop conditions
 
