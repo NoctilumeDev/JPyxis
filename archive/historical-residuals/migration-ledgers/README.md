@@ -19,7 +19,9 @@ unsatisfied at qualification; the separately authorized implementation that foll
 provider and produced the first compact record,
 [`external-evidence-pilot-v1.json`](external-evidence-pilot-v1.json).
 
-That record is currently only `EXTERNAL_READBACK_VERIFIED`: the immutable asset exists and the first
-anonymous byte/member readback passed, but the original Git ZIP and its existing consumer remain
-unchanged. The ledger does not claim `DUAL_RETAINED` qualification, consumer migration, removal
-eligibility, repository-wide closeout or history reduction.
+That record reached `DUAL_RETAINED` after PR #50 entered protected main at
+`4854196f3905a487866388550a901377ff633fea`, that exact main passed Repository Gates and Observatory,
+and a fresh anonymous byte/member readback passed. The immutable Release asset and original Git ZIP
+now coexist under the qualified compact ledger. The existing consumer remains unchanged, and the
+ledger does not claim consumer migration, removal eligibility, repository-wide closeout or history
+reduction.

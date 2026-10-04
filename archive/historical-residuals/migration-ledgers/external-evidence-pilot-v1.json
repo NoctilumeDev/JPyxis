@@ -71,5 +71,26 @@
     "allOwnedWorkersStopped": true,
     "verdict": "PASS"
   },
-  "migrationState": "EXTERNAL_READBACK_VERIFIED"
+  "dualRetentionQualification": {
+    "publicationPullRequest": 50,
+    "publicationHeadRevision": "dd1e4cdf63dddaf22edded8dcd6a3b507711ab52",
+    "publicationMergeRevision": "4854196f3905a487866388550a901377ff633fea",
+    "repositoryGatesRunId": 37222812856,
+    "repositoryGatesConclusion": "success",
+    "observatoryRunId": 37222812969,
+    "observatoryConclusion": "success",
+    "exactMainAnonymousReadbackObservedAt": "2026-10-04T18:06:29.037112Z",
+    "verifierRevision": "388f6a90874f1f2017513461473a8fcc5375a8ea",
+    "tokenEnvironmentAbsent": true,
+    "metadataAttempt": 1,
+    "metadataHttpStatus": 200,
+    "assetAttempt": 1,
+    "assetHttpStatus": 200,
+    "downloadedBytes": 156507,
+    "memberCount": 85,
+    "requestCount": 5,
+    "allOwnedWorkersStopped": true,
+    "verdict": "PASS"
+  },
+  "migrationState": "DUAL_RETAINED"
 }
