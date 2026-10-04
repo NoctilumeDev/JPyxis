@@ -8,8 +8,9 @@ SHA-256 and original coordinates, prove anonymous/readable retrieval where appli
 consumer, and retain a readback record before Git paths are removed. Moving files within the same Git
 history is not size reduction.
 
-The current pre-contract findings are recorded in the
+The qualified pre-contract findings are recorded in the
 [Evidence Retention and Externalization Pre-Contract Audit](../../../docs/roadmap/evidence-retention-externalization-precontract-audit.md).
-That audit authorizes no migration, deletion, workflow change or history rewrite. This directory
-remains empty until a separately qualified external evidence contract produces an actual migration
-ledger.
+The audit reached exact-main qualification at
+`a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`, but authorizes no migration, deletion, workflow change
+or history rewrite. This directory remains empty until a separately qualified external evidence
+contract produces an actual migration ledger.
