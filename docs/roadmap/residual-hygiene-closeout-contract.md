@@ -76,7 +76,7 @@ Every in-scope item or coherent family receives exactly one proposed disposition
 
 | Class | Meaning | Closeout consequence |
 | --- | --- | --- |
-| `KEEP` | Current product material, active documentation, or evidence with a named owner, consumer or proof obligation. | Remains at its current qualified coordinate. |
+| `KEEP_IN_PLACE` | Current product material, active documentation, or evidence with a named owner, consumer or proof obligation. | Remains at its current qualified coordinate. |
 | `ARCHIVE` | Superseded non-authoritative material with continuing historical or design value and no active product or evidence coordinate. | May move only with enough provenance to preserve its meaning. |
 | `DELETE_CANDIDATE` | Reproducible or duplicated material with no remaining product, evidence, documentation or historical responsibility. | May be deleted only after reference and non-regression checks. |
 | `EXTERNALIZE_CANDIDATE` | Retained material whose current repository residence causes real cost but whose bytes still carry a proof or historical obligation. | Requires a separate identity, publication, readback and consumer-migration contract. |
@@ -125,7 +125,7 @@ The gate has three terminal results:
 
 1. the inventory and exact source coordinate are closed;
 2. no item remains `UNKNOWN`;
-3. every `KEEP` item has a current owner, consumer or proof obligation;
+3. every `KEEP_IN_PLACE` item has a current owner, consumer or proof obligation;
 4. every `ARCHIVE` item satisfies the archive admission rule and has retained provenance;
 5. every authorized deletion or move is complete;
 6. every blocking `EXTERNALIZE_CANDIDATE` has reached its separately defined removal or accepted
@@ -162,9 +162,9 @@ Residual Hygiene: PASS | HELD | FAIL
 Source: <exact revision>
 Scope: <stage or product surface>
 
-KEEP                   <count>
-ARCHIVE                <count>
-DELETE                 <count>
+KEEP_IN_PLACE          <count>
+ARCHIVED               <count>
+DELETED                <count>
 EXTERNALIZE_CANDIDATE  <count>
 UNKNOWN                <count>
 

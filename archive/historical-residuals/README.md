@@ -21,7 +21,7 @@ tree is not enough reason to invalidate an existing coordinate.
 | `KEEP_IN_PLACE` | Active product material or retained evidence referenced by a contract, report, digest, manifest, CI/readback record, or public document. | Do not move or delete. |
 | `ARCHIVE` | Non-authoritative planning/design material that has been superseded, is not consumed by the product, and has no active evidence coordinate. | Move here with provenance and byte digests. |
 | `DELETE_CANDIDATE` | Generated or duplicated material with no product, evidence, documentation, or historical value. | Delete only after an explicit reference and build audit. |
-| `EXTERNALIZE` | Large raw evidence that affects repository use but still has retention value. | Migrate only under a separate immutable-storage and readback contract. |
+| `EXTERNALIZE_CANDIDATE` | Large raw evidence that affects repository use but still has retention value. | Migrate only under a separate immutable-storage and readback contract. |
 
 Absence of a textual reference is not sufficient for deletion. Original failures, raw observations,
 independent review inputs, qualification artifacts, and anything covered by a retention ledger remain
@@ -47,7 +47,7 @@ moved or deleted.
 
 The large `evidence/risk-scoring-reference/v1/design-qa` tree remains in place. Moving those files into
 this directory would not reduce Git history and would break documented coordinates. Any future size
-reduction requires an `EXTERNALIZE` contract rather than an ad hoc cleanup commit.
+reduction requires an `EXTERNALIZE_CANDIDATE` contract rather than an ad hoc cleanup commit.
 
 The stage-exit ordering, disposition meanings and `PASS / HELD / FAIL` boundary are specified by the
 [Residual Hygiene Closeout Contract](../../docs/roadmap/residual-hygiene-closeout-contract.md). Until
