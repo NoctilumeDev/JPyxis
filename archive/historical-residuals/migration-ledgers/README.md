@@ -22,6 +22,10 @@ provider and produced the first compact record,
 That record reached `DUAL_RETAINED` after PR #50 entered protected main at
 `4854196f3905a487866388550a901377ff633fea`, that exact main passed Repository Gates and Observatory,
 and a fresh anonymous byte/member readback passed. The immutable Release asset and original Git ZIP
-now coexist under the qualified compact ledger. The existing consumer remains unchanged, and the
-ledger does not claim consumer migration, removal eligibility, repository-wide closeout or history
-reduction.
+then coexist under the qualified compact ledger.
+
+It reached `CONSUMERS_MIGRATED` after PR #52 entered protected main at
+`28419d0ecbbd3b212c893f39db72458d4448a807`, that exact main passed Repository Gates and Observatory,
+and the sole `polish-v2` consumer passed a fresh readback while the local Git ZIP was deliberately
+absent. The original ZIP remains in Git. The ledger does not claim removal eligibility,
+repository-wide closeout or history reduction.

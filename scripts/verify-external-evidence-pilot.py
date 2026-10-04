@@ -140,7 +140,13 @@ def verify(record_path: pathlib.Path, timeout_seconds: float) -> dict[str, Any]:
     record_raw, record = load_json(record_path.resolve())
     if record.get("schemaVersion") != "jpyxis.io/external-evidence-migration/v1":
         raise VerificationError("unsupported migration ledger schema")
-    if record.get("migrationState") not in {"EXTERNAL_READBACK_VERIFIED", "DUAL_RETAINED"}:
+    if record.get("migrationState") not in {
+        "EXTERNAL_READBACK_VERIFIED",
+        "DUAL_RETAINED",
+        "CONSUMERS_MIGRATED",
+        "CURRENT_TREE_REMOVAL_ELIGIBLE",
+        "EXTERNALIZED",
+    }:
         raise VerificationError("migration ledger is not eligible for anonymous readback")
     if record.get("provider") != "github-immutable-release-asset":
         raise VerificationError("unexpected external evidence provider")
