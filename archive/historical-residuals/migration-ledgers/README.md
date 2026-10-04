@@ -1,6 +1,6 @@
 # Migration Ledgers
 
-No evidence is externalized in the first archive pass.
+No evidence was externalized in the first archive pass.
 
 Large raw browser-observation archives affect clone size, but they are currently covered by retained
 byte ledgers and review records. A future migration must name an immutable destination, preserve
@@ -14,7 +14,12 @@ The audit reached exact-main qualification at
 `a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`, but authorizes no migration, deletion, workflow change
 or history rewrite. The first bounded successor is the
 [External Evidence Pilot Contract](../../../docs/roadmap/external-evidence-pilot-contract.md), which
-is frozen at `main@60ae50247f9da60c22d1798e2ccac9048319aa37`. Its provider precondition remains
-unsatisfied, and it authorizes no setting change, publication, migration or removal by itself. This
-directory remains empty until the qualified contract produces an actual migration ledger through a
-later implementation closure.
+is frozen at `main@60ae50247f9da60c22d1798e2ccac9048319aa37`. Its provider precondition was
+unsatisfied at qualification; the separately authorized implementation that followed enabled the
+provider and produced the first compact record,
+[`external-evidence-pilot-v1.json`](external-evidence-pilot-v1.json).
+
+That record is currently only `EXTERNAL_READBACK_VERIFIED`: the immutable asset exists and the first
+anonymous byte/member readback passed, but the original Git ZIP and its existing consumer remain
+unchanged. The ledger does not claim `DUAL_RETAINED` qualification, consumer migration, removal
+eligibility, repository-wide closeout or history reduction.
