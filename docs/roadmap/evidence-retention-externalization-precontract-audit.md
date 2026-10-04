@@ -1,8 +1,27 @@
 # Evidence Retention and Externalization Pre-Contract Audit
 
-Status: `CANDIDATE · PRE-CONTRACT AUDIT COMPLETE · NO BYTES MOVED · NO DELETION AUTHORIZED`
+Status: `PRE-CONTRACT AUDITED · EXACT-MAIN QUALIFIED · NO BYTES MOVED · NO DELETION AUTHORIZED`
 
 Audit base: `main@6d388de497ff993af97a06dbf83a4296f59ce50e`
+
+Qualification coordinate: `main@a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`
+
+## Qualification record
+
+The bounded audit entered the protected repository through
+[PR #44](https://github.com/NoctilumeDev/JPyxis/pull/44):
+
+- reviewed head: `a091678b238ee703472d0f5d93f8a4df7ff93785`;
+- merge revision: `a6665bc1eaab409f1ebc0f9c93a99735c0191f2d`;
+- pull-request Repository Gates: run `37190392966`, all four required jobs succeeded;
+- pull-request Observatory demo: run `37190392972`, build verification succeeded;
+- exact-main Repository Gates: run `37216713138`, all four jobs succeeded at the merge revision;
+- exact-main Observatory demo: run `37216713130`, build and deployment succeeded at the merge
+  revision.
+
+The qualified state means that the problem statement, inventory and next contract question may be
+used as construction input. It does not publish an external object, qualify a provider, migrate a
+consumer, authorize deletion, implement a hygiene gate or rewrite Git history.
 
 ## Purpose
 
@@ -378,7 +397,7 @@ The repository has already crossed a user-visible boundary: retained evidence do
 and can prevent a normal Windows worktree checkout. Exact duplicate deletion and internal archiving
 cannot solve that problem without weakening or merely relocating it.
 
-If this audit is independently accepted and qualified on exact main, the next authorized work is a
+This audit is independently accepted and qualified on exact main. The next authorized work is a
 separate, provider-aware **external evidence identity, publication and readback contract** for one
 bounded pilot object. It may compare storage candidates and specify a migration ledger. It may not
 move existing evidence, modify current consumers, remove current-tree bytes, rewrite history or
@@ -387,7 +406,7 @@ change required checks until that contract has passed its own qualification.
 Current state:
 
 ```text
-EVIDENCE_RETENTION_EXTERNALIZATION_PRECONTRACT_AUDIT_CANDIDATE
+EVIDENCE_RETENTION_EXTERNALIZATION_PRECONTRACT_AUDITED
 EXTERNAL_EVIDENCE_CONTRACT_NOT_STARTED
 NO_BYTES_MOVED
 NO_DELETION_AUTHORIZED
