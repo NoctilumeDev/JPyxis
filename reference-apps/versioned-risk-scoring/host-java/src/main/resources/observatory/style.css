@@ -190,10 +190,8 @@ footer { padding:10px 0; border-top:1px solid var(--brass); font-size:12px; line
   .decision-sheet strong { font-size:31px; }
 }
 @media (1280px <= width <= 1360px) {
-  h1 { font-size:28px; }
   .wing h2 { font-size:17px; }
   .wing-body { padding:10px 9px; }
   .flow li { padding:9px 5px; gap:5px; }
-  #decision.withheld { font-size:23px; }
 }
 @media (prefers-reduced-motion:reduce) { html,.shell { scroll-behavior:auto; } }
