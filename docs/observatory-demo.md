@@ -4,6 +4,9 @@
 
 The public frontend is interactive and needs no installation. It is designed for a desktop
 browser: the four stages show who prepares, who authorizes, who executes and who decides at once.
+Small gaps separate the desktop panes. Each directory and the central content scroll independently
+when needed; selecting a directory entry returns the central view to its top without resetting
+the other directory's position.
 It is a browser-only teaching model. No Java host, Python worker or real dispatch runs on GitHub
 Pages; the page and downloaded JSON explicitly identify simulation.
 

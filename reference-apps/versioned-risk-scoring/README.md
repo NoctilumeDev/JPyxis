@@ -83,7 +83,9 @@ Request → Control Binding → Execution → Host Decision retain directional a
 has slightly more width. Burgundy denotes authority/decision, navy denotes execution/context,
 and gold denotes boundaries and active authorization. UNKNOWN has no score and withholds the
 business decision. Left text aligns left, central text centers, and right navigation aligns right
-with uniform 48px rows. Both directories select a central view. Below 1440px the directories give
+with uniform 48px rows. Small gaps separate the desktop panes, with independent scrolling for
+each directory and the central content. Both directories select a central view and return only
+that content pane to its top. Below 1440px the directories give
 space to the center; below 1024px the presentation is read-only. This is a desktop inspection tool,
 not a separate mobile control product. All states, request records and receipt layers are DOM.
 

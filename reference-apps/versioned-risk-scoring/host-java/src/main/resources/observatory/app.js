@@ -143,7 +143,7 @@ async function initialize(){try{const response=await fetch('/api/session');token
 initialize();
 function navigationTarget(){const target=window.location.hash;return ['#overview','#workspace','#lifecycle','#records','#receipt'].includes(target)?target:'#overview';}
 function deploymentSelected(){return state?.deployments.find(d=>d.deploymentId===selectedDeploymentId)||state?.deployments.find(d=>d.deploymentId===state.activeDeploymentId)||state?.deployments.at(-1)||null;}
-function navigate(target){selectors.forEach(item=>item.close(true));history.replaceState(null,'',target);if(state)render();else reflectNavigation();window.scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
+function navigate(target){selectors.forEach(item=>item.close(true));history.replaceState(null,'',target);if(state)render();else reflectNavigation();const pane=$('content-pane');const scrollRoot=getComputedStyle(pane).overflowY==='visible'?window:pane;scrollRoot.scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
 function reflectNavigation(){
   const target=navigationTarget(),overview=target==='#overview'||target==='#workspace';
   document.querySelectorAll('.rail nav a').forEach(link=>{const current=link.getAttribute('href')===target;link.classList.toggle('selected',current);if(current)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
