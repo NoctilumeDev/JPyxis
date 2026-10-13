@@ -4,7 +4,7 @@ let token='',state=null,selectedId='',selectedDeploymentId='',busy=false,lastErr
 const short=value=>value?String(value).slice(0,16):'—';
 const version=value=>value?`risk-${value}`:'NONE';
 const text=(id,value)=>{$(id).textContent=value;};
-function facts(target,rows){target.replaceChildren();for(const [label,value] of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value??'—';dd.title=String(value??'');target.append(dt,dd);}}
+function facts(target,rows){target.replaceChildren();for(const [label,value,display] of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=display??value??'—';dd.title=String(value??'');target.append(dt,dd);}}
 function notice(value){$('message').hidden=!value;$('message').textContent=value||'';}
 async function refresh(){
   const response=await fetch('/api/state');if(!response.ok)throw new Error('Host state unavailable');
@@ -63,7 +63,7 @@ function render(){
     for(const [name,rows] of [
       ['Execution Binding',[['Definition',definition.definitionIdentity],['Definition digest',definition.definitionDigest],['Environment',definition.environmentDigest],['Runtime',JSON.stringify(realization.runtimeBinding||{})],['Worker / instance',`${realization.workerId||'—'} / ${realization.instanceId||'—'}`],['Launch nonce',realization.launchNonce],['Request pin',binding.pin?.pinId]]],
       ['Observed Execution',[['Invocation',binding.plan?.logicalInvocationId],['Attempt',binding.plan?.attemptId],['Accepted',selected.acceptedAt],['Completed',selected.completedAt||'Not complete'],['Terminal',selected.executionState],['Wire invoked',selected.wireCalled===undefined?'Awaiting final observation':String(selected.wireCalled)]]],
-      ['Java Decision',[['Policy',selected.javaPolicy?.identity],['Policy digest',selected.policyDigest],['Score',selected.score==null?'Unavailable':String(selected.score)],['Decision',selected.decision]]]
+      ['Java Decision',[['Policy',selected.javaPolicy?.identity],['Policy digest',selected.policyDigest],['Score',selected.score==null?'Unavailable':String(selected.score),selected.score==null?'Unavailable':Number(selected.score).toFixed(2)],['Decision',selected.decision]]]
     ]){const layer=document.createElement('div'),h=document.createElement('h3'),dl=document.createElement('dl');layer.className='receipt-layer';h.textContent=name;facts(dl,rows);layer.append(h,dl);$('receipt-layers').append(layer);}
   }else{
     text('score','—');text('score-note','No computation has been delegated.');text('terminal','AWAITING REQUEST');text('decision','WITHHELD');text('decision-note','A validated success is required.');
@@ -143,7 +143,7 @@ async function initialize(){try{const response=await fetch('/api/session');token
 initialize();
 function navigationTarget(){const target=window.location.hash;return ['#overview','#workspace','#lifecycle','#records','#receipt'].includes(target)?target:'#overview';}
 function deploymentSelected(){return state?.deployments.find(d=>d.deploymentId===selectedDeploymentId)||state?.deployments.find(d=>d.deploymentId===state.activeDeploymentId)||state?.deployments.at(-1)||null;}
-function navigate(target){selectors.forEach(item=>item.close(true));history.replaceState(null,'',target);if(state)render();else reflectNavigation();const pane=$('content-pane');const scrollRoot=getComputedStyle(pane).overflowY==='visible'?window:pane;scrollRoot.scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
+function navigate(target){selectors.forEach(item=>item.close(true));history.replaceState(null,'',target);if(state)render();else reflectNavigation();$('content-pane').scrollTo({top:0,behavior:'instant'});$('view-title').focus({preventScroll:true});}
 function reflectNavigation(){
   const target=navigationTarget(),overview=target==='#overview'||target==='#workspace';
   document.querySelectorAll('.rail nav a').forEach(link=>{const current=link.getAttribute('href')===target;link.classList.toggle('selected',current);if(current)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
