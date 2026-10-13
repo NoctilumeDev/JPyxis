@@ -39,7 +39,6 @@ html = replaceOnce(html, 'JPyxis · Risk Scoring Reference Host</title>', 'JPyxi
 html = replaceOnce(html, 'One local host.<br>Explicit authority.', 'Browser demo.<br>Explore the boundary.');
 html = replaceOnce(html, 'RISK SCORING REFERENCE HOST<span', 'INTERACTIVE FRONTEND DEMO<span');
 html = replaceOnce(html, 'Connecting to Java host…', 'Loading browser demo…');
-html = replaceOnce(html, 'Widen this window to use controls.', 'Widen this window to try the demo controls.');
 html = replaceOnce(html, '<main>', `<main>
 <section class="demo-toolbar" aria-label="Demo information"><strong>INTERACTIVE DEMO · BROWSER ONLY</strong><button id="demo-reset">Reset demo</button><a href="https://github.com/NoctilumeDev/JPyxis/blob/main/docs/observatory-demo.md">Run the real host locally</a><a href="https://github.com/NoctilumeDev/JPyxis">GitHub</a><p>Install &amp; warm v1 → activate → invoke. All execution, lifecycle and receipts here are simulated; no Java or Python process runs.</p></section>`);
 html = replaceOnce(html, 'Hold for cutover · 15s witness', 'Hold for cutover · demo');

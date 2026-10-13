@@ -395,7 +395,11 @@ observation at exact main `151785c281e8e18f8e023c301009f0f1c53e32f2`. This quali
 reference host within that retained scope; it does not widen Core contracts or establish production readiness.
 
 The [desktop observatory](docs/observatory-demo.md) presents Request → Control Binding → Execution →
-Host Decision together, between matching context directories. Its interactive public demo is
+Host Decision together, between matching context directories. Small gaps separate the desktop
+panes, and the directories and central content scroll independently. Detail fields and receipt
+layers use aligned labels and left-aligned values. The workspace has a minimum width of 1280px;
+narrow windows scroll across the desktop layout instead of switching to a mobile interface.
+Its interactive public demo is
 generated from the same HTML/CSS and renderer as the local host; browser simulation is kept separate
 from actual execution evidence. [Design QA](design-qa.md) retains the native browser checks,
 sequential independent reviews and the front-end publication boundary.
